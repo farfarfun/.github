@@ -10,8 +10,9 @@
 🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 -->
 
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=farfarfun&hide=contribs,prs)
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=farfarfun&hide=contribs,prs)
 
+[![GitHub Streak](https://streak-stats.demolab.com/?user=DenverCoder1&theme=dark)](https://git.io/streak-stats)
 
 notechats
 就是玩
