@@ -11,7 +11,7 @@
 -->
 
 
-[![GitHub Streak](https://streak-stats.demolab.com?user=farfarfun&theme=dark&hide_border=true&locale=zh_Hans)](https://git.io/streak-stats)
+[![GitHub Streak](https://streak-stats.demolab.com?user=farfarfun&theme=dark)](https://git.io/streak-stats)
 
 notechats
 就是玩
