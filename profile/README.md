@@ -18,3 +18,8 @@
 farfarfun
 
 就是玩
+
+
+TODO
+* [darts](https://github.com/unit8co/darts) 时间序列预测
+* [orjson]() 代替json
