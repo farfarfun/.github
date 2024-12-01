@@ -57,10 +57,6 @@
 
 
 ### 🖥️ Open-Source Projects
-<table>
-<tr><th>PyPi Packages</th></tr>
-<tr><td>
-
 
 |Title | Stars | Technologies|
 |--|--|--|
@@ -69,7 +65,7 @@
 | [funutil](https://github.com/farfarfun/funutil) | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funutil?style=flat-square&labelColor=black"/> | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funutil/) <br> ![CircleCI](https://img.shields.io/badge/CI-black?style=flat-square&logo=circleci) [![SQLDown](https://static.pepy.tech/personalized-badge/funutil?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funutil) |\\
 | [funcoin](https://github.com/farfarfun/funcoin) | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funcoin?style=flat-square&labelColor=black"/> | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funcoin/) <br> ![CircleCI](https://img.shields.io/badge/CI-black?style=flat-square&logo=circleci) [![SQLDown](https://static.pepy.tech/personalized-badge/funcoin?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funcoin) |\\
 
-</td></tr> </table>
+
 
 
 
