@@ -1,11 +1,5 @@
 ## Hi 
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?color=8562d0&size=35&center=true&vCenter=true&width=1200&lines=本人已死;有事烧纸;小事招魂;大事挖坟)
-
-[![GitHub Streak](https://streak-stats.demolab.com?user=DenverCoder1&theme=dark&hide_border=true&locale=zh_Hans)](https://git.io/streak-stats)
-
-
-
 
 <p align="center">
 <a href="https://github.com/farfarfun">
@@ -13,23 +7,25 @@
 </a>
 <br/>
 
-<a href="https://gkos.dev">
-    <img src="https://img.shields.io/badge/Website-gkos.dev-red?style=flat-square">
+<a href="https://github.com/farfarfun">
+    <img src="https://img.shields.io/badge/Website-farfarfun-red?style=flat-square">
 </a>  
-<a href="https://gkos.dev/Resume.pdf">
-    <img src="https://img.shields.io/badge/PDF-CV-red?style=flat-square&logo=adobe">
-</a>  
-<a href="https://www.linkedin.com/in/gkos/">
-    <img src="https://img.shields.io/badge/-Linkedin-blue?style=flat-square&logo=linkedin">
+
+<!--<a href="https://gkos.dev/Resume.pdf">-->
+<!--    <img src="https://img.shields.io/badge/PDF-CV-red?style=flat-square&logo=adobe">-->
+<!--</a>  -->
+<!--<a href="https://www.linkedin.com/in/gkos/">-->
+<!--    <img src="https://img.shields.io/badge/-Linkedin-blue?style=flat-square&logo=linkedin">-->
+<!--</a>-->
+<a href="mailto:farfarfun@qq.com">
+    <img src="https://img.shields.io/badge/Email-farfarfun@qq.com-red?style=flat-square&logo=gmail&logoColor=white">
 </a>
-<a href="mailto:georgiou.kostas94@gmail.com">
-    <img src="https://img.shields.io/badge/-Email-red?style=flat-square&logo=gmail&logoColor=white">
-</a>
-<a href='https://scholar.google.com/citations?user=b___QQ8AAAAJ&hl=en&authuser=1&oi=sra' target="_blank">
-    <img alt='GoogleScholar' src='https://img.shields.io/badge/Scholar-100000?style=flat&logo=GoogleScholar&logoColor=white&&color=0181FF'>
-</a>
-<a href="https://pypi.org/user/drkostas/">
-    <img src="https://img.shields.io/badge/PyPi-drkostas-blue?style=flat-square&logo=pypi&logoColor=white">
+
+<!--<a href='https://scholar.google.com/citations?user=b___QQ8AAAAJ&hl=en&authuser=1&oi=sra' target="_blank">-->
+<!--    <img alt='GoogleScholar' src='https://img.shields.io/badge/Scholar-100000?style=flat&logo=GoogleScholar&logoColor=white&&color=0181FF'>-->
+<!--</a>-->
+<a href="https://pypi.org/user/niuliangtao/">
+    <img src="https://img.shields.io/badge/PyPi-niuliangtao-blue?style=flat-square&logo=pypi&logoColor=white">
 </a>
 <!-- <a href="https://pypi.org/user/drkostas/">
     <img src="https://komarev.com/ghpvc/?username=drkostas&label=Visitors&color=0e75b6&style=flat" alt="googoldkhan" />
@@ -41,13 +37,12 @@
     <img src="https://github-readme-stats.vercel.app/api?username=drkostas&show_icons=true&count_private=true&show_icons=true&hide_border=true&hide_title=true&card_width=300px&hide_rank=true&bg_color=00000000&theme=dracula">
 </a> -->
 
-<a href="https://github.com/drkostas">
-    <img src="https://github-stats-alpha.vercel.app/api?username=farfun&cc=22272e&tc=37BCF6&ic=fff&bc=0000">
+<a href="https://github.com/farfarfun">
+    <img src="https://github-stats-alpha.vercel.app/api?username=farfun&cc=22272e&tc=37BCF6&ic=fff&bc=0000&count_private=true&include_all_commits=true&orgs=farfarfun">
 </a>
 
+![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=farfun&orgs=farfarfun)
 </p>
-
-
 
 
 <br>
