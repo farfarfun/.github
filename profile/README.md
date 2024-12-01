@@ -9,7 +9,7 @@
 
 <p align="center">
 <a href="https://github.com/farfarfun">
-    <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=18&duration=2000&pause=100&multiline=true&width=500&height=80&lines=farfarfun" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=18&duration=2000&pause=100&multiline=true&width=500&height=80&lines=farfarun;活到老+%7C+学到老+%7C+玩到老;牛哥永远都不老" alt="Typing SVG" />
 </a>
 <br/>
 
