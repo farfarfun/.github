@@ -1,0 +1,291 @@
+{
+  "organization": "farfarfun",
+  "repositories": {
+    "fundrive": {
+      "description": "云存储驱动工具包 - 支持多种云存储服务的统一接口",
+      "keywords": ["python", "cloud-storage", "drive", "storage", "api", "sdk", "farfarfun"],
+      "homepage": "https://pypi.org/project/fundrive/"
+    },
+    "fundata": {
+      "description": "数据处理工具包 - 提供数据清洗、转换和分析功能",
+      "keywords": ["python", "data-processing", "data-analysis", "pandas", "numpy", "farfarfun"],
+      "homepage": "https://pypi.org/project/fundata/"
+    },
+    "funsecret": {
+      "description": "加密和安全工具包 - 提供加密、解密和安全相关功能",
+      "keywords": ["python", "encryption", "security", "cryptography", "secret", "farfarfun"],
+      "homepage": "https://pypi.org/project/funsecret/"
+    },
+    "funbuild": {
+      "description": "构建和部署工具包 - 自动化构建、打包和部署流程",
+      "keywords": ["python", "build", "deployment", "automation", "ci-cd", "packaging", "farfarfun"],
+      "homepage": "https://pypi.org/project/funbuild/"
+    },
+    "funcoin": {
+      "description": "区块链和加密货币工具包 - 提供区块链交互和加密货币相关功能",
+      "keywords": ["python", "blockchain", "cryptocurrency", "bitcoin", "ethereum", "web3", "farfarfun"],
+      "homepage": "https://pypi.org/project/funcoin/"
+    },
+    "funread": {
+      "description": "文档阅读和解析工具包 - 支持多种文档格式的读取和解析",
+      "keywords": ["python", "document", "parser", "pdf", "docx", "text-processing", "farfarfun"],
+      "homepage": "https://pypi.org/project/funread/"
+    },
+    "funget": {
+      "description": "网络请求和下载工具包 - 提供高效的网络请求和文件下载功能",
+      "keywords": ["python", "http", "requests", "download", "web-scraping", "api-client", "farfarfun"],
+      "homepage": "https://pypi.org/project/funget/"
+    },
+    "funutil": {
+      "description": "通用工具函数库 - 提供常用的工具函数和实用程序",
+      "keywords": ["python", "utilities", "tools", "helpers", "common", "library", "farfarfun"],
+      "homepage": "https://pypi.org/project/funutil/"
+    },
+    "funkeras": {
+      "description": "Keras深度学习扩展包 - 提供Keras的增强功能和实用工具",
+      "keywords": ["python", "keras", "deep-learning", "neural-networks", "tensorflow", "ai", "farfarfun"],
+      "homepage": "https://pypi.org/project/funkeras/"
+    },
+    "funimage": {
+      "description": "Python图像格式转换和处理库 - 提供PIL、OpenCV、字节、base64、URL和文件路径之间的无缝转换",
+      "keywords": ["python", "image-processing", "pil", "opencv", "base64", "image-conversion", "farfarfun"],
+      "homepage": "https://pypi.org/project/funimage/"
+    },
+    "funfake": {
+      "description": "HTTP请求头生成库 - 生成真实的HTTP请求头，模拟各种浏览器和操作系统",
+      "keywords": ["python", "http-headers", "fake-headers", "web-scraping", "browser-simulation", "farfarfun"],
+      "homepage": "https://pypi.org/project/funfake/"
+    },
+    "funinstall": {
+      "description": "开发工具一键安装包 - 简单易用的工具包，用于一键安装各种开发工具和环境",
+      "keywords": ["python", "installer", "development-tools", "automation", "setup", "farfarfun"],
+      "homepage": "https://pypi.org/project/funinstall/"
+    },
+    "funserver": {
+      "description": "Python服务器管理框架 - 提供统一接口管理各种服务器应用程序，支持跨平台安装和进程管理",
+      "keywords": ["python", "server-management", "process-management", "cross-platform", "service", "farfarfun"],
+      "homepage": "https://pypi.org/project/funserver/"
+    },
+    "funtable": {
+      "description": "统一表存储抽象库 - 为SQLite、TinyDB、SQLModel等存储后端提供一致的接口",
+      "keywords": ["python", "database", "sqlite", "tinydb", "sqlmodel", "storage-abstraction", "farfarfun"],
+      "homepage": "https://pypi.org/project/funtable/"
+    },
+    "funai": {
+      "description": "人工智能工具包 - 提供AI模型集成和机器学习相关功能",
+      "keywords": ["python", "artificial-intelligence", "machine-learning", "ai-tools", "model-integration", "farfarfun"],
+      "homepage": "https://pypi.org/project/funai/"
+    },
+    "funapi": {
+      "description": "API开发工具包 - 提供API开发、测试和管理的实用工具",
+      "keywords": ["python", "api-development", "rest-api", "api-testing", "web-framework", "farfarfun"],
+      "homepage": "https://pypi.org/project/funapi/"
+    },
+    "funapp": {
+      "description": "应用程序开发框架 - 提供快速构建Python应用程序的工具和模板",
+      "keywords": ["python", "application-framework", "app-development", "templates", "rapid-development", "farfarfun"],
+      "homepage": "https://pypi.org/project/funapp/"
+    },
+    "funblog": {
+      "description": "博客系统工具包 - 提供博客网站构建和管理的功能",
+      "keywords": ["python", "blog", "cms", "website", "content-management", "farfarfun"],
+      "homepage": "https://pypi.org/project/funblog/"
+    },
+    "funchat": {
+      "description": "聊天应用工具包 - 提供聊天功能和即时通讯相关的工具",
+      "keywords": ["python", "chat", "messaging", "real-time", "communication", "farfarfun"],
+      "homepage": "https://pypi.org/project/funchat/"
+    },
+    "funcode": {
+      "description": "代码处理工具包 - 提供代码分析、格式化和处理功能",
+      "keywords": ["python", "code-analysis", "code-formatting", "syntax", "programming-tools", "farfarfun"],
+      "homepage": "https://pypi.org/project/funcode/"
+    },
+    "fundb": {
+      "description": "数据库操作工具包 - 提供多种数据库的统一操作接口",
+      "keywords": ["python", "database", "orm", "sql", "database-abstraction", "farfarfun"],
+      "homepage": "https://pypi.org/project/fundb/"
+    },
+    "fundev": {
+      "description": "开发者工具包 - 提供开发过程中常用的工具和实用程序",
+      "keywords": ["python", "developer-tools", "development", "utilities", "productivity", "farfarfun"],
+      "homepage": "https://pypi.org/project/fundev/"
+    },
+    "funfile": {
+      "description": "文件操作工具包 - 提供文件处理、管理和操作的增强功能",
+      "keywords": ["python", "file-operations", "file-management", "io", "filesystem", "farfarfun"],
+      "homepage": "https://pypi.org/project/funfile/"
+    },
+    "fungame": {
+      "description": "游戏开发工具包 - 提供游戏开发相关的工具和框架",
+      "keywords": ["python", "game-development", "gaming", "pygame", "game-engine", "farfarfun"],
+      "homepage": "https://pypi.org/project/fungame/"
+    },
+    "funmedia": {
+      "description": "多媒体处理工具包 - 提供音频、视频和图像的处理功能",
+      "keywords": ["python", "multimedia", "audio", "video", "media-processing", "farfarfun"],
+      "homepage": "https://pypi.org/project/funmedia/"
+    },
+    "funmodel": {
+      "description": "机器学习模型工具包 - 提供模型训练、部署和管理功能",
+      "keywords": ["python", "machine-learning", "model-training", "model-deployment", "ml-ops", "farfarfun"],
+      "homepage": "https://pypi.org/project/funmodel/"
+    },
+    "funnotice": {
+      "description": "通知服务工具包 - 提供多种通知方式的统一接口",
+      "keywords": ["python", "notifications", "alerts", "messaging", "email", "farfarfun"],
+      "homepage": "https://pypi.org/project/funnotice/"
+    },
+    "funproxy": {
+      "description": "代理池管理工具 - 提供代理服务器的管理和使用功能",
+      "keywords": ["python", "proxy", "proxy-pool", "web-scraping", "network", "farfarfun"],
+      "homepage": "https://pypi.org/project/funproxy/"
+    },
+    "funtool": {
+      "description": "加密解密工具类 - 提供各种加密、解密和安全相关的工具函数",
+      "keywords": ["python", "encryption", "decryption", "security", "cryptography", "farfarfun"],
+      "homepage": "https://pypi.org/project/funtool/"
+    },
+    "funui": {
+      "description": "用户界面工具包 - 提供GUI开发和界面设计的工具",
+      "keywords": ["python", "gui", "user-interface", "ui-development", "desktop-app", "farfarfun"],
+      "homepage": "https://pypi.org/project/funui/"
+    },
+    "funvideo": {
+      "description": "视频处理工具包 - 提供视频编辑、转换和处理功能",
+      "keywords": ["python", "video-processing", "video-editing", "multimedia", "ffmpeg", "farfarfun"],
+      "homepage": "https://pypi.org/project/funvideo/"
+    },
+    "funwork": {
+      "description": "工作流管理工具包 - 提供任务调度和工作流程管理功能",
+      "keywords": ["python", "workflow", "task-scheduling", "automation", "job-management", "farfarfun"],
+      "homepage": "https://pypi.org/project/funwork/"
+    },
+    "funrec": {
+      "description": "推荐系统工具包 - 提供机器学习推荐算法和推荐系统开发工具",
+      "keywords": ["python", "recommendation", "machine-learning", "collaborative-filtering", "recommender-system", "farfarfun"],
+      "homepage": "https://pypi.org/project/funrec/"
+    },
+    "funresource": {
+      "description": "资源管理工具包 - 提供系统资源监控和管理功能",
+      "keywords": ["python", "resource-management", "system-monitoring", "performance", "optimization", "farfarfun"],
+      "homepage": "https://pypi.org/project/funresource/"
+    },
+    "funrun": {
+      "description": "任务运行工具包 - 提供任务执行、进程管理和运行时控制功能",
+      "keywords": ["python", "task-runner", "process-management", "execution", "runtime", "farfarfun"],
+      "homepage": "https://pypi.org/project/funrun/"
+    },
+    "funscnet": {
+      "description": "科学计算网络工具包 - 提供科学计算和网络分析相关功能",
+      "keywords": ["python", "scientific-computing", "network-analysis", "graph", "computation", "farfarfun"],
+      "homepage": "https://pypi.org/project/funscnet/"
+    },
+    "funseries": {
+      "description": "时间序列分析工具包 - 提供时间序列数据处理和分析功能",
+      "keywords": ["python", "time-series", "data-analysis", "forecasting", "statistics", "farfarfun"],
+      "homepage": "https://pypi.org/project/funseries/"
+    },
+    "funstock": {
+      "description": "股票数据工具包 - 提供股票数据获取、分析和处理功能",
+      "keywords": ["python", "stock-data", "financial-analysis", "trading", "market-data", "farfarfun"],
+      "homepage": "https://pypi.org/project/funstock/"
+    },
+    "funtalk": {
+      "description": "语音处理工具包 - 提供语音识别、合成和处理功能",
+      "keywords": ["python", "speech-processing", "text-to-speech", "speech-recognition", "audio", "farfarfun"],
+      "homepage": "https://pypi.org/project/funtalk/"
+    },
+    "funtask": {
+      "description": "任务管理工具包 - 提供任务创建、跟踪和管理功能",
+      "keywords": ["python", "task-management", "project-management", "todo", "productivity", "farfarfun"],
+      "homepage": "https://pypi.org/project/funtask/"
+    },
+    "funuser": {
+      "description": "用户管理工具包 - 提供用户认证、授权和管理功能",
+      "keywords": ["python", "user-management", "authentication", "authorization", "user-system", "farfarfun"],
+      "homepage": "https://pypi.org/project/funuser/"
+    },
+    "funvtk": {
+      "description": "VTK可视化工具包 - 提供3D可视化和科学计算可视化功能",
+      "keywords": ["python", "vtk", "3d-visualization", "scientific-visualization", "graphics", "farfarfun"],
+      "homepage": "https://pypi.org/project/funvtk/"
+    },
+    "funpaper": {
+      "description": "学术论文工具包 - 提供学术论文检索、下载和管理功能",
+      "keywords": ["python", "academic-papers", "research", "paper-management", "scholarly", "farfarfun"],
+      "homepage": "https://pypi.org/project/funpaper/"
+    },
+    "funplay": {
+      "description": "娱乐游戏工具包 - 提供各种小游戏和娱乐功能",
+      "keywords": ["python", "games", "entertainment", "fun", "interactive", "farfarfun"],
+      "homepage": "https://pypi.org/project/funplay/"
+    },
+    "funpoetry": {
+      "description": "诗词工具包 - 提供古诗词检索、分析和生成功能",
+      "keywords": ["python", "poetry", "chinese-poetry", "literature", "text-generation", "farfarfun"],
+      "homepage": "https://pypi.org/project/funpoetry/"
+    },
+    "funmind": {
+      "description": "思维导图工具包 - 提供思维导图创建和管理功能",
+      "keywords": ["python", "mind-map", "brainstorming", "visualization", "thinking-tools", "farfarfun"],
+      "homepage": "https://pypi.org/project/funmind/"
+    },
+    "funmaterial": {
+      "description": "材料管理工具包 - 提供数字化材料管理和组织功能",
+      "keywords": ["python", "material-management", "digital-assets", "organization", "resources", "farfarfun"],
+      "homepage": "https://pypi.org/project/funmaterial/"
+    },
+    "funmd": {
+      "description": "Markdown工具包 - 提供Markdown文档处理、转换和编辑功能",
+      "keywords": ["python", "markdown", "document-processing", "text-formatting", "documentation", "farfarfun"],
+      "homepage": "https://pypi.org/project/funmd/"
+    },
+    "funmovie": {
+      "description": "电影信息工具包 - 提供电影信息检索、管理和推荐功能",
+      "keywords": ["python", "movie-info", "entertainment", "media-database", "recommendation", "farfarfun"],
+      "homepage": "https://pypi.org/project/funmovie/"
+    },
+    "fungoogle": {
+      "description": "Google服务集成工具包 - 提供Google API集成和服务调用功能",
+      "keywords": ["python", "google-api", "google-services", "cloud-integration", "api-client", "farfarfun"],
+      "homepage": "https://pypi.org/project/fungoogle/"
+    },
+    "fungod": {
+      "description": "高级功能工具包 - 提供高级编程工具和实用程序",
+      "keywords": ["python", "advanced-tools", "utilities", "power-tools", "programming", "farfarfun"],
+      "homepage": "https://pypi.org/project/fungod/"
+    },
+    "funcrack": {
+      "description": "常用工具集合 - 提供各种常用的工具和实用程序",
+      "keywords": ["python", "common-tools", "utilities", "toolkit", "helpers", "farfarfun"],
+      "homepage": "https://pypi.org/project/funcrack/"
+    },
+    "funcraft": {
+      "description": "手工制作工具包 - 提供手工DIY和制作相关的工具",
+      "keywords": ["python", "crafting", "diy", "making", "creative-tools", "farfarfun"],
+      "homepage": "https://pypi.org/project/funcraft/"
+    },
+    "fundataworks": {
+      "description": "数据工作流工具包 - 提供数据处理工作流和管道功能",
+      "keywords": ["python", "data-workflow", "data-pipeline", "etl", "data-processing", "farfarfun"],
+      "homepage": "https://pypi.org/project/fundataworks/"
+    },
+    "funpypi": {
+      "description": "PyPI管理工具包 - 提供PyPI包管理和发布相关功能",
+      "keywords": ["python", "pypi", "package-management", "publishing", "distribution", "farfarfun"],
+      "homepage": "https://pypi.org/project/funpypi/"
+    },
+    "funscript": {
+      "description": "脚本管理工具包 - 提供脚本编写、执行和管理功能",
+      "keywords": ["python", "scripting", "automation", "script-management", "execution", "farfarfun"],
+      "homepage": "https://pypi.org/project/funscript/"
+    }
+  },
+  "default_keywords": ["python", "farfarfun"],
+  "settings": {
+    "rate_limit_delay": 1,
+    "max_retries": 3,
+    "log_level": "INFO"
+  }
+}
