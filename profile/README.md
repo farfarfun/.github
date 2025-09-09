@@ -1,6 +1,4 @@
 
-## Hi 👋 Welcome to farfarfun
-
 <br/>
 <a href="https://github.com/farfarfun">
     <img src="https://img.shields.io/badge/Website-farfarfun-red?style=flat-square">
