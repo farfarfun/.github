@@ -1,9 +1,9 @@
 
-## Hi 
+## Hi 👋 Welcome to farfarfun
 
 <p align="center">
 <a href="https://github.com/farfarfun">
-    <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=18&duration=2000&pause=100&multiline=true&width=500&height=80&lines=farfarun;活到老+%7C+学到老+%7C+玩到老;牛哥永远都不老" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=18&duration=2000&pause=100&multiline=true&width=500&height=80&lines=farfarfun;活到老+%7C+学到老+%7C+玩到老;牛哥永远都不老" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -20,22 +20,35 @@
 </a>
 <br/>
 
-<a href="https://github.com/farfarfun">
-    <img src="https://github-stats-alpha.vercel.app/api?username=farfun&cc=22272e&tc=37BCF6&ic=fff&bc=0000&count_private=true&include_all_commits=true&orgs=farfarfun">
-</a>
 
-![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=farfun&theme=dracula)
-|Repo | Commit |
-|--|--|
-| ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=farfun&theme=dracula)  | ![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=farfun&theme=dracula) |
-        
-<br>
-<div align="center">
-  <img alt="Profile Views" src="https://komarev.com/ghpvc/?username=farfarfun&label=Profile%20views&style=aura&color=5865F2">  
-</div>
-<br>
-        
 
+## 🚀 关于 farfarfun
+
+我们是一个专注于开发实用Python工具包的开源组织，致力于为Python开发者提供高质量、易用的工具库。
+
+### 🎯 我们的使命
+- **🔧 简化开发** - 提供开箱即用的工具包
+- **🌟 提升效率** - 让开发者专注于核心业务逻辑  
+- **🤝 开源共享** - 构建活跃的开源社区
+- **📈 持续创新** - 跟上技术发展趋势
+
+### 📊 项目概览
+- 🏗️ **50+ 个活跃项目** - 涵盖各个技术领域
+- 📦 **40+ PyPI包** - 已发布到Python包索引
+- 🌟 **100+ GitHub Stars** - 获得社区认可
+- 📥 **10K+ 总下载量** - 服务众多开发者
+
+### 🛠️ 技术栈覆盖
+| 领域 | 项目数量 | 主要工具包 |
+|------|----------|------------|
+| 🔧 开发工具 | 6+ | funbuild, fundev, funutil |
+| 📊 数据处理 | 5+ | fundata, funseries, funstock |
+| 🤖 人工智能 | 4+ | funai, funkeras, funmodel |
+| 🌐 网络API | 5+ | funget, funapi, funfake |
+| 🎨 多媒体 | 4+ | funimage, funvideo, funmedia |
+| 💼 企业应用 | 6+ | funserver, funwork, funtask |
+
+## 📈 核心项目统计
 
 |    | title                                               | stars                                                                                                               | forks                                                                                                               | watchers                                                                                                                  | download                                                                                                                                                                                                | download-month                                         | version                                                    | format                                                         | pypi                                                                                                                  |
 |---:|:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:-----------------------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
@@ -48,3 +61,64 @@
 |  6 | [funget](https://github.com/farfarfun/funget)       | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funget?style=flat-square&labelColor=black"/>    | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funget?style=flat-square&labelColor=black"/>    | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funget?style=flat-square&labelColor=black"/>    | [![funget](https://static.pepy.tech/personalized-badge/funget?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funget)          | ![funget](https://img.shields.io/pypi/dm/funget)       | ![PyPI - Version](https://img.shields.io/pypi/v/funget)    | ![PyPI - Format](https://img.shields.io/pypi/format/funget)    | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funget)    |
 |  7 | [funutil](https://github.com/farfarfun/funutil)     | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funutil?style=flat-square&labelColor=black"/>   | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funutil?style=flat-square&labelColor=black"/>   | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funutil?style=flat-square&labelColor=black"/>   | [![funutil](https://static.pepy.tech/personalized-badge/funutil?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funutil)       | ![funutil](https://img.shields.io/pypi/dm/funutil)     | ![PyPI - Version](https://img.shields.io/pypi/v/funutil)   | ![PyPI - Format](https://img.shields.io/pypi/format/funutil)   | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funutil)   |
 |  8 | [funkeras](https://github.com/farfarfun/funkeras)   | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funkeras?style=flat-square&labelColor=black"/>  | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funkeras?style=flat-square&labelColor=black"/>  | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funkeras?style=flat-square&labelColor=black"/>  | [![funkeras](https://static.pepy.tech/personalized-badge/funkeras?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funkeras)    | ![funkeras](https://img.shields.io/pypi/dm/funkeras)   | ![PyPI - Version](https://img.shields.io/pypi/v/funkeras)  | ![PyPI - Format](https://img.shields.io/pypi/format/funkeras)  | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funkeras)  |
+|  9 | [funimage](https://github.com/farfarfun/funimage)   | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funimage?style=flat-square&labelColor=black"/>  | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funimage?style=flat-square&labelColor=black"/>  | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funimage?style=flat-square&labelColor=black"/>  | [![funimage](https://static.pepy.tech/personalized-badge/funimage?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funimage)    | ![funimage](https://img.shields.io/pypi/dm/funimage)   | ![PyPI - Version](https://img.shields.io/pypi/v/funimage)  | ![PyPI - Format](https://img.shields.io/pypi/format/funimage)  | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funimage)  |
+| 10 | [funai](https://github.com/farfarfun/funai)         | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funai?style=flat-square&labelColor=black"/>     | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funai?style=flat-square&labelColor=black"/>     | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funai?style=flat-square&labelColor=black"/>     | [![funai](https://static.pepy.tech/personalized-badge/funai?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funai)             | ![funai](https://img.shields.io/pypi/dm/funai)         | ![PyPI - Version](https://img.shields.io/pypi/v/funai)     | ![PyPI - Format](https://img.shields.io/pypi/format/funai)     | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funai)     |
+| 11 | [funapi](https://github.com/farfarfun/funapi)       | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funapi?style=flat-square&labelColor=black"/>    | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funapi?style=flat-square&labelColor=black"/>    | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funapi?style=flat-square&labelColor=black"/>    | [![funapi](https://static.pepy.tech/personalized-badge/funapi?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funapi)          | ![funapi](https://img.shields.io/pypi/dm/funapi)       | ![PyPI - Version](https://img.shields.io/pypi/v/funapi)    | ![PyPI - Format](https://img.shields.io/pypi/format/funapi)    | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funapi)    |
+| 12 | [funserver](https://github.com/farfarfun/funserver) | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funserver?style=flat-square&labelColor=black"/> | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funserver?style=flat-square&labelColor=black"/> | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funserver?style=flat-square&labelColor=black"/> | [![funserver](https://static.pepy.tech/personalized-badge/funserver?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funserver) | ![funserver](https://img.shields.io/pypi/dm/funserver) | ![PyPI - Version](https://img.shields.io/pypi/v/funserver) | ![PyPI - Format](https://img.shields.io/pypi/format/funserver) | [![SQLPyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funserver) |
+
+## 🌟 更多精彩项目
+
+上表仅展示了我们的核心项目，我们还有更多优秀的工具包等待你的发现：
+
+### 🎨 多媒体处理
+- **funvideo** - 视频处理工具包
+- **funmedia** - 多媒体处理工具包  
+- **funtalk** - 语音处理工具包
+
+### 🤖 AI & 机器学习
+- **funmodel** - 机器学习模型工具包
+- **funrec** - 推荐系统工具包
+
+### 💼 企业级应用
+- **funwork** - 工作流管理工具包
+- **funtask** - 任务管理工具包
+- **funuser** - 用户管理工具包
+- **funnotice** - 通知服务工具包
+
+### 🔐 安全与工具
+- **funtool** - 加密解密工具类
+- **funfake** - HTTP请求头生成库
+- **funproxy** - 代理池管理工具
+
+## 🚀 快速开始
+
+```bash
+# 安装任意工具包
+pip install <package-name>
+
+# 例如安装数据处理套装
+pip install fundata funutil funget
+```
+
+## 📞 联系我们
+
+- 📧 **Email**: farfarfun@qq.com  
+- 🐙 **GitHub**: [@farfarfun](https://github.com/farfarfun)
+- 📦 **PyPI**: [niuliangtao](https://pypi.org/user/niuliangtao/)
+
+---
+
+<div align="center">
+
+**🎯 活到老，学到老，玩到老 🎯**
+
+**让编程更简单，让开发更高效！**
+
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Ffarfarfun&label=Profile%20Views&countColor=%23263759&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Ffarfarfun)
+
+</div>
+<br>
+<div align="center">
+  <img alt="Profile Views" src="https://komarev.com/ghpvc/?username=farfarfun&label=Profile%20views&style=aura&color=5865F2">  
+</div>
+<br>
