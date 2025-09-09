@@ -111,9 +111,3 @@ pip install fundata funutil funget
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Ffarfarfun&label=Profile%20Views&countColor=%23263759&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Ffarfarfun)
 
-</div>
-<br>
-<div align="center">
-  <img alt="Profile Views" src="https://komarev.com/ghpvc/?username=farfarfun&label=Profile%20views&style=aura&color=5865F2">  
-</div>
-<br>
