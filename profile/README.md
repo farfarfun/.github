@@ -1,20 +1,3 @@
-
-<br/>
-<a href="https://github.com/farfarfun">
-    <img src="https://img.shields.io/badge/Website-farfarfun-red?style=flat-square">
-</a>  
-
-<a href="mailto:farfarfun@qq.com">
-    <img src="https://img.shields.io/badge/Email-farfarfun@qq.com-red?style=flat-square&logo=gmail&logoColor=white">
-</a>
-
-<a href="https://pypi.org/user/niuliangtao/">
-    <img src="https://img.shields.io/badge/PyPi-niuliangtao-blue?style=flat-square&logo=pypi&logoColor=white">
-</a>
-<br/>
-
-
-
 ## 🚀 关于 farfarfun
 
 我们是一个专注于开发实用Python工具包的开源组织，致力于为Python开发者提供高质量、易用的工具库。
@@ -101,11 +84,27 @@ pip install fundata funutil funget
 
 ---
 
+
 <div align="center">
 
 **🎯 活到老，学到老，玩到老 🎯**
 
 **让编程更简单，让开发更高效！**
+
+<br/>
+<a href="https://github.com/farfarfun">
+    <img src="https://img.shields.io/badge/Website-farfarfun-red?style=flat-square">
+</a>  
+
+<a href="mailto:farfarfun@qq.com">
+    <img src="https://img.shields.io/badge/Email-farfarfun@qq.com-red?style=flat-square&logo=gmail&logoColor=white">
+</a>
+
+<a href="https://pypi.org/user/niuliangtao/">
+    <img src="https://img.shields.io/badge/PyPi-niuliangtao-blue?style=flat-square&logo=pypi&logoColor=white">
+</a>
+<br/>
+
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Ffarfarfun&label=Profile%20Views&countColor=%23263759&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Ffarfarfun)
 
