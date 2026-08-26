@@ -73,10 +73,14 @@
 - **[funtable](https://github.com/farfarfun/funtable)** - SQLite / TinyDB / SQLModel 的统一表存储抽象
 - **[fundb](https://github.com/farfarfun/fundb)** - 多种数据库的统一操作接口
 - **[fundataworks](https://github.com/farfarfun/fundataworks)** - 数据处理工作流与管道
+- **[funseries](https://github.com/farfarfun/funseries)** - 时间序列数据处理与分析
+- **[funstock](https://github.com/farfarfun/funstock)** - 股票数据获取、分析与处理
 
 ### 🤖 AI & 机器学习
 - **[funrec](https://github.com/farfarfun/funrec)** - 推荐系统算法与开发工具
 - **[funai](https://github.com/farfarfun/funai)** - AI 模型集成与机器学习工具
+- **[funkeras](https://github.com/farfarfun/funkeras)** - Keras 深度学习增强功能与实用工具
+- **[funmodel](https://github.com/farfarfun/funmodel)** - 机器学习模型训练、部署与管理
 - **[funtts](https://github.com/farfarfun/funtts)** - 语音合成工具包
 - **[funpaper](https://github.com/farfarfun/funpaper)** - 学术论文检索、下载与管理
 
@@ -90,7 +94,18 @@
 - **[funserver](https://github.com/farfarfun/funserver)** - 跨平台服务器应用管理框架
 - **[funapi](https://github.com/farfarfun/funapi)** - API 开发、测试与管理
 - **[funfake](https://github.com/farfarfun/funfake)** - 真实 HTTP 请求头生成
+- **[funproxy](https://github.com/farfarfun/funproxy)** - 代理池的管理与使用
 - **[funpush](https://github.com/farfarfun/funpush)** - 钉钉、微信等多平台机器人消息推送
+
+### 🔐 安全与加密
+- **[nltsecret](https://github.com/farfarfun/nltsecret)** - 本地密钥管理与可选的 MySQL 同步
+- **[funtool](https://github.com/farfarfun/funtool)** - 加密、解密等安全相关工具函数
+
+### 💼 企业应用
+- **[funwork](https://github.com/farfarfun/funwork)** - 任务调度与工作流程管理
+- **[funnotice](https://github.com/farfarfun/funnotice)** - 多种通知方式的统一接口
+- **[funuser](https://github.com/farfarfun/funuser)** - 用户认证、授权与管理
+- **[funapp](https://github.com/farfarfun/funapp)** - 快速构建 Python 应用的框架
 
 ### 🧩 uTools 插件
 - **[utools-funchat](https://github.com/farfarfun/utools-funchat)** - 多角色 AI 聊天，内置角色市场
