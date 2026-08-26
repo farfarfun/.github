@@ -1426,7 +1426,7 @@
       "keywords": [],
       "homepage": null
     },
-    "nltbuild": {
+    "funbuild": {
       "description": "Python / 混合仓库的构建与发布工具 - 自动匹配 UV、Poetry、npm 等构建策略，串联版本递增、发布与 Git 标签",
       "keywords": [
         "build",
@@ -1440,7 +1440,7 @@
         "versioning",
         "farfarfun"
       ],
-      "homepage": "https://pypi.org/project/nltbuild/"
+      "homepage": "https://pypi.org/project/funbuild/"
     },
     "nltcache": {
       "description": "轻量的 Python 函数缓存装饰器库 - 内存 / 磁盘 / Pickle 多种缓存策略，原生支持 async",
@@ -1474,7 +1474,7 @@
       ],
       "homepage": "https://farfarfun.github.io/nltdeploy/"
     },
-    "nltfile": {
+    "funfile": {
       "description": "实用的 Python 文件工具库 - 带进度条的 tar/zip 压缩解压（阻止路径穿越）、线程安全的后台写入、pickle 序列化封装",
       "keywords": [
         "farfarfun",
@@ -1486,10 +1486,10 @@
         "progress-bar",
         "tar"
       ],
-      "homepage": "https://pypi.org/project/nltfile/"
+      "homepage": "https://pypi.org/project/funfile/"
     },
-    "nltget": {
-      "description": "轻量的 Python HTTP 文件传输库 - Range 并发下载、断点续传、PUT/multipart 上传，附带 nltget 命令行",
+    "funget": {
+      "description": "轻量的 Python HTTP 文件传输库 - Range 并发下载、断点续传、PUT/multipart 上传，附带 funget 命令行",
       "keywords": [
         "download",
         "farfarfun",
@@ -1500,7 +1500,7 @@
         "file-transfer",
         "resume-download"
       ],
-      "homepage": "https://pypi.org/project/nltget/"
+      "homepage": "https://pypi.org/project/funget/"
     },
     "nltlog": {
       "description": "基于 Loguru 的轻量日志库 - 按名称拆分日志文件，内置按日轮转、gzip 压缩与保留策略",
@@ -1513,7 +1513,7 @@
       ],
       "homepage": "https://pypi.org/project/nltlog/"
     },
-    "nltsecret": {
+    "funsecret": {
       "description": "本地优先的密钥管理工具 - 按多级分类存取 token/密码，SQLite 本地库配合 Fernet 加密，可与 MySQL 等数据库双向同步",
       "keywords": [
         "secret",
@@ -1526,7 +1526,7 @@
         "secrets-management",
         "sqlite"
       ],
-      "homepage": "https://pypi.org/project/nltsecret/"
+      "homepage": "https://pypi.org/project/funsecret/"
     },
     "nltspec": {
       "description": "任务契约规范库（PyPI: nltspec）— 基于 dataclass 的泛型 BaseRequest/BaseResponse/BaseTask 抽象，统一任务状态流转、事件记录与字典序列化，零第三方依赖",

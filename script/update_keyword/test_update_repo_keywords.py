@@ -10,10 +10,10 @@ import types
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# 打桩掉 nltsecret / funutil，避免为了跑测试去装一堆依赖
-fake_secret = types.ModuleType("nltsecret")
+# 打桩掉 funsecret / funutil，避免为了跑测试去装一堆依赖
+fake_secret = types.ModuleType("funsecret")
 fake_secret.read_secret = lambda *a, **k: "dummy-token"
-sys.modules["nltsecret"] = fake_secret
+sys.modules["funsecret"] = fake_secret
 
 fake_util = types.ModuleType("funutil")
 import logging

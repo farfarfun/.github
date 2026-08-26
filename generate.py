@@ -79,10 +79,10 @@ class GenerateReadMe:
             "fundrive",
             "funrec",
             "fundata",
-            "nltbuild",
+            "funbuild",
             "funcoin",
             "funread",
-            "nltget",
+            "funget",
             "funutil",
             "funtable",
         ]

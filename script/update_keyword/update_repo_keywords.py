@@ -15,7 +15,7 @@ from typing import Dict, List, Optional
 import requests
 from dataclasses import dataclass
 
-from nltsecret import read_secret
+from funsecret import read_secret
 from funutil import getLogger
 
 logger = getLogger("farfarfun")

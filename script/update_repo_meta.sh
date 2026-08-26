@@ -58,9 +58,9 @@ topics utools-funlink utools vue3 bookmarks plugin productivity farfarfun
 echo "== 描述与实际内容不符：修正 =="
 
 # 原描述 "构建和部署工具包"，且 homepage 指向已改名的 funbuild
-meta nltbuild \
+meta funbuild \
   "Python / 混合仓库的构建与发布工具 - 自动匹配 UV、Poetry、npm 等构建策略，串联版本递增、发布与 Git 标签" \
-  "https://pypi.org/project/nltbuild/"
+  "https://pypi.org/project/funbuild/"
 
 # 原描述 "文档阅读和解析工具包"，实际是 Legado 书源管理
 meta funread \
@@ -70,8 +70,8 @@ topics funread legado bookstore rss python farfarfun
 
 echo "== homepage 仍指向改名前的旧 PyPI 包：修正 =="
 
-gh api -X PATCH "repos/$ORG/nltget"    -f homepage="https://pypi.org/project/nltget/"    --silent && echo "  home  ✓ nltget    (funget → nltget)"
-gh api -X PATCH "repos/$ORG/nltfile"   -f homepage="https://pypi.org/project/nltfile/"   --silent && echo "  home  ✓ nltfile   (funfile → nltfile)"
-gh api -X PATCH "repos/$ORG/nltsecret" -f homepage="https://pypi.org/project/nltsecret/" --silent && echo "  home  ✓ nltsecret (funsecret → nltsecret)"
+gh api -X PATCH "repos/$ORG/funget"    -f homepage="https://pypi.org/project/funget/"    --silent && echo "  home  ✓ funget    (funget → funget)"
+gh api -X PATCH "repos/$ORG/funfile"   -f homepage="https://pypi.org/project/funfile/"   --silent && echo "  home  ✓ funfile   (funfile → funfile)"
+gh api -X PATCH "repos/$ORG/funsecret" -f homepage="https://pypi.org/project/funsecret/" --silent && echo "  home  ✓ funsecret (funsecret → funsecret)"
 
 echo "全部完成。"
