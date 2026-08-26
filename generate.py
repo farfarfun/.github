@@ -59,14 +59,14 @@ class GenerateReadMe:
         rows.clear()
         packages = [
             "fundrive",
+            "funrec",
             "fundata",
-            "funsecret",
-            "funbuild",
+            "nltbuild",
             "funcoin",
             "funread",
-            "funget",
+            "nltget",
             "funutil",
-            "funkeras",
+            "funtable",
         ]
         for package in packages:
             rows.append(
