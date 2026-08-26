@@ -1,2 +1,5 @@
 .idea
 logs
+__pycache__/
+*.py[cod]
+profile/README.generated.md

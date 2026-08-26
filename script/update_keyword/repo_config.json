@@ -1,291 +1,1674 @@
 {
   "organization": "farfarfun",
+  "_comment": "本文件由 build_repo_config.py 从 GitHub 线上状态生成，是仓库元信息的基线快照。手工改完线上元信息后请重新生成，否则 update_repo_keywords.py 会把线上改动覆盖回旧值。",
   "repositories": {
-    "fundrive": {
-      "description": "云存储驱动工具包 - 支持多种云存储服务的统一接口",
-      "keywords": ["python", "cloud-storage", "drive", "storage", "api", "sdk", "farfarfun"],
-      "homepage": "https://pypi.org/project/fundrive/"
+    ".github": {
+      "description": "farfarfun 组织的 GitHub 主页仓库 - 用 Python 脚本自动生成组织 profile README 与仓库元信息",
+      "keywords": [
+        "automation",
+        "farfarfun",
+        "github-profile",
+        "org-profile",
+        "python",
+        "readme"
+      ],
+      "homepage": null
     },
-    "fundata": {
-      "description": "数据处理工具包 - 提供数据清洗、转换和分析功能",
-      "keywords": ["python", "data-processing", "data-analysis", "pandas", "numpy", "farfarfun"],
-      "homepage": "https://pypi.org/project/fundata/"
+    "cachedata": {
+      "description": "游戏数据快照仓库：存放 Top War（口袋奇兵）客户端导出的配置合表与简体中文文本资源，供 notegame 相关脚本解析使用，仅有数据无代码",
+      "keywords": [
+        "chinese-localization",
+        "dataset",
+        "farfarfun",
+        "game-data",
+        "static-data",
+        "topwar"
+      ],
+      "homepage": null
     },
-    "funsecret": {
-      "description": "加密和安全工具包 - 提供加密、解密和安全相关功能",
-      "keywords": ["python", "encryption", "security", "cryptography", "secret", "farfarfun"],
-      "homepage": "https://pypi.org/project/funsecret/"
+    "chenflow": {
+      "description": "格子玻尔兹曼（D2Q9）流体仿真代码集：包含圆柱绕流、泊肃叶流与浸没边界受力等多组算例，每组为独立 CMake 工程",
+      "keywords": [
+        "cfd",
+        "cmake",
+        "cpp",
+        "farfarfun",
+        "fluid-dynamics",
+        "lattice-boltzmann",
+        "scientific-computing"
+      ],
+      "homepage": null
     },
-    "funbuild": {
-      "description": "构建和部署工具包 - 自动化构建、打包和部署流程",
-      "keywords": ["python", "build", "deployment", "automation", "ci-cd", "packaging", "farfarfun"],
-      "homepage": "https://pypi.org/project/funbuild/"
+    "circuit-manage": {
+      "description": "闯关小游戏平台后端：FastAPI + SQLAlchemy + Alembic 实现用户认证、主线/支线关卡、积分闯关流水、题库、道具、排行榜与奖励池，含完整 PRD 与技术设计文档",
+      "keywords": [
+        "alembic",
+        "farfarfun",
+        "fastapi",
+        "game-backend",
+        "leaderboard",
+        "prd",
+        "python",
+        "sqlalchemy"
+      ],
+      "homepage": null
     },
-    "funcoin": {
-      "description": "区块链和加密货币工具包 - 提供区块链交互和加密货币相关功能",
-      "keywords": ["python", "blockchain", "cryptocurrency", "bitcoin", "ethereum", "web3", "farfarfun"],
-      "homepage": "https://pypi.org/project/funcoin/"
+    "company-tau": {
+      "description": "Paperclip 虚拟公司 Tau 的 agent 组织仓库 — 各角色 AGENTS/SOUL/TOOLS/HEARTBEAT 指令与每日记忆、职责矩阵文档，并含 quiz-levels 闯关答题 demo（FastAPI + Vue 3）",
+      "keywords": [
+        "agents-md",
+        "ai-agents",
+        "farfarfun",
+        "fastapi",
+        "organization",
+        "paperclip",
+        "vue3"
+      ],
+      "homepage": null
     },
-    "funread": {
-      "description": "文档阅读和解析工具包 - 支持多种文档格式的读取和解析",
-      "keywords": ["python", "document", "parser", "pdf", "docx", "text-processing", "farfarfun"],
-      "homepage": "https://pypi.org/project/funread/"
+    "demo-repository": {
+      "description": "A code repository designed to show the best GitHub has to offer.",
+      "keywords": [],
+      "homepage": null
     },
-    "funget": {
-      "description": "网络请求和下载工具包 - 提供高效的网络请求和文件下载功能",
-      "keywords": ["python", "http", "requests", "download", "web-scraping", "api-client", "farfarfun"],
-      "homepage": "https://pypi.org/project/funget/"
+    "discussions": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     },
-    "funutil": {
-      "description": "通用工具函数库 - 提供常用的工具函数和实用程序",
-      "keywords": ["python", "utilities", "tools", "helpers", "common", "library", "farfarfun"],
-      "homepage": "https://pypi.org/project/funutil/"
+    "farfarfun": {
+      "description": "farfarfun 组织的介绍仓库 - 组织 README 说明与同名 PyPI 占位包",
+      "keywords": [
+        "farfarfun",
+        "meta",
+        "organization",
+        "placeholder",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/farfarfun/"
     },
-    "funkeras": {
-      "description": "Keras深度学习扩展包 - 提供Keras的增强功能和实用工具",
-      "keywords": ["python", "keras", "deep-learning", "neural-networks", "tensorflow", "ai", "farfarfun"],
-      "homepage": "https://pypi.org/project/funkeras/"
+    "funSSR": {
+      "description": "科学上网工具备份仓库：收录 ShadowsocksR、V2Ray(ws+tls)、Trojan 的一键服务端安装脚本，以及 Android、Windows、macOS 各平台客户端安装包。",
+      "keywords": [
+        "farfarfun",
+        "install-scripts",
+        "proxy",
+        "shadowsocksr",
+        "shell",
+        "trojan",
+        "v2ray"
+      ],
+      "homepage": null
     },
-    "funimage": {
-      "description": "Python图像格式转换和处理库 - 提供PIL、OpenCV、字节、base64、URL和文件路径之间的无缝转换",
-      "keywords": ["python", "image-processing", "pil", "opencv", "base64", "image-conversion", "farfarfun"],
-      "homepage": "https://pypi.org/project/funimage/"
+    "funaction": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     },
-    "funfake": {
-      "description": "HTTP请求头生成库 - 生成真实的HTTP请求头，模拟各种浏览器和操作系统",
-      "keywords": ["python", "http-headers", "fake-headers", "web-scraping", "browser-simulation", "farfarfun"],
-      "homepage": "https://pypi.org/project/funfake/"
-    },
-    "funinstall": {
-      "description": "开发工具一键安装包 - 简单易用的工具包，用于一键安装各种开发工具和环境",
-      "keywords": ["python", "installer", "development-tools", "automation", "setup", "farfarfun"],
-      "homepage": "https://pypi.org/project/funinstall/"
-    },
-    "funserver": {
-      "description": "Python服务器管理框架 - 提供统一接口管理各种服务器应用程序，支持跨平台安装和进程管理",
-      "keywords": ["python", "server-management", "process-management", "cross-platform", "service", "farfarfun"],
-      "homepage": "https://pypi.org/project/funserver/"
-    },
-    "funtable": {
-      "description": "统一表存储抽象库 - 为SQLite、TinyDB、SQLModel等存储后端提供一致的接口",
-      "keywords": ["python", "database", "sqlite", "tinydb", "sqlmodel", "storage-abstraction", "farfarfun"],
-      "homepage": "https://pypi.org/project/funtable/"
+    "funagent": {
+      "description": "面向软件研发流程的 AI Agent 提示词模板集合，涵盖产品 PRD、技术设计、前端规格、前后端工程师与项目负责人等角色，Markdown 格式可直接用于 Cursor/Claude 等工具",
+      "keywords": [
+        "ai-agent",
+        "farfarfun",
+        "llm",
+        "markdown",
+        "prompt-engineering",
+        "prompt-templates",
+        "sdlc"
+      ],
+      "homepage": null
     },
     "funai": {
-      "description": "人工智能工具包 - 提供AI模型集成和机器学习相关功能",
-      "keywords": ["python", "artificial-intelligence", "machine-learning", "ai-tools", "model-integration", "farfarfun"],
+      "description": "大模型统一调用封装：基于 OpenAI SDK 兼容接口接入 DeepSeek、Moonshot 等 provider，通过 funsecret 管理 API Key，提供 get_model 与 fun_chat 简化调用",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "deepseek",
+        "llm",
+        "moonshot",
+        "openai"
+      ],
       "homepage": "https://pypi.org/project/funai/"
     },
     "funapi": {
-      "description": "API开发工具包 - 提供API开发、测试和管理的实用工具",
-      "keywords": ["python", "api-development", "rest-api", "api-testing", "web-framework", "farfarfun"],
+      "description": "OpenAPI 工具链封装：把 Swagger 2.0 文档转换为 OpenAPI 3.0，并调用 openapi-python-client 一键生成 Python API 客户端代码",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "api-client",
+        "code-generation",
+        "openapi",
+        "swagger"
+      ],
       "homepage": "https://pypi.org/project/funapi/"
     },
+    "funapi-sciencedb": {
+      "description": "ScienceDB（科学数据银行 scidb.cn）开放 API 的 Python 客户端，由官方 OpenAPI 文档自动生成，支持数据集检索、指标查询与 COUNTER/SUSHI 报告",
+      "keywords": [
+        "api-client",
+        "farfarfun",
+        "openapi",
+        "python",
+        "research-data",
+        "scidb",
+        "sciencedb"
+      ],
+      "homepage": "https://pypi.org/project/funapi-sciencedb/"
+    },
     "funapp": {
-      "description": "应用程序开发框架 - 提供快速构建Python应用程序的工具和模板",
-      "keywords": ["python", "application-framework", "app-development", "templates", "rapid-development", "farfarfun"],
+      "description": "基于 NiceGUI 的个人 Web 应用脚手架：封装服务启动与进程管理、登录页面组件、数据表结构定义与快捷任务接口",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "nicegui",
+        "scaffold",
+        "ui",
+        "web-app"
+      ],
       "homepage": "https://pypi.org/project/funapp/"
     },
-    "funblog": {
-      "description": "博客系统工具包 - 提供博客网站构建和管理的功能",
-      "keywords": ["python", "blog", "cms", "website", "content-management", "farfarfun"],
-      "homepage": "https://pypi.org/project/funblog/"
+    "funapp-bak": {
+      "description": "noteapp 备份仓库：Flutter 多端（Android/iOS/Web/Windows）短视频客户端，集成 fijkplayer 播放、shared_preferences 设置页与 cryptography 内容加密",
+      "keywords": [
+        "android",
+        "backup",
+        "dart",
+        "farfarfun",
+        "flutter",
+        "ios",
+        "mobile-app"
+      ],
+      "homepage": "https://pub.dev/packages/noteapp"
     },
-    "funchat": {
-      "description": "聊天应用工具包 - 提供聊天功能和即时通讯相关的工具",
-      "keywords": ["python", "chat", "messaging", "real-time", "communication", "farfarfun"],
-      "homepage": "https://pypi.org/project/funchat/"
+    "funbattle": {
+      "description": "数据竞赛代码骨架（源码包名 notebattle）：仅搭建了 DataFountain 557 赛题的 model/utils/evalution 目录结构，各文件均为空，尚无实现代码",
+      "keywords": [
+        "data-competition",
+        "datafountain",
+        "farfarfun",
+        "python",
+        "scaffold"
+      ],
+      "homepage": "https://pypi.org/project/notebattle/"
+    },
+    "funblog": {
+      "description": "博客内容管理与自动发布工具：将 Jupyter Notebook/Markdown 转换后经 XML-RPC metaWeblog 发布到 Typecho 与语雀，并用 SQLite 管理分类与文章元数据",
+      "keywords": [
+        "blog",
+        "farfarfun",
+        "python",
+        "jupyter-notebook",
+        "markdown",
+        "typecho",
+        "xmlrpc",
+        "yuque"
+      ],
+      "homepage": null
+    },
+    "funchallenge": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funchats": {
+      "description": "nothing",
+      "keywords": [],
+      "homepage": null
     },
     "funcode": {
-      "description": "代码处理工具包 - 提供代码分析、格式化和处理功能",
-      "keywords": ["python", "code-analysis", "code-formatting", "syntax", "programming-tools", "farfarfun"],
+      "description": "深度学习实验代码：实现 Keras 版 Attention Decoder 自定义循环层，并封装 adult 等推荐/分类数据集的下载与预处理",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "attention-mechanism",
+        "dataset",
+        "deep-learning",
+        "keras",
+        "tensorflow"
+      ],
       "homepage": "https://pypi.org/project/funcode/"
     },
+    "funcoin": {
+      "description": "基于 ccxt 的加密货币交易所行情采集服务，批量下载多交易所 K线与成交数据，按日压缩归档并上传到 fundrive 云盘，提供常驻下载服务命令",
+      "keywords": [
+        "cryptocurrency",
+        "farfarfun",
+        "python",
+        "ccxt",
+        "exchange",
+        "kline",
+        "market-data",
+        "ohlcv"
+      ],
+      "homepage": "https://pypi.org/project/funcoin/"
+    },
+    "funcomputer": {
+      "description": "在 Google Colab 中搭建远程开发环境的脚本：挂载 Google Drive、安装并启动 code-server（浏览器版 VS Code）及常用扩展、配置 SSH 与 natapp 内网穿透",
+      "keywords": [
+        "code-server",
+        "farfarfun",
+        "google-colab",
+        "natapp",
+        "python",
+        "remote-development",
+        "vscode"
+      ],
+      "homepage": null
+    },
+    "funcrack": {
+      "description": "个人收藏的软件激活与下载资源链接清单：JetBrains 系列激活工具、Mac 软件下载站等，仅有 README，无代码",
+      "keywords": [
+        "farfarfun",
+        "awesome-list",
+        "bookmarks",
+        "jetbrains",
+        "macos"
+      ],
+      "homepage": null
+    },
+    "funcraft": {
+      "description": "Minecraft Pi 版编程接口封装：基于 mcpi 连接游戏，提供方块读写、区域批量建造、告示牌等 API，并内置墙/线/河流等建筑构件",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "game-scripting",
+        "mcpi",
+        "minecraft",
+        "minecraft-pi"
+      ],
+      "homepage": null
+    },
+    "funcron": {
+      "description": "基于 Flask + APScheduler 的定时任务调度中心：提供任务增删改查 Web 管理页、执行日志查询与 REST API，并集成 Airflow DAG 编排和 supervisor 进程守护。",
+      "keywords": [
+        "airflow",
+        "apscheduler",
+        "cron",
+        "farfarfun",
+        "flask",
+        "job-scheduling",
+        "python",
+        "scheduler"
+      ],
+      "homepage": "https://pypi.org/project/funcron/"
+    },
+    "fundaily": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "fundata": {
+      "description": "常用公开数据集与模型权重的索引和下载工具：收录 MovieLens、COCO、Criteo、Amazon 评论及 YOLOv3/v4 权重等，并转存网盘加速国内下载",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "dataset-download",
+        "datasets",
+        "machine-learning",
+        "public-datasets"
+      ],
+      "homepage": "https://pypi.org/project/fundata/"
+    },
+    "fundataworks": {
+      "description": "阿里云 DataWorks 开放 API 的 Python 客户端封装，基于 alibabacloud SDK，同时兼容 2020-05-18 与 2024-05-18 两个 API 版本并自动路由多地域 endpoint",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "alibaba-cloud",
+        "aliyun",
+        "dataworks",
+        "openapi",
+        "sdk"
+      ],
+      "homepage": null
+    },
     "fundb": {
-      "description": "数据库操作工具包 - 提供多种数据库的统一操作接口",
-      "keywords": ["python", "database", "orm", "sql", "database-abstraction", "farfarfun"],
-      "homepage": "https://pypi.org/project/fundb/"
+      "description": "基于 SQLAlchemy 的轻量数据库工具包，封装引擎创建、通用表基类与增删改查操作，并提供 JSON 序列化扩展；PyPI 包名为 fundb-tau",
+      "keywords": [
+        "database",
+        "farfarfun",
+        "orm",
+        "python",
+        "sql",
+        "json",
+        "sqlalchemy"
+      ],
+      "homepage": "https://pypi.org/project/fundb-tau/"
     },
     "fundev": {
-      "description": "开发者工具包 - 提供开发过程中常用的工具和实用程序",
-      "keywords": ["python", "developer-tools", "development", "utilities", "productivity", "farfarfun"],
-      "homepage": "https://pypi.org/project/fundev/"
+      "description": "个人开发环境配置仓库：通过 git submodule 聚合 farfarfun 全部项目到 hubs/ 目录，并附 code-server、Airflow 部署脚本与 VSCode 配置，非 Python 库",
+      "keywords": [
+        "farfarfun",
+        "airflow",
+        "code-server",
+        "dev-environment",
+        "dotfiles",
+        "git-submodules",
+        "vscode"
+      ],
+      "homepage": null
     },
-    "funfile": {
-      "description": "文件操作工具包 - 提供文件处理、管理和操作的增强功能",
-      "keywords": ["python", "file-operations", "file-management", "io", "filesystem", "farfarfun"],
-      "homepage": "https://pypi.org/project/funfile/"
+    "fundev-api": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "fundev-doc": {
+      "description": "farfarfun 开发工具类项目的统一规范文档：约定目录结构、CHANGELOG 与 API 文档格式、中文注释与语义化版本等开发要求",
+      "keywords": [
+        "coding-standards",
+        "documentation",
+        "farfarfun",
+        "guidelines",
+        "project-template",
+        "specification"
+      ],
+      "homepage": null
+    },
+    "fundrive": {
+      "description": "统一的网盘/云存储操作接口框架 - 一套 API 打通 20+ 服务，涵盖 Google Drive、OneDrive、S3、百度网盘、阿里云盘、蓝奏云、WebDAV 等",
+      "keywords": [
+        "python",
+        "cloud-storage",
+        "drive",
+        "sdk",
+        "storage",
+        "farfarfun",
+        "onedrive",
+        "webdav"
+      ],
+      "homepage": "https://pypi.org/project/fundrive/"
+    },
+    "fundrive-alipan": {
+      "description": "fundrive 的阿里云盘驱动 - 为 fundrive 统一接口提供阿里云盘后端支持",
+      "keywords": [
+        "aliyundrive",
+        "cloud-storage",
+        "driver",
+        "farfarfun",
+        "python",
+        "fundrive"
+      ],
+      "homepage": "https://pypi.org/project/fundrive-alipan/"
+    },
+    "fundrive-baidu": {
+      "description": "fundrive 的百度网盘驱动 - 精简自 BaiduPCS-Py，去除界面与服务代码，仅保留 API",
+      "keywords": [
+        "baidupan",
+        "cloud-storage",
+        "driver",
+        "farfarfun",
+        "fundrive",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/fundrive-baidu/"
+    },
+    "fundrive-lanzou": {
+      "description": "fundrive 的蓝奏云驱动 - 为 fundrive 统一接口提供蓝奏云后端支持",
+      "keywords": [
+        "cloud-storage",
+        "driver",
+        "farfarfun",
+        "fundrive",
+        "lanzou",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/fundrive-lanzou/"
+    },
+    "fundrive-quark": {
+      "description": "fundrive 的夸克网盘驱动 - 为 fundrive 统一接口提供夸克网盘后端支持",
+      "keywords": [
+        "cloud-storage",
+        "driver",
+        "farfarfun",
+        "fundrive",
+        "python",
+        "quark"
+      ],
+      "homepage": null
+    },
+    "funenv": {
+      "description": "服务器开发环境初始化脚本集：在 /farfarfun 目录下安装 Miniconda、配置 Git 全局身份与凭据，并按 configs/code-server.yaml 后台启动 Web 版 VS Code（code-server）。",
+      "keywords": [
+        "bash",
+        "code-server",
+        "dev-environment",
+        "farfarfun",
+        "miniconda",
+        "setup-scripts",
+        "shell"
+      ],
+      "homepage": null
+    },
+    "funfake": {
+      "description": "轻量级 Python 伪造数据生成库：零依赖生成真实 HTTP 请求头（Chrome/Firefox/Opera + Windows/macOS/Linux），并支持中英文姓名（含四大名著、金庸人物分组）与中美手机号批量生成",
+      "keywords": [
+        "farfarfun",
+        "http-headers",
+        "python",
+        "web-scraping",
+        "fake-data",
+        "name-generator",
+        "phone-number",
+        "user-agent"
+      ],
+      "homepage": "https://pypi.org/project/funfake/"
+    },
+    "funfight": {
+      "description": "阿里天池 531800 赛题参赛代码：基于 Flink AI Flow 编排的流批一体推荐工作流，含 Kafka 数据源、AutoEncoder 训练与在线预测、Proxima 向量索引构建与相似检索",
+      "keywords": [
+        "ai-flow",
+        "autoencoder",
+        "farfarfun",
+        "flink",
+        "kafka",
+        "python",
+        "tianchi",
+        "vector-search"
+      ],
+      "homepage": null
+    },
+    "funflix": {
+      "description": "影视资源分享文本的结构化采集、解析与网盘链接校验 - 采集/抽取/校验分层幂等，可单独重跑",
+      "keywords": [
+        "farfarfun",
+        "llm",
+        "media",
+        "pipeline",
+        "python",
+        "scraper",
+        "sqlite",
+        "telegram"
+      ],
+      "homepage": "https://pypi.org/project/funflix/"
+    },
+    "funflix-web": {
+      "description": "funflix 的 Web 界面 - 单进程同时提供 Vue 3 前端与后端接口，含作品检索与流水线大盘",
+      "keywords": [
+        "farfarfun",
+        "fastapi",
+        "python",
+        "vue3",
+        "web-ui",
+        "funflix"
+      ],
+      "homepage": "https://pypi.org/project/funflix-web/"
+    },
+    "funfluid": {
+      "description": "流体力学计算与实验分析工具包：内置二维 LBM 求解器（方腔驱动、泊肃叶流、绕流等算例），并提供衣藻实验视频的粒子检测、轨迹跟踪与 MSD 统计分析",
+      "keywords": [
+        "cfd",
+        "farfarfun",
+        "fluid-dynamics",
+        "lattice-boltzmann-method",
+        "lbm",
+        "numpy",
+        "particle-tracking",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/funfluid/"
+    },
+    "funfluid-backend": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funfluid-frontend": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funflutter": {
+      "description": "个人 Flutter 组件库（pub 包名 noteflutter）：封装 dio 网络请求、fijkplayer 视频播放与 carousel 轮播页面及通用工具类，供 notechats 系列应用复用",
+      "keywords": [
+        "dart",
+        "dio",
+        "farfarfun",
+        "flutter",
+        "pub-package",
+        "ui-components",
+        "video-player"
+      ],
+      "homepage": "https://pub.dev/packages/noteflutter"
+    },
+    "funfrp": {
+      "description": "frp 一键安装/更新/卸载脚本 — 支持 frpc 客户端与 frps 服务端，覆盖 Linux（x86/ARM）与群晖 NAS，按机器架构自动下载并写入 toml 配置",
+      "keywords": [
+        "farfarfun",
+        "frp",
+        "frpc",
+        "frps",
+        "nas",
+        "reverse-proxy",
+        "shell",
+        "synology"
+      ],
+      "homepage": null
     },
     "fungame": {
-      "description": "游戏开发工具包 - 提供游戏开发相关的工具和框架",
-      "keywords": ["python", "game-development", "gaming", "pygame", "game-engine", "farfarfun"],
+      "description": "解谜小游戏与求解算法合集：内置 Nonogram（数织）求解器，包含回溯与约束传播算法及文本/曲线/SVG 多种渲染，并集成数独模块",
+      "keywords": [
+        "farfarfun",
+        "gaming",
+        "python",
+        "algorithm",
+        "nonogram",
+        "puzzle-solver",
+        "sudoku"
+      ],
       "homepage": "https://pypi.org/project/fungame/"
     },
+    "fungame-sudoku": {
+      "description": "数独求解器：基于 numpy 的候选值消元加 LIFO 回溯猜测算法，可统计猜测次数并求解 9x9 数独",
+      "keywords": [
+        "algorithm",
+        "backtracking",
+        "farfarfun",
+        "numpy",
+        "puzzle-solver",
+        "python",
+        "sudoku"
+      ],
+      "homepage": "https://pypi.org/project/fungame-sudoku/"
+    },
+    "fungod": {
+      "description": "周易六十四卦占卜工具：模拟大衍筮法摇卦起爻，内置全部 64 卦的卦辞与卦象解读数据",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "chinese-culture",
+        "divination",
+        "iching",
+        "zhouyi"
+      ],
+      "homepage": null
+    },
+    "fungoogle": {
+      "description": "Google Colab 环境初始化脚本：挂载 Google Drive、建立工作区目录、安装 notetool 与 kaggle 等依赖并配置 bashrc",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "bootstrap",
+        "google-colab",
+        "google-drive",
+        "setup-script"
+      ],
+      "homepage": "https://pypi.org/project/fungoogle/"
+    },
+    "funhtml": {
+      "description": "轻量 HTML 生成工具：提供 Python 标签式 DSL（PyHTML）拼装 HTML 结构，并可将 pandas DataFrame 渲染为带图片和超链接的 HTML 表格",
+      "keywords": [
+        "dataframe",
+        "farfarfun",
+        "html",
+        "html-generator",
+        "pandas",
+        "python",
+        "report"
+      ],
+      "homepage": "https://pypi.org/project/funhtml/"
+    },
+    "funhub": {
+      "description": "将 GitHub、HuggingFace 等 Git 仓库同步归档到 fundrive 云盘的命令行工具，同步后返回文件 ID，下载端直接用 fid 取数，同步与使用完全解耦",
+      "keywords": [
+        "backup",
+        "cli",
+        "farfarfun",
+        "fundrive",
+        "git-mirror",
+        "github",
+        "huggingface",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/funhub/"
+    },
+    "funimage": {
+      "description": "Python图像格式转换和处理库 - 提供PIL、OpenCV、字节、base64、URL和文件路径之间的无缝转换",
+      "keywords": [
+        "base64",
+        "farfarfun",
+        "image-conversion",
+        "image-processing",
+        "opencv",
+        "pil",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/funimage/"
+    },
+    "funinstall": {
+      "description": "开发工具一键安装 CLI（基于 Typer）— 跨 macOS/Linux/Windows 安装 Go、NodeJS、code-server、ossutil、v2rayA、frpc、new-api 等，自动识别架构并支持指定版本",
+      "keywords": [
+        "development-tools",
+        "farfarfun",
+        "installer",
+        "python",
+        "cli",
+        "cross-platform",
+        "typer"
+      ],
+      "homepage": "https://pypi.org/project/funinstall/"
+    },
+    "funjetbra": {
+      "description": "分发 jetbra（JetBrains 系列 IDE 授权辅助工具，参见 3.jetbra.in）压缩包的 Python 包，libs/ 内置 jetbra 工具档；目前仅有打包骨架，core 模块尚未实现。",
+      "keywords": [
+        "farfarfun",
+        "ide",
+        "jetbra",
+        "jetbrains",
+        "packaging",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/funjetbra/"
+    },
+    "funjson": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funkaggle": {
+      "description": "Kaggle Deepfake Detection Challenge 参赛代码：下载比赛视频数据、抽帧转为图像特征，并用 Keras CNN 训练真假视频二分类模型",
+      "keywords": [
+        "cnn",
+        "computer-vision",
+        "deepfake-detection",
+        "farfarfun",
+        "kaggle",
+        "keras",
+        "python",
+        "tensorflow"
+      ],
+      "homepage": null
+    },
+    "funkeras": {
+      "description": "Keras/TensorFlow 深度学习组件库（导入名为 notekeras）：实现 self-attention、Transformer、BERT、YOLOv3、ResNet、FM 与图卷积等层和模型，并附特征列解析工具。",
+      "keywords": [
+        "keras",
+        "deep-learning",
+        "farfarfun",
+        "neural-networks",
+        "python",
+        "tensorflow",
+        "attention",
+        "transformer"
+      ],
+      "homepage": "https://pypi.org/project/funkeras/"
+    },
+    "funlanzou": {
+      "description": "蓝奏云网盘的 Python SDK 与 PyQt5 桌面客户端（基于 LanZouCloud-API / lanzou-gui 二次开发）：支持登录、上传下载、分享提取、回收站管理，并绕过上传格式与体积限制。",
+      "keywords": [
+        "api-wrapper",
+        "cloud-storage",
+        "farfarfun",
+        "file-sharing",
+        "lanzou",
+        "netdisk",
+        "pyqt5",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/funlanzou/"
+    },
+    "funlbm": {
+      "description": "基于 PyTorch 的三维格子玻尔兹曼（LBM）流体仿真框架，支持 D3Q19/D3Q27 模型与球体、椭球、旋转椭球等颗粒耦合，结果可导出 VTK/Tecplot，附带 NiceGUI 界面与命令行任务提交",
+      "keywords": [
+        "3d",
+        "lattice-boltzmann-method",
+        "lbm",
+        "simulation",
+        "cfd",
+        "farfarfun",
+        "fluid-dynamics",
+        "python",
+        "pytorch"
+      ],
+      "homepage": "https://pypi.org/project/funlbm/"
+    },
+    "funllmchat": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funlogin": {
+      "description": "FastAPI 用户认证公共包：提供注册、登录与 JWT 签发/刷新，支持 QQ、微信 OAuth 与手机号短信绑定，基于 SQLAlchemy 异步 ORM，可直接挂载路由集成",
+      "keywords": [
+        "authentication",
+        "farfarfun",
+        "fastapi",
+        "jwt",
+        "oauth",
+        "python",
+        "sms",
+        "sqlalchemy"
+      ],
+      "homepage": "https://pypi.org/project/funlogin/"
+    },
+    "funmaterial": {
+      "description": "视频创作素材抓取库：对接 Pixabay、Unsplash 检索下载图片与视频素材，并从 Zenodo 获取字体与背景音乐",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "pixabay",
+        "stock-media",
+        "unsplash",
+        "zenodo",
+        "video-material"
+      ],
+      "homepage": "https://pypi.org/project/funmaterial/"
+    },
+    "funmcp": {
+      "description": "MCP（Model Context Protocol）资料收集仓库：汇总 mcphub、smithery、mcp.so 等 MCP 服务器注册站点与中文文档链接，Python 包目前仅有空骨架",
+      "keywords": [
+        "awesome-list",
+        "farfarfun",
+        "llm",
+        "mcp",
+        "model-context-protocol",
+        "python"
+      ],
+      "homepage": null
+    },
+    "funmd": {
+      "description": "Markdown 表格与 pandas DataFrame 互转的小工具，提供 to_pandas / from_pandas 两个函数，兼容 | 和 + 两种表格分隔风格",
+      "keywords": [
+        "farfarfun",
+        "markdown",
+        "python",
+        "dataframe",
+        "markdown-table",
+        "pandas"
+      ],
+      "homepage": "https://pypi.org/project/funmd/"
+    },
     "funmedia": {
-      "description": "多媒体处理工具包 - 提供音频、视频和图像的处理功能",
-      "keywords": ["python", "multimedia", "audio", "video", "media-processing", "farfarfun"],
+      "description": "多平台社交媒体内容异步下载器：支持抖音、TikTok、微博、Twitter 等站点的作品与直播流采集，基于 httpx 异步抓取并提供各平台 CLI",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "crawler",
+        "douyin",
+        "downloader",
+        "tiktok",
+        "weibo"
+      ],
       "homepage": "https://pypi.org/project/funmedia/"
     },
+    "funmind": {
+      "description": "XMind 思维导图文件读写库：以 XML 方式解析与生成 .xmind 工作簿，支持画布、主题树、标记、批注与样式操作",
+      "keywords": [
+        "farfarfun",
+        "mind-map",
+        "python",
+        "mindmap",
+        "xmind",
+        "xml"
+      ],
+      "homepage": null
+    },
     "funmodel": {
-      "description": "机器学习模型工具包 - 提供模型训练、部署和管理功能",
-      "keywords": ["python", "machine-learning", "model-training", "model-deployment", "ml-ops", "farfarfun"],
+      "description": "funmodel 系列推理包的公共基础库：定义 PredictModel 推理基类与模型缓存目录约定，并提供图像变换、URL 取图和摄像头帧队列等共用工具。",
+      "keywords": [
+        "farfarfun",
+        "machine-learning",
+        "python",
+        "base-library",
+        "computer-vision",
+        "image-processing",
+        "inference"
+      ],
       "homepage": "https://pypi.org/project/funmodel/"
     },
+    "funmodel-dwpose": {
+      "description": "基于 DWPose ONNX 模型的全身姿态估计推理包：提供 DWposePredict，支持本地图片、图片 URL 与摄像头视频流的人体关键点检测及骨架绘制。",
+      "keywords": [
+        "computer-vision",
+        "deep-learning",
+        "dwpose",
+        "farfarfun",
+        "onnxruntime",
+        "pose-estimation",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/funmodel-dwpose/"
+    },
+    "funmodel-mivolo": {
+      "description": "基于 MiVOLO 的人脸年龄与性别识别推理包：封装 MivoloPredictor（YOLO 检测 + MiVOLO 分类），支持图片与摄像头流的年龄性别预测并可绘制结果。",
+      "keywords": [
+        "age-estimation",
+        "computer-vision",
+        "deep-learning",
+        "farfarfun",
+        "gender-recognition",
+        "mivolo",
+        "python",
+        "pytorch"
+      ],
+      "homepage": "https://pypi.org/project/funmodel-mivolo/"
+    },
+    "funmodel2": {
+      "description": "深度学习模型权重管理实验：用 SQLite 按 MD5 缓存与复用模型层权重，并附带基于 notekeras 的 YOLOv3 目标检测示例",
+      "keywords": [
+        "deep-learning",
+        "farfarfun",
+        "keras",
+        "model-weights",
+        "python",
+        "sqlite",
+        "yolov3"
+      ],
+      "homepage": null
+    },
+    "funmovie": {
+      "description": "影视磁力资源采集工具：通过 BitTorrent DHT 网络爬取磁力链接、解析种子文件、借助 aria2c 磁力转种，并用 SQLite/Redis 建立影片索引库",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "aria2",
+        "bittorrent",
+        "dht-crawler",
+        "magnet-link",
+        "movie",
+        "torrent"
+      ],
+      "homepage": null
+    },
     "funnotice": {
-      "description": "通知服务工具包 - 提供多种通知方式的统一接口",
-      "keywords": ["python", "notifications", "alerts", "messaging", "email", "farfarfun"],
-      "homepage": "https://pypi.org/project/funnotice/"
-    },
-    "funproxy": {
-      "description": "代理池管理工具 - 提供代理服务器的管理和使用功能",
-      "keywords": ["python", "proxy", "proxy-pool", "web-scraping", "network", "farfarfun"],
-      "homepage": "https://pypi.org/project/funproxy/"
-    },
-    "funtool": {
-      "description": "加密解密工具类 - 提供各种加密、解密和安全相关的工具函数",
-      "keywords": ["python", "encryption", "decryption", "security", "cryptography", "farfarfun"],
-      "homepage": "https://pypi.org/project/funtool/"
-    },
-    "funui": {
-      "description": "用户界面工具包 - 提供GUI开发和界面设计的工具",
-      "keywords": ["python", "gui", "user-interface", "ui-development", "desktop-app", "farfarfun"],
-      "homepage": "https://pypi.org/project/funui/"
-    },
-    "funvideo": {
-      "description": "视频处理工具包 - 提供视频编辑、转换和处理功能",
-      "keywords": ["python", "video-processing", "video-editing", "multimedia", "ffmpeg", "farfarfun"],
-      "homepage": "https://pypi.org/project/funvideo/"
-    },
-    "funwork": {
-      "description": "工作流管理工具包 - 提供任务调度和工作流程管理功能",
-      "keywords": ["python", "workflow", "task-scheduling", "automation", "job-management", "farfarfun"],
-      "homepage": "https://pypi.org/project/funwork/"
-    },
-    "funrec": {
-      "description": "推荐系统工具包 - 提供机器学习推荐算法和推荐系统开发工具",
-      "keywords": ["python", "recommendation", "machine-learning", "collaborative-filtering", "recommender-system", "farfarfun"],
-      "homepage": "https://pypi.org/project/funrec/"
-    },
-    "funresource": {
-      "description": "资源管理工具包 - 提供系统资源监控和管理功能",
-      "keywords": ["python", "resource-management", "system-monitoring", "performance", "optimization", "farfarfun"],
-      "homepage": "https://pypi.org/project/funresource/"
-    },
-    "funrun": {
-      "description": "任务运行工具包 - 提供任务执行、进程管理和运行时控制功能",
-      "keywords": ["python", "task-runner", "process-management", "execution", "runtime", "farfarfun"],
-      "homepage": "https://pypi.org/project/funrun/"
-    },
-    "funscnet": {
-      "description": "科学计算网络工具包 - 提供科学计算和网络分析相关功能",
-      "keywords": ["python", "scientific-computing", "network-analysis", "graph", "computation", "farfarfun"],
-      "homepage": "https://pypi.org/project/funscnet/"
-    },
-    "funseries": {
-      "description": "时间序列分析工具包 - 提供时间序列数据处理和分析功能",
-      "keywords": ["python", "time-series", "data-analysis", "forecasting", "statistics", "farfarfun"],
-      "homepage": "https://pypi.org/project/funseries/"
-    },
-    "funstock": {
-      "description": "股票数据工具包 - 提供股票数据获取、分析和处理功能",
-      "keywords": ["python", "stock-data", "financial-analysis", "trading", "market-data", "farfarfun"],
-      "homepage": "https://pypi.org/project/funstock/"
-    },
-    "funtalk": {
-      "description": "语音处理工具包 - 提供语音识别、合成和处理功能",
-      "keywords": ["python", "speech-processing", "text-to-speech", "speech-recognition", "audio", "farfarfun"],
-      "homepage": "https://pypi.org/project/funtalk/"
-    },
-    "funtask": {
-      "description": "任务管理工具包 - 提供任务创建、跟踪和管理功能",
-      "keywords": ["python", "task-management", "project-management", "todo", "productivity", "farfarfun"],
-      "homepage": "https://pypi.org/project/funtask/"
-    },
-    "funuser": {
-      "description": "用户管理工具包 - 提供用户认证、授权和管理功能",
-      "keywords": ["python", "user-management", "authentication", "authorization", "user-system", "farfarfun"],
-      "homepage": "https://pypi.org/project/funuser/"
-    },
-    "funvtk": {
-      "description": "VTK可视化工具包 - 提供3D可视化和科学计算可视化功能",
-      "keywords": ["python", "vtk", "3d-visualization", "scientific-visualization", "graphics", "farfarfun"],
-      "homepage": "https://pypi.org/project/funvtk/"
+      "description": "notenotice 包占位仓库：已在 PyPI 发布同名包，但源码目录 notenotice/ 为空文件，无任何通知功能实现",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "placeholder",
+        "pypi-package"
+      ],
+      "homepage": "https://pypi.org/project/notenotice/"
     },
     "funpaper": {
-      "description": "学术论文工具包 - 提供学术论文检索、下载和管理功能",
-      "keywords": ["python", "academic-papers", "research", "paper-management", "scholarly", "farfarfun"],
+      "description": "论文转播客工具：解析 PDF 论文，用 LangChain + LLM（DeepSeek）生成双人对话脚本，再经 TTS 合成并拼接为播客音频，提供 funpaper 命令行",
+      "keywords": [
+        "academic-papers",
+        "farfarfun",
+        "python",
+        "langchain",
+        "llm",
+        "podcast",
+        "text-to-speech"
+      ],
       "homepage": "https://pypi.org/project/funpaper/"
     },
     "funplay": {
-      "description": "娱乐游戏工具包 - 提供各种小游戏和娱乐功能",
-      "keywords": ["python", "games", "entertainment", "fun", "interactive", "farfarfun"],
-      "homepage": "https://pypi.org/project/funplay/"
+      "description": "天池数据竞赛脚手架（源码包名 noteplay）：目前仅含 531803 赛题的训练集/测试集下载任务，使用 notedrive 的 PyCurl 下载器",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "data-competition",
+        "dataset-download",
+        "tianchi"
+      ],
+      "homepage": null
     },
     "funpoetry": {
-      "description": "诗词工具包 - 提供古诗词检索、分析和生成功能",
-      "keywords": ["python", "poetry", "chinese-poetry", "literature", "text-generation", "farfarfun"],
+      "description": "Poetry 项目版本号自动递增的命令行工具：提供 funpoetry version-upgrade 子命令，按 128 进制进位规则升位，兼容 pyproject.toml 与 script/__version__.md 两种版本存放方式。",
+      "keywords": [
+        "farfarfun",
+        "poetry",
+        "python",
+        "cli",
+        "packaging",
+        "python-poetry",
+        "version-bump",
+        "versioning"
+      ],
       "homepage": "https://pypi.org/project/funpoetry/"
     },
-    "funmind": {
-      "description": "思维导图工具包 - 提供思维导图创建和管理功能",
-      "keywords": ["python", "mind-map", "brainstorming", "visualization", "thinking-tools", "farfarfun"],
-      "homepage": "https://pypi.org/project/funmind/"
+    "funpromotion": {
+      "description": "薅羊毛脚本收集 - 浏览器 bookmarklet 工具，目前含 Codex K12 工作区助手（批量加入/退出工作区、批量导出凭据）",
+      "keywords": [
+        "automation",
+        "bookmarklet",
+        "codex",
+        "farfarfun",
+        "javascript",
+        "userscript"
+      ],
+      "homepage": null
     },
-    "funmaterial": {
-      "description": "材料管理工具包 - 提供数字化材料管理和组织功能",
-      "keywords": ["python", "material-management", "digital-assets", "organization", "resources", "farfarfun"],
-      "homepage": "https://pypi.org/project/funmaterial/"
+    "funproxy": {
+      "description": "免费代理池（源码包名 noteproxy）：从十余个免费代理站点抓取校验 IP 并存入 SQLite，提供按可用性排序取用与失效自动切换的 requests 会话集成",
+      "keywords": [
+        "farfarfun",
+        "proxy",
+        "proxy-pool",
+        "python",
+        "web-scraping",
+        "lxml",
+        "requests",
+        "sqlite"
+      ],
+      "homepage": null
     },
-    "funmd": {
-      "description": "Markdown工具包 - 提供Markdown文档处理、转换和编辑功能",
-      "keywords": ["python", "markdown", "document-processing", "text-formatting", "documentation", "farfarfun"],
-      "homepage": "https://pypi.org/project/funmd/"
-    },
-    "funmovie": {
-      "description": "电影信息工具包 - 提供电影信息检索、管理和推荐功能",
-      "keywords": ["python", "movie-info", "entertainment", "media-database", "recommendation", "farfarfun"],
-      "homepage": "https://pypi.org/project/funmovie/"
-    },
-    "fungoogle": {
-      "description": "Google服务集成工具包 - 提供Google API集成和服务调用功能",
-      "keywords": ["python", "google-api", "google-services", "cloud-integration", "api-client", "farfarfun"],
-      "homepage": "https://pypi.org/project/fungoogle/"
-    },
-    "fungod": {
-      "description": "高级功能工具包 - 提供高级编程工具和实用程序",
-      "keywords": ["python", "advanced-tools", "utilities", "power-tools", "programming", "farfarfun"],
-      "homepage": "https://pypi.org/project/fungod/"
-    },
-    "funcrack": {
-      "description": "常用工具集合 - 提供各种常用的工具和实用程序",
-      "keywords": ["python", "common-tools", "utilities", "toolkit", "helpers", "farfarfun"],
-      "homepage": "https://pypi.org/project/funcrack/"
-    },
-    "funcraft": {
-      "description": "手工制作工具包 - 提供手工DIY和制作相关的工具",
-      "keywords": ["python", "crafting", "diy", "making", "creative-tools", "farfarfun"],
-      "homepage": "https://pypi.org/project/funcraft/"
-    },
-    "fundataworks": {
-      "description": "数据工作流工具包 - 提供数据处理工作流和管道功能",
-      "keywords": ["python", "data-workflow", "data-pipeline", "etl", "data-processing", "farfarfun"],
-      "homepage": "https://pypi.org/project/fundataworks/"
+    "funpush": {
+      "description": "一个简单易用的Python消息推送库，支持钉钉、微信等多平台机器人消息发送。",
+      "keywords": [
+        "bot",
+        "dingtalk",
+        "farfarfun",
+        "message-push",
+        "notification",
+        "python",
+        "webhook"
+      ],
+      "homepage": "https://pypi.org/project/funpush/"
     },
     "funpypi": {
-      "description": "PyPI管理工具包 - 提供PyPI包管理和发布相关功能",
-      "keywords": ["python", "pypi", "package-management", "publishing", "distribution", "farfarfun"],
+      "description": "farfarfun 系列包的统一打包工具：封装 setuptools.setup 自动补全作者、URL、long_description 等元信息，构建时按 128 进制自动递增版本号，并提供 funpypi install 一键安装全家桶。",
+      "keywords": [
+        "farfarfun",
+        "package-management",
+        "publishing",
+        "pypi",
+        "python",
+        "packaging",
+        "setuptools",
+        "versioning"
+      ],
       "homepage": "https://pypi.org/project/funpypi/"
     },
+    "funquery": {
+      "description": "Redash API 的 Python 客户端：支持 Query 执行与管理、Dashboard 与 Widget 操作、告警与数据源配置，兼容 User/Query API Key，可异步轮询 Job 并导出 JSON/CSV",
+      "keywords": [
+        "api-client",
+        "bi",
+        "dashboard",
+        "farfarfun",
+        "python",
+        "redash",
+        "sql"
+      ],
+      "homepage": "https://pypi.org/project/funquery/"
+    },
+    "funquiz": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funquize": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funrank": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funread": {
+      "description": "Legado（阅读 APP）书源与 RSS 源的管理工具库 - 支持书源解析、校验与批量处理",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "bookstore",
+        "legado",
+        "rss"
+      ],
+      "homepage": "https://pypi.org/project/funread/"
+    },
+    "funread-cache": {
+      "description": "Legado（阅读 APP）书源与订阅源快照仓库 — 托管分片 JSON 书源、source.json/rss 与 HTML 统计报告，经 GitHub Pages 分发并由 Actions 同步到 Gitee",
+      "keywords": [
+        "book-source",
+        "bookshelf",
+        "farfarfun",
+        "github-pages",
+        "json-data",
+        "legado",
+        "rss",
+        "gitee-sync"
+      ],
+      "homepage": "https://farfarfun.github.io/funread-cache/"
+    },
+    "funread-dat": {
+      "description": "Legado 书源/RSS 订阅源数据生产脚本 — 抓取并生成书源与订阅源，经 fundrive 的 GithubDrive 上传发布到 funread-cache 仓库，附 rss 历史归档",
+      "keywords": [
+        "automation",
+        "book-source",
+        "data-pipeline",
+        "farfarfun",
+        "fundrive",
+        "legado",
+        "python",
+        "rss"
+      ],
+      "homepage": null
+    },
+    "funread-rss": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funrec": {
+      "description": "基于 PyTorch 的推荐系统与 CTR 预估算法库，按论文年份组织模型实现（CCPM、PNN 等），包含特征输入、交互层与序列注意力组件，大量代码移植自 DeepCTR-Torch",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "recommender-system",
+        "ctr-prediction",
+        "deep-learning",
+        "deepctr",
+        "pytorch"
+      ],
+      "homepage": "https://pypi.org/project/funrec/"
+    },
+    "funresource": {
+      "description": "网盘资源聚合采集工具：从 RSS、Telegram 频道等来源抓取阿里云盘/夸克/百度/迅雷分享资源，自动打标签、去重入库并管理上下架状态",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "cloud-storage",
+        "crawler",
+        "rss",
+        "sqlalchemy",
+        "telegram"
+      ],
+      "homepage": "https://pypi.org/project/funresource/"
+    },
+    "funrun": {
+      "description": "HPC 计算任务提交小工具：把当前目录的 C++/Fortran/Slurm 源码复制到带时间戳的工作目录，检测到 config.slurm 则 sbatch 提交，否则 g++ 编译后台运行",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "cli",
+        "hpc",
+        "job-submission",
+        "slurm",
+        "typer"
+      ],
+      "homepage": "https://pypi.org/project/ffunrun/"
+    },
+    "funscnet": {
+      "description": "国家超算互联网（scnet.cn）开放平台 API 的 Python 封装，覆盖令牌认证、作业提交与查询、集群信息、容器与文件管理",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "api-client",
+        "hpc",
+        "openapi",
+        "scnet",
+        "supercomputing"
+      ],
+      "homepage": "https://pypi.org/project/funscnet/"
+    },
     "funscript": {
-      "description": "脚本管理工具包 - 提供脚本编写、执行和管理功能",
-      "keywords": ["python", "scripting", "automation", "script-management", "execution", "farfarfun"],
-      "homepage": "https://pypi.org/project/funscript/"
+      "description": "个人日常开发脚本集合：当前提供 develop/env.sh，用于一键 pip 安装 funpypi、funbuild、funfile、funsecret、fundrive 等 farfarfun 系列包，支持 curl 管道直接执行。",
+      "keywords": [
+        "automation",
+        "farfarfun",
+        "scripting",
+        "bash",
+        "dev-scripts",
+        "shell"
+      ],
+      "homepage": null
+    },
+    "funseries": {
+      "description": "实验性算法练习包（PyPI 包名 noteseries，非时间序列库）：当前仅实现素数判定，含试除法递归判断与 Miller-Rabin 概率素性检验",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "algorithms",
+        "miller-rabin",
+        "number-theory",
+        "prime-numbers"
+      ],
+      "homepage": "https://pypi.org/project/noteseries/"
+    },
+    "funserver": {
+      "description": "Python服务器管理框架 - 提供统一接口管理各种服务器应用程序，支持跨平台安装和进程管理",
+      "keywords": [
+        "cross-platform",
+        "farfarfun",
+        "process-management",
+        "python",
+        "server-management",
+        "service"
+      ],
+      "homepage": "https://pypi.org/project/funserver/"
+    },
+    "funservice": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funshell": {
+      "description": "轻量级 Python shell 命令执行工具，支持实时流式输出或捕获输出为字符串，可指定工作目录、超时与编码，并提供命令列表批量执行",
+      "keywords": [
+        "cli",
+        "command-execution",
+        "farfarfun",
+        "python",
+        "shell",
+        "subprocess"
+      ],
+      "homepage": "https://pypi.org/project/funshell/"
+    },
+    "funsketch": {
+      "description": "短剧素材处理流水线：从网盘同步剧集视频，逐集抽取音频、用 Whisper 转写文本并调用 LLM 分析，结果通过 SQLAlchemy 入库管理",
+      "keywords": [
+        "asr",
+        "cloud-storage",
+        "farfarfun",
+        "llm",
+        "python",
+        "sqlalchemy",
+        "video-pipeline",
+        "whisper"
+      ],
+      "homepage": "https://pypi.org/project/funsketch/"
+    },
+    "funstock": {
+      "description": "A股行情数据工具包（源码包名 notestock）：基于 tushare/baostock 抓取日线与 1/5/15/30/60 分钟行情并落地 SQLite，附 pyecharts 日K线绘图",
+      "keywords": [
+        "farfarfun",
+        "market-data",
+        "python",
+        "baostock",
+        "pyecharts",
+        "sqlite",
+        "stock",
+        "tushare"
+      ],
+      "homepage": null
+    },
+    "funtable": {
+      "description": "统一表存储抽象库 - 为SQLite、TinyDB、SQLModel等存储后端提供一致的接口",
+      "keywords": [
+        "database",
+        "farfarfun",
+        "python",
+        "sqlite",
+        "sqlmodel",
+        "storage-abstraction",
+        "tinydb"
+      ],
+      "homepage": "https://pypi.org/project/funtable/"
+    },
+    "funtalk": {
+      "description": "语音处理统一封装：ASR 基于 Whisper 做音频转写，TTS 支持 Azure 与 Edge TTS，提供一致的基类接口便于切换后端",
+      "keywords": [
+        "audio",
+        "farfarfun",
+        "python",
+        "speech-processing",
+        "speech-recognition",
+        "text-to-speech",
+        "edge-tts",
+        "whisper"
+      ],
+      "homepage": "https://pypi.org/project/funtalk/"
+    },
+    "funtask": {
+      "description": "Slurm 集群作业提交与追踪工具（PyPI 包名 nlttask）— 复制作业文件到时间戳目录并 sbatch 提交，SQLAlchemy 记录任务状态，NiceGUI 网页查看任务列表",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "task-management",
+        "hpc",
+        "job-scheduler",
+        "nicegui",
+        "slurm",
+        "sqlalchemy"
+      ],
+      "homepage": "https://pypi.org/project/nlttask/"
+    },
+    "funtecplot": {
+      "description": "将点集与三角网格数据导出为 Tecplot ASCII 格式（TITLE/VARIABLES/ZONE）的轻量 Python 库",
+      "keywords": [
+        "cfd",
+        "data-export",
+        "farfarfun",
+        "mesh",
+        "python",
+        "scientific-computing",
+        "tecplot"
+      ],
+      "homepage": "https://pypi.org/project/funtecplot/"
+    },
+    "funtemp": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funtianchi532157": {
+      "description": "阿里天池 FT-Data Ranker 大模型微调数据竞赛（1B 模型赛道，赛事 532157）参赛代码：基于 Data-Juicer 的中英文数据清洗配置，falcon-rw-1b 微调与 lm-evaluation-harness 评测流水线。",
+      "keywords": [
+        "data-juicer",
+        "data-processing",
+        "farfarfun",
+        "fine-tuning",
+        "llm",
+        "lm-evaluation-harness",
+        "python",
+        "tianchi"
+      ],
+      "homepage": "https://tianchi.aliyun.com/competition/entrance/532157"
+    },
+    "funtiktok": {
+      "description": "短视频资源聚合服务（源码包名 notetiktok）：管理视频/来源/作者/关注/收藏数据表并对标题正文做字段级加解密，以 FastAPI 暴露资源增查接口与定时抓取任务",
+      "keywords": [
+        "crawler",
+        "farfarfun",
+        "fastapi",
+        "python",
+        "short-video",
+        "sqlite",
+        "tiktok"
+      ],
+      "homepage": null
+    },
+    "funtool": {
+      "description": "个人 Python 杂项工具库（PyPI 包名为 farfuntool）：涵盖日志、路径、时间、压缩、curl 转 Python 代码、m3u8 与磁力链下载、网页爬虫和数据库连接封装等常用工具。",
+      "keywords": [
+        "python",
+        "farfarfun",
+        "downloader",
+        "logging",
+        "m3u8",
+        "toolkit",
+        "utilities",
+        "web-crawler"
+      ],
+      "homepage": "https://pypi.org/project/farfuntool/"
+    },
+    "funtorch": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funtts": {
+      "description": "统一的文本转语音(TTS)工具库 - 一套接口无缝切换多种开源 TTS 引擎，支持多种字幕格式",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "speech-synthesis",
+        "subtitle",
+        "text-to-speech",
+        "tts"
+      ],
+      "homepage": "https://pypi.org/project/funtts-plus/"
+    },
+    "funtts-indextts2": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funtypecho": {
+      "description": "Typecho 博客 XML-RPC 客户端（源码包名 notetypecho）：封装 metaWeblog/wp 接口，支持文章、页面、分类、附件、评论的增删改查与批量发布",
+      "keywords": [
+        "blog",
+        "farfarfun",
+        "metaweblog",
+        "publishing",
+        "python",
+        "typecho",
+        "xml-rpc"
+      ],
+      "homepage": null
+    },
+    "funui": {
+      "description": "基于 NiceGUI + FastAPI 的网页聊天室示例应用：含账号登录、在线用户列表与消息实时刷新，可通过 vercel.json 部署",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "chat",
+        "fastapi",
+        "nicegui",
+        "web-app"
+      ],
+      "homepage": "https://pypi.org/project/funui/"
+    },
+    "funuser": {
+      "description": "基于 FastAPI + SQLAlchemy 的用户管理服务：提供注册登录、密码哈希、JWT 鉴权与用户增删改查 REST 接口，并附带 CLI 启动命令",
+      "keywords": [
+        "authentication",
+        "farfarfun",
+        "python",
+        "user-management",
+        "fastapi",
+        "jwt",
+        "sqlalchemy"
+      ],
+      "homepage": "https://pypi.org/project/funuser/"
+    },
+    "funutil": {
+      "description": "Python 通用工具库：磁盘/内存缓存装饰器、日志封装、路径与时间处理、计时器、重试机制、curl 转 Python 代码等常用能力，被 farfarfun 多个项目依赖",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "utilities",
+        "cache",
+        "decorators",
+        "logging",
+        "retry",
+        "toolkit"
+      ],
+      "homepage": "https://pypi.org/project/funutil/"
+    },
+    "funvideo": {
+      "description": "AI 短视频批量生成工具：LLM 生成文案与关键词，自动配 TTS 配音、Whisper 字幕并用 moviepy 合成素材，提供 FastAPI 接口与多语言 Streamlit WebUI",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "ai-video",
+        "llm",
+        "moviepy",
+        "streamlit",
+        "text-to-speech",
+        "whisper"
+      ],
+      "homepage": "https://pypi.org/project/funvideo/"
+    },
+    "funvtk": {
+      "description": "纯 Python 的 VTK 文件导出库（PyEVTK 衍生版）：将 NumPy 数组直接写成 VTK XML 格式（.vti/.vtr/.vts/.vtu/.vtp），无需安装 VTK 本体，支持结构化/非结构化网格、点集与折线。",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "vtk",
+        "file-format",
+        "numpy",
+        "scientific-computing",
+        "evtk"
+      ],
+      "homepage": "https://pypi.org/project/funvtk/"
+    },
+    "funwall": {
+      "description": "科学上网资源清单 — 汇总 v2ray/sing-box/Xray 服务端一键安装脚本、跨平台客户端（FlClash、v2rayA、NekoBox）与机场推荐，纯 README 索引无代码",
+      "keywords": [
+        "farfarfun",
+        "networking",
+        "proxy",
+        "sing-box",
+        "v2ray",
+        "awesome-list",
+        "clash",
+        "xray"
+      ],
+      "homepage": "https://pypi.org/project/funwall/"
+    },
+    "funwater-manage": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funwork": {
+      "description": "工作用零散脚本集合：批量查询微店商品信息、通过 HTTP 网关泛化调用 Dubbo 服务、PDF 转 HTML",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "dubbo",
+        "pdf-to-html",
+        "scripts",
+        "youzan"
+      ],
+      "homepage": "https://pypi.org/project/funwork/"
+    },
+    "homebrew-tap": {
+      "description": "farfarfun 的 Homebrew Tap - 目前提供 nltdeploy 的 formula",
+      "keywords": [
+        "farfarfun",
+        "formula",
+        "homebrew",
+        "homebrew-tap",
+        "macos",
+        "ruby",
+        "nltdeploy"
+      ],
+      "homepage": null
+    },
+    "lobe-chat": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "nltbuild": {
+      "description": "Python / 混合仓库的构建与发布工具 - 自动匹配 UV、Poetry、npm 等构建策略，串联版本递增、发布与 Git 标签",
+      "keywords": [
+        "build",
+        "packaging",
+        "python",
+        "cli",
+        "poetry",
+        "pypi",
+        "release-automation",
+        "uv",
+        "versioning",
+        "farfarfun"
+      ],
+      "homepage": "https://pypi.org/project/nltbuild/"
+    },
+    "nltcache": {
+      "description": "轻量的 Python 函数缓存装饰器库 - 内存 / 磁盘 / Pickle 多种缓存策略，原生支持 async",
+      "keywords": [
+        "async",
+        "cache",
+        "decorator",
+        "farfarfun",
+        "lru-cache",
+        "memoization",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/nltcache/"
+    },
+    "nltclash": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "nltdeploy": {
+      "description": "面向本机开发与服务管理的 Bash 脚本集 - 统一 nltdeploy 命令入口，一键安装开发环境、部署常驻服务与 AI 工具，支持 APT/Homebrew 安装",
+      "keywords": [
+        "bash",
+        "cli",
+        "devops",
+        "farfarfun",
+        "homebrew",
+        "installer",
+        "self-hosted",
+        "shell"
+      ],
+      "homepage": "https://farfarfun.github.io/nltdeploy/"
+    },
+    "nltfile": {
+      "description": "实用的 Python 文件工具库 - 带进度条的 tar/zip 压缩解压（阻止路径穿越）、线程安全的后台写入、pickle 序列化封装",
+      "keywords": [
+        "farfarfun",
+        "file-operations",
+        "filesystem",
+        "io",
+        "python",
+        "compression",
+        "progress-bar",
+        "tar"
+      ],
+      "homepage": "https://pypi.org/project/nltfile/"
+    },
+    "nltget": {
+      "description": "轻量的 Python HTTP 文件传输库 - Range 并发下载、断点续传、PUT/multipart 上传，附带 nltget 命令行",
+      "keywords": [
+        "download",
+        "farfarfun",
+        "http",
+        "python",
+        "cli",
+        "concurrency",
+        "file-transfer",
+        "resume-download"
+      ],
+      "homepage": "https://pypi.org/project/nltget/"
+    },
+    "nltlog": {
+      "description": "基于 Loguru 的轻量日志库 - 按名称拆分日志文件，内置按日轮转、gzip 压缩与保留策略",
+      "keywords": [
+        "farfarfun",
+        "log-rotation",
+        "logging",
+        "loguru",
+        "python"
+      ],
+      "homepage": "https://pypi.org/project/nltlog/"
+    },
+    "nltsecret": {
+      "description": "本地优先的密钥管理工具 - 按多级分类存取 token/密码，SQLite 本地库配合 Fernet 加密，可与 MySQL 等数据库双向同步",
+      "keywords": [
+        "secret",
+        "encryption",
+        "farfarfun",
+        "python",
+        "security",
+        "cli",
+        "fernet",
+        "secrets-management",
+        "sqlite"
+      ],
+      "homepage": "https://pypi.org/project/nltsecret/"
+    },
+    "nltspec": {
+      "description": "任务契约规范库（PyPI: nltspec）— 基于 dataclass 的泛型 BaseRequest/BaseResponse/BaseTask 抽象，统一任务状态流转、事件记录与字典序列化，零第三方依赖",
+      "keywords": [
+        "dataclasses",
+        "farfarfun",
+        "python",
+        "serialization",
+        "specification",
+        "task-framework",
+        "zero-dependency"
+      ],
+      "homepage": "https://pypi.org/project/nltspec/"
+    },
+    "paper-agent": {
+      "description": "AI Agent 指令库 — 按角色（ceo、cto、python-engineer、brainstorming、code-review 等）组织 AGENTS.md/SOUL.md/TOOLS.md 指令包，并镜像 Paperclip 公司 agent 配置",
+      "keywords": [
+        "agents-md",
+        "ai-agents",
+        "farfarfun",
+        "llm",
+        "markdown",
+        "paperclip",
+        "prompt-engineering"
+      ],
+      "homepage": null
+    },
+    "paperclip-fundev": {
+      "description": "Paperclip 虚拟公司 fundev 的 agent 组织仓库 — CEO/CTO/各部门 Leader 与工程师的 AGENTS/SOUL/TOOLS/HEARTBEAT 指令、组织架构、招聘计划与 agent 工作目录规范",
+      "keywords": [
+        "agents-md",
+        "ai-agents",
+        "farfarfun",
+        "organization",
+        "paperclip",
+        "prompt-engineering",
+        "workspace"
+      ],
+      "homepage": null
+    },
+    "paperclip-workspace": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "readable-python": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "server-new-api": {
+      "description": "QuantumNous/new-api 部署脚本 — 单一 bash 入口下载发行版二进制、生成 env 配置、启动服务并向 SQLite 库写入基础数据种子，交互界面基于 gum",
+      "keywords": [
+        "deployment",
+        "farfarfun",
+        "gum",
+        "llm-gateway",
+        "new-api",
+        "one-api",
+        "shell",
+        "sqlite"
+      ],
+      "homepage": null
+    },
+    "server-paperclip": {
+      "description": "Paperclip 上游服务运维脚本 — paperclipctl 提供 gum 交互菜单，一站式完成浅克隆、pnpm 安装、后台启动/停止/重启、更新与状态查看",
+      "keywords": [
+        "cli",
+        "devops",
+        "farfarfun",
+        "gum",
+        "nodejs",
+        "paperclip",
+        "process-management",
+        "shell"
+      ],
+      "homepage": null
+    },
+    "skills-deploy-rule": {
+      "description": "Agent Skill 仓库 — 收录 authoring-background-service-scripts 技能，规范用 gum 编写管理后台常驻服务的 Shell CLI（PID 文件 + 端口存活双重检测）",
+      "keywords": [
+        "agent-skills",
+        "background-service",
+        "claude-code",
+        "cli",
+        "devops",
+        "farfarfun",
+        "gum",
+        "shell"
+      ],
+      "homepage": null
+    },
+    "todo-list": {
+      "description": "组织级代码优化待办清单 - 按仓库汇总待改进项，供分工认领",
+      "keywords": [],
+      "homepage": null
+    },
+    "utools-funchat": {
+      "description": "uTools AI 聊天插件 - 多角色 AI 好友、内置角色市场、话题回溯与一键导出，本地优先",
+      "keywords": [
+        "chat",
+        "communication",
+        "farfarfun",
+        "messaging",
+        "ai",
+        "chatgpt",
+        "llm",
+        "plugin",
+        "utools",
+        "vue3"
+      ],
+      "homepage": null
+    },
+    "utools-funlink": {
+      "description": "uTools 网址收藏与导航插件 - 分类与拖拽排序、废纸篓、站内搜索占位符、指定浏览器打开",
+      "keywords": [
+        "bookmarks",
+        "farfarfun",
+        "plugin",
+        "productivity",
+        "utools",
+        "vue3"
+      ],
+      "homepage": null
+    },
+    "utools-funotp": {
+      "description": "uTools 两步验证码插件 - 本地管理多个 TOTP 账号，离线生成 Google Authenticator 兼容的动态验证码",
+      "keywords": [],
+      "homepage": null
+    },
+    "video-manage": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     }
   },
-  "default_keywords": ["python", "farfarfun"],
+  "default_keywords": [
+    "python",
+    "farfarfun"
+  ],
   "settings": {
-    "rate_limit_delay": 1,
-    "max_retries": 3,
-    "log_level": "INFO"
+    "api_delay_seconds": 1,
+    "max_retries": 3
   }
 }

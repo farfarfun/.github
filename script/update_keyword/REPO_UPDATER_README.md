@@ -73,36 +73,58 @@ mkdir -p logs
   - `max_retries`: 最大重试次数
   - `log_level`: 日志级别
 
+## ⚠️ 先读这段
+
+这套脚本会一次性改 140+ 个仓库的元信息，历史上出过两次事故，现在的默认行为都是针对它们收紧过的：
+
+| 出过的问题 | 现在的行为 |
+| --- | --- |
+| `repo_config.json` 存的是批量生成的模板文案，跑一遍把手工写好的准确描述覆盖回错的 | 配置改为由 `build_repo_config.py` **从线上真实状态生成**。改完线上要重新生成，否则下次跑会覆盖回旧值 |
+| `PUT /topics` 是整体替换，会抹掉线上手工加的 topics | **默认并集追加**，只有显式 `--replace-topics` 才整体替换 |
+| 不加参数直接就写 GitHub | **默认只打印**将要做的改动，必须显式 `--apply` 才写入 |
+
+### 重新生成配置基线
+
+```bash
+python build_repo_config.py     # 从 GitHub 线上状态重建 repo_config.json
+```
+
 ## 🛠️ 使用方法
 
-### 1. 批量更新所有仓库
+### 1. 看看会改什么（默认，不写入）
 
 ```bash
 python update_repo_keywords.py
 ```
 
-### 2. 预览模式（不实际执行更改）
+### 2. 确认无误后真正写入
+
+```bash
+python update_repo_keywords.py --apply
+```
+
+### 3. 只对比配置与线上现状
 
 ```bash
 python update_repo_keywords.py --dry-run
 ```
 
-### 3. 更新指定仓库
+### 4. 更新指定仓库
 
 ```bash
-python update_repo_keywords.py --repo funutil
+python update_repo_keywords.py --repo funutil --apply
 ```
 
-### 4. 指定组织
+### 5. 整体替换 topics（会抹掉线上手工加的，慎用）
+
+```bash
+python update_repo_keywords.py --replace-topics --apply
+```
+
+### 6. 指定组织
 
 ```bash
 python update_repo_keywords.py --org your-org-name
-```
-
-### 5. 组合使用
-
-```bash
-python update_repo_keywords.py --org farfarfun --repo fundata --dry-run
 ```
 
 ## 📊 输出示例

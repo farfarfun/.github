@@ -1,3 +1,15 @@
+"""生成组织主页 README 的旧脚本。
+
+⚠️ `profile/README.md` 现在是**手工维护**的（2026-08-26 按 nlt* 工具链 / fun* 领域库
+两条线重写，44 个链接逐个验证过）。本脚本的产出基于下面那份写死的 9 个包的列表，
+信息量远低于手工版本。
+
+以前这个文件在模块末尾直接调用 generate()，`python generate.py` 一跑就把手工版本
+覆盖掉。现在默认只写 profile/README.generated.md 供对比，要覆盖正式主页必须显式
+传 --force。
+"""
+
+import argparse
 import os
 
 import pandas as pd
@@ -36,15 +48,21 @@ class GenerateReadMe:
         self.org_name = org_name
         self.text = data
 
-    def generate(self):
+    def generate(self, force=False):
         self.user_stat()
         self.language_of_code()
         self.organize_view_stat()
         self.generate_package()
-        current_file_path = os.path.abspath(__file__)
-        readme_path = os.path.join(os.path.dirname(current_file_path), "profile/README.md")
+        here = os.path.dirname(os.path.abspath(__file__))
+        name = "profile/README.md" if force else "profile/README.generated.md"
+        readme_path = os.path.join(here, name)
         with open(readme_path, "w", encoding="utf-8") as f:
             f.write(self.text)
+        if force:
+            print(f"已覆盖手工维护的组织主页: {readme_path}")
+        else:
+            print(f"已写入 {readme_path}（未动 profile/README.md）")
+            print("确认要用生成内容覆盖手工维护的主页，再加 --force 重跑。")
 
     def generate_package(self):
         rows = [
@@ -105,4 +123,11 @@ class GenerateReadMe:
         self.text += """![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=farfun&theme=dracula)"""
 
 
-GenerateReadMe(org_name="farfarfun").generate()
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="用生成内容覆盖手工维护的 profile/README.md（默认只写 README.generated.md）",
+    )
+    GenerateReadMe(org_name="farfarfun").generate(force=parser.parse_args().force)
