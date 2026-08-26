@@ -205,6 +205,22 @@
       ],
       "homepage": null
     },
+    "funbuild": {
+      "description": "Python / 混合仓库的构建与发布工具 - 自动匹配 UV、Poetry、npm 等构建策略，串联版本递增、发布与 Git 标签",
+      "keywords": [
+        "build",
+        "packaging",
+        "python",
+        "cli",
+        "poetry",
+        "pypi",
+        "release-automation",
+        "uv",
+        "versioning",
+        "farfarfun"
+      ],
+      "homepage": "https://pypi.org/project/funbuild/"
+    },
     "funchallenge": {
       "description": "",
       "keywords": [],
@@ -212,6 +228,11 @@
     },
     "funchats": {
       "description": "nothing",
+      "keywords": [],
+      "homepage": null
+    },
+    "funclash": {
+      "description": "",
       "keywords": [],
       "homepage": null
     },
@@ -334,6 +355,20 @@
         "sqlalchemy"
       ],
       "homepage": "https://pypi.org/project/fundb-tau/"
+    },
+    "fundeploy": {
+      "description": "面向本机开发与服务管理的 Bash 脚本集 - 统一 fundeploy 命令入口，一键安装开发环境、部署常驻服务与 AI 工具，支持 APT/Homebrew 安装",
+      "keywords": [
+        "bash",
+        "cli",
+        "devops",
+        "farfarfun",
+        "homebrew",
+        "installer",
+        "self-hosted",
+        "shell"
+      ],
+      "homepage": "https://farfarfun.github.io/fundeploy/"
     },
     "fundev": {
       "description": "个人开发环境配置仓库：通过 git submodule 聚合 farfarfun 全部项目到 hubs/ 目录，并附 code-server、Airflow 部署脚本与 VSCode 配置，非 Python 库",
@@ -468,6 +503,20 @@
       ],
       "homepage": null
     },
+    "funfile": {
+      "description": "实用的 Python 文件工具库 - 带进度条的 tar/zip 压缩解压（阻止路径穿越）、线程安全的后台写入、pickle 序列化封装",
+      "keywords": [
+        "farfarfun",
+        "file-operations",
+        "filesystem",
+        "io",
+        "python",
+        "compression",
+        "progress-bar",
+        "tar"
+      ],
+      "homepage": "https://pypi.org/project/funfile/"
+    },
     "funflix": {
       "description": "影视资源分享文本的结构化采集、解析与网盘链接校验 - 采集/抽取/校验分层幂等，可单独重跑",
       "keywords": [
@@ -570,6 +619,20 @@
         "sudoku"
       ],
       "homepage": "https://pypi.org/project/fungame-sudoku/"
+    },
+    "funget": {
+      "description": "轻量的 Python HTTP 文件传输库 - Range 并发下载、断点续传、PUT/multipart 上传，附带 nltget 命令行",
+      "keywords": [
+        "download",
+        "farfarfun",
+        "http",
+        "python",
+        "cli",
+        "concurrency",
+        "file-transfer",
+        "resume-download"
+      ],
+      "homepage": "https://pypi.org/project/funget/"
     },
     "fungod": {
       "description": "周易六十四卦占卜工具：模拟大衍筮法摇卦起爻，内置全部 64 卦的卦辞与卦象解读数据",
@@ -764,7 +827,7 @@
         "model-context-protocol",
         "python"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funmcp/"
     },
     "funmd": {
       "description": "Markdown 表格与 pandas DataFrame 互转的小工具，提供 to_pandas / from_pandas 两个函数，兼容 | 和 + 两种表格分隔风格",
@@ -1107,6 +1170,21 @@
       ],
       "homepage": null
     },
+    "funsecret": {
+      "description": "本地优先的密钥管理工具 - 按多级分类存取 token/密码，SQLite 本地库配合 Fernet 加密，可与 MySQL 等数据库双向同步",
+      "keywords": [
+        "secret",
+        "encryption",
+        "farfarfun",
+        "python",
+        "security",
+        "cli",
+        "fernet",
+        "secrets-management",
+        "sqlite"
+      ],
+      "homepage": "https://pypi.org/project/funsecret/"
+    },
     "funseries": {
       "description": "实验性算法练习包（PyPI 包名 noteseries，非时间序列库）：当前仅实现素数判定，含试除法递归判断与 Miller-Rabin 概率素性检验",
       "keywords": [
@@ -1409,7 +1487,7 @@
       "homepage": "https://pypi.org/project/funwork/"
     },
     "homebrew-tap": {
-      "description": "farfarfun 的 Homebrew Tap - 目前提供 nltdeploy 的 formula",
+      "description": "farfarfun 的 Homebrew Tap - 目前提供 fundeploy 的 formula",
       "keywords": [
         "farfarfun",
         "formula",
@@ -1417,7 +1495,7 @@
         "homebrew-tap",
         "macos",
         "ruby",
-        "nltdeploy"
+        "fundeploy"
       ],
       "homepage": null
     },
@@ -1425,22 +1503,6 @@
       "description": "",
       "keywords": [],
       "homepage": null
-    },
-    "funbuild": {
-      "description": "Python / 混合仓库的构建与发布工具 - 自动匹配 UV、Poetry、npm 等构建策略，串联版本递增、发布与 Git 标签",
-      "keywords": [
-        "build",
-        "packaging",
-        "python",
-        "cli",
-        "poetry",
-        "pypi",
-        "release-automation",
-        "uv",
-        "versioning",
-        "farfarfun"
-      ],
-      "homepage": "https://pypi.org/project/funbuild/"
     },
     "nltcache": {
       "description": "轻量的 Python 函数缓存装饰器库 - 内存 / 磁盘 / Pickle 多种缓存策略，原生支持 async",
@@ -1455,53 +1517,6 @@
       ],
       "homepage": "https://pypi.org/project/nltcache/"
     },
-    "nltclash": {
-      "description": "",
-      "keywords": [],
-      "homepage": null
-    },
-    "nltdeploy": {
-      "description": "面向本机开发与服务管理的 Bash 脚本集 - 统一 nltdeploy 命令入口，一键安装开发环境、部署常驻服务与 AI 工具，支持 APT/Homebrew 安装",
-      "keywords": [
-        "bash",
-        "cli",
-        "devops",
-        "farfarfun",
-        "homebrew",
-        "installer",
-        "self-hosted",
-        "shell"
-      ],
-      "homepage": "https://farfarfun.github.io/nltdeploy/"
-    },
-    "funfile": {
-      "description": "实用的 Python 文件工具库 - 带进度条的 tar/zip 压缩解压（阻止路径穿越）、线程安全的后台写入、pickle 序列化封装",
-      "keywords": [
-        "farfarfun",
-        "file-operations",
-        "filesystem",
-        "io",
-        "python",
-        "compression",
-        "progress-bar",
-        "tar"
-      ],
-      "homepage": "https://pypi.org/project/funfile/"
-    },
-    "funget": {
-      "description": "轻量的 Python HTTP 文件传输库 - Range 并发下载、断点续传、PUT/multipart 上传，附带 funget 命令行",
-      "keywords": [
-        "download",
-        "farfarfun",
-        "http",
-        "python",
-        "cli",
-        "concurrency",
-        "file-transfer",
-        "resume-download"
-      ],
-      "homepage": "https://pypi.org/project/funget/"
-    },
     "nltlog": {
       "description": "基于 Loguru 的轻量日志库 - 按名称拆分日志文件，内置按日轮转、gzip 压缩与保留策略",
       "keywords": [
@@ -1512,21 +1527,6 @@
         "python"
       ],
       "homepage": "https://pypi.org/project/nltlog/"
-    },
-    "funsecret": {
-      "description": "本地优先的密钥管理工具 - 按多级分类存取 token/密码，SQLite 本地库配合 Fernet 加密，可与 MySQL 等数据库双向同步",
-      "keywords": [
-        "secret",
-        "encryption",
-        "farfarfun",
-        "python",
-        "security",
-        "cli",
-        "fernet",
-        "secrets-management",
-        "sqlite"
-      ],
-      "homepage": "https://pypi.org/project/funsecret/"
     },
     "nltspec": {
       "description": "任务契约规范库（PyPI: nltspec）— 基于 dataclass 的泛型 BaseRequest/BaseResponse/BaseTask 抽象，统一任务状态流转、事件记录与字典序列化，零第三方依赖",
