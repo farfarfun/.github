@@ -39,12 +39,20 @@ class GitHubRepoUpdater:
         org_name: str = "farfarfun",
         token: Optional[str] = None,
         config_file: str = "repo_config.json",
+        dry_run: bool = True,
+        replace_topics: bool = False,
     ):
+        # 默认 dry-run：这套脚本会批量改 100+ 个仓库的元信息，误跑一次的代价很高，
+        # 必须显式 --apply 才真正写入。
+        self.dry_run = dry_run
+        self.replace_topics = replace_topics
         self.config_file = config_file
         self.config = self.load_config()
 
         self.org_name = org_name or self.config.get("organization", "farfarfun")
-        self.token = token or read_secret("github", "token")
+        self.token = (
+            token or os.environ.get("GITHUB_TOKEN") or read_secret("github", "token")
+        )
         self.base_url = "https://api.github.com"
         self.session = requests.Session()
 
@@ -124,12 +132,34 @@ class GitHubRepoUpdater:
             )
             return None
 
-    def update_repo_topics(self, repo_name: str, topics: List[str]) -> bool:
-        """更新仓库的topics(关键词)"""
+    def update_repo_topics(
+        self,
+        repo_name: str,
+        topics: List[str],
+        current_topics: Optional[List[str]] = None,
+        replace: bool = False,
+    ) -> bool:
+        """更新仓库的topics(关键词)。
+
+        默认是**并集追加**。GitHub 的 `PUT /topics` 语义是整体替换，直接拿配置里的
+        列表去调，会把线上手工补的 topics 全部抹掉——这正是这套脚本以前会撤销修复的原因
+        之一。只有显式传 replace=True 才走整体替换。
+        """
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}/topics"
 
         # GitHub API要求topics必须是小写，且不能包含空格
         cleaned_topics = [topic.lower().replace(" ", "-") for topic in topics]
+
+        if not replace:
+            merged = [t.lower().replace(" ", "-") for t in (current_topics or [])]
+            for topic in cleaned_topics:
+                if topic not in merged:
+                    merged.append(topic)
+            cleaned_topics = merged
+
+        if self.dry_run:
+            logger.info(f"[dry-run] 将把 {repo_name} 的 topics 设为: {cleaned_topics}")
+            return True
 
         data = {"names": cleaned_topics}
 
@@ -152,9 +182,13 @@ class GitHubRepoUpdater:
         """更新仓库描述和主页"""
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}"
 
-        data = {"description": description}
-        if homepage:
-            data["homepage"] = homepage
+        # homepage 传 None 表示「清空」，要显式发空串；只用 `if homepage:` 会导致
+        # 清空请求被静默丢掉，于是每次跑都判定为「有差异」但永远改不掉。
+        data = {"description": description, "homepage": homepage or ""}
+
+        if self.dry_run:
+            logger.info(f"[dry-run] 将把 {repo_name} 的描述改为: {description!r}")
+            return True
 
         response = self.session.patch(url, json=data)
 
@@ -210,12 +244,24 @@ class GitHubRepoUpdater:
             current_topics = repo_info.get("topics", [])
             new_topics = [topic.lower().replace(" ", "-") for topic in config.keywords]
 
-            if set(current_topics) != set(new_topics):
+            if self.replace_topics:
+                needs_update = set(current_topics) != set(new_topics)
+            else:
+                # 追加模式下，配置里的 topics 已经全在线上就无需动作；
+                # 线上多出来的（手工加的）不算差异，不能因此触发覆盖。
+                needs_update = not set(new_topics) <= set(current_topics)
+
+            if needs_update:
                 logger.info(f"Updating topics for {repo_name}")
                 logger.info(f"  Current: {current_topics}")
                 logger.info(f"  New: {new_topics}")
 
-                if not self.update_repo_topics(repo_name, config.keywords):
+                if not self.update_repo_topics(
+                    repo_name,
+                    config.keywords,
+                    current_topics=current_topics,
+                    replace=self.replace_topics,
+                ):
                     success = False
                 else:
                     changes_made = True
@@ -304,7 +350,17 @@ def main():
     )
     parser.add_argument("--org", default="farfarfun", help="GitHub organization name")
     parser.add_argument(
-        "--dry-run", action="store_true", help="Preview changes without applying them"
+        "--dry-run", action="store_true", help="只打印配置与线上现状的对比，不做任何写入"
+    )
+    parser.add_argument(
+        "--apply",
+        action="store_true",
+        help="真正写入 GitHub。不加这个参数一律只打印将要做的改动（默认安全）",
+    )
+    parser.add_argument(
+        "--replace-topics",
+        action="store_true",
+        help="用配置里的 topics 整体替换线上（会抹掉线上手工加的）。默认是并集追加",
     )
     parser.add_argument("--repo", help="Update specific repository only")
     parser.add_argument(
@@ -345,7 +401,13 @@ def main():
             update_topics = False
 
     try:
-        updater = GitHubRepoUpdater(org_name=args.org)
+        updater = GitHubRepoUpdater(
+            org_name=args.org,
+            dry_run=not args.apply,
+            replace_topics=args.replace_topics,
+        )
+        if not args.apply:
+            logger.warning("未加 --apply，本次只打印将要做的改动，不会写入 GitHub")
 
         if args.dry_run:
             updater.dry_run()
