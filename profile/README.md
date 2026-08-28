@@ -115,7 +115,7 @@
 - **[funutil](https://github.com/farfarfun/funutil)** - 常用工具函数与实用程序
 - **[funshell](https://github.com/farfarfun/funshell)** - Shell 流程封装
 - **[funinstall](https://github.com/farfarfun/funinstall)** - 开发工具一键安装
-- **[funtask](https://github.com/farfarfun/funtask)** - 任务创建、跟踪与管理
+- **[fartask](https://github.com/farfarfun/fartask)** - 任务创建、跟踪与管理
 
 ## 🚀 快速开始
 
