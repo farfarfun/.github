@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # 更新 farfarfun 组织下仓库的 description / homepage / topics。
 # 修复两类问题：
-#   1. 近期活跃仓库缺少描述与 topics（funflix / funflix-web / nltcache / nltlog / utools-*）
-#   2. nlt* 系列仓库的 homepage 仍指向重命名前的旧 PyPI 包（funbuild / funget / funfile / funsecret）
+#   1. 近期活跃仓库缺少描述与 topics（funflix / funflix-web / farcache / farlog / utools-*）
+#   2. far*/fun* 系列仓库的 homepage 仍指向重命名前的旧 PyPI 包（funbuild / funget / funfile / funsecret）
 #
 # 用法: bash script/update_repo_meta.sh
 set -euo pipefail
@@ -35,15 +35,15 @@ meta funflix-web \
   "https://pypi.org/project/funflix-web/"
 topics funflix-web vue3 fastapi python web-ui farfarfun funflix
 
-meta nltcache \
+meta farcache \
   "轻量的 Python 函数缓存装饰器库 - 内存 / 磁盘 / Pickle 多种缓存策略，原生支持 async" \
-  "https://pypi.org/project/nltcache/"
-topics nltcache python cache decorator memoization lru-cache async farfarfun
+  "https://pypi.org/project/farcache/"
+topics farcache python cache decorator memoization lru-cache async farfarfun
 
-meta nltlog \
+meta farlog \
   "基于 Loguru 的轻量日志库 - 按名称拆分日志文件，内置按日轮转、gzip 压缩与保留策略" \
-  "https://pypi.org/project/nltlog/"
-topics nltlog python logging loguru log-rotation farfarfun
+  "https://pypi.org/project/farlog/"
+topics farlog python logging loguru log-rotation farfarfun
 
 meta utools-funchat \
   "uTools AI 聊天插件 - 多角色 AI 好友、内置角色市场、话题回溯与一键导出，本地优先" \
