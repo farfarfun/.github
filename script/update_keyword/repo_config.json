@@ -68,7 +68,10 @@
     },
     "demo-repository": {
       "description": "A code repository designed to show the best GitHub has to offer.",
-      "keywords": [],
+      "keywords": [
+        "demo",
+        "github"
+      ],
       "homepage": null
     },
     "discussions": {
@@ -152,8 +155,11 @@
       "homepage": null
     },
     "funaction": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funagent": {
@@ -273,18 +279,31 @@
       "homepage": "https://pypi.org/project/funbuild/"
     },
     "funchallenge": {
-      "description": "",
-      "keywords": [],
+      "description": "已发布 PyPI 但仓库内无可用源码（占位发布）",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funchats": {
-      "description": "nothing",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funclash": {
-      "description": "",
-      "keywords": [],
+      "description": "参考 FlClash 架构重新实现的开源代理客户端（Flutter + Riverpod + mihomo 内核），非 fork，保持 MIT 协议",
+      "keywords": [
+        "clash",
+        "flutter",
+        "mihomo",
+        "proxy",
+        "riverpod",
+        "farfarfun"
+      ],
       "homepage": null
     },
     "funcode": {
@@ -365,8 +384,11 @@
       "homepage": "https://pypi.org/project/funcron/"
     },
     "fundaily": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "fundata": {
@@ -435,8 +457,11 @@
       "homepage": null
     },
     "fundev-api": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "fundev-doc": {
@@ -609,13 +634,19 @@
       "homepage": "https://pypi.org/project/funfluid/"
     },
     "funfluid-backend": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funfluid-frontend": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funflutter": {
@@ -775,8 +806,11 @@
       "homepage": "https://pypi.org/project/funjetbra/"
     },
     "funjson": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funkaggle": {
@@ -837,8 +871,11 @@
       "homepage": "https://pypi.org/project/funlbm/"
     },
     "funllmchat": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容（已预留 PyPI 包名 funllmchat）",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funlogin": {
@@ -1099,18 +1136,27 @@
       "homepage": "https://pypi.org/project/funquery/"
     },
     "funquiz": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funquize": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funrank": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funread": {
@@ -1153,8 +1199,11 @@
       "homepage": null
     },
     "funread-rss": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容（已预留 PyPI 包名 funread-rss）",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funrec": {
@@ -1261,8 +1310,11 @@
       "homepage": "https://pypi.org/project/funserver/"
     },
     "funservice": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funshell": {
@@ -1346,8 +1398,11 @@
       "homepage": "https://pypi.org/project/funtecplot/"
     },
     "funtemp": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funtianchi532157": {
@@ -1392,8 +1447,11 @@
       "homepage": "https://pypi.org/project/farfuntool/"
     },
     "funtorch": {
-      "description": "",
-      "keywords": [],
+      "description": "已发布 PyPI 但仓库内无可用源码（占位发布）",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funtts": {
@@ -1409,8 +1467,11 @@
       "homepage": "https://pypi.org/project/funtts-plus/"
     },
     "funtts-indextts2": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funtypecho": {
@@ -1507,8 +1568,11 @@
       "homepage": "https://pypi.org/project/funwall/"
     },
     "funwater-manage": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "funwork": {
@@ -1524,8 +1588,14 @@
       "homepage": "https://pypi.org/project/funwork/"
     },
     "funworker": {
-      "description": "",
-      "keywords": [],
+      "description": "轻量级线程流水线框架：生产者 -> 队列 -> 处理单元线程池 -> 队列 -> 消费者，各阶段通过队列解耦",
+      "keywords": [
+        "concurrency",
+        "pipeline",
+        "python",
+        "threading",
+        "farfarfun"
+      ],
       "homepage": null
     },
     "homebrew-tap": {
@@ -1573,13 +1643,19 @@
       "homepage": null
     },
     "paperclip-workspace": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "readable-python": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     },
     "server-new-api": {
@@ -1610,6 +1686,11 @@
       ],
       "homepage": null
     },
+    "side-hustle": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
     "skills-deploy-rule": {
       "description": "Agent Skill 仓库 — 收录 authoring-background-service-scripts 技能，规范用 gum 编写管理后台常驻服务的 Shell CLI（PID 文件 + 端口存活双重检测）",
       "keywords": [
@@ -1626,7 +1707,12 @@
     },
     "todo-list": {
       "description": "组织级代码优化待办清单 - 按仓库汇总待改进项，供分工认领",
-      "keywords": [],
+      "keywords": [
+        "audit",
+        "farfarfun",
+        "github-actions",
+        "maintenance"
+      ],
       "homepage": null
     },
     "utools-funchat": {
@@ -1659,12 +1745,22 @@
     },
     "utools-funotp": {
       "description": "uTools 两步验证码插件 - 本地管理多个 TOTP 账号，离线生成 Google Authenticator 兼容的动态验证码",
-      "keywords": [],
+      "keywords": [
+        "2fa",
+        "authenticator",
+        "offline",
+        "totp",
+        "utools",
+        "farfarfun"
+      ],
       "homepage": null
     },
     "video-manage": {
-      "description": "",
-      "keywords": [],
+      "description": "占位仓库，尚无实际内容",
+      "keywords": [
+        "farfarfun",
+        "placeholder"
+      ],
       "homepage": null
     }
   },
