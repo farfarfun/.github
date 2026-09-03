@@ -10,12 +10,12 @@ import types
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-# 打桩掉 funsecret / funutil，避免为了跑测试去装一堆依赖
+# 打桩掉 funsecret / farlog，避免为了跑测试去装一堆依赖
 fake_secret = types.ModuleType("funsecret")
 fake_secret.read_secret = lambda *a, **k: "dummy-token"
 sys.modules["funsecret"] = fake_secret
 
-fake_util = types.ModuleType("funutil")
+fake_log = types.ModuleType("farlog")
 import logging
 
 logging.basicConfig(level=logging.CRITICAL)
@@ -27,8 +27,8 @@ def _get_logger(name):
     return lg
 
 
-fake_util.getLogger = _get_logger
-sys.modules["funutil"] = fake_util
+fake_log.getLogger = _get_logger
+sys.modules["farlog"] = fake_log
 
 import update_repo_keywords as m  # noqa: E402
 

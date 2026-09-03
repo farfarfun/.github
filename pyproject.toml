@@ -1,0 +1,15 @@
+[project]
+name = "github-meta-scripts"
+version = "0.1.0"
+description = "farfarfun 组织 .github 仓库内部脚本依赖（仓库元信息同步、关键词更新）"
+readme = "script/update_keyword/REPO_UPDATER_README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.25.0",
+    "pandas>=1.3.0",
+    "funsecret>=1.4.84",
+    "farlog>=1.0.0",
+]
+
+[tool.uv]
+package = false

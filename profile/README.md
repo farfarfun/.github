@@ -41,7 +41,7 @@
 | [funfile](https://github.com/farfarfun/funfile) | 文件、归档与序列化实用工具 | [![PyPI](https://img.shields.io/pypi/v/funfile?style=flat-square)](https://pypi.org/project/funfile/) |
 | [funsecret](https://github.com/farfarfun/funsecret) | 本地密钥管理与可选的 MySQL 同步 | [![PyPI](https://img.shields.io/pypi/v/funsecret?style=flat-square)](https://pypi.org/project/funsecret/) |
 | [farlog](https://github.com/farfarfun/farlog) | 基于 Loguru 的日志库：按名称拆分文件，按日轮转与压缩 | [![PyPI](https://img.shields.io/pypi/v/farlog?style=flat-square)](https://pypi.org/project/farlog/) |
-| [fundeploy](https://github.com/farfarfun/fundeploy) | 快速部署环境的脚本集 | [![PyPI](https://img.shields.io/pypi/v/nltdeploy?style=flat-square)](https://pypi.org/project/nltdeploy/) |
+| [fundeploy](https://github.com/farfarfun/fundeploy) | 快速部署环境的脚本集 | - |
 
 ---
 

@@ -1,7 +1,14 @@
 .idea
+.vscode
 logs
 __pycache__/
 *.py[cod]
+*.db
+*.rar
+dist/
+.venv/
+.run/
+node_modules/
 profile/README.generated.md
 
 # ---- AI 编码助手 ----

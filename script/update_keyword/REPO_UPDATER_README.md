@@ -16,7 +16,7 @@
 ### 1. 安装依赖
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 ### 2. 设置GitHub Token

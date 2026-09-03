@@ -11,12 +11,11 @@ GitHub仓库关键词批量更新脚本
 import os
 import json
 import time
-from typing import Dict, List, Optional
 import requests
 from dataclasses import dataclass
 
 from funsecret import read_secret
-from funutil import getLogger
+from farlog import getLogger
 
 logger = getLogger("farfarfun")
 
@@ -27,8 +26,8 @@ class RepoConfig:
 
     name: str
     description: str
-    keywords: List[str]
-    homepage: Optional[str] = None
+    keywords: list[str]
+    homepage: str | None = None
 
 
 class GitHubRepoUpdater:
@@ -37,7 +36,7 @@ class GitHubRepoUpdater:
     def __init__(
         self,
         org_name: str = "farfarfun",
-        token: Optional[str] = None,
+        token: str | None = None,
         config_file: str = "repo_config.json",
         dry_run: bool = True,
         replace_topics: bool = False,
@@ -69,18 +68,18 @@ class GitHubRepoUpdater:
             }
         )
 
-    def load_config(self) -> Dict:
+    def load_config(self) -> dict:
         """加载配置文件"""
-        if os.path.exists(self.config_file):
-            try:
-                with open(self.config_file, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception as e:
-                print(f"Warning: Failed to load config file {self.config_file}: {e}")
-                return {}
-        return {}
+        if not os.path.exists(self.config_file):
+            return {}
+        try:
+            with open(self.config_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (OSError, json.JSONDecodeError) as e:
+            logger.error(f"配置文件 {self.config_file} 读取/解析失败: {e}")
+            raise RuntimeError(f"无法加载配置文件 {self.config_file}") from e
 
-    def get_repo_configs(self) -> Dict[str, RepoConfig]:
+    def get_repo_configs(self) -> dict[str, RepoConfig]:
         """获取仓库配置"""
         configs = {}
 
@@ -95,7 +94,7 @@ class GitHubRepoUpdater:
                 )
         return configs
 
-    def get_org_repos(self) -> List[str]:
+    def get_org_repos(self) -> list[str]:
         """获取组织下的所有仓库"""
         url = f"{self.base_url}/orgs/{self.org_name}/repos"
         repos = []
@@ -119,7 +118,7 @@ class GitHubRepoUpdater:
         logger.info(f"Found {len(repos)} repositories in {self.org_name} organization")
         return repos
 
-    def get_repo_info(self, repo_name: str) -> Optional[Dict]:
+    def get_repo_info(self, repo_name: str) -> dict | None:
         """获取仓库信息"""
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}"
         response = self.session.get(url)
@@ -135,8 +134,8 @@ class GitHubRepoUpdater:
     def update_repo_topics(
         self,
         repo_name: str,
-        topics: List[str],
-        current_topics: Optional[List[str]] = None,
+        topics: list[str],
+        current_topics: list[str] | None = None,
         replace: bool = False,
     ) -> bool:
         """更新仓库的topics(关键词)。
@@ -177,7 +176,7 @@ class GitHubRepoUpdater:
             return False
 
     def update_repo_description(
-        self, repo_name: str, description: str, homepage: Optional[str] = None
+        self, repo_name: str, description: str, homepage: str | None = None
     ) -> bool:
         """更新仓库描述和主页"""
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}"
@@ -278,7 +277,7 @@ class GitHubRepoUpdater:
 
     def update_all_repos(
         self, update_description: bool = True, update_topics: bool = True
-    ) -> Dict[str, bool]:
+    ) -> dict[str, bool]:
         """批量更新所有配置的仓库"""
         configs = self.get_repo_configs()
         org_repos = self.get_org_repos()

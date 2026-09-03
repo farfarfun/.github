@@ -1,4 +1,0 @@
-requests>=2.25.0
-pandas>=1.3.0
-funsecret>=1.4.84
-funutil>=1.0.62
