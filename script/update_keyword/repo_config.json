@@ -66,6 +66,11 @@
       ],
       "homepage": null
     },
+    "daily-action": {
+      "description": "farfarfun 组织仓库自动化：定时将公开仓库镜像同步到 Gitee",
+      "keywords": [],
+      "homepage": null
+    },
     "demo-repository": {
       "description": "A code repository designed to show the best GitHub has to offer.",
       "keywords": [
@@ -139,7 +144,7 @@
         "slurm",
         "sqlalchemy"
       ],
-      "homepage": "https://pypi.org/project/fartask/"
+      "homepage": null
     },
     "funSSR": {
       "description": "科学上网工具备份仓库：收录 ShadowsocksR、V2Ray(ws+tls)、Trojan 的一键服务端安装脚本，以及 Android、Windows、macOS 各平台客户端安装包。",
@@ -238,7 +243,7 @@
       "homepage": "https://pub.dev/packages/noteapp"
     },
     "funbattle": {
-      "description": "数据竞赛代码骨架（源码包名 notebattle）：仅搭建了 DataFountain 557 赛题的 model/utils/evalution 目录结构，各文件均为空，尚无实现代码",
+      "description": "数据竞赛代码骨架：仅搭建了 DataFountain 557 赛题的 model/utils/evalution 目录结构，各文件均为空，尚无实现代码",
       "keywords": [
         "data-competition",
         "datafountain",
@@ -290,7 +295,11 @@
       "description": "占位仓库，尚无实际内容",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "pypi-package",
+        "python",
+        "stub",
+        "package-reservation"
       ],
       "homepage": null
     },
@@ -441,7 +450,7 @@
         "self-hosted",
         "shell"
       ],
-      "homepage": "https://farfarfun.github.io/fundeploy/"
+      "homepage": null
     },
     "fundev": {
       "description": "个人开发环境配置仓库：通过 git submodule 聚合 farfarfun 全部项目到 hubs/ 目录，并附 code-server、Airflow 部署脚本与 VSCode 配置，非 Python 库",
@@ -729,7 +738,7 @@
       "homepage": null
     },
     "fungoogle": {
-      "description": "Google Colab 环境初始化脚本：挂载 Google Drive、建立工作区目录、安装 notetool 与 kaggle 等依赖并配置 bashrc",
+      "description": "Google Colab 环境初始化脚本：挂载 Google Drive、建立工作区目录、安装 funtool 与 kaggle 等依赖并配置 bashrc",
       "keywords": [
         "farfarfun",
         "python",
@@ -794,7 +803,7 @@
       "homepage": "https://pypi.org/project/funinstall/"
     },
     "funjetbra": {
-      "description": "分发 jetbra（JetBrains 系列 IDE 授权辅助工具，参见 3.jetbra.in）压缩包的 Python 包，libs/ 内置 jetbra 工具档；目前仅有打包骨架，core 模块尚未实现。",
+      "description": "占位包，无实际功能（farfarfun 组织内 PyPI 包名占位）",
       "keywords": [
         "farfarfun",
         "ide",
@@ -1022,7 +1031,7 @@
       "homepage": null
     },
     "funnotice": {
-      "description": "notenotice 包占位仓库：已在 PyPI 发布同名包，但源码目录 notenotice/ 为空文件，无任何通知功能实现",
+      "description": "funnotice 包占位仓库：源码目录 funnotice/ 为空文件，尚未发布到 PyPI，无任何通知功能实现",
       "keywords": [
         "farfarfun",
         "python",
@@ -1045,7 +1054,7 @@
       "homepage": "https://pypi.org/project/funpaper/"
     },
     "funplay": {
-      "description": "天池数据竞赛脚手架（源码包名 noteplay）：目前仅含 531803 赛题的训练集/测试集下载任务，使用 notedrive 的 PyCurl 下载器",
+      "description": "天池数据竞赛脚手架：目前仅含 531803 赛题的训练集/测试集下载任务，使用 notedrive 的 PyCurl 下载器",
       "keywords": [
         "farfarfun",
         "python",
@@ -1082,7 +1091,7 @@
       "homepage": null
     },
     "funproxy": {
-      "description": "免费代理池（源码包名 noteproxy）：从十余个免费代理站点抓取校验 IP 并存入 SQLite，提供按可用性排序取用与失效自动切换的 requests 会话集成",
+      "description": "免费代理池：从十余个免费代理站点抓取校验 IP 并存入 SQLite，提供按可用性排序取用与失效自动切换的 requests 会话集成",
       "keywords": [
         "farfarfun",
         "proxy",
@@ -1093,6 +1102,11 @@
         "requests",
         "sqlite"
       ],
+      "homepage": null
+    },
+    "funpub": {
+      "description": "",
+      "keywords": [],
       "homepage": null
     },
     "funpush": {
@@ -1286,7 +1300,7 @@
       "homepage": "https://pypi.org/project/funsecret/"
     },
     "funseries": {
-      "description": "实验性算法练习包（PyPI 包名 noteseries，非时间序列库）：当前仅实现素数判定，含试除法递归判断与 Miller-Rabin 概率素性检验",
+      "description": "实验性算法练习包（非时间序列库）：当前仅实现素数判定，含试除法递归判断与 Miller-Rabin 概率素性检验",
       "keywords": [
         "farfarfun",
         "python",
@@ -1344,7 +1358,7 @@
       "homepage": "https://pypi.org/project/funsketch/"
     },
     "funstock": {
-      "description": "A股行情数据工具包（源码包名 notestock）：基于 tushare/baostock 抓取日线与 1/5/15/30/60 分钟行情并落地 SQLite，附 pyecharts 日K线绘图",
+      "description": "A股行情数据工具包：基于 tushare/baostock 抓取日线与 1/5/15/30/60 分钟行情并落地 SQLite，附 pyecharts 日K线绘图",
       "keywords": [
         "farfarfun",
         "market-data",
@@ -1420,7 +1434,7 @@
       "homepage": "https://tianchi.aliyun.com/competition/entrance/532157"
     },
     "funtiktok": {
-      "description": "短视频资源聚合服务（源码包名 notetiktok）：管理视频/来源/作者/关注/收藏数据表并对标题正文做字段级加解密，以 FastAPI 暴露资源增查接口与定时抓取任务",
+      "description": "短视频资源聚合服务：管理视频/来源/作者/关注/收藏数据表并对标题正文做字段级加解密，以 FastAPI 暴露资源增查接口与定时抓取任务",
       "keywords": [
         "crawler",
         "farfarfun",
@@ -1475,7 +1489,7 @@
       "homepage": null
     },
     "funtypecho": {
-      "description": "Typecho 博客 XML-RPC 客户端（源码包名 notetypecho）：封装 metaWeblog/wp 接口，支持文章、页面、分类、附件、评论的增删改查与批量发布",
+      "description": "Typecho 博客 XML-RPC 客户端：封装 metaWeblog/wp 接口，支持文章、页面、分类、附件、评论的增删改查与批量发布",
       "keywords": [
         "blog",
         "farfarfun",
