@@ -81,7 +81,7 @@
 - **[funai](https://github.com/farfarfun/funai)** - AI 模型集成与机器学习工具
 - **[funkeras](https://github.com/farfarfun/funkeras)** - Keras 深度学习增强功能与实用工具
 - **[funmodel](https://github.com/farfarfun/funmodel)** - 机器学习模型训练、部署与管理
-- **[funtts](https://github.com/farfarfun/funtts)** - 语音合成工具包
+- **[fartts](https://github.com/farfarfun/fartts)** - 语音合成工具包
 - **[funpaper](https://github.com/farfarfun/funpaper)** - 学术论文检索、下载与管理
 
 ### 🎨 多媒体处理

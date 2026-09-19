@@ -1468,7 +1468,7 @@
       ],
       "homepage": null
     },
-    "funtts": {
+    "fartts": {
       "description": "统一的文本转语音(TTS)工具库 - 一套接口无缝切换多种开源 TTS 引擎，支持多种字幕格式",
       "keywords": [
         "farfarfun",
@@ -1478,7 +1478,7 @@
         "text-to-speech",
         "tts"
       ],
-      "homepage": "https://pypi.org/project/funtts-plus/"
+      "homepage": "https://pypi.org/project/fartts/"
     },
     "funtts-indextts2": {
       "description": "占位仓库，尚无实际内容",
