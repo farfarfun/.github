@@ -8,14 +8,15 @@ GitHub仓库关键词批量更新脚本
 2. 运行脚本: python update_repo_keywords.py
 """
 
-import os
 import json
+import os
+import sys
 import time
-import requests
 from dataclasses import dataclass
 
-from funsecret import read_secret
+import requests
 from farlog import getLogger
+from funsecret import read_secret
 
 logger = getLogger("farfarfun")
 
@@ -47,6 +48,9 @@ class GitHubRepoUpdater:
         self.replace_topics = replace_topics
         self.config_file = config_file
         self.config = self.load_config()
+        settings = self.config.get("settings", {})
+        self.api_delay_seconds = float(settings.get("api_delay_seconds", 1))
+        self.max_retries = max(1, int(settings.get("max_retries", 3)))
 
         self.org_name = org_name or self.config.get("organization", "farfarfun")
         self.token = (
@@ -66,6 +70,30 @@ class GitHubRepoUpdater:
                 "Accept": "application/vnd.github.v3+json",
                 "User-Agent": "farfarfun-repo-updater/1.0",
             }
+        )
+
+    def request(self, method: str, url: str, **kwargs) -> requests.Response:
+        """执行 GitHub API 请求，失败时重试并保留上下文。"""
+        last_response = None
+        for attempt in range(1, self.max_retries + 1):
+            try:
+                response = self.session.request(method, url, **kwargs)
+            except requests.RequestException as exc:
+                if attempt == self.max_retries:
+                    raise RuntimeError(
+                        f"GitHub API 请求失败: {method} {url}: {exc}"
+                    ) from exc
+                time.sleep(self.api_delay_seconds)
+                continue
+            last_response = response
+            if response.status_code < 500 and response.status_code != 429:
+                return response
+            if attempt < self.max_retries:
+                time.sleep(self.api_delay_seconds)
+        assert last_response is not None
+        raise RuntimeError(
+            f"GitHub API 请求失败: {method} {url}: "
+            f"HTTP {last_response.status_code} {last_response.text[:500]}"
         )
 
     def load_config(self) -> dict:
@@ -101,12 +129,12 @@ class GitHubRepoUpdater:
         page = 1
 
         while True:
-            response = self.session.get(url, params={"page": page, "per_page": 100})
+            response = self.request("GET", url, params={"page": page, "per_page": 100})
             if response.status_code != 200:
-                logger.error(
-                    f"Failed to fetch repos: {response.status_code} - {response.text}"
+                raise RuntimeError(
+                    f"获取组织仓库失败: {url}: HTTP {response.status_code} "
+                    f"{response.text[:500]}"
                 )
-                break
 
             data = response.json()
             if not data:
@@ -118,18 +146,18 @@ class GitHubRepoUpdater:
         logger.info(f"Found {len(repos)} repositories in {self.org_name} organization")
         return repos
 
-    def get_repo_info(self, repo_name: str) -> dict | None:
+    def get_repo_info(self, repo_name: str) -> dict:
         """获取仓库信息"""
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}"
-        response = self.session.get(url)
+        response = self.request("GET", url)
 
         if response.status_code == 200:
             return response.json()
         else:
-            logger.error(
-                f"Failed to get repo info for {repo_name}: {response.status_code}"
+            raise RuntimeError(
+                f"获取仓库信息失败: {url}: HTTP {response.status_code} "
+                f"{response.text[:500]}"
             )
-            return None
 
     def update_repo_topics(
         self,
@@ -162,7 +190,7 @@ class GitHubRepoUpdater:
 
         data = {"names": cleaned_topics}
 
-        response = self.session.put(url, json=data)
+        response = self.request("PUT", url, json=data)
 
         if response.status_code == 200:
             logger.success(
@@ -189,7 +217,7 @@ class GitHubRepoUpdater:
             logger.info(f"[dry-run] 将把 {repo_name} 的描述改为: {description!r}")
             return True
 
-        response = self.session.patch(url, json=data)
+        response = self.request("PATCH", url, json=data)
 
         if response.status_code == 200:
             logger.success(f"Successfully updated description for {repo_name}")
@@ -271,7 +299,7 @@ class GitHubRepoUpdater:
             logger.info(f"No changes needed for {repo_name}")
 
         # 添加延迟以避免API限制
-        time.sleep(1)
+        time.sleep(self.api_delay_seconds)
 
         return success
 
@@ -349,7 +377,9 @@ def main():
     )
     parser.add_argument("--org", default="farfarfun", help="GitHub organization name")
     parser.add_argument(
-        "--dry-run", action="store_true", help="只打印配置与线上现状的对比，不做任何写入"
+        "--dry-run",
+        action="store_true",
+        help="只打印配置与线上现状的对比，不做任何写入",
     )
     parser.add_argument(
         "--apply",
@@ -419,6 +449,8 @@ def main():
                 print(
                     f"Repository {args.repo} update: {'Success' if result else 'Failed'}"
                 )
+                if not result:
+                    return 1
             else:
                 print(f"Repository {args.repo} not found in configuration")
         else:
@@ -429,8 +461,10 @@ def main():
             for repo, success in results.items():
                 status = "✅ Success" if success else "❌ Failed"
                 print(f"{repo}: {status}")
+            if not all(results.values()):
+                return 1
 
-    except Exception as e:
+    except (OSError, RuntimeError, ValueError) as e:
         logger.error(f"Script execution failed: {e}")
         return 1
 
@@ -438,4 +472,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())

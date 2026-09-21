@@ -30,17 +30,20 @@ def _get_logger(name):
 fake_log.getLogger = _get_logger
 sys.modules["farlog"] = fake_log
 
-import update_repo_keywords as m  # noqa: E402
+import update_repo_keywords as m
 
 u = m.GitHubRepoUpdater.__new__(m.GitHubRepoUpdater)
 u.org_name = "farfarfun"
 u.base_url = "https://api.github.com"
+u.max_retries = 1
+u.api_delay_seconds = 0
 
 captured = {}
 
 
 class FakeSession:
-    def put(self, url, json):
+    def request(self, method, url, json=None):
+        assert method == "PUT"
         captured["names"] = json["names"]
 
         class R:
@@ -83,7 +86,7 @@ print("✅ dry-run: 未发出任何写请求")
 # --- 场景 4：needs_update 判定 —— 线上是配置的超集时不该触发 ---
 new = {"python", "farfarfun"}
 cur = {"python", "farfarfun", "legado"}
-assert not (not new <= cur), "追加模式下不该判定为需要更新"
+assert new <= cur, "追加模式下不该判定为需要更新"
 print("✅ 线上 topics 是配置超集时，不再触发覆盖")
 
 print("\n全部通过")

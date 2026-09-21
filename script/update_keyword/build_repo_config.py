@@ -8,15 +8,22 @@
 
 import json
 import os
-import subprocess
+import shlex
+
+from funshell import run_shell
 
 FIELDS = "name,description,homepageUrl,repositoryTopics,isFork,isArchived,isPrivate"
 
-raw = subprocess.run(
-    ["gh", "repo", "list", "farfarfun", "--limit", "300", "--json", FIELDS],
-    capture_output=True, text=True, check=True,
-).stdout
-repos = json.loads(raw)
+command = shlex.join(
+    ["gh", "repo", "list", "farfarfun", "--limit", "300", "--json", FIELDS]
+)
+raw = run_shell(command, printf=False)
+if raw.startswith("run shell error:"):
+    raise RuntimeError(f"gh 命令执行失败: {raw}")
+try:
+    repos = json.loads(raw)
+except json.JSONDecodeError as exc:
+    raise RuntimeError(f"gh 命令未返回有效 JSON: {raw[:500]!r}") from exc
 
 out = {}
 skipped_fork = []
@@ -49,6 +56,8 @@ with open(out_path, "w", encoding="utf-8") as f:
 
 no_desc = [k for k, v in out.items() if not v["description"]]
 no_topic = [k for k, v in out.items() if not v["keywords"]]
-print(f"写入 {len(out)} 个仓库（跳过 {len(skipped_fork)} 个 fork: {', '.join(skipped_fork)}）")
+print(
+    f"写入 {len(out)} 个仓库（跳过 {len(skipped_fork)} 个 fork: {', '.join(skipped_fork)}）"
+)
 print(f"仍无描述 {len(no_desc)} 个: {', '.join(no_desc)}")
 print(f"仍无 topics {len(no_topic)} 个: {', '.join(no_topic)}")

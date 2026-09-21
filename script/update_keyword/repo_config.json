@@ -120,7 +120,7 @@
       "homepage": "https://pypi.org/project/farlog/"
     },
     "farspec": {
-      "description": "任务契约规范库（PyPI: nltspec）— 基于 dataclass 的泛型 BaseRequest/BaseResponse/BaseTask 抽象，统一任务状态流转、事件记录与字典序列化，零第三方依赖",
+      "description": "基于 dataclass 的任务契约规范库，提供请求、响应、状态流转与字典序列化模型",
       "keywords": [
         "dataclasses",
         "farfarfun",
@@ -130,7 +130,7 @@
         "task-framework",
         "zero-dependency"
       ],
-      "homepage": "https://pypi.org/project/nltspec/"
+      "homepage": null
     },
     "fartask": {
       "description": "Slurm 集群作业提交与追踪工具 — 复制作业文件到时间戳目录并 sbatch 提交，SQLAlchemy 记录任务状态，NiceGUI 网页查看任务列表",
@@ -1309,7 +1309,7 @@
         "number-theory",
         "prime-numbers"
       ],
-      "homepage": "https://pypi.org/project/noteseries/"
+      "homepage": null
     },
     "funserver": {
       "description": "Python服务器管理框架 - 提供统一接口管理各种服务器应用程序，支持跨平台安装和进程管理",

@@ -11,6 +11,7 @@
 
 import argparse
 import os
+from typing import Any
 
 import pandas as pd
 
@@ -44,11 +45,15 @@ data = """
 
 
 class GenerateReadMe:
-    def __init__(self, org_name="farfarfun"):
+    """生成组织主页 README 的兼容脚本。"""
+
+    def __init__(self, org_name: str = "farfarfun") -> None:
+        """初始化生成器。"""
         self.org_name = org_name
         self.text = data
 
-    def generate(self, force=False):
+    def generate(self, force: bool = False) -> None:
+        """生成 README；默认写入临时文件，避免覆盖手工主页。"""
         self.user_stat()
         self.language_of_code()
         self.organize_view_stat()
@@ -64,8 +69,9 @@ class GenerateReadMe:
             print(f"已写入 {readme_path}（未动 profile/README.md）")
             print("确认要用生成内容覆盖手工维护的主页，再加 --force 重跑。")
 
-    def generate_package(self):
-        rows = [
+    def generate_package(self) -> None:
+        """追加精选包的仓库、PyPI 和统计链接表格。"""
+        rows: list[dict[str, Any]] = [
             {
                 "title": f"[{self.org_name}](https://github.com/{self.org_name})",
                 "stars": f'<img alt="Stars" src="https://img.shields.io/github/stars/{self.org_name}?style=flat-square&labelColor=black"/>',
@@ -103,7 +109,8 @@ class GenerateReadMe:
         self.text += "\n" * 3
         self.text += pd.DataFrame(rows).to_markdown()
 
-    def organize_view_stat(self):
+    def organize_view_stat(self) -> None:
+        """追加主页浏览量统计。"""
         self.text += """
 <br>
 <div align="center">
@@ -112,14 +119,16 @@ class GenerateReadMe:
 <br>
         """
 
-    def language_of_code(self):
+    def language_of_code(self) -> None:
+        """追加按语言和提交量统计的图片。"""
         self.text += """
 |Repo | Commit |
 |--|--|
 | ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=farfun&theme=dracula)  | ![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=farfun&theme=dracula) |
         """
 
-    def user_stat(self):
+    def user_stat(self) -> None:
+        """追加用户概览统计图片。"""
         self.text += """![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=farfun&theme=dracula)"""
 
 

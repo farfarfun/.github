@@ -31,12 +31,6 @@ export GITHUB_TOKEN="your_github_token_here"
 - `repo` - 完整的仓库访问权限
 - `public_repo` - 公共仓库访问权限（如果只更新公共仓库）
 
-### 3. 创建日志目录
-
-```bash
-mkdir -p logs
-```
-
 ## 📝 配置文件
 
 脚本使用 `repo_config.json` 文件来管理仓库配置。配置文件结构如下：
@@ -53,9 +47,8 @@ mkdir -p logs
   },
   "default_keywords": ["python", "farfarfun"],
   "settings": {
-    "rate_limit_delay": 1,
-    "max_retries": 3,
-    "log_level": "INFO"
+    "api_delay_seconds": 1,
+    "max_retries": 3
   }
 }
 ```
@@ -67,11 +60,10 @@ mkdir -p logs
   - `description`: 仓库描述文本
   - `keywords`: 关键词数组（会自动转换为小写并替换空格为连字符）
   - `homepage`: 仓库主页链接（可选）
-- `default_keywords`: 默认关键词，会添加到所有仓库
+- `default_keywords`: 兼容旧配置保留，当前生成配置不自动添加
 - `settings`: 脚本设置
-  - `rate_limit_delay`: API调用间隔（秒）
+  - `api_delay_seconds`: API调用间隔和重试等待时间（秒）
   - `max_retries`: 最大重试次数
-  - `log_level`: 日志级别
 
 ## ⚠️ 先读这段
 
@@ -169,10 +161,10 @@ Repository: fundrive
 .
 ├── update_repo_keywords.py    # 主脚本文件
 ├── repo_config.json          # 仓库配置文件
-├── requirements.txt          # Python依赖
+├── ../../pyproject.toml      # Python依赖
+├── ../../uv.lock             # 锁定依赖版本
 ├── REPO_UPDATER_README.md    # 使用文档
-└── logs/
-    └── repo_update.log       # 操作日志
+└── test_update_repo_keywords.py # 离线回归测试
 ```
 
 ## 🔧 高级用法
@@ -214,7 +206,7 @@ print(f"Update result: {success}")
 2. **权限要求**: 确保GitHub Token有足够的权限访问和修改仓库
 3. **关键词格式**: GitHub topics必须是小写，脚本会自动转换
 4. **备份**: 建议在大批量更新前先使用dry-run模式预览
-5. **日志**: 所有操作都会记录到日志文件中，便于追踪和调试
+5. **失败处理**: API 请求会按配置重试；批量结果包含失败时脚本以非 0 退出
 
 ## 🐛 故障排除
 
@@ -228,7 +220,7 @@ print(f"Update result: {success}")
 ### 调试技巧
 
 1. 使用 `--dry-run` 模式预览更改
-2. 检查 `logs/repo_update.log` 文件获取详细错误信息
+2. 直接查看终端输出获取详细错误信息
 3. 使用 `--repo` 参数测试单个仓库
 4. 验证配置文件JSON格式是否正确
 
