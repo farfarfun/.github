@@ -44,7 +44,7 @@ class GitHubRepoUpdater:
     ):
         # 默认 dry-run：这套脚本会批量改 100+ 个仓库的元信息，误跑一次的代价很高，
         # 必须显式 --apply 才真正写入。
-        self.dry_run = dry_run
+        self.dry_run_mode = dry_run
         self.replace_topics = replace_topics
         self.config_file = config_file
         self.config = self.load_config()
@@ -184,7 +184,7 @@ class GitHubRepoUpdater:
                     merged.append(topic)
             cleaned_topics = merged
 
-        if self.dry_run:
+        if self.dry_run_mode:
             logger.info(f"[dry-run] 将把 {repo_name} 的 topics 设为: {cleaned_topics}")
             return True
 
@@ -213,7 +213,7 @@ class GitHubRepoUpdater:
         # 清空请求被静默丢掉，于是每次跑都判定为「有差异」但永远改不掉。
         data = {"description": description, "homepage": homepage or ""}
 
-        if self.dry_run:
+        if self.dry_run_mode:
             logger.info(f"[dry-run] 将把 {repo_name} 的描述改为: {description!r}")
             return True
 
@@ -453,6 +453,7 @@ def main():
                     return 1
             else:
                 print(f"Repository {args.repo} not found in configuration")
+                return 1
         else:
             results = updater.update_all_repos(update_description, update_topics)
 
