@@ -20,7 +20,7 @@ data = """
 
 <p align="center">
 <a href="https://github.com/farfarfun">
-    <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=18&duration=2000&pause=100&multiline=true&width=500&height=80&lines=farfarun;活到老+%7C+学到老+%7C+玩到老;牛哥永远都不老" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Georgia&size=18&duration=2000&pause=100&multiline=true&width=500&height=80&lines=farfarfun;活到老+%7C+学到老+%7C+玩到老;牛哥永远都不老" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -38,7 +38,7 @@ data = """
 <br/>
 
 <a href="https://github.com/farfarfun">
-    <img src="https://github-stats-alpha.vercel.app/api?username=farfun&cc=22272e&tc=37BCF6&ic=fff&bc=0000&count_private=true&include_all_commits=true&orgs=farfarfun">
+    <img src="https://github-stats-alpha.vercel.app/api?username=farfarfun&cc=22272e&tc=37BCF6&ic=fff&bc=0000&count_private=true&include_all_commits=true&orgs=farfarfun">
 </a>
 
 """
@@ -124,12 +124,12 @@ class GenerateReadMe:
         self.text += """
 |Repo | Commit |
 |--|--|
-| ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=farfun&theme=dracula)  | ![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=farfun&theme=dracula) |
+| ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=farfarfun&theme=dracula)  | ![](http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=farfarfun&theme=dracula) |
         """
 
     def user_stat(self) -> None:
         """追加用户概览统计图片。"""
-        self.text += """![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=farfun&theme=dracula)"""
+        self.text += """![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=farfarfun&theme=dracula)"""
 
 
 if __name__ == "__main__":

@@ -18,12 +18,15 @@ uv sync
 uv run python script/update_keyword/update_repo_keywords.py --dry-run
 ```
 
-确认无误后加 `--apply` 才会真正调用 GitHub API 写入。批量重建 `repo_config.json`
-快照（按线上仓库状态）用：
+确认无误后加 `--apply` 才会真正调用 GitHub API 写入。按线上仓库状态重建
+`repo_config.json` 快照用：
 
 ```bash
-bash script/update_repo_meta.sh
+uv run python script/update_keyword/build_repo_config.py
 ```
+
+`script/update_repo_meta.sh` 是针对其中列出的仓库直接写入 description、homepage 和
+topics 的维护脚本，不会重建配置快照。
 
 更多细节见 [script/update_keyword/REPO_UPDATER_README.md](script/update_keyword/REPO_UPDATER_README.md)。
 
