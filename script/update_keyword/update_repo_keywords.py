@@ -13,6 +13,7 @@ import os
 import sys
 import time
 from dataclasses import dataclass
+from typing import Any
 
 import requests
 from farlog import getLogger
@@ -23,7 +24,11 @@ logger = getLogger("farfarfun")
 
 @dataclass
 class RepoConfig:
-    """仓库配置类"""
+    """表示单个仓库的待同步元信息。
+
+    属性：name 为仓库名；description 为描述；keywords 为 topics；homepage 为主页，
+    传入 ``None`` 时表示清空主页。
+    """
 
     name: str
     description: str
@@ -32,21 +37,29 @@ class RepoConfig:
 
 
 class GitHubRepoUpdater:
-    """GitHub仓库关键词更新器"""
+    """同步一个 GitHub 组织内仓库的描述、主页和 topics。"""
 
     def __init__(
         self,
         org_name: str = "farfarfun",
         token: str | None = None,
-        config_file: str = "repo_config.json",
+        config_file: str | None = None,
         dry_run: bool = True,
         replace_topics: bool = False,
-    ):
+    ) -> None:
+        """初始化更新器。
+
+        参数：org_name 为组织名；token 为 GitHub token；config_file 为配置路径，省略时
+        使用脚本同目录的 ``repo_config.json``；dry_run 控制是否写入；replace_topics
+        控制 topics 是否整体替换。返回：无。
+        """
         # 默认 dry-run：这套脚本会批量改 100+ 个仓库的元信息，误跑一次的代价很高，
         # 必须显式 --apply 才真正写入。
         self.dry_run_mode = dry_run
         self.replace_topics = replace_topics
-        self.config_file = config_file
+        self.config_file = config_file or os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "repo_config.json"
+        )
         self.config = self.load_config()
         settings = self.config.get("settings", {})
         self.api_delay_seconds = float(settings.get("api_delay_seconds", 1))
@@ -72,8 +85,12 @@ class GitHubRepoUpdater:
             }
         )
 
-    def request(self, method: str, url: str, **kwargs) -> requests.Response:
-        """执行 GitHub API 请求，失败时重试并保留上下文。"""
+    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response:
+        """执行可重试的 GitHub API 请求。
+
+        参数：method 为 HTTP 方法；url 为请求地址；kwargs 传给 requests。返回：HTTP
+        响应。网络错误、限流或服务端错误在重试耗尽后抛出 RuntimeError。
+        """
         last_response = None
         for attempt in range(1, self.max_retries + 1):
             try:
@@ -96,8 +113,12 @@ class GitHubRepoUpdater:
             f"HTTP {last_response.status_code} {last_response.text[:500]}"
         )
 
-    def load_config(self) -> dict:
-        """加载配置文件"""
+    def load_config(self) -> dict[str, Any]:
+        """读取配置文件。
+
+        参数：无。返回：配置文件的 JSON 对象；文件不存在时返回空字典。读取或解析失败时
+        抛出 RuntimeError。
+        """
         if not os.path.exists(self.config_file):
             return {}
         try:
@@ -108,7 +129,10 @@ class GitHubRepoUpdater:
             raise RuntimeError(f"无法加载配置文件 {self.config_file}") from e
 
     def get_repo_configs(self) -> dict[str, RepoConfig]:
-        """获取仓库配置"""
+        """将配置文件中的仓库条目转换为配置对象。
+
+        参数：无。返回：以仓库名为键的 RepoConfig 字典。
+        """
         configs = {}
 
         # 从配置文件读取
@@ -123,7 +147,10 @@ class GitHubRepoUpdater:
         return configs
 
     def get_org_repos(self) -> list[str]:
-        """获取组织下的所有仓库"""
+        """分页获取组织下全部仓库名称。
+
+        参数：无。返回：仓库名称列表。API 返回非 200 状态时抛出 RuntimeError。
+        """
         url = f"{self.base_url}/orgs/{self.org_name}/repos"
         repos = []
         page = 1
@@ -146,8 +173,12 @@ class GitHubRepoUpdater:
         logger.info(f"Found {len(repos)} repositories in {self.org_name} organization")
         return repos
 
-    def get_repo_info(self, repo_name: str) -> dict:
-        """获取仓库信息"""
+    def get_repo_info(self, repo_name: str) -> dict[str, Any]:
+        """获取指定仓库的当前元信息。
+
+        参数：repo_name 为仓库名。返回：GitHub 返回的仓库信息。API 返回非 200 状态时
+        抛出 RuntimeError。
+        """
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}"
         response = self.request("GET", url)
 
@@ -166,11 +197,11 @@ class GitHubRepoUpdater:
         current_topics: list[str] | None = None,
         replace: bool = False,
     ) -> bool:
-        """更新仓库的topics(关键词)。
+        """更新仓库的 topics。
 
-        默认是**并集追加**。GitHub 的 `PUT /topics` 语义是整体替换，直接拿配置里的
-        列表去调，会把线上手工补的 topics 全部抹掉——这正是这套脚本以前会撤销修复的原因
-        之一。只有显式传 replace=True 才走整体替换。
+        参数：repo_name 为仓库名；topics 为目标 topics；current_topics 为线上已有
+        topics；replace 为是否整体替换。返回：请求成功或 dry-run 时为 True，否则为
+        False。默认将 topics 与线上值取并集，避免覆盖手工添加的值。
         """
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}/topics"
 
@@ -206,7 +237,11 @@ class GitHubRepoUpdater:
     def update_repo_description(
         self, repo_name: str, description: str, homepage: str | None = None
     ) -> bool:
-        """更新仓库描述和主页"""
+        """更新仓库描述和主页。
+
+        参数：repo_name 为仓库名；description 为描述；homepage 为主页，传入 None
+        会清空主页。返回：请求成功或 dry-run 时为 True，否则为 False。
+        """
         url = f"{self.base_url}/repos/{self.org_name}/{repo_name}"
 
         # homepage 传 None 表示「清空」，要显式发空串；只用 `if homepage:` 会导致
@@ -235,7 +270,11 @@ class GitHubRepoUpdater:
         update_description: bool = True,
         update_topics: bool = True,
     ) -> bool:
-        """更新单个仓库的所有信息"""
+        """按配置更新单个仓库。
+
+        参数：repo_name 为仓库名；config 为目标配置；update_description 和
+        update_topics 控制更新项目。返回：所有请求成功时为 True，否则为 False。
+        """
         logger.info(f"Updating repository: {repo_name}")
 
         # 获取当前仓库信息
@@ -306,7 +345,11 @@ class GitHubRepoUpdater:
     def update_all_repos(
         self, update_description: bool = True, update_topics: bool = True
     ) -> dict[str, bool]:
-        """批量更新所有配置的仓库"""
+        """批量更新配置中存在的仓库。
+
+        参数：update_description 和 update_topics 控制更新项目。返回：以仓库名为键、
+        更新是否成功为值的结果字典。
+        """
         configs = self.get_repo_configs()
         org_repos = self.get_org_repos()
         results = {}
@@ -345,7 +388,10 @@ class GitHubRepoUpdater:
         return results
 
     def dry_run(self) -> None:
-        """预览模式 - 显示将要进行的更改但不实际执行"""
+        """显示配置与线上现状的对比，不写入 GitHub。
+
+        参数：无。返回：无。
+        """
         configs = self.get_repo_configs()
         org_repos = self.get_org_repos()
 
@@ -368,8 +414,11 @@ class GitHubRepoUpdater:
                 logger.info(f"  Current topics: {current_topics}")
 
 
-def main():
-    """主函数"""
+def main() -> int:
+    """运行仓库元信息更新命令行程序。
+
+    参数：通过命令行接收组织、仓库和更新选项。返回：成功为 0，配置、请求或更新失败为 1。
+    """
     import argparse
 
     parser = argparse.ArgumentParser(

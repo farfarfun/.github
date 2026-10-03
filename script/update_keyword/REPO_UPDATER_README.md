@@ -78,7 +78,7 @@ export GITHUB_TOKEN="your_github_token_here"
 ### 重新生成配置基线
 
 ```bash
-python build_repo_config.py     # 从 GitHub 线上状态重建 repo_config.json
+uv run python script/update_keyword/build_repo_config.py
 ```
 
 ## 🛠️ 使用方法
@@ -86,37 +86,37 @@ python build_repo_config.py     # 从 GitHub 线上状态重建 repo_config.json
 ### 1. 看看会改什么（默认，不写入）
 
 ```bash
-python update_repo_keywords.py
+uv run python script/update_keyword/update_repo_keywords.py
 ```
 
 ### 2. 确认无误后真正写入
 
 ```bash
-python update_repo_keywords.py --apply
+uv run python script/update_keyword/update_repo_keywords.py --apply
 ```
 
 ### 3. 只对比配置与线上现状
 
 ```bash
-python update_repo_keywords.py --dry-run
+uv run python script/update_keyword/update_repo_keywords.py --dry-run
 ```
 
 ### 4. 更新指定仓库
 
 ```bash
-python update_repo_keywords.py --repo funutil --apply
+uv run python script/update_keyword/update_repo_keywords.py --repo funutil --apply
 ```
 
 ### 5. 整体替换 topics（会抹掉线上手工加的，慎用）
 
 ```bash
-python update_repo_keywords.py --replace-topics --apply
+uv run python script/update_keyword/update_repo_keywords.py --replace-topics --apply
 ```
 
 ### 6. 指定组织
 
 ```bash
-python update_repo_keywords.py --org your-org-name
+uv run python script/update_keyword/update_repo_keywords.py --org your-org-name
 ```
 
 ## 📊 输出示例
