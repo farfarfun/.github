@@ -5,10 +5,10 @@ import tempfile
 import types
 import unittest
 from pathlib import Path
+from typing import ClassVar
 from unittest.mock import patch
 
 import requests
-
 
 SCRIPT_DIR = Path(__file__).parents[1] / "script" / "update_keyword"
 sys.path.insert(0, str(SCRIPT_DIR))
@@ -35,8 +35,8 @@ update_repo_keywords = importlib.import_module("update_repo_keywords")
 class FakeUpdater:
     preview_called = False
     update_all_called = False
-    init_kwargs = {}
-    batch_results = {"funread": True}
+    init_kwargs: ClassVar[dict] = {}
+    batch_results: ClassVar[dict] = {"funread": True}
 
     def __init__(self, **kwargs):
         type(self).init_kwargs = kwargs
@@ -55,23 +55,26 @@ class FakeUpdater:
 class CliTests(unittest.TestCase):
     def test_dry_run_executes_preview(self):
         FakeUpdater.preview_called = False
-        with patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater), patch.object(
-            sys, "argv", ["update_repo_keywords.py", "--dry-run"]
+        with (
+            patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater),
+            patch.object(sys, "argv", ["update_repo_keywords.py", "--dry-run"]),
         ):
             self.assertEqual(update_repo_keywords.main(), 0)
         self.assertTrue(FakeUpdater.preview_called)
 
     def test_unknown_repository_returns_nonzero(self):
-        with patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater), patch.object(
-            sys, "argv", ["update_repo_keywords.py", "--repo", "missing"]
+        with (
+            patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater),
+            patch.object(sys, "argv", ["update_repo_keywords.py", "--repo", "missing"]),
         ):
             self.assertEqual(update_repo_keywords.main(), 1)
 
     def test_apply_executes_batch_update(self):
         FakeUpdater.update_all_called = False
         FakeUpdater.batch_results = {"funread": True}
-        with patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater), patch.object(
-            sys, "argv", ["update_repo_keywords.py", "--apply"]
+        with (
+            patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater),
+            patch.object(sys, "argv", ["update_repo_keywords.py", "--apply"]),
         ):
             self.assertEqual(update_repo_keywords.main(), 0)
 
@@ -80,8 +83,9 @@ class CliTests(unittest.TestCase):
 
     def test_apply_returns_nonzero_when_batch_has_failure(self):
         FakeUpdater.batch_results = {"funread": False}
-        with patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater), patch.object(
-            sys, "argv", ["update_repo_keywords.py", "--apply"]
+        with (
+            patch.object(update_repo_keywords, "GitHubRepoUpdater", FakeUpdater),
+            patch.object(sys, "argv", ["update_repo_keywords.py", "--apply"]),
         ):
             self.assertEqual(update_repo_keywords.main(), 1)
 
@@ -122,12 +126,12 @@ class TopicUpdateTests(unittest.TestCase):
 class FailureAndMetadataTests(unittest.TestCase):
     def test_default_config_is_resolved_from_script_directory(self):
         session = types.SimpleNamespace(headers={})
-        with patch.object(update_repo_keywords.requests, "Session", return_value=session):
+        with patch.object(
+            update_repo_keywords.requests, "Session", return_value=session
+        ):
             updater = update_repo_keywords.GitHubRepoUpdater(token="test-token")
 
-        self.assertEqual(
-            Path(updater.config_file), SCRIPT_DIR / "repo_config.json"
-        )
+        self.assertEqual(Path(updater.config_file), SCRIPT_DIR / "repo_config.json")
 
     def test_invalid_config_raises_runtime_error(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -207,7 +211,7 @@ class FailureAndMetadataTests(unittest.TestCase):
             side_effect=[
                 types.SimpleNamespace(status_code=200, json=lambda: [{"name": "one"}]),
                 types.SimpleNamespace(status_code=200, json=lambda: [{"name": "two"}]),
-                types.SimpleNamespace(status_code=200, json=lambda: []),
+                types.SimpleNamespace(status_code=200, json=list),
             ]
         )
 

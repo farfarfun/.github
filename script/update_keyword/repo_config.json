@@ -14,6 +14,19 @@
       ],
       "homepage": null
     },
+    "action-daily": {
+      "description": "farfarfun 组织的定时任务仓库：每 2 小时把公开仓库镜像同步到 Gitee，并用 Codex CLI 对照 SPEC.md 滚动做合规审计、自动提交修复",
+      "keywords": [
+        "automation",
+        "code-audit",
+        "farfarfun",
+        "gitee",
+        "github-actions",
+        "mirror",
+        "scheduled-workflow"
+      ],
+      "homepage": null
+    },
     "cachedata": {
       "description": "游戏数据快照仓库：存放 Top War（口袋奇兵）客户端导出的配置合表与简体中文文本资源，供 notegame 相关脚本解析使用，仅有数据无代码",
       "keywords": [
@@ -66,16 +79,15 @@
       ],
       "homepage": null
     },
-    "daily-action": {
-      "description": "farfarfun 组织仓库自动化：定时将公开仓库镜像同步到 Gitee",
-      "keywords": [],
-      "homepage": null
-    },
     "demo-repository": {
-      "description": "A code repository designed to show the best GitHub has to offer.",
+      "description": "farfarfun 组织的最小 GitHub 功能演示仓库（Vue3 + Vite + TypeScript + Primer CSS）",
       "keywords": [
         "demo",
-        "github"
+        "farfarfun",
+        "github-actions",
+        "typescript",
+        "vite",
+        "vue"
       ],
       "homepage": null
     },
@@ -96,6 +108,32 @@
         "python"
       ],
       "homepage": "https://pypi.org/project/farcache/"
+    },
+    "farcode": {
+      "description": "深度学习实验代码：实现 Keras 版 Attention Decoder 自定义循环层，并封装 adult 等推荐/分类数据集的下载与预处理",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "attention-mechanism",
+        "dataset",
+        "deep-learning",
+        "keras",
+        "tensorflow"
+      ],
+      "homepage": "https://pypi.org/project/funcode/"
+    },
+    "fardb": {
+      "description": "基于 SQLAlchemy 的轻量数据库工具库：引擎创建与复用、通用表基类、增删改查与 upsert，附带 extendsclass JSON Storage 客户端",
+      "keywords": [
+        "database",
+        "farfarfun",
+        "orm",
+        "python",
+        "sql",
+        "json",
+        "sqlalchemy"
+      ],
+      "homepage": "https://pypi.org/project/fardb/"
     },
     "farfarfun": {
       "description": "farfarfun 组织的介绍仓库 - 组织 README 说明与同名 PyPI 占位包",
@@ -130,7 +168,7 @@
         "task-framework",
         "zero-dependency"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/farspec/"
     },
     "fartask": {
       "description": "Slurm 集群作业提交与追踪工具 — 复制作业文件到时间戳目录并 sbatch 提交，SQLAlchemy 记录任务状态，NiceGUI 网页查看任务列表",
@@ -144,10 +182,22 @@
         "slurm",
         "sqlalchemy"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/fartask/"
+    },
+    "fartts": {
+      "description": "统一的文本转语音(TTS)工具库 - 一套接口无缝切换多种开源 TTS 引擎，支持多种字幕格式",
+      "keywords": [
+        "farfarfun",
+        "python",
+        "speech-synthesis",
+        "subtitle",
+        "text-to-speech",
+        "tts"
+      ],
+      "homepage": "https://pypi.org/project/funtts-plus/"
     },
     "funSSR": {
-      "description": "科学上网工具备份仓库：收录 ShadowsocksR、V2Ray(ws+tls)、Trojan 的一键服务端安装脚本，以及 Android、Windows、macOS 各平台客户端安装包。",
+      "description": "ShadowsocksR、V2Ray(ws+tls)、Trojan 代理服务端一键安装脚本及统一生命周期管理入口（scripts/setup.sh）；客户端安装包不再随仓库分发，改由上游 Releases 下载。",
       "keywords": [
         "farfarfun",
         "install-scripts",
@@ -163,9 +213,14 @@
       "description": "占位仓库，尚无实际内容",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "hatchling",
+        "pypi-package",
+        "python",
+        "python3",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funaction/"
     },
     "funagent": {
       "description": "面向软件研发流程的 AI Agent 提示词模板集合，涵盖产品 PRD、技术设计、前端规格、前后端工程师与项目负责人等角色，Markdown 格式可直接用于 Cursor/Claude 等工具",
@@ -205,7 +260,7 @@
       "homepage": "https://pypi.org/project/funapi/"
     },
     "funapi-sciencedb": {
-      "description": "ScienceDB（科学数据银行 scidb.cn）开放 API 的 Python 客户端，由官方 OpenAPI 文档自动生成，支持数据集检索、指标查询与 COUNTER/SUSHI 报告",
+      "description": "科学数据银行（ScienceDB）Open API 的 Python 客户端，由 openapi-python-client 根据官方 OpenAPI 文档自动生成",
       "keywords": [
         "api-client",
         "farfarfun",
@@ -218,7 +273,7 @@
       "homepage": "https://pypi.org/project/funapi-sciencedb/"
     },
     "funapp": {
-      "description": "基于 NiceGUI 的个人 Web 应用脚手架：封装服务启动与进程管理、登录页面组件、数据表结构定义与快捷任务接口",
+      "description": "基于 NiceGUI 的轻量 Web 服务：健康检查端点、游戏/活动 SQLAlchemy 数据模型、一键打开商品详情页等本地快捷入口，附 dev/prod 服务启停脚本",
       "keywords": [
         "farfarfun",
         "python",
@@ -230,7 +285,7 @@
       "homepage": "https://pypi.org/project/funapp/"
     },
     "funapp-bak": {
-      "description": "noteapp 备份仓库：Flutter 多端（Android/iOS/Web/Windows）短视频客户端，集成 fijkplayer 播放、shared_preferences 设置页与 cryptography 内容加密",
+      "description": "Flutter 多媒体 demo app 归档仓库：仿抖音竖向短视频信息流（fijkplayer/video_player 播放、点赞手势、评论弹层、用户主页）+ 通用图片/视频资源卡片与列表组件，交付物是 funapp/ 构建出的 APK",
       "keywords": [
         "android",
         "backup",
@@ -240,7 +295,7 @@
         "ios",
         "mobile-app"
       ],
-      "homepage": "https://pub.dev/packages/noteapp"
+      "homepage": null
     },
     "funbattle": {
       "description": "数据竞赛代码骨架：仅搭建了 DataFountain 557 赛题的 model/utils/evalution 目录结构，各文件均为空，尚无实现代码",
@@ -251,10 +306,10 @@
         "python",
         "scaffold"
       ],
-      "homepage": "https://pypi.org/project/notebattle/"
+      "homepage": null
     },
     "funblog": {
-      "description": "博客内容管理与自动发布工具：将 Jupyter Notebook/Markdown 转换后经 XML-RPC metaWeblog 发布到 Typecho 与语雀，并用 SQLite 管理分类与文章元数据",
+      "description": "本地笔记（Markdown / Jupyter Notebook）扫描与发布工具：按目录结构建立分类-文章树并记录到 SQLite，再通过 XML-RPC 批量发布/更新到 Typecho",
       "keywords": [
         "blog",
         "farfarfun",
@@ -262,10 +317,9 @@
         "jupyter-notebook",
         "markdown",
         "typecho",
-        "xmlrpc",
-        "yuque"
+        "xmlrpc"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funblog/"
     },
     "funbuild": {
       "description": "Python / 混合仓库的构建与发布工具 - 自动匹配 UV、Poetry、npm 等构建策略，串联版本递增、发布与 Git 标签",
@@ -284,15 +338,18 @@
       "homepage": "https://pypi.org/project/funbuild/"
     },
     "funchallenge": {
-      "description": "已发布 PyPI 但仓库内无可用源码（占位发布）",
+      "description": "dark_challenge_2048 数据库查询封装：基于 SQLAlchemy 的 2048 主题挑战数据读取工具",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "database",
+        "mysql",
+        "python",
+        "sqlalchemy"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funchallenge/"
     },
     "funchats": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "保留 funchats PyPI 包名的可导入占位包",
       "keywords": [
         "farfarfun",
         "placeholder",
@@ -301,7 +358,7 @@
         "stub",
         "package-reservation"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funchats/"
     },
     "funclash": {
       "description": "参考 FlClash 架构重新实现的开源代理客户端（Flutter + Riverpod + mihomo 内核），非 fork，保持 MIT 协议",
@@ -314,19 +371,6 @@
         "farfarfun"
       ],
       "homepage": null
-    },
-    "funcode": {
-      "description": "深度学习实验代码：实现 Keras 版 Attention Decoder 自定义循环层，并封装 adult 等推荐/分类数据集的下载与预处理",
-      "keywords": [
-        "farfarfun",
-        "python",
-        "attention-mechanism",
-        "dataset",
-        "deep-learning",
-        "keras",
-        "tensorflow"
-      ],
-      "homepage": "https://pypi.org/project/funcode/"
     },
     "funcoin": {
       "description": "基于 ccxt 的加密货币交易所行情采集服务，批量下载多交易所 K线与成交数据，按日压缩归档并上传到 fundrive 云盘，提供常驻下载服务命令",
@@ -379,7 +423,7 @@
       "homepage": null
     },
     "funcron": {
-      "description": "基于 Flask + APScheduler 的定时任务调度中心：提供任务增删改查 Web 管理页、执行日志查询与 REST API，并集成 Airflow DAG 编排和 supervisor 进程守护。",
+      "description": "基于 Flask + APScheduler 的定时任务调度中心：提供任务增删改查 Web 管理页、执行日志查询与 REST API，并集成 Airflow DAG 编排；长期运行服务由 scripts/setup.sh 统一托管。",
       "keywords": [
         "airflow",
         "apscheduler",
@@ -396,9 +440,13 @@
       "description": "占位仓库，尚无实际内容",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "hatchling",
+        "python",
+        "python-package",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/fundaily/"
     },
     "fundata": {
       "description": "常用公开数据集与模型权重的索引和下载工具：收录 MovieLens、COCO、Criteo、Amazon 评论及 YOLOv3/v4 权重等，并转存网盘加速国内下载",
@@ -424,19 +472,6 @@
         "sdk"
       ],
       "homepage": null
-    },
-    "fundb": {
-      "description": "基于 SQLAlchemy 的轻量数据库工具包，封装引擎创建、通用表基类与增删改查操作，并提供 JSON 序列化扩展；PyPI 包名为 fundb-tau",
-      "keywords": [
-        "database",
-        "farfarfun",
-        "orm",
-        "python",
-        "sql",
-        "json",
-        "sqlalchemy"
-      ],
-      "homepage": "https://pypi.org/project/fundb-tau/"
     },
     "fundeploy": {
       "description": "面向本机开发与服务管理的 Bash 脚本集 - 统一 fundeploy 命令入口，一键安装开发环境、部署常驻服务与 AI 工具，支持 APT/Homebrew 安装",
@@ -466,12 +501,16 @@
       "homepage": null
     },
     "fundev-api": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "占位仓库，用于预留 fundev-api 这个 PyPI 包名，尚无实际功能代码",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "hatchling",
+        "packaging",
+        "pypi-package",
+        "python",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/fundev-api/"
     },
     "fundev-doc": {
       "description": "farfarfun 开发工具类项目的统一规范文档：约定目录结构、CHANGELOG 与 API 文档格式、中文注释与语义化版本等开发要求",
@@ -483,6 +522,11 @@
         "project-template",
         "specification"
       ],
+      "homepage": null
+    },
+    "fundoc": {
+      "description": "",
+      "keywords": [],
       "homepage": null
     },
     "fundrive": {
@@ -511,6 +555,11 @@
       ],
       "homepage": "https://pypi.org/project/fundrive-alipan/"
     },
+    "fundrive-api": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
     "fundrive-baidu": {
       "description": "fundrive 的百度网盘驱动 - 精简自 BaiduPCS-Py，去除界面与服务代码，仅保留 API",
       "keywords": [
@@ -522,6 +571,11 @@
         "python"
       ],
       "homepage": "https://pypi.org/project/fundrive-baidu/"
+    },
+    "fundrive-dev": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     },
     "fundrive-lanzou": {
       "description": "fundrive 的蓝奏云驱动 - 为 fundrive 统一接口提供蓝奏云后端支持",
@@ -545,6 +599,11 @@
         "python",
         "quark"
       ],
+      "homepage": null
+    },
+    "fundrive-web": {
+      "description": "",
+      "keywords": [],
       "homepage": null
     },
     "funenv": {
@@ -616,6 +675,16 @@
       ],
       "homepage": "https://pypi.org/project/funflix/"
     },
+    "funflix-api": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funflix-dev": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
     "funflix-web": {
       "description": "funflix 的 Web 界面 - 单进程同时提供 Vue 3 前端与后端接口，含作品检索与流水线大盘",
       "keywords": [
@@ -643,15 +712,19 @@
       "homepage": "https://pypi.org/project/funfluid/"
     },
     "funfluid-backend": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "funfluid 项目的后端服务占位仓库，预留 PyPI 包名 funfluid-backend，尚未实现具体业务代码",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "backend",
+        "fluid-dynamics",
+        "pypi-package",
+        "python"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funfluid-backend/"
     },
     "funfluid-frontend": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "funfluid 项目前端（占位仓库，尚无实际内容）",
       "keywords": [
         "farfarfun",
         "placeholder"
@@ -659,7 +732,7 @@
       "homepage": null
     },
     "funflutter": {
-      "description": "个人 Flutter 组件库（pub 包名 noteflutter）：封装 dio 网络请求、fijkplayer 视频播放与 carousel 轮播页面及通用工具类，供 notechats 系列应用复用",
+      "description": "farfarfun 个人 Flutter 组件库：封装 dio 网络请求、fijkplayer/video_player 视频播放、抖音风格信息流页面、图片视频卡片与防抖节流等通用工具类",
       "keywords": [
         "dart",
         "dio",
@@ -669,7 +742,7 @@
         "ui-components",
         "video-player"
       ],
-      "homepage": "https://pub.dev/packages/noteflutter"
+      "homepage": null
     },
     "funfrp": {
       "description": "frp 一键安装/更新/卸载脚本 — 支持 frpc 客户端与 frps 服务端，覆盖 Linux（x86/ARM）与群晖 NAS，按机器架构自动下载并写入 toml 配置",
@@ -803,14 +876,13 @@
       "homepage": "https://pypi.org/project/funinstall/"
     },
     "funjetbra": {
-      "description": "占位包，无实际功能（farfarfun 组织内 PyPI 包名占位）",
+      "description": "已归档：原有内容涉及许可证规避风险，现为空占位包",
       "keywords": [
         "farfarfun",
-        "ide",
-        "jetbra",
-        "jetbrains",
-        "packaging",
-        "python"
+        "python",
+        "archive",
+        "package",
+        "placeholder"
       ],
       "homepage": "https://pypi.org/project/funjetbra/"
     },
@@ -818,9 +890,14 @@
       "description": "占位仓库，尚无实际内容",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "json",
+        "pypi",
+        "python",
+        "hatchling",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funjson/"
     },
     "funkaggle": {
       "description": "Kaggle Deepfake Detection Challenge 参赛代码：下载比赛视频数据、抽帧转为图像特征，并用 Keras CNN 训练真假视频二分类模型",
@@ -837,7 +914,7 @@
       "homepage": null
     },
     "funkeras": {
-      "description": "Keras/TensorFlow 深度学习组件库（导入名为 notekeras）：实现 self-attention、Transformer、BERT、YOLOv3、ResNet、FM 与图卷积等层和模型，并附特征列解析工具。",
+      "description": "Keras/TensorFlow 深度学习组件库（导入名为 funkeras）：实现 Self-Attention、Transformer、BERT、YOLOv3、Faster R-CNN、RetinaNet、FM 与图卷积等层和模型，并附特征列解析工具；notekeras 为已废弃的兼容导入层。",
       "keywords": [
         "keras",
         "deep-learning",
@@ -867,9 +944,7 @@
     "funlbm": {
       "description": "基于 PyTorch 的三维格子玻尔兹曼（LBM）流体仿真框架，支持 D3Q19/D3Q27 模型与球体、椭球、旋转椭球等颗粒耦合，结果可导出 VTK/Tecplot，附带 NiceGUI 界面与命令行任务提交",
       "keywords": [
-        "3d",
         "lattice-boltzmann-method",
-        "lbm",
         "simulation",
         "cfd",
         "farfarfun",
@@ -878,6 +953,26 @@
         "pytorch"
       ],
       "homepage": "https://pypi.org/project/funlbm/"
+    },
+    "funlesson": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funlesson-api": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funlesson-dev": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funlesson-web": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     },
     "funllmchat": {
       "description": "占位仓库，尚无实际内容（已预留 PyPI 包名 funllmchat）",
@@ -951,6 +1046,21 @@
       ],
       "homepage": "https://pypi.org/project/funmedia/"
     },
+    "funmill-api": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funmill-dev": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funmill-sdk": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
     "funmind": {
       "description": "XMind 思维导图文件读写库：以 XML 方式解析与生成 .xmind 工作簿，支持画布、主题树、标记、批注与样式操作",
       "keywords": [
@@ -961,6 +1071,11 @@
         "xmind",
         "xml"
       ],
+      "homepage": null
+    },
+    "funmirror": {
+      "description": "Mirror GitHub org repos to Gitee, in parallel, skipping repos already up to date",
+      "keywords": [],
       "homepage": null
     },
     "funmodel": {
@@ -975,6 +1090,11 @@
         "inference"
       ],
       "homepage": "https://pypi.org/project/funmodel/"
+    },
+    "funmodel-dev": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     },
     "funmodel-dwpose": {
       "description": "基于 DWPose ONNX 模型的全身姿态估计推理包：提供 DWposePredict，支持本地图片、图片 URL 与摄像头视频流的人体关键点检测及骨架绘制。",
@@ -1041,7 +1161,7 @@
       "homepage": "https://pypi.org/project/notenotice/"
     },
     "funpaper": {
-      "description": "论文转播客工具：解析 PDF 论文，用 LangChain + LLM（DeepSeek）生成双人对话脚本，再经 TTS 合成并拼接为播客音频，提供 funpaper 命令行",
+      "description": "论文转播客工具：输入论文 PDF，生成三人访谈式播客脚本并合成语音",
       "keywords": [
         "academic-papers",
         "farfarfun",
@@ -1065,7 +1185,7 @@
       "homepage": null
     },
     "funpoetry": {
-      "description": "Poetry 项目版本号自动递增的命令行工具：提供 funpoetry version-upgrade 子命令，按 128 进制进位规则升位，兼容 pyproject.toml 与 script/__version__.md 两种版本存放方式。",
+      "description": "按 64 进制规则递增 Python 项目版本号的命令行工具",
       "keywords": [
         "farfarfun",
         "poetry",
@@ -1105,9 +1225,18 @@
       "homepage": null
     },
     "funpub": {
-      "description": "",
-      "keywords": [],
-      "homepage": null
+      "description": "多渠道制品发布工具，提供 CLI 与 Python API，支持向阿里云 Packages generic 仓库上传/下载制品",
+      "keywords": [
+        "aliyun",
+        "artifact-management",
+        "cli",
+        "devops-tools",
+        "farfarfun",
+        "package-publishing",
+        "python",
+        "typer"
+      ],
+      "homepage": "https://pypi.org/project/funpub/"
     },
     "funpush": {
       "description": "一个简单易用的Python消息推送库，支持钉钉、微信等多平台机器人消息发送。",
@@ -1150,18 +1279,25 @@
       "homepage": "https://pypi.org/project/funquery/"
     },
     "funquiz": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "farfarfun 预留的测验工具包占位版本，当前仅提供包元数据",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "hatchling",
+        "python",
+        "typed-package",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funquiz/"
     },
     "funquize": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "用于保留 funquize PyPI 包名的占位 Python 包",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "package-reservation",
+        "pypi",
+        "python",
+        "placeholder-package"
       ],
       "homepage": null
     },
@@ -1183,6 +1319,11 @@
         "rss"
       ],
       "homepage": "https://pypi.org/project/funread/"
+    },
+    "funread-api": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
     },
     "funread-cache": {
       "description": "Legado（阅读 APP）书源与订阅源快照仓库 — 托管分片 JSON 书源、source.json/rss 与 HTML 统计报告，经 GitHub Pages 分发并由 Actions 同步到 Gitee",
@@ -1212,12 +1353,14 @@
       ],
       "homepage": null
     },
-    "funread-rss": {
-      "description": "占位仓库，尚无实际内容（已预留 PyPI 包名 funread-rss）",
-      "keywords": [
-        "farfarfun",
-        "placeholder"
-      ],
+    "funread-dev": {
+      "description": "",
+      "keywords": [],
+      "homepage": null
+    },
+    "funread-web": {
+      "description": "",
+      "keywords": [],
       "homepage": null
     },
     "funrec": {
@@ -1255,7 +1398,7 @@
         "hpc",
         "job-submission",
         "slurm",
-        "typer"
+        "cpp"
       ],
       "homepage": "https://pypi.org/project/ffunrun/"
     },
@@ -1273,7 +1416,7 @@
       "homepage": "https://pypi.org/project/funscnet/"
     },
     "funscript": {
-      "description": "个人日常开发脚本集合：当前提供 develop/env.sh，用于一键 pip 安装 funpypi、funbuild、funfile、funsecret、fundrive 等 farfarfun 系列包，支持 curl 管道直接执行。",
+      "description": "个人日常开发脚本集合：当前提供 develop/env.sh，用于在克隆的仓库根目录通过 uv sync 同步由 pyproject.toml 和 uv.lock 锁定的 Python 环境依赖。",
       "keywords": [
         "automation",
         "farfarfun",
@@ -1327,12 +1470,16 @@
       "description": "占位仓库，尚无实际内容",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "hatchling",
+        "python",
+        "python-package",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funservice/"
     },
     "funshell": {
-      "description": "轻量级 Python shell 命令执行工具，支持实时流式输出或捕获输出为字符串，可指定工作目录、超时与编码，并提供命令列表批量执行",
+      "description": "轻量级 Python shell 命令执行工具，支持实时流式输出或捕获输出为字符串，可指定工作目录、超时与编码；并提供按端口/进程名查询与终止进程的 CLI 和 Python API",
       "keywords": [
         "cli",
         "command-execution",
@@ -1412,12 +1559,16 @@
       "homepage": "https://pypi.org/project/funtecplot/"
     },
     "funtemp": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "提供可导入版本元数据的轻量级 Python 包",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "package-metadata",
+        "pypi",
+        "python",
+        "python-package",
+        "version-metadata"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funtemp/"
     },
     "funtianchi532157": {
       "description": "阿里天池 FT-Data Ranker 大模型微调数据竞赛（1B 模型赛道，赛事 532157）参赛代码：基于 Data-Juicer 的中英文数据清洗配置，falcon-rw-1b 微调与 lm-evaluation-harness 评测流水线。",
@@ -1461,32 +1612,24 @@
       "homepage": "https://pypi.org/project/farfuntool/"
     },
     "funtorch": {
-      "description": "已发布 PyPI 但仓库内无可用源码（占位发布）",
+      "description": "面向 PyTorch 工具链的轻量 Python 包，提供可复现的版本化发布基础。",
       "keywords": [
         "farfarfun",
-        "placeholder"
-      ],
-      "homepage": null
-    },
-    "fartts": {
-      "description": "统一的文本转语音(TTS)工具库 - 一套接口无缝切换多种开源 TTS 引擎，支持多种字幕格式",
-      "keywords": [
-        "farfarfun",
+        "hatchling",
+        "packaging",
         "python",
-        "speech-synthesis",
-        "subtitle",
-        "text-to-speech",
-        "tts"
+        "python-package",
+        "uv"
       ],
-      "homepage": "https://pypi.org/project/fartts/"
+      "homepage": "https://pypi.org/project/funtorch/"
     },
     "funtts-indextts2": {
-      "description": "占位仓库，尚无实际内容",
+      "description": "已归档：IndexTTS2 支持已统一由 farfarfun/fartts 维护",
       "keywords": [
         "farfarfun",
         "placeholder"
       ],
-      "homepage": null
+      "homepage": "https://github.com/farfarfun/fartts"
     },
     "funtypecho": {
       "description": "Typecho 博客 XML-RPC 客户端：封装 metaWeblog/wp 接口，支持文章、页面、分类、附件、评论的增删改查与批量发布",
@@ -1502,14 +1645,13 @@
       "homepage": null
     },
     "funui": {
-      "description": "基于 NiceGUI + FastAPI 的网页聊天室示例应用：含账号登录、在线用户列表与消息实时刷新，可通过 vercel.json 部署",
+      "description": "farfarfun 预留的 Python UI 命名空间，目前不提供公开 API",
       "keywords": [
         "farfarfun",
         "python",
-        "chat",
-        "fastapi",
-        "nicegui",
-        "web-app"
+        "pep-561",
+        "placeholder",
+        "python-package"
       ],
       "homepage": "https://pypi.org/project/funui/"
     },
@@ -1568,7 +1710,7 @@
       "homepage": "https://pypi.org/project/funvtk/"
     },
     "funwall": {
-      "description": "科学上网资源清单 — 汇总 v2ray/sing-box/Xray 服务端一键安装脚本、跨平台客户端（FlClash、v2rayA、NekoBox）与机场推荐，纯 README 索引无代码",
+      "description": "科学上网资源清单 — 汇总 v2ray/sing-box/Xray 服务端一键安装脚本、跨平台客户端（FlClash、v2rayA、NekoBox）与机场推荐；附带最小 funwall PyPI 包用于版本跟踪",
       "keywords": [
         "farfarfun",
         "networking",
@@ -1585,12 +1727,16 @@
       "description": "占位仓库，尚无实际内容",
       "keywords": [
         "farfarfun",
-        "placeholder"
+        "placeholder",
+        "hatchling",
+        "package",
+        "python",
+        "uv"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funwater-manage/"
     },
     "funwork": {
-      "description": "工作用零散脚本集合：批量查询微店商品信息、通过 HTTP 网关泛化调用 Dubbo 服务、PDF 转 HTML",
+      "description": "工作用零散脚本集合：批量查询微店商品信息、通过 HTTP 网关泛化调用有赞 Dubbo 服务、DataFrame 转 HTML 报表",
       "keywords": [
         "farfarfun",
         "python",
@@ -1610,7 +1756,7 @@
         "threading",
         "farfarfun"
       ],
-      "homepage": null
+      "homepage": "https://pypi.org/project/funworker/"
     },
     "homebrew-tap": {
       "description": "farfarfun 的 Homebrew Tap - 目前提供 fundeploy 的 formula",
@@ -1732,12 +1878,8 @@
     "utools-funchat": {
       "description": "uTools AI 聊天插件 - 多角色 AI 好友、内置角色市场、话题回溯与一键导出，本地优先",
       "keywords": [
-        "chat",
-        "communication",
         "farfarfun",
-        "messaging",
         "ai",
-        "chatgpt",
         "llm",
         "plugin",
         "utools",
@@ -1767,6 +1909,11 @@
         "utools",
         "farfarfun"
       ],
+      "homepage": null
+    },
+    "utools-plugins": {
+      "description": "",
+      "keywords": [],
       "homepage": null
     },
     "video-manage": {

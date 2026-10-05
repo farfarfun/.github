@@ -14,11 +14,8 @@ dependencies = [
 ]
 
 [tool.uv]
+# .github 是组织级配置仓库，不发布到 PyPI；这里的 [project] 只是用 uv 管理
+# script/ 下内部脚本的依赖版本，不需要 [build-system]/wheel 构建产物。
+# 曾经加过 hatchling 构建配置，会产出一个叫 github-meta-scripts 的 wheel，
+# 与仓库名 .github 不一致、也从未被发布，故移除。
 package = false
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-only-include = ["script", "generate.py"]

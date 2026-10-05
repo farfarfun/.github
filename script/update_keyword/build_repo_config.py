@@ -59,7 +59,9 @@ def build_config(repos: list[dict]) -> tuple[dict, list[str]]:
 
 def main() -> int:
     config, skipped_forks = build_config(fetch_repositories())
-    out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "repo_config.json")
+    out_path = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), "repo_config.json"
+    )
     with open(out_path, "w", encoding="utf-8") as file:
         json.dump(config, file, ensure_ascii=False, indent=2)
         file.write("\n")
