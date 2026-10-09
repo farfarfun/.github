@@ -27,6 +27,9 @@ uv sync
 export GITHUB_TOKEN="your_github_token_here"
 ```
 
+也可以在 `funsecret` 中配置 `github.token`。即使使用 dry-run，脚本仍会调用 GitHub
+API 读取当前元信息，因此同样需要 token。
+
 **Token权限要求**:
 - `repo` - 完整的仓库访问权限
 - `public_repo` - 公共仓库访问权限（如果只更新公共仓库）
