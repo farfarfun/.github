@@ -120,7 +120,7 @@
         "keras",
         "tensorflow"
       ],
-      "homepage": "https://pypi.org/project/funcode/"
+      "homepage": null
     },
     "fardb": {
       "description": "基于 SQLAlchemy 的轻量数据库工具库：引擎创建与复用、通用表基类、增删改查与 upsert，附带 extendsclass JSON Storage 客户端",
@@ -194,7 +194,7 @@
         "text-to-speech",
         "tts"
       ],
-      "homepage": "https://pypi.org/project/funtts-plus/"
+      "homepage": null
     },
     "funSSR": {
       "description": "ShadowsocksR、V2Ray(ws+tls)、Trojan 代理服务端一键安装脚本及统一生命周期管理入口（scripts/setup.sh）；客户端安装包不再随仓库分发，改由上游 Releases 下载。",

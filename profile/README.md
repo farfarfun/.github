@@ -71,7 +71,7 @@
 ### ☁️ 存储与数据
 - **[fundrive](https://github.com/farfarfun/fundrive)** - 多种云存储服务的统一接口
 - **[funtable](https://github.com/farfarfun/funtable)** - SQLite / TinyDB / SQLModel 的统一表存储抽象
-- **[fundb](https://github.com/farfarfun/fundb)** - 多种数据库的统一操作接口
+- **[fardb](https://github.com/farfarfun/fardb)** - 多种数据库的统一操作接口
 - **[fundataworks](https://github.com/farfarfun/fundataworks)** - 数据处理工作流与管道
 - **[funseries](https://github.com/farfarfun/funseries)** - 时间序列数据处理与分析
 - **[funstock](https://github.com/farfarfun/funstock)** - 股票数据获取、分析与处理

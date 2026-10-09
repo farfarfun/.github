@@ -12,6 +12,10 @@ uv sync
 
 ## 最小可运行示例
 
+即使使用预览模式，脚本也会读取组织仓库的当前元信息，因此需要 GitHub token。
+请设置 `GITHUB_TOKEN`，或在 `funsecret` 中配置 `github.token`；仅预览公共仓库需要
+读取权限，使用 `--apply` 更新公共仓库还需要 `public_repo` 权限。
+
 预览会给哪些仓库的 description / homepage / topics 打上什么变更，不做任何写入：
 
 ```bash
