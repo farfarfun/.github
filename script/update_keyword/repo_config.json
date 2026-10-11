@@ -1,6 +1,6 @@
 {
   "organization": "farfarfun",
-  "_comment": "本文件由 build_repo_config.py 从 GitHub 线上状态生成，是 farfarfun 组织（不含 farfarfun-fundrive / farfarfun-skill / farfarfun-skills / farfarfun-utools 等子组织）仓库元信息的基线快照。手工改完线上元信息后请重新生成，否则 update_repo_keywords.py 会把线上改动覆盖回旧值。",
+  "_comment": "本文件由 build_repo_config.py 从 GitHub 线上状态生成，是 farfarfun 组织（不含 farfarfun-drive / farfarfun-skill / farfarfun-skills / farfarfun-utools 等子组织）仓库元信息的基线快照。手工改完线上元信息后请重新生成，否则 update_repo_keywords.py 会把线上改动覆盖回旧值。",
   "repositories": {
     ".github": {
       "description": "farfarfun 组织的 GitHub 主页仓库 - 用 Python 脚本自动生成组织 profile README 与仓库元信息",
