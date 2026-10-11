@@ -18,17 +18,19 @@
 
 ## 🗂️ 组织矩阵
 
-farfarfun 按产物形态拆成五个组织，本组织是通用 Python 工具链主体，另外四个各自承载一条独立产品线：
+farfarfun 是**一主多子**结构：新东西默认先在本组织孵化，等某个模块**仓库攒多了、功能也做完善了**，就整体独立成一个子组织（`farfarfun-drive`、`farfarfun-utools` 就是这么毕业的，旧的 `farfarfun/<repo>` 链接仍会重定向）；一开始就确定会自成一条产品线的，直接建子组织。所以下面这个名单不是预先划好的静态分类，还会继续变长。
 
 | 组织 | 产物 | 定位 | 仓库数 |
 |------|------|------|--------|
-| **[farfarfun](https://github.com/farfarfun)**（本组织） | Python 包 | `far*` 基础工具链 + `fun*` 领域应用库，发布到 PyPI | 139 |
+| **[farfarfun](https://github.com/farfarfun)**（本组织） | Python 包 | 孵化池 + `far*` 基础工具链 + `fun*` 领域应用库，发布到 PyPI | 139 |
 | [farfarfun-drive](https://github.com/farfarfun-drive) | 网盘 / 云存储 | `fundrive` 统一接口框架 + 各网盘驱动 + 蓝奏云 SDK / 客户端 | 11 |
 | [farfarfun-skill](https://github.com/farfarfun-skill) | AI Agent Skill | **自研** Skill 的源头仓库：项目治理、服务规范、多语言开发规范 | 7 |
 | [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区热门 Skill + 上面自研 Skill 的聚合镜像，每小时跟上游同步并镜像到 Gitee | 26 |
 | [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件：AI 聊天、网址导航、两步验证码 | 5 |
 
 > 判断去哪个组织：找**通用 Python 工具**看本组织；用**网盘 / 云存储**去 `farfarfun-drive`；要**改 / 提 issue 到某个 Skill** 去 `farfarfun-skill`（镜像组织不接受 PR）；想**一次装一批 Skill**（含社区项目）去 `farfarfun-skills`；用 **uTools 插件**去 `farfarfun-utools`。
+>
+> 找不到想要的东西？大概率还在本组织孵化，直接搜仓库名即可。
 
 ---
 
@@ -132,7 +134,7 @@ farfarfun 按产物形态拆成五个组织，本组织是通用 Python 工具�
 
 ## 🔭 其他组织的产物
 
-本组织放通用 Python 工具，下面这些产品线在各自的子组织里：
+本组织放通用 Python 工具，下面这些产品线在各自的子组织里（`fundrive` 系列和 uTools 插件是从本组织毕业搬过去的，旧的 `farfarfun/<repo>` 链接仍会重定向）：
 
 ### ☁️ 网盘 / 云存储 → [farfarfun-drive](https://github.com/farfarfun-drive)
 - **[fundrive](https://github.com/farfarfun-drive/fundrive)** - 统一的网盘 / 云存储操作接口框架，一套 API 打通 20+ 服务
