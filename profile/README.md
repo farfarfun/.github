@@ -23,10 +23,10 @@ farfarfun 按产物形态拆成五个组织，本组织是通用 Python 工具�
 | 组织 | 产物 | 定位 | 仓库数 |
 |------|------|------|--------|
 | **[farfarfun](https://github.com/farfarfun)**（本组织） | Python 包 | `far*` 基础工具链 + `fun*` 领域应用库，发布到 PyPI | 139 |
-| [farfarfun-fundrive](https://github.com/farfarfun-fundrive) | 网盘 / 云存储 | `fundrive` 统一接口框架 + 各网盘驱动 + 蓝奏云 SDK / 客户端 | 10 |
+| [farfarfun-fundrive](https://github.com/farfarfun-fundrive) | 网盘 / 云存储 | `fundrive` 统一接口框架 + 各网盘驱动 + 蓝奏云 SDK / 客户端 | 11 |
 | [farfarfun-skill](https://github.com/farfarfun-skill) | AI Agent Skill | **自研** Skill 的源头仓库：项目治理、服务规范、多语言开发规范 | 7 |
-| [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区热门 Skill + 上面自研 Skill 的聚合镜像，每日同步并镜像到 Gitee | 26 |
-| [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件：AI 聊天、网址导航、两步验证码 | 4 |
+| [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区热门 Skill + 上面自研 Skill 的聚合镜像，每小时跟上游同步并镜像到 Gitee | 26 |
+| [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件：AI 聊天、网址导航、两步验证码 | 5 |
 
 > 判断去哪个组织：找**通用 Python 工具**看本组织；用**网盘 / 云存储**去 `farfarfun-fundrive`；要**改 / 提 issue 到某个 Skill** 去 `farfarfun-skill`（镜像组织不接受 PR）；想**一次装一批 Skill**（含社区项目）去 `farfarfun-skills`；用 **uTools 插件**去 `farfarfun-utools`。
 
@@ -152,10 +152,11 @@ pip install fundrive fundrive-alipan fundrive-quark   # 主框架 + 按需装驱
 - **[project-manager](https://github.com/farfarfun-skill/project-manager)** - 项目全生命周期治理门禁
 - **[service-governance](https://github.com/farfarfun-skill/service-governance)** - 服务发布、Bash 生命周期、子模块编排
 - **[lang-spec-hub](https://github.com/farfarfun-skill/lang-spec-hub)** - Python / Java 开发规范
+- **[paperclip-governance](https://github.com/farfarfun-skill/paperclip-governance)** - Paperclip 平台执行隔离与任务协调
 - **[skill-router](https://github.com/farfarfun-skill/skill-router)** - 全组织 Skill 路由表，先在这里选对 Skill
 
 ### 📦 Skill 聚合镜像 → [farfarfun-skills](https://github.com/farfarfun-skills)
-每日同步 20 个社区热门 Skill 仓库 + 上面 4 个自研仓库，并整体镜像到 Gitee。本地批量安装用
+每小时从上游同步 20 个社区热门 Skill 仓库 + 上面 4 个自研仓库的镜像，并整体镜像到 Gitee。本地批量安装用
 [`fundeploy tool skills-sync`](https://github.com/farfarfun/fundeploy)。
 
 ## 🚀 快速开始
