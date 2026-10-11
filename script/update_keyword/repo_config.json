@@ -1,6 +1,6 @@
 {
   "organization": "farfarfun",
-  "_comment": "本文件由 build_repo_config.py 从 GitHub 线上状态生成，是仓库元信息的基线快照。手工改完线上元信息后请重新生成，否则 update_repo_keywords.py 会把线上改动覆盖回旧值。",
+  "_comment": "本文件由 build_repo_config.py 从 GitHub 线上状态生成，是 farfarfun 组织（不含 farfarfun-fundrive / farfarfun-skill / farfarfun-skills / farfarfun-utools 等子组织）仓库元信息的基线快照。手工改完线上元信息后请重新生成，否则 update_repo_keywords.py 会把线上改动覆盖回旧值。",
   "repositories": {
     ".github": {
       "description": "farfarfun 组织的 GitHub 主页仓库 - 用 Python 脚本自动生成组织 profile README 与仓库元信息",
@@ -529,83 +529,6 @@
       "keywords": [],
       "homepage": null
     },
-    "fundrive": {
-      "description": "统一的网盘/云存储操作接口框架 - 一套 API 打通 20+ 服务，涵盖 Google Drive、OneDrive、S3、百度网盘、阿里云盘、蓝奏云、WebDAV 等",
-      "keywords": [
-        "python",
-        "cloud-storage",
-        "drive",
-        "sdk",
-        "storage",
-        "farfarfun",
-        "onedrive",
-        "webdav"
-      ],
-      "homepage": "https://pypi.org/project/fundrive/"
-    },
-    "fundrive-alipan": {
-      "description": "fundrive 的阿里云盘驱动 - 为 fundrive 统一接口提供阿里云盘后端支持",
-      "keywords": [
-        "aliyundrive",
-        "cloud-storage",
-        "driver",
-        "farfarfun",
-        "python",
-        "fundrive"
-      ],
-      "homepage": "https://pypi.org/project/fundrive-alipan/"
-    },
-    "fundrive-api": {
-      "description": "",
-      "keywords": [],
-      "homepage": null
-    },
-    "fundrive-baidu": {
-      "description": "fundrive 的百度网盘驱动 - 精简自 BaiduPCS-Py，去除界面与服务代码，仅保留 API",
-      "keywords": [
-        "baidupan",
-        "cloud-storage",
-        "driver",
-        "farfarfun",
-        "fundrive",
-        "python"
-      ],
-      "homepage": "https://pypi.org/project/fundrive-baidu/"
-    },
-    "fundrive-dev": {
-      "description": "",
-      "keywords": [],
-      "homepage": null
-    },
-    "fundrive-lanzou": {
-      "description": "fundrive 的蓝奏云驱动 - 为 fundrive 统一接口提供蓝奏云后端支持",
-      "keywords": [
-        "cloud-storage",
-        "driver",
-        "farfarfun",
-        "fundrive",
-        "lanzou",
-        "python"
-      ],
-      "homepage": "https://pypi.org/project/fundrive-lanzou/"
-    },
-    "fundrive-quark": {
-      "description": "fundrive 的夸克网盘驱动 - 为 fundrive 统一接口提供夸克网盘后端支持",
-      "keywords": [
-        "cloud-storage",
-        "driver",
-        "farfarfun",
-        "fundrive",
-        "python",
-        "quark"
-      ],
-      "homepage": null
-    },
-    "fundrive-web": {
-      "description": "",
-      "keywords": [],
-      "homepage": null
-    },
     "funenv": {
       "description": "服务器开发环境初始化脚本集：在 /farfarfun 目录下安装 Miniconda、配置 Git 全局身份与凭据，并按 configs/code-server.yaml 后台启动 Web 版 VS Code（code-server）。",
       "keywords": [
@@ -926,20 +849,6 @@
         "transformer"
       ],
       "homepage": "https://pypi.org/project/funkeras/"
-    },
-    "funlanzou": {
-      "description": "蓝奏云网盘的 Python SDK 与 PyQt5 桌面客户端（基于 LanZouCloud-API / lanzou-gui 二次开发）：支持登录、上传下载、分享提取、回收站管理，并绕过上传格式与体积限制。",
-      "keywords": [
-        "api-wrapper",
-        "cloud-storage",
-        "farfarfun",
-        "file-sharing",
-        "lanzou",
-        "netdisk",
-        "pyqt5",
-        "python"
-      ],
-      "homepage": "https://pypi.org/project/funlanzou/"
     },
     "funlbm": {
       "description": "基于 PyTorch 的三维格子玻尔兹曼（LBM）流体仿真框架，支持 D3Q19/D3Q27 模型与球体、椭球、旋转椭球等颗粒耦合，结果可导出 VTK/Tecplot，附带 NiceGUI 界面与命令行任务提交",
@@ -1873,47 +1782,6 @@
         "github-actions",
         "maintenance"
       ],
-      "homepage": null
-    },
-    "utools-funchat": {
-      "description": "uTools AI 聊天插件 - 多角色 AI 好友、内置角色市场、话题回溯与一键导出，本地优先",
-      "keywords": [
-        "farfarfun",
-        "ai",
-        "llm",
-        "plugin",
-        "utools",
-        "vue3"
-      ],
-      "homepage": null
-    },
-    "utools-funlink": {
-      "description": "uTools 网址收藏与导航插件 - 分类与拖拽排序、废纸篓、站内搜索占位符、指定浏览器打开",
-      "keywords": [
-        "bookmarks",
-        "farfarfun",
-        "plugin",
-        "productivity",
-        "utools",
-        "vue3"
-      ],
-      "homepage": null
-    },
-    "utools-funotp": {
-      "description": "uTools 两步验证码插件 - 本地管理多个 TOTP 账号，离线生成 Google Authenticator 兼容的动态验证码",
-      "keywords": [
-        "2fa",
-        "authenticator",
-        "offline",
-        "totp",
-        "utools",
-        "farfarfun"
-      ],
-      "homepage": null
-    },
-    "utools-plugins": {
-      "description": "",
-      "keywords": [],
       "homepage": null
     },
     "video-manage": {

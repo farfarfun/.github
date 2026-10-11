@@ -9,10 +9,26 @@
 - **📈 持续创新** - 跟上技术发展趋势
 
 ### 📊 项目概览
-- 🏗️ **125 个公开仓库** - 涵盖工具链、数据、AI、多媒体等领域
+- 🏗️ **139 个公开仓库** - 涵盖工具链、数据、AI、多媒体等领域
 - 📦 **20+ 活跃 PyPI 包** - 持续维护并发布到 Python 包索引
 - 🌟 **100+ GitHub Stars** - 获得社区认可
 - 🧰 **两条产品线** - `far*` 基础工具链 + `fun*` 领域应用库
+
+---
+
+## 🗂️ 组织矩阵
+
+farfarfun 按产物形态拆成五个组织，本组织是通用 Python 工具链主体，另外四个各自承载一条独立产品线：
+
+| 组织 | 产物 | 定位 | 仓库数 |
+|------|------|------|--------|
+| **[farfarfun](https://github.com/farfarfun)**（本组织） | Python 包 | `far*` 基础工具链 + `fun*` 领域应用库，发布到 PyPI | 139 |
+| [farfarfun-fundrive](https://github.com/farfarfun-fundrive) | 网盘 / 云存储 | `fundrive` 统一接口框架 + 各网盘驱动 + 蓝奏云 SDK / 客户端 | 10 |
+| [farfarfun-skill](https://github.com/farfarfun-skill) | AI Agent Skill | **自研** Skill 的源头仓库：项目治理、服务规范、多语言开发规范 | 7 |
+| [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区热门 Skill + 上面自研 Skill 的聚合镜像，每日同步并镜像到 Gitee | 26 |
+| [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件：AI 聊天、网址导航、两步验证码 | 4 |
+
+> 判断去哪个组织：找**通用 Python 工具**看本组织；用**网盘 / 云存储**去 `farfarfun-fundrive`；要**改 / 提 issue 到某个 Skill** 去 `farfarfun-skill`（镜像组织不接受 PR）；想**一次装一批 Skill**（含社区项目）去 `farfarfun-skills`；用 **uTools 插件**去 `farfarfun-utools`。
 
 ---
 
@@ -22,8 +38,8 @@
 |------|------|------|
 | [funflix](https://github.com/farfarfun/funflix) | 影视资源分享文本的结构化采集、解析与网盘链接校验，采集 / 抽取 / 校验分层幂等 | [![PyPI](https://img.shields.io/pypi/v/funflix?style=flat-square)](https://pypi.org/project/funflix/) |
 | [funflix-web](https://github.com/farfarfun/funflix-web) | funflix 的 Web 界面，单进程同时提供 Vue 3 前端与后端接口 | [![PyPI](https://img.shields.io/pypi/v/funflix-web?style=flat-square)](https://pypi.org/project/funflix-web/) |
-| [utools-funchat](https://github.com/farfarfun/utools-funchat) | uTools AI 聊天插件，多角色 AI 好友、角色市场、话题回溯，本地优先 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) |
-| [utools-funlink](https://github.com/farfarfun/utools-funlink) | uTools 网址收藏与导航插件，分类拖拽排序、废纸篓、站内搜索占位符 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) |
+| [utools-funchat](https://github.com/farfarfun-utools/utools-funchat) | uTools AI 聊天插件，多角色 AI 好友、角色市场、话题回溯，本地优先 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) |
+| [utools-funotp](https://github.com/farfarfun-utools/utools-funotp) | uTools 两步验证码插件，本地管理 TOTP 账号，离线生成动态码 | ![Vue](https://img.shields.io/badge/Vue-3-42b883?style=flat-square) |
 | [farcache](https://github.com/farfarfun/farcache) | 轻量函数缓存装饰器库，内存 / 磁盘 / Pickle 多种策略，原生支持 async | [![PyPI](https://img.shields.io/pypi/v/farcache?style=flat-square)](https://pypi.org/project/farcache/) |
 | [funread](https://github.com/farfarfun/funread) | Legado（阅读 APP）书源与 RSS 源的管理、解析与校验 | [![PyPI](https://img.shields.io/pypi/v/funread?style=flat-square)](https://pypi.org/project/funread/) |
 
@@ -49,7 +65,7 @@
 
 |    | title                                               | stars                                                                                                               | forks                                                                                                               | watchers                                                                                                                  | download                                                                                                                                                                                                | version                                                    | format                                                         | pypi                                                                                                                  |
 |---:|:----------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:---------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------|
-|  0 | [fundrive](https://github.com/farfarfun/fundrive)   | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/fundrive?style=flat-square&labelColor=black"/>  | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/fundrive?style=flat-square&labelColor=black"/>  | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/fundrive?style=flat-square&labelColor=black"/>  | [![fundrive](https://static.pepy.tech/personalized-badge/fundrive?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/fundrive)    | ![PyPI - Version](https://img.shields.io/pypi/v/fundrive)  | ![PyPI - Format](https://img.shields.io/pypi/format/fundrive)  | [![PyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/fundrive)  |
+|  0 | [fundrive](https://github.com/farfarfun-fundrive/fundrive)   | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun-fundrive/fundrive?style=flat-square&labelColor=black"/>  | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun-fundrive/fundrive?style=flat-square&labelColor=black"/>  | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun-fundrive/fundrive?style=flat-square&labelColor=black"/>  | [![fundrive](https://static.pepy.tech/personalized-badge/fundrive?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/fundrive)    | ![PyPI - Version](https://img.shields.io/pypi/v/fundrive)  | ![PyPI - Format](https://img.shields.io/pypi/format/fundrive)  | [![PyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/fundrive)  |
 |  1 | [funrec](https://github.com/farfarfun/funrec)       | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funrec?style=flat-square&labelColor=black"/>    | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funrec?style=flat-square&labelColor=black"/>    | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funrec?style=flat-square&labelColor=black"/>    | [![funrec](https://static.pepy.tech/personalized-badge/funrec?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funrec)          | ![PyPI - Version](https://img.shields.io/pypi/v/funrec)    | ![PyPI - Format](https://img.shields.io/pypi/format/funrec)    | [![PyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funrec)    |
 |  2 | [fundata](https://github.com/farfarfun/fundata)     | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/fundata?style=flat-square&labelColor=black"/>   | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/fundata?style=flat-square&labelColor=black"/>   | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/fundata?style=flat-square&labelColor=black"/>   | [![fundata](https://static.pepy.tech/personalized-badge/fundata?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/fundata)       | ![PyPI - Version](https://img.shields.io/pypi/v/fundata)   | ![PyPI - Format](https://img.shields.io/pypi/format/fundata)   | [![PyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/fundata)   |
 |  3 | [funbuild](https://github.com/farfarfun/funbuild)   | <img alt="Stars" src="https://img.shields.io/github/stars/farfarfun/funbuild?style=flat-square&labelColor=black"/>  | <img alt="Forks" src="https://img.shields.io/github/forks/farfarfun/funbuild?style=flat-square&labelColor=black"/>  | <img alt="Watchers" src="https://img.shields.io/github/watchers/farfarfun/funbuild?style=flat-square&labelColor=black"/>  | [![funbuild](https://static.pepy.tech/personalized-badge/funbuild?period=total&units=international_system&left_color=black&right_color=red&left_text=Downloads)](https://pepy.tech/project/funbuild)    | ![PyPI - Version](https://img.shields.io/pypi/v/funbuild)  | ![PyPI - Format](https://img.shields.io/pypi/format/funbuild)  | [![PyPi](https://img.shields.io/badge/PyPi-black?style=flat-square&logo=pypi)](https://pypi.org/project/funbuild)  |
@@ -69,7 +85,6 @@
 上表仅展示了我们的核心项目，我们还有更多优秀的工具包等待你的发现：
 
 ### ☁️ 存储与数据
-- **[fundrive](https://github.com/farfarfun/fundrive)** - 多种云存储服务的统一接口
 - **[funtable](https://github.com/farfarfun/funtable)** - SQLite / TinyDB / SQLModel 的统一表存储抽象
 - **[fardb](https://github.com/farfarfun/fardb)** - 多种数据库的统一操作接口
 - **[fundataworks](https://github.com/farfarfun/fundataworks)** - 数据处理工作流与管道
@@ -107,15 +122,41 @@
 - **[funuser](https://github.com/farfarfun/funuser)** - 用户认证、授权与管理
 - **[funapp](https://github.com/farfarfun/funapp)** - 快速构建 Python 应用的框架
 
-### 🧩 uTools 插件
-- **[utools-funchat](https://github.com/farfarfun/utools-funchat)** - 多角色 AI 聊天，内置角色市场
-- **[utools-funlink](https://github.com/farfarfun/utools-funlink)** - 网址收藏与快速访问导航
-
 ### 🛠️ 开发与运维
 - **[funutil](https://github.com/farfarfun/funutil)** - 常用工具函数与实用程序
 - **[funshell](https://github.com/farfarfun/funshell)** - Shell 流程封装
 - **[funinstall](https://github.com/farfarfun/funinstall)** - 开发工具一键安装
 - **[fartask](https://github.com/farfarfun/fartask)** - 任务创建、跟踪与管理
+
+---
+
+## 🔭 其他组织的产物
+
+本组织放通用 Python 工具，下面这些产品线在各自的子组织里：
+
+### ☁️ 网盘 / 云存储 → [farfarfun-fundrive](https://github.com/farfarfun-fundrive)
+- **[fundrive](https://github.com/farfarfun-fundrive/fundrive)** - 统一的网盘 / 云存储操作接口框架，一套 API 打通 20+ 服务
+- **[fundrive-alipan](https://github.com/farfarfun-fundrive/fundrive-alipan)** / **[-baidu](https://github.com/farfarfun-fundrive/fundrive-baidu)** / **[-lanzou](https://github.com/farfarfun-fundrive/fundrive-lanzou)** / **[-quark](https://github.com/farfarfun-fundrive/fundrive-quark)** - 阿里云盘 / 百度网盘 / 蓝奏云 / 夸克网盘驱动
+- **[funlanzou](https://github.com/farfarfun-fundrive/funlanzou)** - 蓝奏云 Python SDK 与 PyQt6 桌面客户端
+
+```bash
+pip install fundrive fundrive-alipan fundrive-quark   # 主框架 + 按需装驱动
+```
+
+### 🧩 uTools 插件 → [farfarfun-utools](https://github.com/farfarfun-utools)
+- **[utools-funchat](https://github.com/farfarfun-utools/utools-funchat)** - 多角色 AI 聊天，内置角色市场、话题回溯
+- **[utools-funlink](https://github.com/farfarfun-utools/utools-funlink)** - 网址收藏与导航，分类拖拽排序、废纸篓
+- **[utools-funotp](https://github.com/farfarfun-utools/utools-funotp)** - 两步验证码，离线生成 TOTP 动态码
+
+### 🤖 AI Agent Skill → [farfarfun-skill](https://github.com/farfarfun-skill)（自研源头）
+- **[project-manager](https://github.com/farfarfun-skill/project-manager)** - 项目全生命周期治理门禁
+- **[service-governance](https://github.com/farfarfun-skill/service-governance)** - 服务发布、Bash 生命周期、子模块编排
+- **[lang-spec-hub](https://github.com/farfarfun-skill/lang-spec-hub)** - Python / Java 开发规范
+- **[skill-router](https://github.com/farfarfun-skill/skill-router)** - 全组织 Skill 路由表，先在这里选对 Skill
+
+### 📦 Skill 聚合镜像 → [farfarfun-skills](https://github.com/farfarfun-skills)
+每日同步 20 个社区热门 Skill 仓库 + 上面 4 个自研仓库，并整体镜像到 Gitee。本地批量安装用
+[`fundeploy tool skills-sync`](https://github.com/farfarfun/fundeploy)。
 
 ## 🚀 快速开始
 
