@@ -18,7 +18,7 @@
 
 ## 🗂️ 组织矩阵
 
-farfarfun 是**一主多子**结构：新东西默认先在本组织孵化，等某个模块**仓库攒多了、功能也做完善了**，就整体独立成一个子组织（`farfarfun-drive`、`farfarfun-utools` 就是这么毕业的，旧的 `farfarfun/<repo>` 链接仍会重定向）；一开始就确定会自成一条产品线的，直接建子组织。所以下面这个名单不是预先划好的静态分类，还会继续变长。
+新东西默认先放在本组织，等某个模块**仓库攒多了、功能也做完善了**，就整体搬到一个独立的子组织里（`farfarfun-drive`、`farfarfun-utools` 就是这么搬出去的，旧的 `farfarfun/<repo>` 链接仍会重定向）；一开始就确定会自成一条产品线的，直接建子组织。所以下面这个名单不是预先划好的静态分类，还会继续变长。
 
 | 组织 | 产物 | 定位 | 仓库数 |
 |------|------|------|--------|
@@ -134,7 +134,7 @@ farfarfun 是**一主多子**结构：新东西默认先在本组织孵化，等
 
 ## 🔭 其他组织的产物
 
-本组织放通用 Python 工具，下面这些产品线在各自的子组织里（`fundrive` 系列和 uTools 插件是从本组织毕业搬过去的，旧的 `farfarfun/<repo>` 链接仍会重定向）：
+本组织放通用 Python 工具，下面这些产品线在各自的子组织里（`fundrive` 系列和 uTools 插件是从本组织搬过去的，旧的 `farfarfun/<repo>` 链接仍会重定向）：
 
 ### ☁️ 网盘 / 云存储 → [farfarfun-drive](https://github.com/farfarfun-drive)
 - **[fundrive](https://github.com/farfarfun-drive/fundrive)** - 统一的网盘 / 云存储操作接口框架，一套 API 打通 20+ 服务
