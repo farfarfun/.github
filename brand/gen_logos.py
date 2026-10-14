@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""farfarfun 组织 logo 生成器。
+"""farfarfun 组织与 uTools 插件的 logo 生成器。
 
 生成全部格式与尺寸的 SVG、PNG 与 favicon：
 
@@ -7,7 +7,7 @@
 
 图形是 ``ff`` 连字——两个 f 共享一道横杠，笔画在底部连成微笑弧：``ff`` 取自
 **far far**，底部的弧线是 **fun**。主组织用纯 ff，子组织在右下角挂一枚角标
-区分产品线。
+区分产品线；四个 uTools 插件再往下挂一层，共用同一套 ff 与角标机制。
 
 这个文件是所有图形产物的唯一来源。要改图形就改这里再重跑，不要手工动
 ``svg/`` ``png/`` ``favicon/``——每次运行都会先清空再整体重建。
@@ -30,12 +30,14 @@ RX = 232  # 圆角方形的圆角半径
 
 
 # --------------------------------------------------------------------------- #
-# 组织与色板
+# 主体与色板
 # --------------------------------------------------------------------------- #
 @dataclass(frozen=True)
-class Org:
+class Subject:
+    """一个要出图的主体：一个组织，或一个 uTools 插件。"""
+
     key: str  # 文件名
-    name: str  # GitHub 组织名
+    name: str  # 组合标上的名字
     label: str  # 中文定位
     c0: str  # 渐变起点
     c1: str  # 渐变终点
@@ -43,14 +45,27 @@ class Org:
     badge: str | None  # 角标图形，None 表示主组织不挂角标
 
 
-ORGS: tuple[Org, ...] = (
-    Org("farfarfun", "farfarfun", "主组织 / Python 工具链", "#06B6D4", "#7C3AED", "#6D28D9", None),
-    Org("drive", "farfarfun-drive", "网盘 / 云存储", "#0EA5E9", "#1D4ED8", "#1D4ED8", "cloud"),
-    Org("skill", "farfarfun-skill", "自研 AI Agent Skill", "#8B5CF6", "#6D28D9", "#6D28D9", "spark"),
-    Org("skills", "farfarfun-skills", "Skill 聚合镜像", "#6366F1", "#4338CA", "#4338CA", "stack"),
-    Org("utools", "farfarfun-utools", "uTools 插件", "#14B8A6", "#0F766E", "#0F766E", "puzzle"),
-    Org("action", "farfarfun-action", "GitHub Action", "#F97316", "#C2410C", "#C2410C", "play"),
+ORGS: tuple[Subject, ...] = (
+    Subject("farfarfun", "farfarfun", "主组织 / Python 工具链", "#06B6D4", "#7C3AED", "#6D28D9", None),
+    Subject("drive", "farfarfun-drive", "网盘 / 云存储", "#0EA5E9", "#1D4ED8", "#1D4ED8", "cloud"),
+    Subject("skill", "farfarfun-skill", "自研 AI Agent Skill", "#8B5CF6", "#6D28D9", "#6D28D9", "spark"),
+    Subject("skills", "farfarfun-skills", "Skill 聚合镜像", "#6366F1", "#4338CA", "#4338CA", "stack"),
+    Subject("utools", "farfarfun-utools", "uTools 插件", "#14B8A6", "#0F766E", "#0F766E", "puzzle"),
+    Subject("action", "farfarfun-action", "GitHub Action", "#F97316", "#C2410C", "#C2410C", "play"),
 )
+
+# 四个 uTools 插件。家族感由 ff 图形和角标机制保证，所以这里不把色相锁在
+# utools 组织的青绿里——插件是在启动器里四个排一行被人扫一眼认出来的，
+# 色相拉开比凑成一家更要紧。尤其 fundoc 不能再用组织那支青绿：
+# 它和 utools 的头像会同时出现在 farfarfun-utools 的 README 里。
+PLUGINS: tuple[Subject, ...] = (
+    Subject("funchat", "funchat", "AI 好友聊天", "#06B6D4", "#0E7490", "#0E7490", "bubble"),
+    Subject("fundoc", "fundoc", "FunDoc 文档", "#4F46E5", "#3730A3", "#3730A3", "doc"),
+    Subject("funlink", "funlink", "网址收藏", "#22C55E", "#15803D", "#15803D", "bookmark"),
+    Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", "shield"),
+)
+
+SUBJECTS: tuple[Subject, ...] = ORGS + PLUGINS
 
 INK = "#FFFFFF"  # 深色底上的图形色
 PAPER = "#F8FAFC"  # 反白版的底色
@@ -113,26 +128,59 @@ def glyph(kind: str, fg: str, bg: str) -> str:
             f'<path fill="{fg}" stroke="{fg}" stroke-width="20" stroke-linejoin="round" '
             'transform="translate(-7,0)" d="M -30 -44 L 44 0 L -30 44 Z"/>'
         )
+    # 以下四个是 uTools 插件的角标。
+    if kind == "bubble":
+        # 对话气泡。三个点在小尺寸下会并成一道，但那时整枚角标也只剩一个点了。
+        return (
+            f'<g transform="translate(0,-11)">'
+            f'<path fill="{fg}" d="M -22 30 L -28 64 L 10 33 Z"/>'
+            f'<rect x="-48" y="-40" width="96" height="74" rx="26" fill="{fg}"/>'
+            f'<g fill="{bg}"><circle cx="-24" cy="-3" r="9.5"/>'
+            '<circle cx="0" cy="-3" r="9.5"/><circle cx="24" cy="-3" r="9.5"/></g>'
+            "</g>"
+        )
+    if kind == "doc":
+        return (
+            f'<rect x="-38" y="-52" width="76" height="104" rx="14" fill="{fg}"/>'
+            f'<g fill="{bg}"><rect x="-20" y="-30" width="40" height="12" rx="6"/>'
+            '<rect x="-20" y="-6" width="40" height="12" rx="6"/>'
+            '<rect x="-20" y="18" width="24" height="12" rx="6"/></g>'
+        )
+    if kind == "bookmark":
+        return (
+            f'<path fill="{fg}" stroke="{fg}" stroke-width="16" stroke-linejoin="round" '
+            'd="M -32 -44 L 32 -44 L 32 44 L 0 20 L -32 44 Z"/>'
+        )
+    if kind == "shield":
+        # 盾 + 对勾：读作「验证通过」，比光一个盾更说得清 OTP。
+        return (
+            f'<g transform="translate(0,-2)">'
+            f'<path fill="{fg}" d="M 0 -52 L 44 -33 L 44 4 C 44 33 24 49 0 56 '
+            'C -24 49 -44 33 -44 4 L -44 -33 Z"/>'
+            f'<path fill="none" stroke="{bg}" stroke-width="13" stroke-linecap="round" '
+            'stroke-linejoin="round" d="M -19 0 L -5 15 L 20 -14"/>'
+            "</g>"
+        )
     raise ValueError(f"unknown glyph: {kind}")
 
 
-def badge(org: Org, *, bg: str, fg: str, cx: float = BADGE_CX, cy: float = BADGE_CY,
+def badge(s: Subject, *, bg: str, fg: str, cx: float = BADGE_CX, cy: float = BADGE_CY,
           r: float = BADGE_R) -> str:
-    if org.badge is None:
+    if s.badge is None:
         return ""
     return (
         f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{bg}"/>'
         f'<g transform="translate({cx},{cy}) scale({GLYPH_SCALE})">'
-        f"{glyph(org.badge, fg, bg)}</g>"
+        f"{glyph(s.badge, fg, bg)}</g>"
     )
 
 
-def knockout(org: Org, mark: str, *, cx: float = BADGE_CX, cy: float = BADGE_CY,
+def knockout(s: Subject, mark: str, *, cx: float = BADGE_CX, cy: float = BADGE_CY,
              r: float = BADGE_R) -> str:
     """在主图形上挖掉角标占的那一圈，角标才会读作「盖在上面」。"""
-    if org.badge is None:
+    if s.badge is None:
         return mark
-    mid = f"k-{org.key}"
+    mid = f"k-{s.key}"
     return (
         f'<mask id="{mid}" maskUnits="userSpaceOnUse" x="0" y="0" width="{S}" height="{S}">'
         f'<rect width="{S}" height="{S}" fill="white"/>'
@@ -169,26 +217,24 @@ class Fmt:
     title: str
     note: str
     sizes: tuple[int, ...]
-    body: Callable[[Org], str] = field(repr=False)
+    body: Callable[[Subject], str] = field(repr=False)
 
 
-def f_icon(org: Org) -> str:
+def f_icon(s: Subject) -> str:
     """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
-    return squircle("url(#g)") + knockout(org, ff_mark(INK)) + badge(
-        org, bg=INK, fg=org.deep
-    )
+    return squircle("url(#g)") + knockout(s, ff_mark(INK)) + badge(s, bg=INK, fg=s.deep)
 
 
-def f_inverse(org: Org) -> str:
+def f_inverse(s: Subject) -> str:
     """反白：浅底配渐变图形。深色页眉、贴纸、印刷物用。"""
     return (
         squircle(PAPER, PAPER_EDGE)
-        + knockout(org, ff_mark("url(#g)"))
-        + badge(org, bg=org.deep, fg=INK)
+        + knockout(s, ff_mark("url(#g)"))
+        + badge(s, bg=s.deep, fg=INK)
     )
 
 
-def f_circle(org: Org) -> str:
+def f_circle(s: Subject) -> str:
     """圆形容器：头像被裁成圆形的平台上不会切角。"""
     scaled = (
         '<g transform="translate(512,512) scale(0.86) translate(-512,-512)">'
@@ -196,14 +242,14 @@ def f_circle(org: Org) -> str:
     )
     return (
         '<circle cx="512" cy="512" r="512" fill="url(#g)"/>'
-        + knockout(org, scaled, cx=752, cy=752, r=142)
-        + badge(org, bg=INK, fg=org.deep, cx=752, cy=752, r=142)
+        + knockout(s, scaled, cx=752, cy=752, r=142)
+        + badge(s, bg=INK, fg=s.deep, cx=752, cy=752, r=142)
     )
 
 
-def f_mark(org: Org) -> str:
+def f_mark(s: Subject) -> str:
     """无容器：透明底的纯图形。README 页眉、水印用。"""
-    return knockout(org, ff_mark("url(#g)")) + badge(org, bg=org.deep, fg=INK)
+    return knockout(s, ff_mark("url(#g)")) + badge(s, bg=s.deep, fg=INK)
 
 
 # 尺寸取自实际用途：
@@ -244,8 +290,8 @@ def _measure(text: str) -> tuple[float, float]:
     return x1 - x0, LOCKUP_H / 2 + ascent - (y0 + y1) / 2
 
 
-def render_lockup(org: Org, *, on_dark: bool) -> str:
-    text_w, baseline = _measure(org.name)
+def render_lockup(s: Subject, *, on_dark: bool) -> str:
+    text_w, baseline = _measure(s.name)
     text_x = LOCKUP_MARK + LOCKUP_GAP
     width = round(text_x + text_w)
     # 图形画在 1024 的局部坐标系里再整体缩放，userSpaceOnUse 的渐变
@@ -253,38 +299,38 @@ def render_lockup(org: Org, *, on_dark: bool) -> str:
     grad = (
         f'<linearGradient id="g" x1="0" y1="0" x2="{S}" y2="{S}" '
         f'gradientUnits="userSpaceOnUse">'
-        f'<stop offset="0" stop-color="{org.c0}"/>'
-        f'<stop offset="1" stop-color="{org.c1}"/></linearGradient>'
+        f'<stop offset="0" stop-color="{s.c0}"/>'
+        f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    mark = knockout(org, ff_mark("url(#g)")) + badge(
-        org, bg=INK if on_dark else org.deep, fg=org.deep if on_dark else INK
+    mark = knockout(s, ff_mark("url(#g)")) + badge(
+        s, bg=INK if on_dark else s.deep, fg=s.deep if on_dark else INK
     )
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
-        f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{org.name}">'
+        f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{s.name}">'
         f"<defs>{grad}</defs>"
         f'<g transform="translate(0,{(LOCKUP_H - LOCKUP_MARK) / 2}) '
         f'scale({LOCKUP_MARK / S})">{mark}</g>'
         f'<text x="{text_x}" y="{baseline:.1f}" font-family="{FONT_STACK}" '
         f'font-size="{LOCKUP_FONT}" font-weight="500" '
-        f'fill="{INK if on_dark else "#0F172A"}">{org.name}</text></svg>'
+        f'fill="{INK if on_dark else "#0F172A"}">{s.name}</text></svg>'
     )
 
 
 # --------------------------------------------------------------------------- #
 # 输出
 # --------------------------------------------------------------------------- #
-def render_icon(fmt: Fmt, org: Org) -> str:
+def render_icon(fmt: Fmt, s: Subject) -> str:
     grad = (
         f'<linearGradient id="g" x1="0" y1="0" x2="{S}" y2="{S}" '
         f'gradientUnits="userSpaceOnUse">'
-        f'<stop offset="0" stop-color="{org.c0}"/>'
-        f'<stop offset="1" stop-color="{org.c1}"/></linearGradient>'
+        f'<stop offset="0" stop-color="{s.c0}"/>'
+        f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {S} {S}" '
-        f'width="{S}" height="{S}" role="img" aria-label="{org.name} logo">'
-        f"<defs>{grad}</defs>{fmt.body(org)}</svg>"
+        f'width="{S}" height="{S}" role="img" aria-label="{s.name} logo">'
+        f"<defs>{grad}</defs>{fmt.body(s)}</svg>"
     )
 
 
@@ -299,13 +345,13 @@ def main() -> None:
     for fmt in FORMATS:
         (SVG_DIR / fmt.key).mkdir(parents=True, exist_ok=True)
         (PNG_DIR / fmt.key).mkdir(parents=True, exist_ok=True)
-        for org in ORGS:
-            svg = render_icon(fmt, org)
-            (SVG_DIR / fmt.key / f"{org.key}.svg").write_text(svg, encoding="utf-8")
+        for s in SUBJECTS:
+            svg = render_icon(fmt, s)
+            (SVG_DIR / fmt.key / f"{s.key}.svg").write_text(svg, encoding="utf-8")
             for size in fmt.sizes:
                 cairosvg.svg2png(
                     bytestring=svg.encode(),
-                    write_to=str(PNG_DIR / fmt.key / f"{org.key}-{size}.png"),
+                    write_to=str(PNG_DIR / fmt.key / f"{s.key}-{size}.png"),
                     output_width=size,
                     output_height=size,
                 )
@@ -314,13 +360,13 @@ def main() -> None:
     for suffix, on_dark in (("lockup", False), ("lockup-on-dark", True)):
         (SVG_DIR / suffix).mkdir(parents=True, exist_ok=True)
         (PNG_DIR / suffix).mkdir(parents=True, exist_ok=True)
-        for org in ORGS:
-            svg = render_lockup(org, on_dark=on_dark)
-            (SVG_DIR / suffix / f"{org.key}.svg").write_text(svg, encoding="utf-8")
+        for s in SUBJECTS:
+            svg = render_lockup(s, on_dark=on_dark)
+            (SVG_DIR / suffix / f"{s.key}.svg").write_text(svg, encoding="utf-8")
             for h in LOCKUP_SIZES:
                 cairosvg.svg2png(
                     bytestring=svg.encode(),
-                    write_to=str(PNG_DIR / suffix / f"{org.key}-{h}.png"),
+                    write_to=str(PNG_DIR / suffix / f"{s.key}-{h}.png"),
                     output_height=h,
                 )
                 n_png += 1
@@ -328,15 +374,16 @@ def main() -> None:
     # 多尺寸 .ico，直接丢进任意 Web 项目当 favicon
     from PIL import Image
 
-    for org in ORGS:
-        src = Image.open(PNG_DIR / "icon" / f"{org.key}-256.png").convert("RGBA")
-        src.save(ICO_DIR / f"{org.key}.ico", format="ICO",
+    for s in SUBJECTS:
+        src = Image.open(PNG_DIR / "icon" / f"{s.key}-256.png").convert("RGBA")
+        src.save(ICO_DIR / f"{s.key}.ico", format="ICO",
                  sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])
 
+    n_fmt = len(FORMATS) + 2
     print(
-        f"{len(FORMATS) + 2} 种格式 × {len(ORGS)} 个组织："
-        f"{n_png} 张 PNG、{(len(FORMATS) + 2) * len(ORGS)} 个 SVG、"
-        f"{len(ORGS)} 个 .ico 已写入 {BRAND}"
+        f"{n_fmt} 种格式 × {len(SUBJECTS)} 个主体（{len(ORGS)} 组织 + {len(PLUGINS)} 插件）："
+        f"{n_png} 张 PNG、{n_fmt * len(SUBJECTS)} 个 SVG、"
+        f"{len(SUBJECTS)} 个 .ico 已写入 {BRAND}"
     )
 
 

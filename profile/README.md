@@ -1,3 +1,12 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+            srcset="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup-on-dark/farfarfun-160.png">
+    <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup/farfarfun-160.png"
+         height="80" alt="farfarfun">
+  </picture>
+</p>
+
 ## 🚀 关于 farfarfun
 
 我们是一个专注于开发实用 Python 工具包的开源组织，致力于为 Python 开发者提供高质量、易用的工具库。
