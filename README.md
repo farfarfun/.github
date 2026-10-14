@@ -34,6 +34,12 @@ topics 的维护脚本，不会重建配置快照。
 
 更多细节见 [script/update_keyword/REPO_UPDATER_README.md](script/update_keyword/REPO_UPDATER_README.md)。
 
+## 品牌标识
+
+[brand/](brand/) 放着六个组织共用的一套 logo，核心图形是 `ff` 连字。目前有 7 个候选
+方案待定稿，含各组织头像、横版组合标、色板与生成脚本，详见
+[brand/README.md](brand/README.md)。
+
 ## 关于 farfarfun
 
 [farfarfun](https://github.com/farfarfun) 是一个专注于实用工具库的开源组织，
