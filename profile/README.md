@@ -182,7 +182,7 @@ pip install fundrive funtable funget farcache
 
 <div align="center">
 
-**🎯 活到老，学到老，玩到老 🎯**
+**🎯 活到老，学到老，玩到老，牛哥永远都不老 🎯**
 
 **让编程更简单，让开发更高效！**
 
