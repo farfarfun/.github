@@ -18,19 +18,19 @@
 
 ## 🗂️ 组织矩阵
 
-新东西默认先放在本组织，等某个模块**仓库攒多了、功能也做完善了**，就毕业成一个独立的子组织——`farfarfun-drive`、`farfarfun-utools` 就是这么出去的，旧的 `farfarfun/<repo>` 链接仍会重定向。早期规划时已经确定会自成一条产品线的，直接建了子组织，没走这一步，`farfarfun-skill`、`farfarfun-skills` 属于这一批。所以下面这个名单不是预先划好的静态分类，还会继续变长。
+本组织是 farfarfun 的主组织，新项目默认在此孵化；当某一方向的仓库数量与功能完整度达到一定规模后，即从本组织毕业、独立为子组织。`farfarfun-drive` 与 `farfarfun-utools` 均由此路径独立，原 `farfarfun/<repo>` 链接继续重定向。规划阶段已确定为独立产品线的，则直接建立子组织，`farfarfun-skill` 与 `farfarfun-skills` 属于此类。因此下表并非预先划定的固定分类，会随产品线演进持续调整。
 
 | 组织 | 产物 | 定位 | 仓库数 |
 |------|------|------|--------|
-| **[farfarfun](https://github.com/farfarfun)**（本组织） | Python 包 | 孵化池 + `far*` 基础工具链 + `fun*` 领域应用库，发布到 PyPI | 139 |
-| [farfarfun-drive](https://github.com/farfarfun-drive) | 网盘 / 云存储 | `fundrive` 统一接口框架 + 各网盘驱动 + 蓝奏云 SDK / 客户端 | 11 |
-| [farfarfun-skill](https://github.com/farfarfun-skill) | AI Agent Skill | **自研** Skill 的源头仓库：项目治理、服务规范、多语言开发规范 | 7 |
-| [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区热门 Skill + 上面自研 Skill 的聚合镜像，每小时跟上游同步并镜像到 Gitee | 26 |
-| [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件：AI 聊天、网址导航、两步验证码 | 5 |
+| **[farfarfun](https://github.com/farfarfun)**（本组织） | Python 包 | 新项目孵化地，以及 `far*` 基础工具链与 `fun*` 领域应用库，发布至 PyPI | 139 |
+| [farfarfun-drive](https://github.com/farfarfun-drive) | 网盘 / 云存储 | `fundrive` 统一接口框架、各网盘驱动，以及蓝奏云 SDK 与客户端 | 11 |
+| [farfarfun-skill](https://github.com/farfarfun-skill) | AI Agent Skill | **自研** Skill 的源头仓库，覆盖项目治理、服务规范与多语言开发规范 | 7 |
+| [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区 Skill 与上述自研 Skill 的聚合镜像，每小时与上游同步并镜像至 Gitee | 26 |
+| [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件，覆盖 AI 聊天、网址导航与两步验证码 | 5 |
 
-> 判断去哪个组织：找**通用 Python 工具**看本组织；用**网盘 / 云存储**去 `farfarfun-drive`；要**改 / 提 issue 到某个 Skill** 去 `farfarfun-skill`（镜像组织不接受 PR）；想**一次装一批 Skill**（含社区项目）去 `farfarfun-skills`；用 **uTools 插件**去 `farfarfun-utools`。
+> **如何定位所需仓库**：通用 Python 工具见本组织；网盘与云存储见 `farfarfun-drive`；提交 Skill 的 issue 或 PR 见 `farfarfun-skill`（镜像组织不接受 PR）；批量安装 Skill（含社区项目）见 `farfarfun-skills`；uTools 插件见 `farfarfun-utools`。
 >
-> 找不到想要的东西？大概率还在本组织孵化，直接搜仓库名即可。
+> 未在上述组织中找到的项目，通常仍在本组织孵化，可直接按仓库名检索。
 
 ---
 
@@ -84,7 +84,7 @@
 
 ## 🌟 更多精彩项目
 
-上表仅展示了我们的核心项目，我们还有更多优秀的工具包等待你的发现：
+上表仅列出核心项目，其余工具包按领域分类如下：
 
 ### ☁️ 存储与数据
 - **[funtable](https://github.com/farfarfun/funtable)** - SQLite / TinyDB / SQLModel 的统一表存储抽象
@@ -134,7 +134,7 @@
 
 ## 🔭 其他组织的产物
 
-本组织放通用 Python 工具，下面这些产品线在各自的子组织里（`fundrive` 系列和 uTools 插件是从本组织搬过去的，旧的 `farfarfun/<repo>` 链接仍会重定向）：
+本组织以通用 Python 工具为主，以下产品线分属各子组织（`fundrive` 系列与 uTools 插件已由本组织迁出，原 `farfarfun/<repo>` 链接继续重定向）：
 
 ### ☁️ 网盘 / 云存储 → [farfarfun-drive](https://github.com/farfarfun-drive)
 - **[fundrive](https://github.com/farfarfun-drive/fundrive)** - 统一的网盘 / 云存储操作接口框架，一套 API 打通 20+ 服务
@@ -142,7 +142,7 @@
 - **[funlanzou](https://github.com/farfarfun-drive/funlanzou)** - 蓝奏云 Python SDK 与 PyQt6 桌面客户端
 
 ```bash
-pip install fundrive fundrive-alipan fundrive-quark   # 主框架 + 按需装驱动
+pip install fundrive fundrive-alipan fundrive-quark   # 主框架与按需安装的驱动
 ```
 
 ### 🧩 uTools 插件 → [farfarfun-utools](https://github.com/farfarfun-utools)
@@ -155,10 +155,10 @@ pip install fundrive fundrive-alipan fundrive-quark   # 主框架 + 按需装驱
 - **[service-governance](https://github.com/farfarfun-skill/service-governance)** - 服务发布、Bash 生命周期、子模块编排
 - **[lang-spec-hub](https://github.com/farfarfun-skill/lang-spec-hub)** - Python / Java 开发规范
 - **[paperclip-governance](https://github.com/farfarfun-skill/paperclip-governance)** - Paperclip 平台执行隔离与任务协调
-- **[skill-router](https://github.com/farfarfun-skill/skill-router)** - 全组织 Skill 路由表，先在这里选对 Skill
+- **[skill-router](https://github.com/farfarfun-skill/skill-router)** - 全组织 Skill 路由表，用于选择适用的 Skill
 
 ### 📦 Skill 聚合镜像 → [farfarfun-skills](https://github.com/farfarfun-skills)
-每小时从上游同步 20 个社区热门 Skill 仓库 + 上面 4 个自研仓库的镜像，并整体镜像到 Gitee。本地批量安装用
+聚合 20 个社区 Skill 仓库与上述 4 个自研仓库的镜像，每小时与上游同步，并整体镜像至 Gitee。本地批量安装可使用
 [`fundeploy tool skills-sync`](https://github.com/farfarfun/fundeploy)。
 
 ## 🚀 快速开始
