@@ -1,59 +1,21 @@
 # farfarfun 品牌标识
 
-六个组织共用一套标识系统。核心图形是 **`ff` 连字**——两个 f 共享一道横杠，笔画在底部
-连成微笑弧：`ff` 取自 **far far**，底部的弧线是 **fun**。
+六个组织共用一套标识。图形是 **`ff` 连字**——两个 f 共享一道横杠，笔画在底部连成微笑弧：
+`ff` 取自 **far far**，底部的弧线是 **fun**。
 
 主组织用纯 `ff`，五个子组织沿用同一个 `ff`，只在右下角挂一枚角标区分产品线。
-这样六个头像排在一起能看出是一家，单独拿出来又各有身份。
-
-下面是 **7 个候选方案**，还没有定稿，挑一个即可。
-
----
-
-## 一、先选方案：同一个主组织的 7 种画法
+六个头像排在一起能看出是一家，单独拿出来又各有身份。
 
 <table>
 <tr>
-<td align="center"><img src="png/v1-ff-mono/farfarfun-512.png" width="96"><br><b>v1</b> 单笔连字</td>
-<td align="center"><img src="png/v2-ff-letter/farfarfun-512.png" width="96"><br><b>v2</b> 纯字母式</td>
-<td align="center"><img src="png/v3-ff-face/farfarfun-512.png" width="96"><br><b>v3</b> 表情版</td>
-<td align="center"><img src="png/v4-ff-inverse/farfarfun-512.png" width="96"><br><b>v4</b> 反白</td>
+<td align="center"><img src="png/icon/farfarfun-256.png" width="92"><br><code>farfarfun</code><br><sub>主组织 · 无角标</sub></td>
+<td align="center"><img src="png/icon/drive-256.png" width="92"><br><code>-drive</code><br><sub>云 · 网盘</sub></td>
+<td align="center"><img src="png/icon/skill-256.png" width="92"><br><code>-skill</code><br><sub>星芒 · 自研 Skill</sub></td>
 </tr>
 <tr>
-<td align="center"><img src="png/v5-ff-circle/farfarfun-512.png" width="96"><br><b>v5</b> 圆形容器</td>
-<td align="center"><img src="png/v6-ff-bare/farfarfun-512.png" width="96"><br><b>v6</b> 无容器</td>
-<td align="center"><img src="png/v7-chevron/farfarfun-512.png" width="96"><br><b>v7</b> 三连 chevron</td>
-<td></td>
-</tr>
-</table>
-
-| 方案 | 说明 |
-|------|------|
-| **v1 单笔连字** | 一笔画完 `ff` 与底部笑弧，再加一道共享横杠。结构最简，寓意最完整，**推荐作为主形** |
-| **v2 纯字母式** | 两个规规矩矩的 f 共享横杠，不加修饰。最克制，像一个字体厂牌 |
-| **v3 表情版** | 在 v2 的两道竖画之间嵌一道小笑弧，顶钩顺势成了眉毛。最外向的一版 |
-| **v4 反白** | v1 的浅底版本。深色页眉、贴纸、印刷物上用 |
-| **v5 圆形容器** | v1 放进正圆。头像被裁成圆形的平台上不会切角 |
-| **v6 无容器** | 透明底的纯图形。README 页眉、favicon、水印用 |
-| **v7 三连 chevron** | 备选概念，不是 `ff`：`far·far·fun` 三个词对应三个尖角，同时是 Python REPL 的 `>>>` 提示符 |
-
-> v4 / v5 / v6 是 v1 的同形衍生，定稿后它们会一起作为配套格式保留；真正需要二选一的是
-> **v1 / v2 / v3 / v7** 这四种画法。
-
----
-
-## 二、推荐方案 v1 的全家桶
-
-<table>
-<tr>
-<td align="center"><img src="png/v1-ff-mono/farfarfun-512.png" width="92"><br><code>farfarfun</code><br><sub>主组织 · 无角标</sub></td>
-<td align="center"><img src="png/v1-ff-mono/drive-512.png" width="92"><br><code>-drive</code><br><sub>☁ 云 · 网盘</sub></td>
-<td align="center"><img src="png/v1-ff-mono/skill-512.png" width="92"><br><code>-skill</code><br><sub>✦ 星芒 · 自研 Skill</sub></td>
-</tr>
-<tr>
-<td align="center"><img src="png/v1-ff-mono/skills-512.png" width="92"><br><code>-skills</code><br><sub>⧉ 叠层 · 聚合镜像</sub></td>
-<td align="center"><img src="png/v1-ff-mono/utools-512.png" width="92"><br><code>-utools</code><br><sub>🧩 拼图 · 插件</sub></td>
-<td align="center"><img src="png/v1-ff-mono/action-512.png" width="92"><br><code>-action</code><br><sub>▶ 播放 · Action</sub></td>
+<td align="center"><img src="png/icon/skills-256.png" width="92"><br><code>-skills</code><br><sub>叠层 · 聚合镜像</sub></td>
+<td align="center"><img src="png/icon/utools-256.png" width="92"><br><code>-utools</code><br><sub>拼图 · 插件</sub></td>
+<td align="center"><img src="png/icon/action-256.png" width="92"><br><code>-action</code><br><sub>播放 · Action</sub></td>
 </tr>
 </table>
 
@@ -62,114 +24,120 @@ GitHub Action 是「跑起来」。
 
 ---
 
-## 三、其余方案的全家桶
+## 一、四种格式
 
-<details>
-<summary><b>v2 纯字母式</b></summary>
-<p>
-<img src="png/v2-ff-letter/farfarfun-512.png" width="92">
-<img src="png/v2-ff-letter/drive-512.png" width="92">
-<img src="png/v2-ff-letter/skill-512.png" width="92">
-<img src="png/v2-ff-letter/skills-512.png" width="92">
-<img src="png/v2-ff-letter/utools-512.png" width="92">
-<img src="png/v2-ff-letter/action-512.png" width="92">
-</p>
-</details>
+同一个图形的四种容器，按场景取用。
 
-<details>
-<summary><b>v3 表情版</b></summary>
-<p>
-<img src="png/v3-ff-face/farfarfun-512.png" width="92">
-<img src="png/v3-ff-face/drive-512.png" width="92">
-<img src="png/v3-ff-face/skill-512.png" width="92">
-<img src="png/v3-ff-face/skills-512.png" width="92">
-<img src="png/v3-ff-face/utools-512.png" width="92">
-<img src="png/v3-ff-face/action-512.png" width="92">
-</p>
-</details>
+### icon —— 主图标
 
-<details>
-<summary><b>v4 反白</b></summary>
-<p>
-<img src="png/v4-ff-inverse/farfarfun-512.png" width="92">
-<img src="png/v4-ff-inverse/drive-512.png" width="92">
-<img src="png/v4-ff-inverse/skill-512.png" width="92">
-<img src="png/v4-ff-inverse/skills-512.png" width="92">
-<img src="png/v4-ff-inverse/utools-512.png" width="92">
-<img src="png/v4-ff-inverse/action-512.png" width="92">
-</p>
-</details>
+渐变圆角方。**组织头像、应用图标、favicon 都用它。**
 
-<details>
-<summary><b>v5 圆形容器</b></summary>
 <p>
-<img src="png/v5-ff-circle/farfarfun-512.png" width="92">
-<img src="png/v5-ff-circle/drive-512.png" width="92">
-<img src="png/v5-ff-circle/skill-512.png" width="92">
-<img src="png/v5-ff-circle/skills-512.png" width="92">
-<img src="png/v5-ff-circle/utools-512.png" width="92">
-<img src="png/v5-ff-circle/action-512.png" width="92">
+<img src="png/icon/farfarfun-128.png" width="84">
+<img src="png/icon/drive-128.png" width="84">
+<img src="png/icon/skill-128.png" width="84">
+<img src="png/icon/skills-128.png" width="84">
+<img src="png/icon/utools-128.png" width="84">
+<img src="png/icon/action-128.png" width="84">
 </p>
-</details>
 
-<details>
-<summary><b>v6 无容器</b></summary>
-<p>
-<img src="png/v6-ff-bare/farfarfun-512.png" width="92">
-<img src="png/v6-ff-bare/drive-512.png" width="92">
-<img src="png/v6-ff-bare/skill-512.png" width="92">
-<img src="png/v6-ff-bare/skills-512.png" width="92">
-<img src="png/v6-ff-bare/utools-512.png" width="92">
-<img src="png/v6-ff-bare/action-512.png" width="92">
-</p>
-</details>
+### icon-inverse —— 反白
 
-<details>
-<summary><b>v7 三连 chevron（备选概念）</b></summary>
+浅底配渐变图形。深色页眉、贴纸与印刷物上用。
+
 <p>
-<img src="png/v7-chevron/farfarfun-512.png" width="92">
-<img src="png/v7-chevron/drive-512.png" width="92">
-<img src="png/v7-chevron/skill-512.png" width="92">
-<img src="png/v7-chevron/skills-512.png" width="92">
-<img src="png/v7-chevron/utools-512.png" width="92">
-<img src="png/v7-chevron/action-512.png" width="92">
+<img src="png/icon-inverse/farfarfun-128.png" width="84">
+<img src="png/icon-inverse/drive-128.png" width="84">
+<img src="png/icon-inverse/skill-128.png" width="84">
+<img src="png/icon-inverse/skills-128.png" width="84">
+<img src="png/icon-inverse/utools-128.png" width="84">
+<img src="png/icon-inverse/action-128.png" width="84">
 </p>
-</details>
+
+### icon-circle —— 圆形容器
+
+头像被裁成圆形的平台上不会切角。
+
+<p>
+<img src="png/icon-circle/farfarfun-128.png" width="84">
+<img src="png/icon-circle/drive-128.png" width="84">
+<img src="png/icon-circle/skill-128.png" width="84">
+<img src="png/icon-circle/skills-128.png" width="84">
+<img src="png/icon-circle/utools-128.png" width="84">
+<img src="png/icon-circle/action-128.png" width="84">
+</p>
+
+### mark —— 无容器
+
+透明底的纯图形。README 页眉、文档水印用。
+
+<p>
+<img src="png/mark/farfarfun-128.png" width="84">
+<img src="png/mark/drive-128.png" width="84">
+<img src="png/mark/skill-128.png" width="84">
+<img src="png/mark/skills-128.png" width="84">
+<img src="png/mark/utools-128.png" width="84">
+<img src="png/mark/action-128.png" width="84">
+</p>
 
 ---
 
-## 四、小尺寸检查
+## 二、横版组合标
 
-GitHub 的仓库列表、PR 头像、浏览器标签页都在 16–64px 之间。下面是 64px 原始像素，
-四种画法都没有糊：
-
-| | farfarfun | drive | skill | skills | utools | action |
-|---|---|---|---|---|---|---|
-| v1 | <img src="png/v1-ff-mono/farfarfun-64.png" width="48"> | <img src="png/v1-ff-mono/drive-64.png" width="48"> | <img src="png/v1-ff-mono/skill-64.png" width="48"> | <img src="png/v1-ff-mono/skills-64.png" width="48"> | <img src="png/v1-ff-mono/utools-64.png" width="48"> | <img src="png/v1-ff-mono/action-64.png" width="48"> |
-| v2 | <img src="png/v2-ff-letter/farfarfun-64.png" width="48"> | <img src="png/v2-ff-letter/drive-64.png" width="48"> | <img src="png/v2-ff-letter/skill-64.png" width="48"> | <img src="png/v2-ff-letter/skills-64.png" width="48"> | <img src="png/v2-ff-letter/utools-64.png" width="48"> | <img src="png/v2-ff-letter/action-64.png" width="48"> |
-| v3 | <img src="png/v3-ff-face/farfarfun-64.png" width="48"> | <img src="png/v3-ff-face/drive-64.png" width="48"> | <img src="png/v3-ff-face/skill-64.png" width="48"> | <img src="png/v3-ff-face/skills-64.png" width="48"> | <img src="png/v3-ff-face/utools-64.png" width="48"> | <img src="png/v3-ff-face/action-64.png" width="48"> |
-| v7 | <img src="png/v7-chevron/farfarfun-64.png" width="48"> | <img src="png/v7-chevron/drive-64.png" width="48"> | <img src="png/v7-chevron/skill-64.png" width="48"> | <img src="png/v7-chevron/skills-64.png" width="48"> | <img src="png/v7-chevron/utools-64.png" width="48"> | <img src="png/v7-chevron/action-64.png" width="48"> |
-
----
-
-## 五、横版组合标
-
-图形 + 组织名，用在 README 页眉和文档封面。深浅两套，分别对应 GitHub 的亮色与暗色主题。
+图形 + 组织名，用在 README 页眉和文档封面。深浅两套，对应 GitHub 的亮色与暗色主题。
 
 | 浅色底 | 深色底 |
 |---|---|
-| <img src="png/lockup/farfarfun.png" width="260"> | <img src="png/lockup/farfarfun-on-dark.png" width="260"> |
-| <img src="png/lockup/drive.png" width="260"> | <img src="png/lockup/drive-on-dark.png" width="260"> |
-| <img src="png/lockup/skill.png" width="260"> | <img src="png/lockup/skill-on-dark.png" width="260"> |
-| <img src="png/lockup/skills.png" width="260"> | <img src="png/lockup/skills-on-dark.png" width="260"> |
-| <img src="png/lockup/utools.png" width="260"> | <img src="png/lockup/utools-on-dark.png" width="260"> |
-| <img src="png/lockup/action.png" width="260"> | <img src="png/lockup/action-on-dark.png" width="260"> |
+| <img src="png/lockup/farfarfun-160.png" width="250"> | <img src="png/lockup-on-dark/farfarfun-160.png" width="250"> |
+| <img src="png/lockup/drive-160.png" width="250"> | <img src="png/lockup-on-dark/drive-160.png" width="250"> |
+| <img src="png/lockup/skill-160.png" width="250"> | <img src="png/lockup-on-dark/skill-160.png" width="250"> |
+| <img src="png/lockup/skills-160.png" width="250"> | <img src="png/lockup-on-dark/skills-160.png" width="250"> |
+| <img src="png/lockup/utools-160.png" width="250"> | <img src="png/lockup-on-dark/utools-160.png" width="250"> |
+| <img src="png/lockup/action-160.png" width="250"> | <img src="png/lockup-on-dark/action-160.png" width="250"> |
 
-> 深色底那一列在 GitHub 亮色主题下看着是白字悬空，属正常——它本来就是放进深色页眉里的。
+> 右列在 GitHub 亮色主题下看着是白字悬空，属正常——它本来就是放进深色页眉里的。
+
+README 页眉按主题自动切换：
+
+```html
+<picture>
+  <source media="(prefers-color-scheme: dark)"
+          srcset="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup-on-dark/farfarfun-160.png">
+  <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup/farfarfun-160.png"
+       height="80" alt="farfarfun">
+</picture>
+```
 
 ---
 
-## 六、色板
+## 三、尺寸矩阵
+
+| 格式 | SVG | PNG 尺寸 |
+|------|-----|----------|
+| `icon` | 1024 母版 | 16 · 32 · 48 · 64 · 96 · 128 · 180 · 192 · 256 · 384 · 512 · 1024 |
+| `icon-inverse` | 1024 母版 | 64 · 128 · 256 · 512 · 1024 |
+| `icon-circle` | 1024 母版 | 64 · 128 · 256 · 512 · 1024 |
+| `mark` | 1024 母版 | 32 · 64 · 128 · 256 · 512 · 1024 |
+| `lockup` / `lockup-on-dark` | 宽度随组织名变化 | 高 80 · 160 · 320 |
+| `favicon/<组织>.ico` | — | 单文件内含 16 · 32 · 48 · 64 · 128 · 256 |
+
+尺寸是按实际用途挑的，不是凑数：
+
+| 尺寸 | 用途 |
+|------|------|
+| 16 · 32 · 48 | favicon，浏览器标签页与书签栏 |
+| 64 · 96 | GitHub 仓库列表、PR 与 issue 里的头像 |
+| 128 · 180 | 桌面应用图标、iOS `apple-touch-icon` |
+| 192 · 256 | PWA manifest、uTools 插件的 `logo.png` |
+| 384 · 512 | GitHub 组织头像（要求 ≥ 500×500） |
+| 1024 | 母版，用于再加工与印刷 |
+
+小尺寸实测：16px 下 `ff` 的两道竖画与底部笑弧仍然分得开，角标收成一个圆点。
+日常用矢量 SVG 即可，PNG 是给不吃 SVG 的地方准备的。
+
+---
+
+## 四、色板
 
 每个组织一条 135° 的线性渐变，另配一个深色用于角标里的图形。
 
@@ -186,15 +154,15 @@ GitHub 的仓库列表、PR 头像、浏览器标签页都在 16–64px 之间�
 
 ---
 
-## 七、文件
+## 五、文件
 
 ```
 brand/
-├── gen_logos.py          全部图形的唯一来源，改这个文件再重跑
-├── svg/<方案>/<组织>.svg   矢量，1024×1024
-├── png/<方案>/<组织>-512.png
-├── png/<方案>/<组织>-64.png
-└── {svg,png}/lockup/      横版组合标，含 -on-dark 版
+├── gen_logos.py                  所有图形的唯一来源
+├── svg/<格式>/<组织>.svg          矢量母版，1024×1024
+├── png/<格式>/<组织>-<尺寸>.png
+├── png/lockup{,-on-dark}/<组织>-<高>.png
+└── favicon/<组织>.ico             多尺寸合一
 ```
 
 重新生成：
@@ -203,12 +171,15 @@ brand/
 uv run python brand/gen_logos.py
 ```
 
-依赖 `cairosvg`（出 PNG）与 `pillow`（量横版组合标的文字宽度）。脚本会先清空
-`svg/` 与 `png/` 再整体重建，所以不要往这两个目录里手工放文件。
+依赖 `cairosvg`（出 PNG）与 `pillow`（量组合标文字宽度、打包 `.ico`）。脚本每次会先清空
+`svg/` `png/` `favicon/` 再整体重建，**不要往这三个目录里手工放文件**。要改图形就改
+`gen_logos.py`：几何参数集中在「图形几何」一节，容器形态在 `FORMATS`，色板在 `ORGS`。
 
-## 八、定稿之后
+---
 
-1. 选定的方案里，各组织的 512px PNG 直接传作 GitHub 组织头像（GitHub 要求 ≥ 500×500）。
-2. 删掉未选中的方案目录，`gen_logos.py` 的 `VARIANTS` 里同步删掉对应项。
-3. uTools 插件的 `utools/logo.png` 换成对应组织色的图标。
-4. 各仓库 README 页眉换成横版组合标，用 `<picture>` 配 `prefers-color-scheme` 自动切换深浅。
+## 六、待办
+
+- [ ] 六个组织的 GitHub 头像换成 `png/icon/<组织>-512.png`
+- [ ] uTools 四个插件的 `utools/logo.png` 换成 `png/icon/utools-256.png`
+- [ ] 各仓库 README 页眉换上横版组合标
+- [ ] Web 项目接入 `favicon/<组织>.ico`

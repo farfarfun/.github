@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """farfarfun 组织 logo 生成器。
 
-生成全部候选方案的 SVG 与 PNG：
+生成全部格式与尺寸的 SVG、PNG 与 favicon：
 
     uv run python brand/gen_logos.py
 
-核心图形是 ``ff`` 连字——两个 f 共享一道横杠，笔画在底部连成微笑弧。
-主组织用纯 ff，子组织在右下角挂一枚角标区分产品线。
+图形是 ``ff`` 连字——两个 f 共享一道横杠，笔画在底部连成微笑弧：``ff`` 取自
+**far far**，底部的弧线是 **fun**。主组织用纯 ff，子组织在右下角挂一枚角标
+区分产品线。
+
+这个文件是所有图形产物的唯一来源。要改图形就改这里再重跑，不要手工动
+``svg/`` ``png/`` ``favicon/``——每次运行都会先清空再整体重建。
 """
 
 from __future__ import annotations
@@ -14,10 +18,12 @@ from __future__ import annotations
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Callable
 
 BRAND = Path(__file__).resolve().parent
 SVG_DIR = BRAND / "svg"
 PNG_DIR = BRAND / "png"
+ICO_DIR = BRAND / "favicon"
 
 S = 1024  # 画布边长
 RX = 232  # 圆角方形的圆角半径
@@ -33,7 +39,7 @@ class Org:
     label: str  # 中文定位
     c0: str  # 渐变起点
     c1: str  # 渐变终点
-    deep: str  # 角标图形用的深色
+    deep: str  # 角标里图形用的深色
     badge: str | None  # 角标图形，None 表示主组织不挂角标
 
 
@@ -47,16 +53,16 @@ ORGS: tuple[Org, ...] = (
 )
 
 INK = "#FFFFFF"  # 深色底上的图形色
-PAPER = "#F8FAFC"  # 反白方案的底色
-PAPER_EDGE = "#E2E8F0"  # 反白方案的描边，防止在白色页面上糊掉
+PAPER = "#F8FAFC"  # 反白版的底色
+PAPER_EDGE = "#E2E8F0"  # 反白版的描边，防止在白色页面上糊掉
 
 
 # --------------------------------------------------------------------------- #
 # 图形几何
 # --------------------------------------------------------------------------- #
-# ff 单笔连字：f1 顶钩 → f1 竖 → 底部笑弧 → f2 竖 → f2 顶钩，一笔到底。
+# f1 顶钩 → f1 竖 → 底部笑弧 → f2 竖 → f2 顶钩，一笔到底。
 # 底部用扁椭圆弧而非正圆，弧线才读作「微笑」而不是「碗」。
-FF_MONO = (
+FF = (
     "M 464 250 A 92 92 0 0 0 372 342 L 372 596 "
     "A 140 104 0 0 0 652 596 L 652 342 A 92 92 0 0 1 744 250"
 )
@@ -64,32 +70,10 @@ FF_BAR = "M 290 452 L 734 452"  # 两个 f 共享的横杠
 FF_STROKE = 86
 FF_SHIFT = "translate(-5,37)"  # 把图形光学居中到画布中心
 
-# ff 字母式：两个规规矩矩的 f，不加任何修饰，只靠字形本身
-FF_LETTER_F1 = "M 464 262 A 92 92 0 0 0 372 354 L 372 700"
-FF_LETTER_F2 = "M 744 262 A 92 92 0 0 0 652 354 L 652 700"
-FF_LETTER_BAR = "M 290 468 L 734 468"
-FF_LETTER_SHIFT = "translate(-5,31)"
-
-# ff 表情版：两个 f 的顶钩当眉毛，竖画之间嵌一道小笑弧
-FF_FACE_SMILE = "M 452 574 A 76 90 0 0 0 572 574"
-FF_FACE_SMILE_STROKE = 54
-
-# 备选概念：三连 chevron（far·far·fun ≈ Python REPL 的 >>>）
-CHEV_W, CHEV_H, CHEV_STROKE = 104, 148, 84
-CHEV_XS = (340, 512, 684)
-
-# 角标
 BADGE_CX = BADGE_CY = 806
 BADGE_R = 150
+BADGE_GAP = 26  # 角标与主图形之间挖出的空隙
 GLYPH_SCALE = 1.52
-
-
-def chevrons() -> str:
-    half = CHEV_W / 2
-    return " ".join(
-        f"M {cx - half} {512 - CHEV_H} L {cx + half} 512 L {cx - half} {512 + CHEV_H}"
-        for cx in CHEV_XS
-    )
 
 
 def glyph(kind: str, fg: str, bg: str) -> str:
@@ -132,9 +116,6 @@ def glyph(kind: str, fg: str, bg: str) -> str:
     raise ValueError(f"unknown glyph: {kind}")
 
 
-BADGE_GAP = 26  # 角标与主图形之间挖出的空隙
-
-
 def badge(org: Org, *, bg: str, fg: str, cx: float = BADGE_CX, cy: float = BADGE_CY,
           r: float = BADGE_R) -> str:
     if org.badge is None:
@@ -160,76 +141,58 @@ def knockout(org: Org, mark: str, *, cx: float = BADGE_CX, cy: float = BADGE_CY,
     )
 
 
-def stroked(d: str, color: str, width: float, extra: str = "") -> str:
+def stroked(d: str, color: str, width: float) -> str:
     return (
         f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}" '
-        f'stroke-linecap="round" stroke-linejoin="round" {extra}/>'
+        'stroke-linecap="round" stroke-linejoin="round"/>'
     )
 
 
-# --------------------------------------------------------------------------- #
-# 方案
-# --------------------------------------------------------------------------- #
-@dataclass(frozen=True)
-class Variant:
-    key: str
-    title: str
-    note: str
-    body: object = field(repr=False)  # (org) -> svg 片段
-
-
-def _mark_mono(color: str, shift: str = FF_SHIFT) -> str:
+def ff_mark(color: str) -> str:
     return (
-        f'<g transform="{shift}">'
-        f"{stroked(FF_MONO, color, FF_STROKE)}{stroked(FF_BAR, color, FF_STROKE)}</g>"
+        f'<g transform="{FF_SHIFT}">'
+        f"{stroked(FF, color, FF_STROKE)}{stroked(FF_BAR, color, FF_STROKE)}</g>"
     )
 
 
-def _mark_letter(color: str, *, face: bool = False) -> str:
-    smile = stroked(FF_FACE_SMILE, color, FF_FACE_SMILE_STROKE) if face else ""
-    return (
-        f'<g transform="{FF_LETTER_SHIFT}">'
-        f"{stroked(FF_LETTER_F1, color, FF_STROKE)}"
-        f"{stroked(FF_LETTER_F2, color, FF_STROKE)}"
-        f"{stroked(FF_LETTER_BAR, color, FF_STROKE)}{smile}</g>"
-    )
-
-
-def _squircle(fill: str, edge: str | None = None) -> str:
+def squircle(fill: str, edge: str | None = None) -> str:
     stroke = f' stroke="{edge}" stroke-width="4"' if edge else ""
     return f'<rect x="0" y="0" width="{S}" height="{S}" rx="{RX}" fill="{fill}"{stroke}/>'
 
 
-def v1(org: Org) -> str:  # 单笔连字 · 圆角方 · 渐变
-    return _squircle("url(#g)") + knockout(org, _mark_mono(INK)) + badge(
+# --------------------------------------------------------------------------- #
+# 格式
+# --------------------------------------------------------------------------- #
+@dataclass(frozen=True)
+class Fmt:
+    key: str
+    title: str
+    note: str
+    sizes: tuple[int, ...]
+    body: Callable[[Org], str] = field(repr=False)
+
+
+def f_icon(org: Org) -> str:
+    """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
+    return squircle("url(#g)") + knockout(org, ff_mark(INK)) + badge(
         org, bg=INK, fg=org.deep
     )
 
 
-def v2(org: Org) -> str:  # 纯字母式双 f
-    return _squircle("url(#g)") + knockout(org, _mark_letter(INK)) + badge(
-        org, bg=INK, fg=org.deep
-    )
-
-
-def v3(org: Org) -> str:  # 表情版：顶钩当眉毛，中间嵌笑弧
-    return _squircle("url(#g)") + knockout(org, _mark_letter(INK, face=True)) + badge(
-        org, bg=INK, fg=org.deep
-    )
-
-
-def v4(org: Org) -> str:  # 反白：浅底 + 渐变图形
+def f_inverse(org: Org) -> str:
+    """反白：浅底配渐变图形。深色页眉、贴纸、印刷物用。"""
     return (
-        _squircle(PAPER, PAPER_EDGE)
-        + knockout(org, _mark_mono("url(#g)"))
+        squircle(PAPER, PAPER_EDGE)
+        + knockout(org, ff_mark("url(#g)"))
         + badge(org, bg=org.deep, fg=INK)
     )
 
 
-def v5(org: Org) -> str:  # 圆形容器
+def f_circle(org: Org) -> str:
+    """圆形容器：头像被裁成圆形的平台上不会切角。"""
     scaled = (
         '<g transform="translate(512,512) scale(0.86) translate(-512,-512)">'
-        f"{_mark_mono(INK)}</g>"
+        f"{ff_mark(INK)}</g>"
     )
     return (
         '<circle cx="512" cy="512" r="512" fill="url(#g)"/>'
@@ -238,33 +201,35 @@ def v5(org: Org) -> str:  # 圆形容器
     )
 
 
-def v6(org: Org) -> str:  # 无容器，透明底
-    return knockout(org, _mark_mono("url(#g)")) + badge(org, bg=org.deep, fg=INK)
+def f_mark(org: Org) -> str:
+    """无容器：透明底的纯图形。README 页眉、水印用。"""
+    return knockout(org, ff_mark("url(#g)")) + badge(org, bg=org.deep, fg=INK)
 
 
-def v7(org: Org) -> str:  # 备选概念：>>> 三连 chevron
-    mark = stroked(chevrons(), INK, CHEV_STROKE)
-    return _squircle("url(#g)") + knockout(org, mark) + badge(org, bg=INK, fg=org.deep)
+# 尺寸取自实际用途：
+#   16/32/48  favicon      64/96     GitHub 列表与 PR 头像
+#   128/180   桌面与 iOS   192/256   PWA、uTools 插件
+#   384/512   组织头像（GitHub 要求 ≥500）   1024  母版
+ICON_SIZES = (16, 32, 48, 64, 96, 128, 180, 192, 256, 384, 512, 1024)
+ALT_SIZES = (64, 128, 256, 512, 1024)
+MARK_SIZES = (32, 64, 128, 256, 512, 1024)
 
-
-VARIANTS: tuple[Variant, ...] = (
-    Variant("v1-ff-mono", "单笔连字", "一笔画完 ff 与底部笑弧，再加一道共享横杠。结构最简，16px 下仍然成立。", v1),
-    Variant("v2-ff-letter", "纯字母式", "两个规规矩矩的 f 共享横杠，不加任何修饰。最克制，也最像一个字体厂牌。", v2),
-    Variant("v3-ff-face", "表情版", "在 v2 的两道竖画之间嵌一道小笑弧，顶钩顺势成了眉毛。最外向的一版。", v3),
-    Variant("v4-ff-inverse", "反白", "浅底配渐变图形。用在深色页眉、贴纸与印刷物上。", v4),
-    Variant("v5-ff-circle", "圆形容器", "同样的连字放进正圆。头像被裁成圆形的平台上不会切角。", v5),
-    Variant("v6-ff-bare", "无容器", "透明底的纯图形，供 README 页眉、favicon 与水印使用。", v6),
-    Variant("v7-chevron", "备选概念 · 三连 chevron", "far·far·fun 三个词对应三个尖角，也是 Python REPL 的 >>> 提示符。", v7),
+FORMATS: tuple[Fmt, ...] = (
+    Fmt("icon", "主图标", "渐变圆角方。组织头像、应用图标、favicon 的来源。", ICON_SIZES, f_icon),
+    Fmt("icon-inverse", "反白", "浅底配渐变图形。深色页眉、贴纸与印刷物上用。", ALT_SIZES, f_inverse),
+    Fmt("icon-circle", "圆形容器", "头像被裁成圆形的平台上不会切角。", ALT_SIZES, f_circle),
+    Fmt("mark", "无容器", "透明底的纯图形。README 页眉、文档水印用。", MARK_SIZES, f_mark),
 )
 
 
 # --------------------------------------------------------------------------- #
 # 横版组合标
 # --------------------------------------------------------------------------- #
-LOCKUP_H = 320  # 画布高
+LOCKUP_H = 320  # 母版画布高
 LOCKUP_MARK = 248  # 图形边长
 LOCKUP_GAP = 56  # 图形与文字之间的间距
 LOCKUP_FONT = 132
+LOCKUP_SIZES = (80, 160, 320)
 FONT_FILE = Path.home() / ".fonts" / "NotoSansSC-Medium.ttf"
 FONT_STACK = "'Noto Sans SC','Source Sans 3','DejaVu Sans',sans-serif"
 
@@ -291,28 +256,25 @@ def render_lockup(org: Org, *, on_dark: bool) -> str:
         f'<stop offset="0" stop-color="{org.c0}"/>'
         f'<stop offset="1" stop-color="{org.c1}"/></linearGradient>'
     )
-    scale = LOCKUP_MARK / S
-    mark = knockout(org, _mark_mono("url(#g)")) + badge(
-        org, bg=org.deep if not on_dark else INK, fg=INK if not on_dark else org.deep
+    mark = knockout(org, ff_mark("url(#g)")) + badge(
+        org, bg=INK if on_dark else org.deep, fg=org.deep if on_dark else INK
     )
-    fill = INK if on_dark else "#0F172A"
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
-        f'width="{width}" height="{LOCKUP_H}" role="img" '
-        f'aria-label="{org.name}">'
+        f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{org.name}">'
         f"<defs>{grad}</defs>"
-        f'<g transform="translate(0,{(LOCKUP_H - LOCKUP_MARK) / 2}) scale({scale})">'
-        f"{mark}</g>"
+        f'<g transform="translate(0,{(LOCKUP_H - LOCKUP_MARK) / 2}) '
+        f'scale({LOCKUP_MARK / S})">{mark}</g>'
         f'<text x="{text_x}" y="{baseline:.1f}" font-family="{FONT_STACK}" '
-        f'font-size="{LOCKUP_FONT}" font-weight="500" fill="{fill}">{org.name}</text>'
-        f"</svg>"
+        f'font-size="{LOCKUP_FONT}" font-weight="500" '
+        f'fill="{INK if on_dark else "#0F172A"}">{org.name}</text></svg>'
     )
 
 
 # --------------------------------------------------------------------------- #
 # 输出
 # --------------------------------------------------------------------------- #
-def render_svg(variant: Variant, org: Org) -> str:
+def render_icon(fmt: Fmt, org: Org) -> str:
     grad = (
         f'<linearGradient id="g" x1="0" y1="0" x2="{S}" y2="{S}" '
         f'gradientUnits="userSpaceOnUse">'
@@ -321,53 +283,61 @@ def render_svg(variant: Variant, org: Org) -> str:
     )
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {S} {S}" '
-        f'width="{S}" height="{S}" role="img" '
-        f'aria-label="{org.name} logo">'
-        f"<defs>{grad}</defs>{variant.body(org)}</svg>"
+        f'width="{S}" height="{S}" role="img" aria-label="{org.name} logo">'
+        f"<defs>{grad}</defs>{fmt.body(org)}</svg>"
     )
 
 
 def main() -> None:
     import cairosvg
 
-    for d in (SVG_DIR, PNG_DIR):
+    for d in (SVG_DIR, PNG_DIR, ICO_DIR):
         shutil.rmtree(d, ignore_errors=True)
+    ICO_DIR.mkdir(parents=True, exist_ok=True)
 
-    for variant in VARIANTS:
-        svg_dir = SVG_DIR / variant.key
-        png_dir = PNG_DIR / variant.key
-        svg_dir.mkdir(parents=True, exist_ok=True)
-        png_dir.mkdir(parents=True, exist_ok=True)
-
+    n_png = 0
+    for fmt in FORMATS:
+        (SVG_DIR / fmt.key).mkdir(parents=True, exist_ok=True)
+        (PNG_DIR / fmt.key).mkdir(parents=True, exist_ok=True)
         for org in ORGS:
-            svg = render_svg(variant, org)
-            (svg_dir / f"{org.key}.svg").write_text(svg, encoding="utf-8")
-            for size in (512, 64):
+            svg = render_icon(fmt, org)
+            (SVG_DIR / fmt.key / f"{org.key}.svg").write_text(svg, encoding="utf-8")
+            for size in fmt.sizes:
                 cairosvg.svg2png(
                     bytestring=svg.encode(),
-                    write_to=str(png_dir / f"{org.key}-{size}.png"),
+                    write_to=str(PNG_DIR / fmt.key / f"{org.key}-{size}.png"),
                     output_width=size,
                     output_height=size,
                 )
+                n_png += 1
 
-    # 横版组合标：浅色底与深色底各一套
-    lock_svg = SVG_DIR / "lockup"
-    lock_png = PNG_DIR / "lockup"
-    lock_svg.mkdir(parents=True, exist_ok=True)
-    lock_png.mkdir(parents=True, exist_ok=True)
-    for org in ORGS:
-        for suffix, on_dark in (("", False), ("-on-dark", True)):
+    for suffix, on_dark in (("lockup", False), ("lockup-on-dark", True)):
+        (SVG_DIR / suffix).mkdir(parents=True, exist_ok=True)
+        (PNG_DIR / suffix).mkdir(parents=True, exist_ok=True)
+        for org in ORGS:
             svg = render_lockup(org, on_dark=on_dark)
-            name = f"{org.key}{suffix}"
-            (lock_svg / f"{name}.svg").write_text(svg, encoding="utf-8")
-            cairosvg.svg2png(
-                bytestring=svg.encode(),
-                write_to=str(lock_png / f"{name}.png"),
-                output_height=160,
-            )
+            (SVG_DIR / suffix / f"{org.key}.svg").write_text(svg, encoding="utf-8")
+            for h in LOCKUP_SIZES:
+                cairosvg.svg2png(
+                    bytestring=svg.encode(),
+                    write_to=str(PNG_DIR / suffix / f"{org.key}-{h}.png"),
+                    output_height=h,
+                )
+                n_png += 1
 
-    n = len(VARIANTS) * len(ORGS)
-    print(f"{n} 套图标 + {len(ORGS) * 2} 套横版组合标已写入 {SVG_DIR.parent}")
+    # 多尺寸 .ico，直接丢进任意 Web 项目当 favicon
+    from PIL import Image
+
+    for org in ORGS:
+        src = Image.open(PNG_DIR / "icon" / f"{org.key}-256.png").convert("RGBA")
+        src.save(ICO_DIR / f"{org.key}.ico", format="ICO",
+                 sizes=[(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)])
+
+    print(
+        f"{len(FORMATS) + 2} 种格式 × {len(ORGS)} 个组织："
+        f"{n_png} 张 PNG、{(len(FORMATS) + 2) * len(ORGS)} 个 SVG、"
+        f"{len(ORGS)} 个 .ico 已写入 {BRAND}"
+    )
 
 
 if __name__ == "__main__":
