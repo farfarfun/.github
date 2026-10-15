@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""farfarfun 组织与 uTools 插件的 logo 生成器。
+"""farfarfun 组织、uTools 插件与独立应用的 logo 生成器。
 
 生成全部格式与尺寸的 SVG、PNG 与 favicon：
 
@@ -8,6 +8,9 @@
 图形是 ``ff`` 连字——两个 f 共享一道横杠，笔画在底部连成微笑弧：``ff`` 取自
 **far far**，底部的弧线是 **fun**。主组织用纯 ff，子组织在右下角挂一枚角标
 区分产品线；四个 uTools 插件再往下挂一层，共用同一套 ff 与角标机制。
+
+``APPS`` 里的独立应用是例外：主图形可以整个换掉（``Subject.mark``），只共享
+容器、渐变和尺寸矩阵。
 
 这个文件是所有图形产物的唯一来源。要改图形就改这里再重跑，不要手工动
 ``svg/`` ``png/`` ``favicon/``——每次运行都会先清空再整体重建。
@@ -30,11 +33,61 @@ RX = 232  # 圆角方形的圆角半径
 
 
 # --------------------------------------------------------------------------- #
+# 主图形
+# --------------------------------------------------------------------------- #
+# f1 顶钩 → f1 竖 → 底部笑弧 → f2 竖 → f2 顶钩，一笔到底。
+# 底部用扁椭圆弧而非正圆，弧线才读作「微笑」而不是「碗」。
+FF = (
+    "M 464 250 A 92 92 0 0 0 372 342 L 372 596 "
+    "A 140 104 0 0 0 652 596 L 652 342 A 92 92 0 0 1 744 250"
+)
+FF_BAR = "M 290 452 L 734 452"  # 两个 f 共享的横杠
+FF_STROKE = 86
+FF_SHIFT = "translate(-5,37)"  # 把图形光学居中到画布中心
+
+# 闸口：两条竖腿架一道平顶，脚向外撇。流量从一侧进、穿过闸口、从另一侧出——
+# 代理就是这么一件事。funclash 用，不属于 ff 家族，见 README 的例外说明。
+#
+# 坐标写在 240 的格子上而不是 1024：funclash 的 Android 矢量 drawable 的
+# viewport 就是 240，两边必须是同一组整数，缩放只在这里做一次。
+#
+# 竖腿是刻意的——斜笔画在 16px 下会被抗锯齿糊成灰边，竖笔画正好落在像素格上。
+# favicon、托盘和 Android 通知图标都活在那个尺寸里。
+#
+# 尺寸对着 ff 调过：含笔宽的外框占画布 65%，墨占比 19%，跟家族的 17~18.5% 同一档。
+# 闸口是横宽的形状，比 ff 连字的 53% 宽是应该的，但再大脚就顶到圆角上了。
+GATE_BOX = 240
+GATE = "M 59 166 L 80 166 L 80 74 L 160 74 L 160 166 L 181 166"
+GATE_STROKE = 34
+
+
+def stroked(d: str, color: str, width: float) -> str:
+    return (
+        f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}" '
+        'stroke-linecap="round" stroke-linejoin="round"/>'
+    )
+
+
+def ff_mark(color: str) -> str:
+    return (
+        f'<g transform="{FF_SHIFT}">'
+        f"{stroked(FF, color, FF_STROKE)}{stroked(FF_BAR, color, FF_STROKE)}</g>"
+    )
+
+
+def gate_mark(color: str) -> str:
+    return (
+        f'<g transform="scale({S / GATE_BOX})">'
+        f"{stroked(GATE, color, GATE_STROKE)}</g>"
+    )
+
+
+# --------------------------------------------------------------------------- #
 # 主体与色板
 # --------------------------------------------------------------------------- #
 @dataclass(frozen=True)
 class Subject:
-    """一个要出图的主体：一个组织，或一个 uTools 插件。"""
+    """一个要出图的主体：一个组织、一个 uTools 插件，或一个独立应用。"""
 
     key: str  # 文件名
     name: str  # 组合标上的名字
@@ -42,7 +95,10 @@ class Subject:
     c0: str  # 渐变起点
     c1: str  # 渐变终点
     deep: str  # 角标里图形用的深色
-    badge: str | None  # 角标图形，None 表示主组织不挂角标
+    badge: str | None  # 角标图形，None 表示不挂角标
+    # 主图形。默认是 ff 连字，独立应用可以整个换掉——换掉的同时 badge 也该是
+    # None：角标存在的意义是在同一个 ff 上区分产品线，图形都换了就不需要它了。
+    mark: Callable[[str], str] = ff_mark
 
 
 ORGS: tuple[Subject, ...] = (
@@ -65,7 +121,15 @@ PLUGINS: tuple[Subject, ...] = (
     Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", "shield"),
 )
 
-SUBJECTS: tuple[Subject, ...] = ORGS + PLUGINS
+# 独立应用。funclash 是代理客户端，装在别人的 Dock 和桌面上，不是 farfarfun
+# 工具链里的一环，所以不套 ff——它跟家族共享的是容器、135° 渐变和尺寸矩阵，
+# 图形另起一个。洋红→紫罗兰也避开了上面所有人的色相段。
+APPS: tuple[Subject, ...] = (
+    Subject("funclash", "FunClash", "代理客户端 / mihomo 内核", "#D946EF", "#7E22CE",
+            "#7E22CE", None, gate_mark),
+)
+
+SUBJECTS: tuple[Subject, ...] = ORGS + PLUGINS + APPS
 
 INK = "#FFFFFF"  # 深色底上的图形色
 PAPER = "#F8FAFC"  # 反白版的底色
@@ -73,18 +137,8 @@ PAPER_EDGE = "#E2E8F0"  # 反白版的描边，防止在白色页面上糊掉
 
 
 # --------------------------------------------------------------------------- #
-# 图形几何
+# 角标与容器
 # --------------------------------------------------------------------------- #
-# f1 顶钩 → f1 竖 → 底部笑弧 → f2 竖 → f2 顶钩，一笔到底。
-# 底部用扁椭圆弧而非正圆，弧线才读作「微笑」而不是「碗」。
-FF = (
-    "M 464 250 A 92 92 0 0 0 372 342 L 372 596 "
-    "A 140 104 0 0 0 652 596 L 652 342 A 92 92 0 0 1 744 250"
-)
-FF_BAR = "M 290 452 L 734 452"  # 两个 f 共享的横杠
-FF_STROKE = 86
-FF_SHIFT = "translate(-5,37)"  # 把图形光学居中到画布中心
-
 BADGE_CX = BADGE_CY = 806
 BADGE_R = 150
 BADGE_GAP = 26  # 角标与主图形之间挖出的空隙
@@ -189,20 +243,6 @@ def knockout(s: Subject, mark: str, *, cx: float = BADGE_CX, cy: float = BADGE_C
     )
 
 
-def stroked(d: str, color: str, width: float) -> str:
-    return (
-        f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}" '
-        'stroke-linecap="round" stroke-linejoin="round"/>'
-    )
-
-
-def ff_mark(color: str) -> str:
-    return (
-        f'<g transform="{FF_SHIFT}">'
-        f"{stroked(FF, color, FF_STROKE)}{stroked(FF_BAR, color, FF_STROKE)}</g>"
-    )
-
-
 def squircle(fill: str, edge: str | None = None) -> str:
     stroke = f' stroke="{edge}" stroke-width="4"' if edge else ""
     return f'<rect x="0" y="0" width="{S}" height="{S}" rx="{RX}" fill="{fill}"{stroke}/>'
@@ -222,14 +262,14 @@ class Fmt:
 
 def f_icon(s: Subject) -> str:
     """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
-    return squircle("url(#g)") + knockout(s, ff_mark(INK)) + badge(s, bg=INK, fg=s.deep)
+    return squircle("url(#g)") + knockout(s, s.mark(INK)) + badge(s, bg=INK, fg=s.deep)
 
 
 def f_inverse(s: Subject) -> str:
     """反白：浅底配渐变图形。深色页眉、贴纸、印刷物用。"""
     return (
         squircle(PAPER, PAPER_EDGE)
-        + knockout(s, ff_mark("url(#g)"))
+        + knockout(s, s.mark("url(#g)"))
         + badge(s, bg=s.deep, fg=INK)
     )
 
@@ -238,7 +278,7 @@ def f_circle(s: Subject) -> str:
     """圆形容器：头像被裁成圆形的平台上不会切角。"""
     scaled = (
         '<g transform="translate(512,512) scale(0.86) translate(-512,-512)">'
-        f"{ff_mark(INK)}</g>"
+        f"{s.mark(INK)}</g>"
     )
     return (
         '<circle cx="512" cy="512" r="512" fill="url(#g)"/>'
@@ -249,7 +289,7 @@ def f_circle(s: Subject) -> str:
 
 def f_mark(s: Subject) -> str:
     """无容器：透明底的纯图形。README 页眉、水印用。"""
-    return knockout(s, ff_mark("url(#g)")) + badge(s, bg=s.deep, fg=INK)
+    return knockout(s, s.mark("url(#g)")) + badge(s, bg=s.deep, fg=INK)
 
 
 # 尺寸取自实际用途：
@@ -302,7 +342,7 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    mark = knockout(s, ff_mark("url(#g)")) + badge(
+    mark = knockout(s, s.mark("url(#g)")) + badge(
         s, bg=INK if on_dark else s.deep, fg=s.deep if on_dark else INK
     )
     return (
@@ -381,7 +421,8 @@ def main() -> None:
 
     n_fmt = len(FORMATS) + 2
     print(
-        f"{n_fmt} 种格式 × {len(SUBJECTS)} 个主体（{len(ORGS)} 组织 + {len(PLUGINS)} 插件）："
+        f"{n_fmt} 种格式 × {len(SUBJECTS)} 个主体（{len(ORGS)} 组织 + {len(PLUGINS)} 插件"
+        f" + {len(APPS)} 应用）："
         f"{n_png} 张 PNG、{n_fmt * len(SUBJECTS)} 个 SVG、"
         f"{len(SUBJECTS)} 个 .ico 已写入 {BRAND}"
     )

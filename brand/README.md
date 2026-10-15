@@ -1,7 +1,8 @@
 # farfarfun 品牌标识
 
 六个组织和四个 uTools 插件共用一套标识。图形是 **`ff` 连字**——两个 f 共享一道横杠，
-笔画在底部连成微笑弧：`ff` 取自 **far far**，底部的弧线是 **fun**。
+笔画在底部连成微笑弧：`ff` 取自 **far far**，底部的弧线是 **fun**。独立应用是例外，
+见下面的[独立应用](#独立应用)一节。
 
 主组织用纯 `ff`，五个子组织沿用同一个 `ff`，只在右下角挂一枚角标区分产品线。
 六个头像排在一起能看出是一家，单独拿出来又各有身份。
@@ -39,11 +40,37 @@ GitHub Action 是「跑起来」。
 启动器里四个排一行被人扫一眼认出来的，色相拉开比凑成一家更要紧。`fundoc` 尤其不能再用
 青绿：它和 utools 的头像会同时出现在 farfarfun-utools 的 README 里。
 
+### 独立应用
+
+上面那条「家族感由 `ff` 和角标机制保证」对组织和插件成立，对独立应用不成立——这里是
+唯一可以整个换掉主图形的地方。
+
+<table>
+<tr>
+<td align="center"><img src="png/icon/funclash-256.png" width="92"><br><code>funclash</code><br><sub>闸口 · 代理客户端</sub></td>
+</tr>
+</table>
+
+FunClash 装在别人的 Dock、托盘和手机桌面上，跟一堆来历不同的应用挤在一起，不是
+farfarfun 工具链里的一环。`ff` 是给「这是 farfarfun 做的东西」用的记号，对一个有自己
+用户群的产品来说那不是它要说的第一句话。所以它换一个图形：**闸口**——两条竖腿架一道
+平顶、脚向外撇，流量从一侧进、穿过闸口、从另一侧出，代理就是这么一件事。
+
+换掉主图形的同时角标也是 `None`：角标存在的意义是在同一个 `ff` 上区分产品线，图形都
+换了就没有要区分的东西了。
+
+它跟家族共享的是**容器（圆角方 / 圆 / 反白 / 无底）、135° 渐变和尺寸矩阵**，四种格式
+和组合标一个不少，排在家族里尺寸和墨色重量也是对着 `ff` 调的。洋红→紫罗兰避开了上面
+所有组织和插件的色相段。
+
+**新主体默认还是走 `ff`。**`Subject.mark` 的默认值就是 `ff_mark`，不传就是家族样式；
+要换图形得有 funclash 这样的理由——独立分发、自己的用户群、不靠 farfarfun 的名字被认出来。
+
 ---
 
 ## 一、四种格式
 
-同一个图形的四种容器，按场景取用。
+四种容器，按场景取用。每组最后一枚是 funclash——它换掉了主图形，容器一样照用。
 
 ### icon —— 主图标
 
@@ -56,6 +83,7 @@ GitHub Action 是「跑起来」。
 <img src="png/icon/skills-128.png" width="84">
 <img src="png/icon/utools-128.png" width="84">
 <img src="png/icon/action-128.png" width="84">
+<img src="png/icon/funclash-128.png" width="84">
 </p>
 
 ### icon-inverse —— 反白
@@ -69,6 +97,7 @@ GitHub Action 是「跑起来」。
 <img src="png/icon-inverse/skills-128.png" width="84">
 <img src="png/icon-inverse/utools-128.png" width="84">
 <img src="png/icon-inverse/action-128.png" width="84">
+<img src="png/icon-inverse/funclash-128.png" width="84">
 </p>
 
 ### icon-circle —— 圆形容器
@@ -82,6 +111,7 @@ GitHub Action 是「跑起来」。
 <img src="png/icon-circle/skills-128.png" width="84">
 <img src="png/icon-circle/utools-128.png" width="84">
 <img src="png/icon-circle/action-128.png" width="84">
+<img src="png/icon-circle/funclash-128.png" width="84">
 </p>
 
 ### mark —— 无容器
@@ -95,6 +125,7 @@ GitHub Action 是「跑起来」。
 <img src="png/mark/skills-128.png" width="84">
 <img src="png/mark/utools-128.png" width="84">
 <img src="png/mark/action-128.png" width="84">
+<img src="png/mark/funclash-128.png" width="84">
 </p>
 
 ---
@@ -115,6 +146,7 @@ GitHub Action 是「跑起来」。
 | <img src="png/lockup/fundoc-160.png" width="250"> | <img src="png/lockup-on-dark/fundoc-160.png" width="250"> |
 | <img src="png/lockup/funlink-160.png" width="250"> | <img src="png/lockup-on-dark/funlink-160.png" width="250"> |
 | <img src="png/lockup/funotp-160.png" width="250"> | <img src="png/lockup-on-dark/funotp-160.png" width="250"> |
+| <img src="png/lockup/funclash-160.png" width="250"> | <img src="png/lockup-on-dark/funclash-160.png" width="250"> |
 
 > 右列在 GitHub 亮色主题下看着是白字悬空，属正常——它本来就是放进深色页眉里的。
 
@@ -153,7 +185,9 @@ README 页眉按主题自动切换：
 | 384 · 512 | GitHub 组织头像（要求 ≥ 500×500） |
 | 1024 | 母版，用于再加工与印刷 |
 
-小尺寸实测：16px 下 `ff` 的两道竖画与底部笑弧仍然分得开，角标收成一个圆点。
+小尺寸实测：16px 下 `ff` 的两道竖画与底部笑弧仍然分得开，角标收成一个圆点；
+funclash 的闸口是竖笔画，正好落在像素格上，16px 下腿和平顶都不糊——它要去的
+favicon、系统托盘和 Android 通知栏全在那个尺寸上。
 日常用矢量 SVG 即可，PNG 是给不吃 SVG 的地方准备的。
 
 ---
@@ -182,13 +216,22 @@ README 页眉按主题自动切换：
 | `funlink` | `#22C55E` | `#15803D` | `#15803D` |
 | `funotp` | `#F43F5E` | `#BE123C` | `#BE123C` |
 
+独立应用再另起一组，避开上面所有人的色相段：
+
+| 应用 | 渐变起 | 渐变止 | 深色 |
+|------|--------|--------|------|
+| `funclash` | `#D946EF` | `#7E22CE` | `#7E22CE` |
+
+funclash 没有角标，那列的深色改用在别处——它是品牌的单色值，Android 快捷方式底色、
+PWA `theme_color` 这类只收一个纯色的地方用它。
+
 ---
 
 ## 五、文件
 
 文件名里的 `<主体>` 是六个组织之一（`farfarfun` `drive` `skill` `skills` `utools`
-`action`）或四个插件之一（`funchat` `fundoc` `funlink` `funotp`），共十个，
-每个都出齐下面所有格式与尺寸。
+`action`）、四个插件之一（`funchat` `fundoc` `funlink` `funotp`），或独立应用
+`funclash`，共十一个，每个都出齐下面所有格式与尺寸。
 
 ```
 brand/
@@ -207,8 +250,9 @@ uv run python brand/gen_logos.py
 
 依赖 `cairosvg`（出 PNG）与 `pillow`（量组合标文字宽度、打包 `.ico`）。脚本每次会先清空
 `svg/` `png/` `favicon/` 再整体重建，**不要往这三个目录里手工放文件**。要改图形就改
-`gen_logos.py`：几何参数集中在「图形几何」一节，容器形态在 `FORMATS`，色板在
-`ORGS` 与 `PLUGINS`，角标图形在 `glyph()`。
+`gen_logos.py`：主图形（`ff` 连字和 funclash 的闸口）在「主图形」一节，容器与角标
+几何在「角标与容器」，容器形态在 `FORMATS`，色板在 `ORGS` / `PLUGINS` / `APPS`，
+角标图形在 `glyph()`。
 
 ---
 
@@ -227,3 +271,7 @@ uv run python brand/gen_logos.py
       建好之后再套组合标页眉
 - [ ] 真正的 Web 项目接入 `favicon/<主体>.ico`（插件走的是内联 SVG 和 logo.png，
       用不上 ico）
+- [ ] **funclash 把闸口铺到各平台产物上**——桌面、托盘、Android 启动器、favicon
+      的栅格图都在 `farfarfun/funclash` 仓库里，矢量源从这里的 `svg/` 取过去
+      vendored 一份。另外 maskable 的 PWA 图标这边没有对应格式（现有四种容器
+      都带透明角，当 maskable 用会被裁），funclash 那边自己出满版的一版
