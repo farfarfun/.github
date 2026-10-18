@@ -234,7 +234,7 @@ uv run python brand/gen_logos.py
 
 ## 六、落地情况
 
-本仓库的图形产物已更新；之前复制到其他仓库的图标和 favicon 需要重新同步。
+主组织 `farfarfun` 的 SVG 矢量母版、横版组合标与生成器已更新。PNG、ICO 等栅格产物请在本地运行 `uv run python brand/gen_logos.py` 重新生成；之前复制到其他仓库的图标和 favicon 也需要重新同步。
 
 - [x] uTools 四个插件各出一枚自己的图标，`utools/logo.png` 已换
       （funchat 另有一份 `public/logo.png`）
