@@ -232,8 +232,6 @@ def f_icon(s: Subject) -> str:
     """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
     if s.key == "farfarfun":
         return '<rect x="0" y="0" width="1024" height="1024" rx="232" fill="url(#bg)"/>' + s.mark(INK)
-    if s.key == "farfarfun":
-        return '<rect x="0" y="0" width="1024" height="1024" rx="232" fill="url(#bg)"/>' + s.mark(INK)
     return squircle("url(#g)") + s.mark(INK)
 
 
@@ -248,8 +246,9 @@ def f_circle(s: Subject) -> str:
         '<g transform="translate(512,512) scale(0.86) translate(-512,-512)">'
         f"{s.mark(INK)}</g>"
     )
+    circle_fill = "url(#bg)" if s.key == "farfarfun" else "url(#g)"
     return (
-        '<circle cx="512" cy="512" r="512" fill="url(#g)"/>'
+        f'<circle cx="512" cy="512" r="512" fill="{circle_fill}"/>'
         + scaled
     )
 
@@ -301,19 +300,31 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
     text_w, baseline = _measure(s.name)
     text_x = LOCKUP_MARK + LOCKUP_GAP
     width = round(text_x + text_w)
-    # 图形画在 1024 的局部坐标系里再整体缩放，userSpaceOnUse 的渐变
-    # 必须按同一套坐标给，否则只覆盖左上角一小块。
     grad = (
         f'<linearGradient id="g" x1="0" y1="0" x2="{S}" y2="{S}" '
         f'gradientUnits="userSpaceOnUse">'
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    mark = s.mark("url(#g)")
+    bg = (
+        '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">'
+        '<stop offset="0" stop-color="#1745D1"/>'
+        '<stop offset=".28" stop-color="#09A7F5"/>'
+        '<stop offset=".55" stop-color="#0756C7"/>'
+        '<stop offset=".78" stop-color="#101C60"/>'
+        '<stop offset="1" stop-color="#050B30"/></linearGradient>'
+    )
+    if s.key == "farfarfun":
+        mark = (
+            '<rect x="0" y="0" width="1024" height="1024" rx="232" fill="url(#bg)"/>'
+            + s.mark(INK)
+        )
+    else:
+        mark = s.mark("url(#g)")
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
         f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{s.name}">'
-        f"<defs>{grad}</defs>"
+        f'<defs>{grad}{bg}</defs>'
         f'<g transform="translate(0,{(LOCKUP_H - LOCKUP_MARK) / 2}) '
         f'scale({LOCKUP_MARK / S})">{mark}</g>'
         f'<text x="{text_x}" y="{baseline:.1f}" font-family="{FONT_STACK}" '
@@ -332,10 +343,18 @@ def render_icon(fmt: Fmt, s: Subject) -> str:
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
+    bg = (
+        '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">'
+        '<stop offset="0" stop-color="#1745D1"/>'
+        '<stop offset=".28" stop-color="#09A7F5"/>'
+        '<stop offset=".55" stop-color="#0756C7"/>'
+        '<stop offset=".78" stop-color="#101C60"/>'
+        '<stop offset="1" stop-color="#050B30"/></linearGradient>'
+    )
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {S} {S}" '
         f'width="{S}" height="{S}" role="img" aria-label="{s.name} logo">'
-        f"<defs>{grad}<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1948D8"/><stop offset=".45" stop-color="#13B9F6"/><stop offset="1" stop-color="#050B32"/></linearGradient></defs>{fmt.body(s)}</svg>"
+        f'<defs>{grad}{bg}</defs>{fmt.body(s)}</svg>'
     )
 
 
