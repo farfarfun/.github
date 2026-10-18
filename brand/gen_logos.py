@@ -5,8 +5,8 @@
 
     uv run python brand/gen_logos.py
 
-图形是 ``ff`` 连字——两个 f 共享一道横杠，笔画在底部连成微笑弧：``ff`` 取自
-**far far**，底部的弧线是 **fun**。主组织用纯 ff，子组织在右下角挂一枚角标
+图形是 ``ff`` 连字——两个 f 共享一道横杠：``ff`` 取自
+**far far**。主组织用纯 ff，子组织在右下角挂一枚角标
 区分产品线；四个 uTools 插件再往下挂一层，共用同一套 ff 与角标机制。
 
 ``APPS`` 里的独立应用是例外：主图形可以整个换掉（``Subject.mark``），只共享
@@ -35,15 +35,10 @@ RX = 232  # 圆角方形的圆角半径
 # --------------------------------------------------------------------------- #
 # 主图形
 # --------------------------------------------------------------------------- #
-# f1 顶钩 → f1 竖 → 底部笑弧 → f2 竖 → f2 顶钩，一笔到底。
-# 底部用扁椭圆弧而非正圆，弧线才读作「微笑」而不是「碗」。
-FF = (
-    "M 464 250 A 92 92 0 0 0 372 342 L 372 596 "
-    "A 140 104 0 0 0 652 596 L 652 342 A 92 92 0 0 1 744 250"
-)
-FF_BAR = "M 290 452 L 734 452"  # 两个 f 共享的横杠
-FF_STROKE = 86
-FF_SHIFT = "translate(-5,37)"  # 把图形光学居中到画布中心
+# 两个独立的 f 共用横杠，保留清楚的字母轮廓和小尺寸留白。
+FF = "M 469 284 H 417 Q 360 284 360 342 V 687 M 727 284 H 675 Q 618 284 618 342 V 687"
+FF_BAR = "M 288 468 H 692"
+FF_STROKE = 100
 
 # 闸口：两条竖腿架一道平顶，脚向外撇。流量从一侧进、穿过闸口、从另一侧出——
 # 代理就是这么一件事。funclash 用，不属于 ff 家族，见 README 的例外说明。
@@ -54,8 +49,7 @@ FF_SHIFT = "translate(-5,37)"  # 把图形光学居中到画布中心
 # 竖腿是刻意的——斜笔画在 16px 下会被抗锯齿糊成灰边，竖笔画正好落在像素格上。
 # favicon、托盘和 Android 通知图标都活在那个尺寸里。
 #
-# 尺寸对着 ff 调过：含笔宽的外框占画布 65%，墨占比 19%，跟家族的 17~18.5% 同一档。
-# 闸口是横宽的形状，比 ff 连字的 53% 宽是应该的，但再大脚就顶到圆角上了。
+# 闸口是横宽的形状，再大脚就顶到圆角上了。
 GATE_BOX = 240
 GATE = "M 59 166 L 80 166 L 80 74 L 160 74 L 160 166 L 181 166"
 GATE_STROKE = 34
@@ -70,7 +64,7 @@ def stroked(d: str, color: str, width: float) -> str:
 
 def ff_mark(color: str) -> str:
     return (
-        f'<g transform="{FF_SHIFT}">'
+        '<g transform="translate(0,24)">'
         f"{stroked(FF, color, FF_STROKE)}{stroked(FF_BAR, color, FF_STROKE)}</g>"
     )
 
@@ -140,9 +134,9 @@ PAPER_EDGE = "#E2E8F0"  # 反白版的描边，防止在白色页面上糊掉
 # 角标与容器
 # --------------------------------------------------------------------------- #
 BADGE_CX = BADGE_CY = 806
-BADGE_R = 150
-BADGE_GAP = 26  # 角标与主图形之间挖出的空隙
-GLYPH_SCALE = 1.52
+BADGE_R = 108
+BADGE_GAP = 18  # 角标与主图形之间挖出的空隙
+GLYPH_SCALE = 1.1
 
 
 def glyph(kind: str, fg: str, bg: str) -> str:
@@ -282,8 +276,8 @@ def f_circle(s: Subject) -> str:
     )
     return (
         '<circle cx="512" cy="512" r="512" fill="url(#g)"/>'
-        + knockout(s, scaled, cx=752, cy=752, r=142)
-        + badge(s, bg=INK, fg=s.deep, cx=752, cy=752, r=142)
+        + knockout(s, scaled, cx=752, cy=752, r=102)
+        + badge(s, bg=INK, fg=s.deep, cx=752, cy=752, r=102)
     )
 
 
