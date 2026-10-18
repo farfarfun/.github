@@ -5,12 +5,7 @@
 
     uv run python brand/gen_logos.py
 
-图形是 ``ff`` 连字——两个 f 共享一道横杠：``ff`` 取自
-**far far**。主组织用纯 ff，子组织在右下角挂一枚角标
-区分产品线；四个 uTools 插件再往下挂一层，共用同一套 ff 与角标机制。
-
-``APPS`` 里的独立应用是例外：主图形可以整个换掉（``Subject.mark``），只共享
-容器、渐变和尺寸矩阵。
+每个主体有一枚居中的单图形。它们共享容器、渐变和尺寸矩阵，主组织使用 ``ff`` 标记。
 
 这个文件是所有图形产物的唯一来源。要改图形就改这里再重跑，不要手工动
 ``svg/`` ``png/`` ``favicon/``——每次运行都会先清空再整体重建。
@@ -35,9 +30,9 @@ RX = 232  # 圆角方形的圆角半径
 # --------------------------------------------------------------------------- #
 # 主图形
 # --------------------------------------------------------------------------- #
-# 两个独立的 f 共用横杠，保留清楚的字母轮廓和小尺寸留白。
-FF = "M 469 284 H 417 Q 360 284 360 342 V 687 M 727 284 H 675 Q 618 284 618 342 V 687"
-FF_BAR = "M 288 468 H 692"
+# 两个 f 共用横杠，笔画与其他产品图形保持相近的视觉重量。
+FF = "M 492 260 H 386 Q 255 260 255 394 V 735 M 752 260 H 646 Q 515 260 515 394 V 735"
+FF_BAR = "M 200 502 H 804"
 FF_STROKE = 100
 
 # 闸口：两条竖腿架一道平顶，脚向外撇。流量从一侧进、穿过闸口、从另一侧出——
@@ -63,9 +58,83 @@ def stroked(d: str, color: str, width: float) -> str:
 
 
 def ff_mark(color: str) -> str:
+    return stroked(FF, color, FF_STROKE) + stroked(FF_BAR, color, FF_STROKE)
+
+
+def cloud_mark(color: str) -> str:
+    return stroked(
+        "M 348 668 H 706 C 784 668 822 619 822 556 C 822 492 772 446 705 444 "
+        "C 675 354 606 310 522 310 C 438 310 373 360 354 436 "
+        "C 273 439 215 486 215 552 C 215 617 267 668 348 668 Z", color, 86
+    )
+
+
+def spark_mark(color: str) -> str:
     return (
-        '<g transform="translate(0,24)">'
-        f"{stroked(FF, color, FF_STROKE)}{stroked(FF_BAR, color, FF_STROKE)}</g>"
+        f'<path fill="{color}" d="M 512 200 C 552 390 634 472 824 512 '
+        'C 634 552 552 634 512 824 C 472 634 390 552 200 512 '
+        'C 390 472 472 390 512 200 Z"/>'
+    )
+
+
+def stack_mark(color: str) -> str:
+    return (
+        f'<path fill="{color}" d="M 512 248 L 777 374 L 512 500 L 247 374 Z"/>'
+        + stroked("M 255 520 L 512 642 L 769 520", color, 78)
+        + stroked("M 255 668 L 512 790 L 769 668", color, 78)
+    )
+
+
+def puzzle_mark(color: str) -> str:
+    return (
+        '<g transform="translate(512,512) scale(5.2)">'
+        f'<path fill="{color}" stroke="{color}" stroke-width="13" stroke-linejoin="round" '
+        'd="M -44 -44 L -16 -44 A 19 19 0 1 1 16 -44 L 44 -44 L 44 44 L -44 44 '
+        'L -44 16 A 19 19 0 1 0 -44 -16 Z"/></g>'
+    )
+
+
+def play_mark(color: str) -> str:
+    return (
+        f'<path fill="{color}" d="M 354 283 Q 354 245 393 268 L 753 476 '
+        'Q 795 500 753 525 L 393 757 Q 354 780 354 741 Z"/>'
+    )
+
+
+def bubble_mark(color: str) -> str:
+    return (
+        stroked(
+            "M 385 285 H 639 C 739 285 790 340 790 435 V 542 "
+            "C 790 641 733 695 640 695 H 465 L 318 790 L 344 680 "
+            "C 269 652 230 602 230 542 V 435 C 230 340 286 285 385 285 Z", color, 76
+        )
+        + f'<g fill="{color}"><circle cx="390" cy="490" r="37"/>'
+        '<circle cx="512" cy="490" r="37"/><circle cx="634" cy="490" r="37"/></g>'
+    )
+
+
+def doc_mark(color: str) -> str:
+    return (
+        f'<rect x="310" y="250" width="404" height="524" rx="50" fill="none" '
+        f'stroke="{color}" stroke-width="96"/>'
+        + stroked("M 410 424 H 614 M 410 528 H 614 M 410 632 H 554", color, 80)
+    )
+
+
+def bookmark_mark(color: str) -> str:
+    return (
+        f'<path fill="{color}" d="M 330 260 H 694 Q 740 260 740 305 V 770 '
+        'L 512 623 L 284 770 V 305 Q 284 260 330 260 Z"/>'
+    )
+
+
+def shield_mark(color: str) -> str:
+    return (
+        stroked(
+            "M 512 239 L 748 331 V 515 C 748 655 649 749 512 797 "
+            "C 375 749 276 655 276 515 V 331 Z", color, 76
+        )
+        + stroked("M 390 510 L 480 605 L 650 425", color, 76)
     )
 
 
@@ -88,39 +157,31 @@ class Subject:
     label: str  # 中文定位
     c0: str  # 渐变起点
     c1: str  # 渐变终点
-    deep: str  # 角标里图形用的深色
-    badge: str | None  # 角标图形，None 表示不挂角标
-    # 主图形。默认是 ff 连字，独立应用可以整个换掉——换掉的同时 badge 也该是
-    # None：角标存在的意义是在同一个 ff 上区分产品线，图形都换了就不需要它了。
+    deep: str  # 单色场景用的深色
     mark: Callable[[str], str] = ff_mark
 
 
 ORGS: tuple[Subject, ...] = (
-    Subject("farfarfun", "farfarfun", "主组织 / Python 工具链", "#06B6D4", "#7C3AED", "#6D28D9", None),
-    Subject("drive", "farfarfun-drive", "网盘 / 云存储", "#0EA5E9", "#1D4ED8", "#1D4ED8", "cloud"),
-    Subject("skill", "farfarfun-skill", "自研 AI Agent Skill", "#8B5CF6", "#6D28D9", "#6D28D9", "spark"),
-    Subject("skills", "farfarfun-skills", "Skill 聚合镜像", "#6366F1", "#4338CA", "#4338CA", "stack"),
-    Subject("utools", "farfarfun-utools", "uTools 插件", "#14B8A6", "#0F766E", "#0F766E", "puzzle"),
-    Subject("action", "farfarfun-action", "GitHub Action", "#F97316", "#C2410C", "#C2410C", "play"),
+    Subject("farfarfun", "farfarfun", "主组织 / Python 工具链", "#06B6D4", "#7C3AED", "#6D28D9"),
+    Subject("drive", "farfarfun-drive", "网盘 / 云存储", "#0EA5E9", "#1D4ED8", "#1D4ED8", cloud_mark),
+    Subject("skill", "farfarfun-skill", "自研 AI Agent Skill", "#8B5CF6", "#6D28D9", "#6D28D9", spark_mark),
+    Subject("skills", "farfarfun-skills", "Skill 聚合镜像", "#6366F1", "#4338CA", "#4338CA", stack_mark),
+    Subject("utools", "farfarfun-utools", "uTools 插件", "#14B8A6", "#0F766E", "#0F766E", puzzle_mark),
+    Subject("action", "farfarfun-action", "GitHub Action", "#F97316", "#C2410C", "#C2410C", play_mark),
 )
 
-# 四个 uTools 插件。家族感由 ff 图形和角标机制保证，所以这里不把色相锁在
-# utools 组织的青绿里——插件是在启动器里四个排一行被人扫一眼认出来的，
-# 色相拉开比凑成一家更要紧。尤其 fundoc 不能再用组织那支青绿：
-# 它和 utools 的头像会同时出现在 farfarfun-utools 的 README 里。
+# 插件会在 uTools 启动器里并排出现，因此保留彼此区分明显的色相。
 PLUGINS: tuple[Subject, ...] = (
-    Subject("funchat", "funchat", "AI 好友聊天", "#06B6D4", "#0E7490", "#0E7490", "bubble"),
-    Subject("fundoc", "fundoc", "FunDoc 文档", "#4F46E5", "#3730A3", "#3730A3", "doc"),
-    Subject("funlink", "funlink", "网址收藏", "#22C55E", "#15803D", "#15803D", "bookmark"),
-    Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", "shield"),
+    Subject("funchat", "funchat", "AI 好友聊天", "#06B6D4", "#0E7490", "#0E7490", bubble_mark),
+    Subject("fundoc", "fundoc", "FunDoc 文档", "#4F46E5", "#3730A3", "#3730A3", doc_mark),
+    Subject("funlink", "funlink", "网址收藏", "#22C55E", "#15803D", "#15803D", bookmark_mark),
+    Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", shield_mark),
 )
 
-# 独立应用。funclash 是代理客户端，装在别人的 Dock 和桌面上，不是 farfarfun
-# 工具链里的一环，所以不套 ff——它跟家族共享的是容器、135° 渐变和尺寸矩阵，
-# 图形另起一个。洋红→紫罗兰也避开了上面所有人的色相段。
+# FunClash 的闸口沿用 Android 矢量图的整数坐标。
 APPS: tuple[Subject, ...] = (
     Subject("funclash", "FunClash", "代理客户端 / mihomo 内核", "#D946EF", "#7E22CE",
-            "#7E22CE", None, gate_mark),
+            "#7E22CE", gate_mark),
 )
 
 SUBJECTS: tuple[Subject, ...] = ORGS + PLUGINS + APPS
@@ -131,112 +192,8 @@ PAPER_EDGE = "#E2E8F0"  # 反白版的描边，防止在白色页面上糊掉
 
 
 # --------------------------------------------------------------------------- #
-# 角标与容器
+# 容器
 # --------------------------------------------------------------------------- #
-BADGE_CX = BADGE_CY = 806
-BADGE_R = 108
-BADGE_GAP = 18  # 角标与主图形之间挖出的空隙
-GLYPH_SCALE = 1.1
-
-
-def glyph(kind: str, fg: str, bg: str) -> str:
-    """角标内部的图形，画在 ±52 的局部坐标系里。"""
-    if kind == "cloud":
-        return (
-            f'<g fill="{fg}" transform="translate(-1,8)">'
-            '<circle cx="-22" cy="4" r="22"/>'
-            '<circle cx="2" cy="-14" r="28"/>'
-            '<circle cx="26" cy="4" r="20"/>'
-            '<rect x="-22" y="2" width="48" height="24" rx="12"/>'
-            "</g>"
-        )
-    if kind == "spark":
-        return (
-            f'<path fill="{fg}" d="M 0 -50 C 7 -21 21 -7 50 0 C 21 7 7 21 0 50 '
-            'C -7 21 -21 7 -50 0 C -21 -7 -7 -21 0 -50 Z"/>'
-        )
-    if kind == "stack":
-        return (
-            '<g transform="translate(-4,-4)">'
-            f'<rect x="-46" y="-46" width="60" height="60" rx="14" fill="none" '
-            f'stroke="{fg}" stroke-width="15"/>'
-            f'<rect x="-23" y="-23" width="78" height="78" rx="23" fill="{bg}"/>'
-            f'<rect x="-14" y="-14" width="60" height="60" rx="14" fill="{fg}"/>'
-            "</g>"
-        )
-    if kind == "puzzle":
-        return (
-            f'<path fill="{fg}" stroke="{fg}" stroke-width="13" stroke-linejoin="round" '
-            'transform="translate(0,4)" '
-            'd="M -44 -44 L -16 -44 A 19 19 0 1 1 16 -44 L 44 -44 L 44 44 L -44 44 '
-            'L -44 16 A 19 19 0 1 0 -44 -16 Z"/>'
-        )
-    if kind == "play":
-        return (
-            f'<path fill="{fg}" stroke="{fg}" stroke-width="20" stroke-linejoin="round" '
-            'transform="translate(-7,0)" d="M -30 -44 L 44 0 L -30 44 Z"/>'
-        )
-    # 以下四个是 uTools 插件的角标。
-    if kind == "bubble":
-        # 对话气泡。三个点在小尺寸下会并成一道，但那时整枚角标也只剩一个点了。
-        return (
-            f'<g transform="translate(0,-11)">'
-            f'<path fill="{fg}" d="M -22 30 L -28 64 L 10 33 Z"/>'
-            f'<rect x="-48" y="-40" width="96" height="74" rx="26" fill="{fg}"/>'
-            f'<g fill="{bg}"><circle cx="-24" cy="-3" r="9.5"/>'
-            '<circle cx="0" cy="-3" r="9.5"/><circle cx="24" cy="-3" r="9.5"/></g>'
-            "</g>"
-        )
-    if kind == "doc":
-        return (
-            f'<rect x="-38" y="-52" width="76" height="104" rx="14" fill="{fg}"/>'
-            f'<g fill="{bg}"><rect x="-20" y="-30" width="40" height="12" rx="6"/>'
-            '<rect x="-20" y="-6" width="40" height="12" rx="6"/>'
-            '<rect x="-20" y="18" width="24" height="12" rx="6"/></g>'
-        )
-    if kind == "bookmark":
-        return (
-            f'<path fill="{fg}" stroke="{fg}" stroke-width="16" stroke-linejoin="round" '
-            'd="M -32 -44 L 32 -44 L 32 44 L 0 20 L -32 44 Z"/>'
-        )
-    if kind == "shield":
-        # 盾 + 对勾：读作「验证通过」，比光一个盾更说得清 OTP。
-        return (
-            f'<g transform="translate(0,-2)">'
-            f'<path fill="{fg}" d="M 0 -52 L 44 -33 L 44 4 C 44 33 24 49 0 56 '
-            'C -24 49 -44 33 -44 4 L -44 -33 Z"/>'
-            f'<path fill="none" stroke="{bg}" stroke-width="13" stroke-linecap="round" '
-            'stroke-linejoin="round" d="M -19 0 L -5 15 L 20 -14"/>'
-            "</g>"
-        )
-    raise ValueError(f"unknown glyph: {kind}")
-
-
-def badge(s: Subject, *, bg: str, fg: str, cx: float = BADGE_CX, cy: float = BADGE_CY,
-          r: float = BADGE_R) -> str:
-    if s.badge is None:
-        return ""
-    return (
-        f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{bg}"/>'
-        f'<g transform="translate({cx},{cy}) scale({GLYPH_SCALE})">'
-        f"{glyph(s.badge, fg, bg)}</g>"
-    )
-
-
-def knockout(s: Subject, mark: str, *, cx: float = BADGE_CX, cy: float = BADGE_CY,
-             r: float = BADGE_R) -> str:
-    """在主图形上挖掉角标占的那一圈，角标才会读作「盖在上面」。"""
-    if s.badge is None:
-        return mark
-    mid = f"k-{s.key}"
-    return (
-        f'<mask id="{mid}" maskUnits="userSpaceOnUse" x="0" y="0" width="{S}" height="{S}">'
-        f'<rect width="{S}" height="{S}" fill="white"/>'
-        f'<circle cx="{cx}" cy="{cy}" r="{r + BADGE_GAP}" fill="black"/></mask>'
-        f'<g mask="url(#{mid})">{mark}</g>'
-    )
-
-
 def squircle(fill: str, edge: str | None = None) -> str:
     stroke = f' stroke="{edge}" stroke-width="4"' if edge else ""
     return f'<rect x="0" y="0" width="{S}" height="{S}" rx="{RX}" fill="{fill}"{stroke}/>'
@@ -256,16 +213,12 @@ class Fmt:
 
 def f_icon(s: Subject) -> str:
     """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
-    return squircle("url(#g)") + knockout(s, s.mark(INK)) + badge(s, bg=INK, fg=s.deep)
+    return squircle("url(#g)") + s.mark(INK)
 
 
 def f_inverse(s: Subject) -> str:
     """反白：浅底配渐变图形。深色页眉、贴纸、印刷物用。"""
-    return (
-        squircle(PAPER, PAPER_EDGE)
-        + knockout(s, s.mark("url(#g)"))
-        + badge(s, bg=s.deep, fg=INK)
-    )
+    return squircle(PAPER, PAPER_EDGE) + s.mark("url(#g)")
 
 
 def f_circle(s: Subject) -> str:
@@ -276,14 +229,13 @@ def f_circle(s: Subject) -> str:
     )
     return (
         '<circle cx="512" cy="512" r="512" fill="url(#g)"/>'
-        + knockout(s, scaled, cx=752, cy=752, r=102)
-        + badge(s, bg=INK, fg=s.deep, cx=752, cy=752, r=102)
+        + scaled
     )
 
 
 def f_mark(s: Subject) -> str:
     """无容器：透明底的纯图形。README 页眉、水印用。"""
-    return knockout(s, s.mark("url(#g)")) + badge(s, bg=s.deep, fg=INK)
+    return s.mark("url(#g)")
 
 
 # 尺寸取自实际用途：
@@ -336,9 +288,7 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    mark = knockout(s, s.mark("url(#g)")) + badge(
-        s, bg=INK if on_dark else s.deep, fg=s.deep if on_dark else INK
-    )
+    mark = s.mark("url(#g)")
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
         f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{s.name}">'
