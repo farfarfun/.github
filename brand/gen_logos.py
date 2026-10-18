@@ -61,6 +61,36 @@ def ff_mark(color: str) -> str:
     return stroked(FF, color, FF_STROKE) + stroked(FF_BAR, color, FF_STROKE)
 
 
+def rocket_mark(color: str) -> str:
+    """Farfarfun 主标：一枚带猫耳与笑眼的探索火箭。"""
+    return (
+        # Flame and fins stay warm/cool accents across every container variant.
+        '<path fill="#FFB52E" d="M 348 650 C 260 716 246 786 252 824 '
+        'C 312 806 382 766 426 692 Z"/>'
+        '<path fill="#2787FF" d="M 407 607 L 318 590 Q 294 586 306 563 '
+        'L 370 486 L 466 514 Z"/>'
+        '<path fill="#2787FF" d="M 584 383 L 648 300 Q 672 276 689 304 '
+        'L 711 393 L 644 456 Z"/>'
+        # Rocket body, angled toward the upper-right.
+        f'<path fill="{color}" d="M 405 674 L 476 532 '
+        'C 494 471 533 398 594 337 C 649 282 713 251 766 246 '
+        'C 761 299 735 365 681 423 C 621 488 551 523 491 543 Z"/>'
+        # Cat face and ears integrated into the nose cone.
+        f'<path fill="{color}" d="M 500 418 L 490 329 Q 487 303 511 319 '
+        'L 552 347 Q 592 329 634 341 L 670 302 Q 691 284 698 313 '
+        'L 713 389 Q 697 431 657 455 L 574 490 Z"/>'
+        '<path fill="#071735" d="M 570 389 Q 584 370 599 389 '
+        'Q 584 408 570 389 Z M 630 369 Q 645 350 660 369 '
+        'Q 645 388 630 369 Z"/>'
+        '<path fill="none" stroke="#071735" stroke-width="9" '
+        'stroke-linecap="round" d="M 594 420 Q 615 438 636 414"/>'
+        '<circle cx="560" cy="530" r="37" fill="#2787FF"/>'
+        '<path fill="#071735" d="M 772 498 L 798 512 L 772 526 L 758 512 Z"/>'
+        '<path fill="#FFB52E" d="M 830 360 L 840 386 L 866 396 L 840 406 '
+        'L 830 432 L 820 406 L 794 396 L 820 386 Z"/>'
+    )
+
+
 def cloud_mark(color: str) -> str:
     return stroked(
         "M 348 668 H 706 C 784 668 822 619 822 556 C 822 492 772 446 705 444 "
@@ -162,7 +192,7 @@ class Subject:
 
 
 ORGS: tuple[Subject, ...] = (
-    Subject("farfarfun", "farfarfun", "主组织 / Python 工具链", "#06B6D4", "#7C3AED", "#6D28D9"),
+    Subject("farfarfun", "farfarfun", "主组织 / Python 工具链", "#06B6D4", "#7C3AED", "#6D28D9", rocket_mark),
     Subject("drive", "farfarfun-drive", "网盘 / 云存储", "#0EA5E9", "#1D4ED8", "#1D4ED8", cloud_mark),
     Subject("skill", "farfarfun-skill", "自研 AI Agent Skill", "#8B5CF6", "#6D28D9", "#6D28D9", spark_mark),
     Subject("skills", "farfarfun-skills", "Skill 聚合镜像", "#6366F1", "#4338CA", "#4338CA", stack_mark),
