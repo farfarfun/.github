@@ -238,7 +238,7 @@ uv run python brand/gen_logos.py
 
 本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；之前复制到其他仓库的图标和 favicon 仍需重新同步。
 
-- [x] uTools 四个插件的 `utools/logo.png` 已同步家族图标
+- [x] uTools 四个插件的 `utools/logo.png` 已同步透明底 `mark` PNG
       （funchat 的 `public/logo.png` 也已同步）
 - [x] funotp 的 favicon 已改用家族图标
 - [x] farfarfun 与 farfarfun-drive 的组织主页加上横版组合标
