@@ -241,7 +241,7 @@ uv run python brand/gen_logos.py
 - [x] uTools 四个插件的 `utools/logo.png` 已同步透明底 `mark` PNG
       （funchat 的 `public/logo.png` 也已同步）
 - [x] funotp 的 favicon 已改用家族图标
-- [x] 六个组织的主页均使用 PNG 横版组合标
+- [x] 六个组织的主页均使用 `mark` PNG 图标
 - [x] 四个插件 README 加上图标页眉
 - [ ] **六个组织的 GitHub 头像**——只能手工传，REST API 没有组织头像的端点
       （`PATCH /orgs/{org}` 的参数里没有任何 avatar 字段）。到
