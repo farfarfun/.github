@@ -35,10 +35,15 @@ MOTIF_TRANSFORM = "translate(780,336) scale(0.23) translate(-512,-512)"
 # --------------------------------------------------------------------------- #
 # 主图形
 # --------------------------------------------------------------------------- #
-# 闸口路径与 FunClash Android 启动图中的符号共用 240 坐标。
-GATE_BOX = 240
-GATE = "M 59 166 L 80 166 L 80 74 L 160 74 L 160 166 L 181 166"
-GATE_STROKE = 34
+CLASH_LETTERS = (
+    "M 215 390 C 180 360 125 375 110 420 C 95 465 95 555 110 600 "
+    "C 125 645 180 660 215 630 "
+    "M 285 375 V 645 H 390 "
+    "M 455 645 L 510 375 L 565 645 M 470 565 H 550 "
+    "M 735 395 C 705 365 635 365 625 425 C 615 485 735 485 735 555 "
+    "C 735 630 665 665 620 625 "
+    "M 805 375 V 645 M 805 510 H 915 M 915 375 V 645"
+)
 
 
 def stroked(d: str, color: str, width: float) -> str:
@@ -183,11 +188,8 @@ def shield_mark(color: str) -> str:
     )
 
 
-def gate_mark(color: str) -> str:
-    return (
-        f'<g transform="scale({S / GATE_BOX})">'
-        f"{stroked(GATE, color, GATE_STROKE)}</g>"
-    )
+def clash_mark(color: str) -> str:
+    return stroked(CLASH_LETTERS, color, 48)
 
 
 # --------------------------------------------------------------------------- #
@@ -225,7 +227,7 @@ PLUGINS: tuple[Subject, ...] = (
 
 APPS: tuple[Subject, ...] = (
     Subject("funclash", "FunClash", "代理客户端 / mihomo 内核", "#D946EF", "#7E22CE",
-            "#7E22CE", gate_mark),
+            "#7E22CE", clash_mark),
 )
 
 SUBJECTS: tuple[Subject, ...] = ORGS + PLUGINS + APPS

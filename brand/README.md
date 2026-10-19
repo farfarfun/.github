@@ -41,7 +41,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 
 <table>
 <tr>
-<td align="center"><img src="png/icon/funclash-256.png" width="92"><br><code>funclash</code><br><sub>闸口 · 代理客户端</sub></td>
+<td align="center"><img src="png/icon/funclash-256.png" width="92"><br><code>funclash</code><br><sub>CLASH · 代理客户端</sub></td>
 </tr>
 </table>
 
@@ -236,7 +236,7 @@ uv run python brand/gen_logos.py
 
 ## 六、落地情况
 
-本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；之前复制到其他仓库的图标和 favicon 仍需重新同步。
+本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；FunClash 已同步透明底主图标与 `CLASH` 字标。
 
 - [x] uTools 四个插件的 `utools/logo.png` 已同步透明底 `mark` PNG
       （funchat 的 `public/logo.png` 也已同步）
