@@ -239,9 +239,9 @@ uv run python brand/gen_logos.py
 
 本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；之前复制到其他仓库的图标和 favicon 仍需重新同步。
 
-- [x] uTools 四个插件各出一枚自己的图标，`utools/logo.png` 已换
-      （funchat 另有一份 `public/logo.png`）
-- [x] funotp 的内联 SVG favicon 换成 `ff` 图形
+- [x] uTools 四个插件的 `utools/logo.png` 已同步家族图标
+      （funchat 的 `public/logo.png` 也已同步）
+- [x] funotp 的 favicon 已改用家族图标
 - [x] farfarfun 与 farfarfun-drive 的组织主页加上横版组合标
 - [x] 四个插件 README 加上图标页眉
 - [ ] **六个组织的 GitHub 头像**——只能手工传，REST API 没有组织头像的端点
@@ -252,7 +252,6 @@ uv run python brand/gen_logos.py
       建好之后再套组合标页眉
 - [ ] 真正的 Web 项目接入 `favicon/<主体>.ico`（插件走的是内联 SVG 和 logo.png，
       用不上 ico）
-- [ ] **funclash 把家族图标铺到各平台产物上**——桌面、托盘、Android 启动器、favicon
-      的栅格图都在 `farfarfun/funclash` 仓库里，矢量源从这里的 `svg/` 取过去
-      vendored 一份。另外 maskable 的 PWA 图标这边没有对应格式（现有四种容器
-      都带透明角，当 maskable 用会被裁），funclash 那边自己出满版的一版
+- [x] funclash 的桌面、Web、Android 启动器、TV 横幅和 favicon 已同步家族图标；
+      托盘与通知栏继续使用适合极小尺寸的简化 F。PWA maskable 图标由 funclash
+      仓库基于无容器图形生成满版背景
