@@ -1,11 +1,12 @@
 # farfarfun 品牌标识
 
-六个组织、四个 uTools 插件和 FunClash 各有一枚居中的单图形。主组织用 `ff`，
-其他图形直接表达对应产品；圆角容器、白色粗线条和渐变配色构成统一的视觉体系。
+六个组织、四个 uTools 插件和 FunClash 各有一枚居中的单图形。主组织图标按
+[原版 PNG](farfarfun-original.png) 重新描绘为[完整 SVG](farfarfun-original.svg)，
+保留圆角底板、蓝白折叠图形和表情。其他图形直接表达对应产品。
 
 <table>
 <tr>
-<td align="center"><img src="png/icon/farfarfun-256.png" width="92"><br><code>farfarfun</code><br><sub>ff · 主组织</sub></td>
+<td align="center"><img src="png/icon/farfarfun-256.png" width="92"><br><code>farfarfun</code><br><sub>原版图形 · 主组织</sub></td>
 <td align="center"><img src="png/icon/drive-256.png" width="92"><br><code>-drive</code><br><sub>云 · 网盘</sub></td>
 <td align="center"><img src="png/icon/skill-256.png" width="92"><br><code>-skill</code><br><sub>星芒 · 自研 Skill</sub></td>
 </tr>
@@ -172,18 +173,18 @@ FunClash 的闸口仍使用适合 favicon、托盘和 Android 通知栏的竖笔
 
 ## 四、色板
 
-每个主体使用一条 135° 的线性渐变，另保留一个单色值。
+其他主体使用 135° 线性渐变；farfarfun 主图标使用原版 SVG 中的多层渐变。
 
 | 组织 | 渐变起 | 渐变止 | 单色值 |
 |------|--------|--------|----------|
-| `farfarfun` | `#06B6D4` | `#7C3AED` | `#6D28D9` |
+| `farfarfun` | `#1855E8` | `#19C6F4` | `#07133F` |
 | `farfarfun-drive` | `#0EA5E9` | `#1D4ED8` | `#1D4ED8` |
 | `farfarfun-skill` | `#8B5CF6` | `#6D28D9` | `#6D28D9` |
 | `farfarfun-skills` | `#6366F1` | `#4338CA` | `#4338CA` |
 | `farfarfun-utools` | `#14B8A6` | `#0F766E` | `#0F766E` |
 | `farfarfun-action` | `#F97316` | `#C2410C` | `#C2410C` |
 
-主组织横跨青到紫，子组织使用不同色相。
+主组织的表中颜色用于简化格式，主图标以原版 SVG 为准。子组织使用不同色相。
 
 插件另起一组，四个色相互相拉到最开：
 
@@ -212,8 +213,9 @@ FunClash 的闸口仍使用适合 favicon、托盘和 Android 通知栏的竖笔
 
 ```
 brand/
-├── gen_logos.py                  所有图形的唯一来源
-├── svg/<格式>/<主体>.svg          矢量母版，1024×1024
+├── farfarfun-original.svg        主组织图形的完整矢量源，1254×1254
+├── gen_logos.py                  其他图形与导出的来源
+├── svg/<格式>/<主体>.svg          矢量母版；主组织 icon 为 1254×1254
 ├── png/<格式>/<主体>-<尺寸>.png
 ├── png/lockup{,-on-dark}/<主体>-<高>.png
 └── favicon/<主体>.ico             多尺寸合一
@@ -226,9 +228,8 @@ uv run python brand/gen_logos.py
 ```
 
 依赖 `cairosvg`（出 PNG）与 `pillow`（量组合标文字宽度、打包 `.ico`）。脚本每次会先清空
-`svg/` `png/` `favicon/` 再整体重建，**不要往这三个目录里手工放文件**。要改图形就改
-`gen_logos.py`：图形在「主图形」一节，容器形态在 `FORMATS`，色板和图形选择在
-`ORGS` / `PLUGINS` / `APPS`。
+`svg/` `png/` `favicon/` 再整体重建，**不要往这三个目录里手工放文件**。
+主组织图形修改 `farfarfun-original.svg`，其他图形和格式修改 `gen_logos.py`。
 
 ---
 

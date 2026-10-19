@@ -7,7 +7,8 @@
 
 每个主体有一枚居中的单图形。它们共享容器、渐变和尺寸矩阵，主组织使用 ``ff`` 标记。
 
-这个文件是所有图形产物的唯一来源。要改图形就改这里再重跑，不要手工动
+除 farfarfun 的原版矢量源 ``farfarfun-original.svg`` 外，这个文件是图形产物的来源。
+要改图形就改源文件再重跑，不要手工动
 ``svg/`` ``png/`` ``favicon/``——每次运行都会先清空再整体重建。
 """
 
@@ -17,11 +18,13 @@ import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
+from xml.etree import ElementTree as ET
 
 BRAND = Path(__file__).resolve().parent
 SVG_DIR = BRAND / "svg"
 PNG_DIR = BRAND / "png"
 ICO_DIR = BRAND / "favicon"
+ORIGINAL_SVG = BRAND / "farfarfun-original.svg"
 
 S = 1024  # 画布边长
 RX = 232  # 圆角方形的圆角半径
@@ -30,11 +33,6 @@ RX = 232  # 圆角方形的圆角半径
 # --------------------------------------------------------------------------- #
 # 主图形
 # --------------------------------------------------------------------------- #
-# 两个 f 共用横杠，笔画与其他产品图形保持相近的视觉重量。
-FF = "M 492 260 H 386 Q 255 260 255 394 V 735 M 752 260 H 646 Q 515 260 515 394 V 735"
-FF_BAR = "M 200 502 H 804"
-FF_STROKE = 100
-
 # 闸口：两条竖腿架一道平顶，脚向外撇。流量从一侧进、穿过闸口、从另一侧出——
 # 代理就是这么一件事。funclash 用，不属于 ff 家族，见 README 的例外说明。
 #
@@ -58,24 +56,26 @@ def stroked(d: str, color: str, width: float) -> str:
 
 
 def ff_mark(color: str) -> str:
-    """Selected farfarfun mark: folded white/cyan F ribbon with smiling eyes."""
+    """Use the original SVG's silhouette in monochrome formats."""
+    root = ET.parse(ORIGINAL_SVG).getroot()
+    ns = "{http://www.w3.org/2000/svg}"
+    shapes = ("upper-shape", "face-shape", "foot-shape")
+    paths = [root.find(f"{ns}path[@id='{name}']") for name in shapes]
+    eyes = root.find(f"{ns}path[@id='eyes']")
+    assert all(path is not None for path in paths) and eyes is not None
+    fill_paths = "".join(f'<path fill="{color}" d="{path.get("d")}"/>' for path in paths)
     return (
-        f'<path fill="{color}" d="M 254 158 C 254 90 324 48 420 48 H 746 '
-        'C 812 48 842 86 842 139 C 842 203 796 239 720 250 '
-        'L 548 264 C 467 270 411 297 375 345 '
-        'C 346 384 336 432 334 493 L 317 823 '
-        'C 314 878 280 912 224 912 C 168 912 136 878 139 823 '
-        'L 158 386 C 164 252 197 189 254 158 Z"/>'
-        '<path fill="#46CFFF" d="M 375 345 C 412 296 467 270 548 264 '
-        'L 720 250 C 796 239 842 203 842 139 '
-        'C 842 203 796 239 720 250 L 548 264 '
-        'C 489 269 439 292 402 329 '
-        'C 362 370 344 420 342 481 L 326 823 '
-        'C 324 869 293 898 246 898 C 200 898 172 871 174 828 '
-        'L 188 541 C 193 450 239 380 307 351 Z"/>'
-        '<path fill="none" stroke="#07133F" stroke-width="22" stroke-linecap="round" '
-        'd="M 534 548 Q 552 505 574 548 M 666 548 Q 687 505 709 548"/>'
+        f'<g transform="scale({S / 1254})">{fill_paths}'
+        f'<path fill="none" stroke="#0c1b65" stroke-width="22" stroke-linecap="round" '
+        f'd="{eyes.get("d")}"/></g>'
     )
+
+
+def original_embedded() -> str:
+    root = ET.parse(ORIGINAL_SVG).getroot()
+    root.set("width", str(S))
+    root.set("height", str(S))
+    return ET.tostring(root, encoding="unicode")
 
 
 def cloud_mark(color: str) -> str:
@@ -230,8 +230,6 @@ class Fmt:
 
 def f_icon(s: Subject) -> str:
     """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
-    if s.key == "farfarfun":
-        return '<rect x="0" y="0" width="1024" height="1024" rx="232" fill="url(#bg)"/>' + s.mark(INK)
     return squircle("url(#g)") + s.mark(INK)
 
 
@@ -306,25 +304,11 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    bg = (
-        '<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">'
-        '<stop offset="0" stop-color="#1745D1"/>'
-        '<stop offset=".28" stop-color="#09A7F5"/>'
-        '<stop offset=".55" stop-color="#0756C7"/>'
-        '<stop offset=".78" stop-color="#101C60"/>'
-        '<stop offset="1" stop-color="#050B30"/></linearGradient>'
-    )
-    if s.key == "farfarfun":
-        mark = (
-            '<rect x="0" y="0" width="1024" height="1024" rx="232" fill="url(#bg)"/>'
-            + s.mark(INK)
-        )
-    else:
-        mark = s.mark("url(#g)")
+    mark = original_embedded() if s.key == "farfarfun" else s.mark("url(#g)")
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
         f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{s.name}">'
-        f'<defs>{grad}{bg}</defs>'
+        f'<defs>{grad}</defs>'
         f'<g transform="translate(0,{(LOCKUP_H - LOCKUP_MARK) / 2}) '
         f'scale({LOCKUP_MARK / S})">{mark}</g>'
         f'<text x="{text_x}" y="{baseline:.1f}" font-family="{FONT_STACK}" '
@@ -337,6 +321,8 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
 # 输出
 # --------------------------------------------------------------------------- #
 def render_icon(fmt: Fmt, s: Subject) -> str:
+    if fmt.key == "icon" and s.key == "farfarfun":
+        return ORIGINAL_SVG.read_text(encoding="utf-8")
     grad = (
         f'<linearGradient id="g" x1="0" y1="0" x2="{S}" y2="{S}" '
         f'gradientUnits="userSpaceOnUse">'
@@ -354,7 +340,8 @@ def render_icon(fmt: Fmt, s: Subject) -> str:
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {S} {S}" '
         f'width="{S}" height="{S}" role="img" aria-label="{s.name} logo">'
-        f'<defs>{grad}{bg}</defs>{fmt.body(s)}</svg>'
+        f'<defs>{grad}{bg if s.key == "farfarfun" and fmt.key == "icon-circle" else ""}</defs>'
+        f'{fmt.body(s)}</svg>'
     )
 
 

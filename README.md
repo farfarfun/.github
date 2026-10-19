@@ -36,9 +36,9 @@ topics 的维护脚本，不会重建配置快照。
 
 ## 品牌标识
 
-[brand/](brand/) 放着六个组织、四个 uTools 插件和 FunClash 的图标。每个主体有一枚
-居中的单图形，配统一容器和渐变。含四种容器格式、横版组合标、16–1024
-全尺寸 PNG、多尺寸 `.ico` 与色板，全部由 `brand/gen_logos.py` 单一来源生成，详见
+[brand/](brand/) 放着六个组织、四个 uTools 插件和 FunClash 的图标。farfarfun 主图标
+按[原版 PNG](brand/farfarfun-original.png) 复原为[完整 SVG](brand/farfarfun-original.svg)。
+含四种容器格式、横版组合标、16–1024 全尺寸 PNG 与多尺寸 `.ico`，详见
 [brand/README.md](brand/README.md)。
 
 ## 关于 farfarfun
