@@ -5,7 +5,7 @@
 
     uv run python brand/gen_logos.py
 
-每个主体沿用主组织的折叠 F 轮廓，在面部区域放入各自的小符号。
+每个主体沿用主组织的折叠 F 和笑脸，在上横线放入各自的小符号。
 
 除 farfarfun 的原版矢量源 ``farfarfun-original.svg`` 外，这个文件是图形产物的来源。
 要改图形就改源文件再重跑，不要手工动
@@ -29,22 +29,13 @@ ORIGINAL_SVG = BRAND / "farfarfun-original.svg"
 
 S = 1024  # 画布边长
 RX = 232  # 圆角方形的圆角半径
-MOTIF_TRANSFORM = "translate(735,645) scale(0.27) translate(-512,-512)"
+MOTIF_TRANSFORM = "translate(780,336) scale(0.23) translate(-512,-512)"
 
 
 # --------------------------------------------------------------------------- #
 # 主图形
 # --------------------------------------------------------------------------- #
-# 闸口：两条竖腿架一道平顶，脚向外撇。流量从一侧进、穿过闸口、从另一侧出——
-# 代理就是这么一件事。funclash 的面部符号沿用这组坐标。
-#
-# 坐标写在 240 的格子上而不是 1024：funclash 的 Android 矢量 drawable 的
-# viewport 就是 240，两边必须是同一组整数，缩放只在这里做一次。
-#
-# 竖腿是刻意的——斜笔画在 16px 下会被抗锯齿糊成灰边，竖笔画正好落在像素格上。
-# favicon、托盘和 Android 通知图标都活在那个尺寸里。
-#
-# 闸口是横宽的形状，再大脚就顶到圆角上了。
+# 闸口路径与 FunClash Android 启动图中的符号共用 240 坐标。
 GATE_BOX = 240
 GATE = "M 59 166 L 80 166 L 80 74 L 160 74 L 160 166 L 181 166"
 GATE_STROKE = 34
@@ -57,7 +48,7 @@ def stroked(d: str, color: str, width: float) -> str:
     )
 
 
-def ff_mark(color: str, *, with_eyes: bool = True) -> str:
+def ff_mark(color: str, eye_color: str = "#0c1b65") -> str:
     """Use the original SVG's silhouette in monochrome formats."""
     root = ET.parse(ORIGINAL_SVG).getroot()
     ns = "{http://www.w3.org/2000/svg}"
@@ -67,9 +58,8 @@ def ff_mark(color: str, *, with_eyes: bool = True) -> str:
     assert all(path is not None for path in paths) and eye_element is not None
     fill_paths = "".join(f'<path fill="{color}" d="{path.get("d")}"/>' for path in paths)
     eye_path = (
-        f'<path fill="none" stroke="#0c1b65" stroke-width="22" stroke-linecap="round" '
+        f'<path fill="none" stroke="{eye_color}" stroke-width="22" stroke-linecap="round" '
         f'd="{eye_element.get("d")}"/>'
-        if with_eyes else ""
     )
     return f'<g transform="scale({S / 1254})">{fill_paths}{eye_path}</g>'
 
@@ -93,10 +83,6 @@ def family_root(s: Subject) -> ET.Element:
             value = element.get(attribute)
             if value and value.startswith("#"):
                 element.set(attribute, shifted_color(value, delta))
-    ns = "{http://www.w3.org/2000/svg}"
-    eyes = root.find(f"{ns}path[@id='eyes']")
-    assert eyes is not None
-    root.remove(eyes)
     accent = shifted_color("#0c1b65", delta)
     motif = ET.fromstring(f'<g xmlns="http://www.w3.org/2000/svg" transform="{MOTIF_TRANSFORM}">{s.mark(accent)}</g>')
     root.append(motif)
@@ -115,7 +101,7 @@ def family_flat_mark(s: Subject, color: str, accent: str) -> str:
     if s.key == "farfarfun":
         return ff_mark(color)
     return (
-        ff_mark(color, with_eyes=False)
+        ff_mark(color, accent)
         + f'<g transform="scale({S / 1254}) {MOTIF_TRANSFORM}">{s.mark(accent)}</g>'
     )
 
@@ -237,7 +223,6 @@ PLUGINS: tuple[Subject, ...] = (
     Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", shield_mark),
 )
 
-# FunClash 的闸口沿用 Android 矢量图的整数坐标。
 APPS: tuple[Subject, ...] = (
     Subject("funclash", "FunClash", "代理客户端 / mihomo 内核", "#D946EF", "#7E22CE",
             "#7E22CE", gate_mark),
