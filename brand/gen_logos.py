@@ -95,13 +95,6 @@ def family_root(s: Subject) -> ET.Element:
     return root
 
 
-def original_embedded(s: Subject) -> str:
-    root = family_root(s)
-    root.set("width", str(S))
-    root.set("height", str(S))
-    return ET.tostring(root, encoding="unicode")
-
-
 def family_flat_mark(s: Subject, color: str, accent: str) -> str:
     if s.key == "farfarfun":
         return ff_mark(color)
@@ -333,7 +326,7 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    mark = original_embedded(s)
+    mark = family_flat_mark(s, "url(#g)", INK)
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
         f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{s.name}">'

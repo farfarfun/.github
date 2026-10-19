@@ -113,7 +113,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 
 ## 二、横版组合标
 
-图形 + 组织名，用在 README 页眉和文档封面。深浅两套，对应 GitHub 的亮色与暗色主题。
+无容器 `mark` 图形 + 组织名，用在 README 页眉和文档封面。深浅两套，对应 GitHub 的亮色与暗色主题。
 
 | 浅色底 | 深色底 |
 |---|---|
@@ -241,7 +241,7 @@ uv run python brand/gen_logos.py
 - [x] uTools 四个插件的 `utools/logo.png` 已同步透明底 `mark` PNG
       （funchat 的 `public/logo.png` 也已同步）
 - [x] funotp 的 favicon 已改用家族图标
-- [x] 六个组织的主页均使用 `mark` PNG 图标
+- [x] 六个组织的主页均使用 `mark` 版 PNG 横版组合标
 - [x] 四个插件 README 加上图标页眉
 - [ ] **六个组织的 GitHub 头像**——只能手工传，REST API 没有组织头像的端点
       （`PATCH /orgs/{org}` 的参数里没有任何 avatar 字段）。到

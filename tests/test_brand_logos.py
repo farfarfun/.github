@@ -9,6 +9,15 @@ import gen_logos  # noqa: E402
 
 
 class FamilyLogoTests(unittest.TestCase):
+    def test_lockup_uses_containerless_mark(self):
+        ns = "{http://www.w3.org/2000/svg}"
+        for subject in gen_logos.ORGS:
+            for on_dark in (False, True):
+                with self.subTest(subject=subject.key, on_dark=on_dark):
+                    root = ET.fromstring(gen_logos.render_lockup(subject, on_dark=on_dark))
+                    self.assertIsNone(root.find(f".//{ns}rect"))
+                    self.assertIsNotNone(root.find(f".//{ns}path"))
+
     def test_product_variants_keep_smile_and_top_bar_symbol(self):
         ns = "{http://www.w3.org/2000/svg}"
         original = ET.parse(BRAND / "farfarfun-original.svg").getroot()
