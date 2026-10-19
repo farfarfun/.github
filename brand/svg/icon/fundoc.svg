@@ -1,1 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="fundoc logo"><defs><linearGradient id="g" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4F46E5"/><stop offset="1" stop-color="#3730A3"/></linearGradient></defs><rect x="0" y="0" width="1024" height="1024" rx="232" fill="url(#g)"/><rect x="310" y="250" width="404" height="524" rx="50" fill="none" stroke="#FFFFFF" stroke-width="96"/><path d="M 410 424 H 614 M 410 528 H 614 M 410 632 H 554" fill="none" stroke="#FFFFFF" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="1254" height="1254" role="img" aria-label="fundoc logo">
+  <ns0:defs>
+    <ns0:linearGradient id="background" x1="130" y1="1100" x2="1010" y2="90" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#100534" />
+      <ns0:stop offset=".36" stop-color="#2d1589" />
+      <ns0:stop offset=".7" stop-color="#1221dc" />
+      <ns0:stop offset="1" stop-color="#1068fa" />
+    </ns0:linearGradient>
+    <ns0:radialGradient id="sky" cx="1040" cy="170" r="820" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#267bff" stop-opacity=".92" />
+      <ns0:stop offset=".5" stop-color="#0828ee" stop-opacity=".32" />
+      <ns0:stop offset="1" stop-color="#0828ee" stop-opacity="0" />
+    </ns0:radialGradient>
+    <ns0:radialGradient id="left-shade" cx="60" cy="770" r="690" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#260c83" stop-opacity=".55" />
+      <ns0:stop offset="1" stop-color="#260c83" stop-opacity="0" />
+    </ns0:radialGradient>
+    <ns0:radialGradient id="left-blue" cx="190" cy="240" r="520" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#2213dd" stop-opacity=".35" />
+      <ns0:stop offset="1" stop-color="#2213dd" stop-opacity="0" />
+    </ns0:radialGradient>
+    <ns0:radialGradient id="bottom-shade" cx="640" cy="1200" r="780" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#11052c" stop-opacity=".4" />
+      <ns0:stop offset="1" stop-color="#11052c" stop-opacity="0" />
+    </ns0:radialGradient>
+    <ns0:linearGradient id="upper" x1="324" y1="647" x2="843" y2="205" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#7894fb" />
+      <ns0:stop offset=".43" stop-color="#d9ddfc" />
+      <ns0:stop offset=".8" stop-color="#eeeffe" />
+      <ns0:stop offset="1" stop-color="#ffffff" />
+    </ns0:linearGradient>
+    <ns0:linearGradient id="face" x1="332" y1="805" x2="907" y2="507" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#153ffa" />
+      <ns0:stop offset=".47" stop-color="#7299ff" />
+      <ns0:stop offset="1" stop-color="#bddbff" />
+    </ns0:linearGradient>
+    <ns0:linearGradient id="foot" x1="337" y1="1020" x2="591" y2="744" gradientUnits="userSpaceOnUse">
+      <ns0:stop offset="0" stop-color="#2390f5" />
+      <ns0:stop offset=".45" stop-color="#0f2cfc" />
+      <ns0:stop offset="1" stop-color="#1206d7" />
+    </ns0:linearGradient>
+    <ns0:clipPath id="tile">
+      <ns0:rect x="56" y="54" width="1134" height="1115" rx="320" />
+    </ns0:clipPath>
+  </ns0:defs>
+  <ns0:rect width="1254" height="1254" fill="#fefefe" />
+  <ns0:g clip-path="url(#tile)">
+    <ns0:rect x="56" y="54" width="1134" height="1115" fill="url(#background)" />
+    <ns0:rect x="56" y="54" width="1134" height="1115" fill="url(#sky)" />
+    <ns0:rect x="56" y="54" width="1134" height="1115" fill="url(#left-shade)" />
+    <ns0:rect x="56" y="54" width="1134" height="1115" fill="url(#left-blue)" />
+    <ns0:rect x="56" y="54" width="1134" height="1115" fill="url(#bottom-shade)" />
+  </ns0:g>
+  <ns0:path id="upper-shape" fill="url(#upper)" d="M 350 486 C 354 339 460 228 597 228 H 894 C 937 228 959 250 959 291 C 959 381 890 444 791 452 C 727 458 659 454 594 455 C 482 456 393 533 337 663 Z" />
+  <ns0:path id="face-shape" fill="url(#face)" d="M 337 655 C 384 578 478 539 596 532 H 808 C 884 532 932 573 932 637 C 932 713 878 756 802 762 L 604 765 V 865 C 604 962 548 1028 447 1028 H 420 C 355 1028 317 995 320 935 Z" />
+  <ns0:path id="foot-shape" fill="url(#foot)" d="M 320 935 C 357 840 463 768 604 765 V 865 C 604 962 548 1028 447 1028 H 420 C 355 1028 317 995 320 935 Z" />
+  <ns0:g transform="translate(735,645) scale(0.27) translate(-512,-512)"><ns0:rect x="310" y="250" width="404" height="524" rx="50" fill="none" stroke="#1c0c65" stroke-width="96" /><ns0:path d="M 410 424 H 614 M 410 528 H 614 M 410 632 H 554" fill="none" stroke="#1c0c65" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" /></ns0:g></ns0:svg>

@@ -5,7 +5,7 @@
 
     uv run python brand/gen_logos.py
 
-每个主体有一枚居中的单图形。它们共享容器、渐变和尺寸矩阵，主组织使用 ``ff`` 标记。
+每个主体沿用主组织的折叠 F 轮廓，在面部区域放入各自的小符号。
 
 除 farfarfun 的原版矢量源 ``farfarfun-original.svg`` 外，这个文件是图形产物的来源。
 要改图形就改源文件再重跑，不要手工动
@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import colorsys
 import shutil
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -28,13 +29,14 @@ ORIGINAL_SVG = BRAND / "farfarfun-original.svg"
 
 S = 1024  # 画布边长
 RX = 232  # 圆角方形的圆角半径
+MOTIF_TRANSFORM = "translate(735,645) scale(0.27) translate(-512,-512)"
 
 
 # --------------------------------------------------------------------------- #
 # 主图形
 # --------------------------------------------------------------------------- #
 # 闸口：两条竖腿架一道平顶，脚向外撇。流量从一侧进、穿过闸口、从另一侧出——
-# 代理就是这么一件事。funclash 用，不属于 ff 家族，见 README 的例外说明。
+# 代理就是这么一件事。funclash 的面部符号沿用这组坐标。
 #
 # 坐标写在 240 的格子上而不是 1024：funclash 的 Android 矢量 drawable 的
 # viewport 就是 240，两边必须是同一组整数，缩放只在这里做一次。
@@ -55,27 +57,67 @@ def stroked(d: str, color: str, width: float) -> str:
     )
 
 
-def ff_mark(color: str) -> str:
+def ff_mark(color: str, *, with_eyes: bool = True) -> str:
     """Use the original SVG's silhouette in monochrome formats."""
     root = ET.parse(ORIGINAL_SVG).getroot()
     ns = "{http://www.w3.org/2000/svg}"
     shapes = ("upper-shape", "face-shape", "foot-shape")
     paths = [root.find(f"{ns}path[@id='{name}']") for name in shapes]
-    eyes = root.find(f"{ns}path[@id='eyes']")
-    assert all(path is not None for path in paths) and eyes is not None
+    eye_element = root.find(f"{ns}path[@id='eyes']")
+    assert all(path is not None for path in paths) and eye_element is not None
     fill_paths = "".join(f'<path fill="{color}" d="{path.get("d")}"/>' for path in paths)
-    return (
-        f'<g transform="scale({S / 1254})">{fill_paths}'
+    eye_path = (
         f'<path fill="none" stroke="#0c1b65" stroke-width="22" stroke-linecap="round" '
-        f'd="{eyes.get("d")}"/></g>'
+        f'd="{eye_element.get("d")}"/>'
+        if with_eyes else ""
     )
+    return f'<g transform="scale({S / 1254})">{fill_paths}{eye_path}</g>'
 
 
-def original_embedded() -> str:
+def shifted_color(value: str, delta: float) -> str:
+    rgb = [int(value[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    hue, lightness, saturation = colorsys.rgb_to_hls(*rgb)
+    rgb = colorsys.hls_to_rgb((hue + delta) % 1, lightness, saturation)
+    return "#" + "".join(f"{round(channel * 255):02x}" for channel in rgb)
+
+
+def family_root(s: Subject) -> ET.Element:
     root = ET.parse(ORIGINAL_SVG).getroot()
+    if s.key == "farfarfun":
+        return root
+    base_hue = colorsys.rgb_to_hls(24 / 255, 85 / 255, 232 / 255)[0]
+    rgb = [int(s.c0[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    delta = colorsys.rgb_to_hls(*rgb)[0] - base_hue
+    for element in root.iter():
+        for attribute in ("fill", "stroke", "stop-color"):
+            value = element.get(attribute)
+            if value and value.startswith("#"):
+                element.set(attribute, shifted_color(value, delta))
+    ns = "{http://www.w3.org/2000/svg}"
+    eyes = root.find(f"{ns}path[@id='eyes']")
+    assert eyes is not None
+    root.remove(eyes)
+    accent = shifted_color("#0c1b65", delta)
+    motif = ET.fromstring(f'<g xmlns="http://www.w3.org/2000/svg" transform="{MOTIF_TRANSFORM}">{s.mark(accent)}</g>')
+    root.append(motif)
+    root.set("aria-label", f"{s.name} logo")
+    return root
+
+
+def original_embedded(s: Subject) -> str:
+    root = family_root(s)
     root.set("width", str(S))
     root.set("height", str(S))
     return ET.tostring(root, encoding="unicode")
+
+
+def family_flat_mark(s: Subject, color: str, accent: str) -> str:
+    if s.key == "farfarfun":
+        return ff_mark(color)
+    return (
+        ff_mark(color, with_eyes=False)
+        + f'<g transform="scale({S / 1254}) {MOTIF_TRANSFORM}">{s.mark(accent)}</g>'
+    )
 
 
 def cloud_mark(color: str) -> str:
@@ -229,20 +271,20 @@ class Fmt:
 
 
 def f_icon(s: Subject) -> str:
-    """主图标：渐变圆角方。组织头像、应用图标、favicon 都用它。"""
+    """主图标由 render_icon() 中的原版 SVG 家族造型生成。"""
     return squircle("url(#g)") + s.mark(INK)
 
 
 def f_inverse(s: Subject) -> str:
     """反白：浅底配渐变图形。深色页眉、贴纸、印刷物用。"""
-    return squircle(PAPER, PAPER_EDGE) + s.mark("url(#g)")
+    return squircle(PAPER, PAPER_EDGE) + family_flat_mark(s, "url(#g)", INK)
 
 
 def f_circle(s: Subject) -> str:
     """圆形容器：头像被裁成圆形的平台上不会切角。"""
     scaled = (
         '<g transform="translate(512,512) scale(0.86) translate(-512,-512)">'
-        f"{s.mark(INK)}</g>"
+        f"{family_flat_mark(s, INK, s.deep)}</g>"
     )
     circle_fill = "url(#bg)" if s.key == "farfarfun" else "url(#g)"
     return (
@@ -253,7 +295,7 @@ def f_circle(s: Subject) -> str:
 
 def f_mark(s: Subject) -> str:
     """无容器：透明底的纯图形。README 页眉、水印用。"""
-    return s.mark("url(#g)")
+    return family_flat_mark(s, "url(#g)", INK)
 
 
 # 尺寸取自实际用途：
@@ -304,7 +346,7 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
         f'<stop offset="0" stop-color="{s.c0}"/>'
         f'<stop offset="1" stop-color="{s.c1}"/></linearGradient>'
     )
-    mark = original_embedded() if s.key == "farfarfun" else s.mark("url(#g)")
+    mark = original_embedded(s)
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {LOCKUP_H}" '
         f'width="{width}" height="{LOCKUP_H}" role="img" aria-label="{s.name}">'
@@ -321,8 +363,9 @@ def render_lockup(s: Subject, *, on_dark: bool) -> str:
 # 输出
 # --------------------------------------------------------------------------- #
 def render_icon(fmt: Fmt, s: Subject) -> str:
-    if fmt.key == "icon" and s.key == "farfarfun":
-        return ORIGINAL_SVG.read_text(encoding="utf-8")
+    if fmt.key == "icon":
+        return (ORIGINAL_SVG.read_text(encoding="utf-8") if s.key == "farfarfun"
+                else ET.tostring(family_root(s), encoding="unicode"))
     grad = (
         f'<linearGradient id="g" x1="0" y1="0" x2="{S}" y2="{S}" '
         f'gradientUnits="userSpaceOnUse">'

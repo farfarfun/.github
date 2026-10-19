@@ -1,8 +1,9 @@
 # farfarfun 品牌标识
 
-六个组织、四个 uTools 插件和 FunClash 各有一枚居中的单图形。主组织图标按
+六个组织、四个 uTools 插件和 FunClash 共用一套折叠 F 轮廓。主组织图标按
 [原版 PNG](farfarfun-original.png) 重新描绘为[完整 SVG](farfarfun-original.svg)，
-保留圆角底板、蓝白折叠图形和表情。其他图形直接表达对应产品。
+保留圆角底板、蓝白折叠图形和表情。其他主体沿用这枚图标的轮廓与层次，
+通过面部的小符号和不同色相表达对应产品。
 
 <table>
 <tr>
@@ -17,11 +18,11 @@
 </tr>
 </table>
 
-网盘用云，自研 Skill 用星芒，聚合镜像用叠层，uTools 用拼图，GitHub Action 用播放符号。
+面部符号分别为云、星芒、叠层、拼图和播放；外侧仍是 farfarfun 的折叠 F。
 
 ### uTools 插件
 
-四个插件沿用相同的容器和笔画重量，分别使用对话、文档、书签和验证图形。
+四个插件沿用同一折叠 F，面部符号分别为对话、文档、书签和验证。
 
 <table>
 <tr>
@@ -36,7 +37,7 @@
 
 ### 独立应用
 
-FunClash 沿用现有的闸口图形和洋红渐变。
+FunClash 也沿用折叠 F，面部保留原有闸口符号，使用洋红色相。
 
 <table>
 <tr>
@@ -44,7 +45,8 @@ FunClash 沿用现有的闸口图形和洋红渐变。
 </tr>
 </table>
 
-闸口的坐标与 FunClash Android 矢量图保持一致，重导出不会改变它的轮廓。
+闸口符号沿用 FunClash Android 矢量图的坐标；完整图标已改为 farfarfun 家族造型。
+FunClash 仓库里的 Android、桌面等旧图标仍需单独同步。
 
 ---
 
@@ -165,15 +167,15 @@ README 页眉按主题自动切换：
 | 384 · 512 | GitHub 组织头像（要求 ≥ 500×500） |
 | 1024 | 母版，用于再加工与印刷 |
 
-小尺寸图标使用同一套单图形，16px 下仍以主体轮廓为主。
-FunClash 的闸口仍使用适合 favicon、托盘和 Android 通知栏的竖笔画。
+小尺寸图标以折叠 F 轮廓为主；面部符号在大尺寸下提供区分。
+FunClash 的闸口符号仍使用适合小尺寸的竖笔画。
 日常用矢量 SVG 即可，PNG 是给不吃 SVG 的地方准备的。
 
 ---
 
 ## 四、色板
 
-其他主体使用 135° 线性渐变；farfarfun 主图标使用原版 SVG 中的多层渐变。
+主图标沿用原版 SVG 的多层渐变，其他主体按各自色相调整。简化格式使用下表色板。
 
 | 组织 | 渐变起 | 渐变止 | 单色值 |
 |------|--------|--------|----------|
@@ -184,9 +186,9 @@ FunClash 的闸口仍使用适合 favicon、托盘和 Android 通知栏的竖笔
 | `farfarfun-utools` | `#14B8A6` | `#0F766E` | `#0F766E` |
 | `farfarfun-action` | `#F97316` | `#C2410C` | `#C2410C` |
 
-主组织的表中颜色用于简化格式，主图标以原版 SVG 为准。子组织使用不同色相。
+主组织的表中颜色用于简化格式，主图标以原版 SVG 为准。子组织沿用轮廓，使用不同色相。
 
-插件另起一组，四个色相互相拉到最开：
+插件另起一组色板，便于在 uTools 启动器中辨认：
 
 | 插件 | 渐变起 | 渐变止 | 单色值 |
 |------|--------|--------|----------|
@@ -195,7 +197,7 @@ FunClash 的闸口仍使用适合 favicon、托盘和 Android 通知栏的竖笔
 | `funlink` | `#22C55E` | `#15803D` | `#15803D` |
 | `funotp` | `#F43F5E` | `#BE123C` | `#BE123C` |
 
-独立应用再另起一组，避开上面所有人的色相段：
+独立应用使用另一组色相，造型仍属同一家族：
 
 | 应用 | 渐变起 | 渐变止 | 深色 |
 |------|--------|--------|------|
@@ -214,7 +216,7 @@ FunClash 的闸口仍使用适合 favicon、托盘和 Android 通知栏的竖笔
 ```
 brand/
 ├── farfarfun-original.svg        主组织图形的完整矢量源，1254×1254
-├── gen_logos.py                  其他图形与导出的来源
+├── gen_logos.py                  家族变体与导出的来源
 ├── svg/<格式>/<主体>.svg          矢量母版；主组织 icon 为 1254×1254
 ├── png/<格式>/<主体>-<尺寸>.png
 ├── png/lockup{,-on-dark}/<主体>-<高>.png
@@ -229,13 +231,13 @@ uv run python brand/gen_logos.py
 
 依赖 `cairosvg`（出 PNG）与 `pillow`（量组合标文字宽度、打包 `.ico`）。脚本每次会先清空
 `svg/` `png/` `favicon/` 再整体重建，**不要往这三个目录里手工放文件**。
-主组织图形修改 `farfarfun-original.svg`，其他图形和格式修改 `gen_logos.py`。
+主组织图形修改 `farfarfun-original.svg`；其他主体的色相、面部符号和格式修改 `gen_logos.py`。
 
 ---
 
 ## 六、落地情况
 
-主组织 `farfarfun` 的 SVG 矢量母版、横版组合标与生成器已更新。PNG、ICO 等栅格产物请在本地运行 `uv run python brand/gen_logos.py` 重新生成；之前复制到其他仓库的图标和 favicon 也需要重新同步。
+本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；之前复制到其他仓库的图标和 favicon 仍需重新同步。
 
 - [x] uTools 四个插件各出一枚自己的图标，`utools/logo.png` 已换
       （funchat 另有一份 `public/logo.png`）
@@ -250,7 +252,7 @@ uv run python brand/gen_logos.py
       建好之后再套组合标页眉
 - [ ] 真正的 Web 项目接入 `favicon/<主体>.ico`（插件走的是内联 SVG 和 logo.png，
       用不上 ico）
-- [ ] **funclash 把闸口铺到各平台产物上**——桌面、托盘、Android 启动器、favicon
+- [ ] **funclash 把家族图标铺到各平台产物上**——桌面、托盘、Android 启动器、favicon
       的栅格图都在 `farfarfun/funclash` 仓库里，矢量源从这里的 `svg/` 取过去
       vendored 一份。另外 maskable 的 PWA 图标这边没有对应格式（现有四种容器
       都带透明角，当 maskable 用会被裁），funclash 那边自己出满版的一版
