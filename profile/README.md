@@ -36,8 +36,9 @@
 | [farfarfun-skill](https://github.com/farfarfun-skill) | AI Agent Skill | **自研** Skill 的源头仓库，覆盖项目治理、服务规范与多语言开发规范 | 7 |
 | [farfarfun-skills](https://github.com/farfarfun-skills) | Skill 镜像 | 社区 Skill 与上述自研 Skill 的聚合镜像，每小时与上游同步并镜像至 Gitee | 26 |
 | [farfarfun-utools](https://github.com/farfarfun-utools) | uTools 插件 | 自研 uTools 插件，覆盖 AI 聊天、网址导航与两步验证码 | 5 |
+| [farfarfun-game](https://github.com/farfarfun-game) | 游戏 | FunGame 的 Web 游戏与多端客户端 | 2 |
 
-> **如何定位所需仓库**：通用 Python 工具见本组织；网盘与云存储见 `farfarfun-drive`；提交 Skill 的 issue 或 PR 见 `farfarfun-skill`（镜像组织不接受 PR）；批量安装 Skill（含社区项目）见 `farfarfun-skills`；uTools 插件见 `farfarfun-utools`。
+> **如何定位所需仓库**：通用 Python 工具见本组织；网盘与云存储见 `farfarfun-drive`；提交 Skill 的 issue 或 PR 见 `farfarfun-skill`（镜像组织不接受 PR）；批量安装 Skill（含社区项目）见 `farfarfun-skills`；uTools 插件见 `farfarfun-utools`；FunGame 客户端见 `farfarfun-game`。
 >
 > 未在上述组织中找到的项目，通常仍在本组织孵化，可直接按仓库名检索。
 

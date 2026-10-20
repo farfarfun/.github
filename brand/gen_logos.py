@@ -144,6 +144,20 @@ def play_mark(color: str) -> str:
     )
 
 
+def game_mark(color: str) -> str:
+    return (
+        stroked(
+            "M 318 360 H 706 C 772 360 810 402 828 468 L 874 649 "
+            "C 893 726 827 771 762 730 L 666 669 H 358 L 262 730 "
+            "C 197 771 131 726 150 649 L 196 468 C 214 402 252 360 318 360 Z",
+            color, 68
+        )
+        + stroked("M 300 514 H 456 M 378 436 V 592", color, 58)
+        + f'<g fill="{color}"><circle cx="650" cy="488" r="39"/>'
+        '<circle cx="740" cy="576" r="39"/></g>'
+    )
+
+
 def bubble_mark(color: str) -> str:
     return (
         stroked(
@@ -208,6 +222,7 @@ ORGS: tuple[Subject, ...] = (
     Subject("skills", "farfarfun-skills", "Skill 聚合镜像", "#6366F1", "#4338CA", "#4338CA", stack_mark),
     Subject("utools", "farfarfun-utools", "uTools 插件", "#14B8A6", "#0F766E", "#0F766E", puzzle_mark),
     Subject("action", "farfarfun-action", "GitHub Action", "#F97316", "#C2410C", "#C2410C", play_mark),
+    Subject("game", "farfarfun-game", "游戏 / FunGame", "#84CC16", "#4D7C0F", "#4D7C0F", game_mark),
 )
 
 # 插件会在 uTools 启动器里并排出现，因此保留彼此区分明显的色相。

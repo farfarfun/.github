@@ -1,6 +1,6 @@
 # farfarfun 品牌标识
 
-六个组织、四个 uTools 插件和 FunClash 共用一套折叠 F 轮廓。主组织图标按
+七个组织、四个 uTools 插件和 FunClash 共用一套折叠 F 轮廓。主组织图标按
 [原版 PNG](farfarfun-original.png) 重新描绘为[完整 SVG](farfarfun-original.svg)，
 保留圆角底板、蓝白折叠图形和笑脸。其他主体沿用这枚图标的轮廓、层次与笑脸，
 通过上横线的小符号和不同色相表达对应产品。
@@ -16,9 +16,12 @@
 <td align="center"><img src="png/icon/utools-256.png" width="92"><br><code>-utools</code><br><sub>拼图 · 插件</sub></td>
 <td align="center"><img src="png/icon/action-256.png" width="92"><br><code>-action</code><br><sub>播放 · Action</sub></td>
 </tr>
+<tr>
+<td align="center"><img src="png/icon/game-256.png" width="92"><br><code>-game</code><br><sub>手柄 · 游戏</sub></td>
+</tr>
 </table>
 
-上横线的符号分别为云、星芒、叠层、拼图和播放；笑脸与折叠 F 保持不变。
+上横线的符号分别为云、星芒、叠层、拼图、播放和手柄；笑脸与折叠 F 保持不变。
 
 ### uTools 插件
 
@@ -37,7 +40,7 @@
 
 ### 独立应用
 
-FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使用洋红色相。
+FunClash 也沿用折叠 F 与笑脸，上横线使用 `CLASH` 字标，采用洋红色相。
 
 <table>
 <tr>
@@ -45,7 +48,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 </tr>
 </table>
 
-闸口符号沿用 FunClash Android 矢量图的坐标；完整图标属于 farfarfun 家族造型。
+完整图标属于 farfarfun 家族造型。
 
 ---
 
@@ -64,6 +67,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 <img src="png/icon/skills-128.png" width="84">
 <img src="png/icon/utools-128.png" width="84">
 <img src="png/icon/action-128.png" width="84">
+<img src="png/icon/game-128.png" width="84">
 <img src="png/icon/funclash-128.png" width="84">
 </p>
 
@@ -78,6 +82,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 <img src="png/icon-inverse/skills-128.png" width="84">
 <img src="png/icon-inverse/utools-128.png" width="84">
 <img src="png/icon-inverse/action-128.png" width="84">
+<img src="png/icon-inverse/game-128.png" width="84">
 <img src="png/icon-inverse/funclash-128.png" width="84">
 </p>
 
@@ -92,6 +97,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 <img src="png/icon-circle/skills-128.png" width="84">
 <img src="png/icon-circle/utools-128.png" width="84">
 <img src="png/icon-circle/action-128.png" width="84">
+<img src="png/icon-circle/game-128.png" width="84">
 <img src="png/icon-circle/funclash-128.png" width="84">
 </p>
 
@@ -106,6 +112,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 <img src="png/mark/skills-128.png" width="84">
 <img src="png/mark/utools-128.png" width="84">
 <img src="png/mark/action-128.png" width="84">
+<img src="png/mark/game-128.png" width="84">
 <img src="png/mark/funclash-128.png" width="84">
 </p>
 
@@ -123,6 +130,7 @@ FunClash 也沿用折叠 F 与笑脸，上横线保留原有闸口符号，使�
 | <img src="png/lockup/skills-160.png" width="250"> | <img src="png/lockup-on-dark/skills-160.png" width="250"> |
 | <img src="png/lockup/utools-160.png" width="250"> | <img src="png/lockup-on-dark/utools-160.png" width="250"> |
 | <img src="png/lockup/action-160.png" width="250"> | <img src="png/lockup-on-dark/action-160.png" width="250"> |
+| <img src="png/lockup/game-160.png" width="250"> | <img src="png/lockup-on-dark/game-160.png" width="250"> |
 | <img src="png/lockup/funchat-160.png" width="250"> | <img src="png/lockup-on-dark/funchat-160.png" width="250"> |
 | <img src="png/lockup/fundoc-160.png" width="250"> | <img src="png/lockup-on-dark/fundoc-160.png" width="250"> |
 | <img src="png/lockup/funlink-160.png" width="250"> | <img src="png/lockup-on-dark/funlink-160.png" width="250"> |
@@ -167,7 +175,7 @@ README 页眉按主题自动切换：
 | 1024 | 母版，用于再加工与印刷 |
 
 小尺寸图标以折叠 F 与笑脸为主；上横线的符号在大尺寸下提供区分。
-FunClash 的闸口符号仍使用适合小尺寸的竖笔画。
+FunClash 的字标在小尺寸下以简化笔画呈现。
 日常用矢量 SVG 即可，PNG 是给不吃 SVG 的地方准备的。
 
 ---
@@ -184,6 +192,7 @@ FunClash 的闸口符号仍使用适合小尺寸的竖笔画。
 | `farfarfun-skills` | `#6366F1` | `#4338CA` | `#4338CA` |
 | `farfarfun-utools` | `#14B8A6` | `#0F766E` | `#0F766E` |
 | `farfarfun-action` | `#F97316` | `#C2410C` | `#C2410C` |
+| `farfarfun-game` | `#84CC16` | `#4D7C0F` | `#4D7C0F` |
 
 主组织的表中颜色用于简化格式，主图标以原版 SVG 为准。子组织沿用轮廓，使用不同色相。
 
@@ -208,9 +217,9 @@ FunClash 的闸口符号仍使用适合小尺寸的竖笔画。
 
 ## 五、文件
 
-文件名里的 `<主体>` 是六个组织之一（`farfarfun` `drive` `skill` `skills` `utools`
-`action`）、四个插件之一（`funchat` `fundoc` `funlink` `funotp`），或独立应用
-`funclash`，共十一个，每个都出齐下面所有格式与尺寸。
+文件名里的 `<主体>` 是七个组织之一（`farfarfun` `drive` `skill` `skills` `utools`
+`action` `game`）、四个插件之一（`funchat` `fundoc` `funlink` `funotp`），或独立应用
+`funclash`，共十二个，每个都出齐下面所有格式与尺寸。
 
 ```
 brand/
@@ -241,9 +250,9 @@ uv run python brand/gen_logos.py
 - [x] uTools 四个插件的 `utools/logo.png` 已同步透明底 `mark` PNG
       （funchat 的 `public/logo.png` 也已同步）
 - [x] funotp 的 favicon 已改用家族图标
-- [x] 六个组织的主页均使用 `mark` 版 PNG 横版组合标
+- [x] 七个组织的主页均使用 `mark` 版 PNG 横版组合标
 - [x] 四个插件 README 加上图标页眉
-- [ ] **六个组织的 GitHub 头像**——只能手工传，REST API 没有组织头像的端点
+- [ ] **七个组织的 GitHub 头像**——只能手工传，REST API 没有组织头像的端点
       （`PATCH /orgs/{org}` 的参数里没有任何 avatar 字段）。到
       `https://github.com/organizations/<组织>/settings/profile` 上传对应的
       `png/icon/<主体>-512.png`。
