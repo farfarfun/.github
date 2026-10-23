@@ -1,5 +1,6 @@
 import sys
 import unittest
+from io import BytesIO
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
@@ -9,6 +10,27 @@ import gen_logos  # noqa: E402
 
 
 class FamilyLogoTests(unittest.TestCase):
+    def test_plugin_marks_fill_canvas_without_clipping(self):
+        import cairosvg
+        from PIL import Image
+
+        self.assertEqual(
+            {subject.key for subject in gen_logos.PLUGINS},
+            {"funchat", "fundoc", "funlink", "funotp", "funcalendar"},
+        )
+        fmt = next(fmt for fmt in gen_logos.FORMATS if fmt.key == "mark")
+        for subject in gen_logos.PLUGINS:
+            with self.subTest(subject=subject.key):
+                png = cairosvg.svg2png(
+                    bytestring=gen_logos.render_icon(fmt, subject).encode(),
+                    output_width=256, output_height=256,
+                )
+                alpha = Image.open(BytesIO(png)).getchannel("A")
+                left, top, right, bottom = alpha.getbbox()
+                self.assertGreaterEqual((bottom - top) / 256, 0.90)
+                self.assertLessEqual((bottom - top) / 256, 0.95)
+                self.assertGreater(min(left, top, 256 - right, 256 - bottom), 4)
+
     def test_lockup_uses_containerless_mark(self):
         ns = "{http://www.w3.org/2000/svg}"
         for subject in gen_logos.ORGS:

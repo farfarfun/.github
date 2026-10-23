@@ -30,6 +30,7 @@ ORIGINAL_SVG = BRAND / "farfarfun-original.svg"
 S = 1024  # 画布边长
 RX = 232  # 圆角方形的圆角半径
 MOTIF_TRANSFORM = "translate(780,336) scale(0.23) translate(-512,-512)"
+PLUGIN_MOTIF_TRANSFORM = "translate(780,336) scale(0.30) translate(-512,-512)"
 
 
 # --------------------------------------------------------------------------- #
@@ -89,8 +90,17 @@ def family_root(s: Subject) -> ET.Element:
             if value and value.startswith("#"):
                 element.set(attribute, shifted_color(value, delta))
     accent = shifted_color("#0c1b65", delta)
-    motif = ET.fromstring(f'<g xmlns="http://www.w3.org/2000/svg" transform="{MOTIF_TRANSFORM}">{s.mark(accent)}</g>')
+    motif_transform = PLUGIN_MOTIF_TRANSFORM if s in PLUGINS else MOTIF_TRANSFORM
+    motif = ET.fromstring(f'<g xmlns="http://www.w3.org/2000/svg" transform="{motif_transform}">{s.mark(accent)}</g>')
     root.append(motif)
+    if s in PLUGINS:
+        group = ET.SubElement(root, "{http://www.w3.org/2000/svg}g", {
+            "transform": "translate(627,627) scale(1.30) translate(-627,-627)",
+        })
+        for element in list(root):
+            if element.tag == "{http://www.w3.org/2000/svg}path" or element is motif:
+                root.remove(element)
+                group.append(element)
     root.set("aria-label", f"{s.name} logo")
     return root
 
@@ -98,10 +108,15 @@ def family_root(s: Subject) -> ET.Element:
 def family_flat_mark(s: Subject, color: str, accent: str) -> str:
     if s.key == "farfarfun":
         return ff_mark(color)
-    return (
+    motif_transform = PLUGIN_MOTIF_TRANSFORM if s in PLUGINS else MOTIF_TRANSFORM
+    mark = (
         ff_mark(color, accent)
-        + f'<g transform="scale({S / 1254}) {MOTIF_TRANSFORM}">{s.mark(accent)}</g>'
+        + f'<g transform="scale({S / 1254}) {motif_transform}">{s.mark(accent)}</g>'
     )
+    if s in PLUGINS:
+        # 启动器里的透明图标保留约 4% 上下留白，避免主体显小。
+        return f'<g transform="translate(512,512) scale(1.45) translate(-512,-512)">{mark}</g>'
+    return mark
 
 
 def cloud_mark(color: str) -> str:
@@ -199,6 +214,15 @@ def clash_mark(color: str) -> str:
     return stroked(CLASH_LETTERS, color, 48)
 
 
+def calendar_mark(color: str) -> str:
+    return (
+        f'<rect x="260" y="300" width="504" height="464" rx="60" fill="none" '
+        f'stroke="{color}" stroke-width="72"/>'
+        + stroked("M 380 240 V 360 M 644 240 V 360 M 270 450 H 754", color, 72)
+        + stroked("M 410 594 L 482 666 L 626 540", color, 72)
+    )
+
+
 # --------------------------------------------------------------------------- #
 # 主体与色板
 # --------------------------------------------------------------------------- #
@@ -231,6 +255,7 @@ PLUGINS: tuple[Subject, ...] = (
     Subject("fundoc", "fundoc", "FunDoc 文档", "#4F46E5", "#3730A3", "#3730A3", doc_mark),
     Subject("funlink", "funlink", "网址收藏", "#22C55E", "#15803D", "#15803D", bookmark_mark),
     Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", shield_mark),
+    Subject("funcalendar", "FunCalendar", "时光常伴 / 双历与黄历", "#F59E0B", "#B45309", "#B45309", calendar_mark),
 )
 
 APPS: tuple[Subject, ...] = (
