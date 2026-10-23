@@ -39,7 +39,7 @@
 
 插件会在 uTools 启动器里并排出现，所以保留彼此区别明显的颜色。FunCalendar 使用琥珀色。
 五个插件统一放大折叠 F 和顶部符号；透明 `mark` 的主体占画布高度约 93%，
-上下各留约 4% 安全边距，启动器实际使用 256×256 PNG。
+上下各留约 4% 安全边距。插件实际使用本仓库生成的 `icon` 主图标 256×256 PNG。
 
 ### 独立应用
 
@@ -252,9 +252,8 @@ uv run python brand/gen_logos.py
 
 本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；FunClash 已同步透明底主图标与 `CLASH` 字标。
 
-- [x] uTools 五个插件的 `utools/logo.png` 已同步透明底 `mark` PNG
-      （funchat 的 `public/logo.png`、funcalendar 的 `utools/logo.svg` 也已同步；
-      funcalendar 的 favicon 引用同一 PNG）
+- [x] uTools 五个插件的 `utools/logo.png` 直接复制自 `png/icon/<插件名>-256.png`
+      （funchat 的 `public/logo.png` 也同步同一 PNG；README 和 favicon 复用插件 PNG）
 - [x] funotp 的 favicon 已改用家族图标
 - [x] 七个组织的主页均使用 `mark` 版 PNG 横版组合标
 - [x] 五个插件 README 加上图标页眉
