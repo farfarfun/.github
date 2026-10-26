@@ -1,6 +1,6 @@
 # farfarfun 品牌标识
 
-七个组织、五个 uTools 插件和 FunClash 共用一套折叠 F 轮廓。主组织图标按
+七个组织、七个 uTools 插件和 FunClash 共用一套折叠 F 轮廓。主组织图标按
 [原版 PNG](farfarfun-original.png) 重新描绘为[完整 SVG](farfarfun-original.svg)，
 保留圆角底板、蓝白折叠图形和笑脸。其他主体沿用这枚图标的轮廓、层次与笑脸，
 通过上横线的小符号和不同色相表达对应产品。
@@ -25,20 +25,22 @@
 
 ### uTools 插件
 
-五个插件沿用同一折叠 F 和笑脸，上横线的符号分别为对话、文档、书签、验证和日历。
+七个插件沿用同一折叠 F 和笑脸，上横线的符号分别为对话、文档、书签、验证、日历、二维码和求和符号。
 
 <table>
 <tr>
-<td align="center"><img src="png/icon/funchat-256.png" width="92"><br><code>funchat</code><br><sub>气泡 · AI 好友聊天</sub></td>
-<td align="center"><img src="png/icon/fundoc-256.png" width="92"><br><code>fundoc</code><br><sub>文稿 · Markdown 文档</sub></td>
-<td align="center"><img src="png/icon/funlink-256.png" width="92"><br><code>funlink</code><br><sub>书签 · 网址收藏</sub></td>
-<td align="center"><img src="png/icon/funotp-256.png" width="92"><br><code>funotp</code><br><sub>盾 · 两步验证</sub></td>
-<td align="center"><img src="png/icon/funcalendar-256.png" width="92"><br><code>funcalendar</code><br><sub>日历 · 时光常伴</sub></td>
+<td align="center"><img src="png/mark/funchat-256.png" width="92"><br><code>funchat</code><br><sub>气泡 · 言来语往</sub></td>
+<td align="center"><img src="png/mark/fundoc-256.png" width="92"><br><code>fundoc</code><br><sub>文稿 · 落笔成章</sub></td>
+<td align="center"><img src="png/mark/funlink-256.png" width="92"><br><code>funlink</code><br><sub>书签 · 一链即达</sub></td>
+<td align="center"><img src="png/mark/funotp-256.png" width="92"><br><code>funotp</code><br><sub>盾 · 密钥随行</sub></td>
+<td align="center"><img src="png/mark/funcalendar-256.png" width="92"><br><code>funcalendar</code><br><sub>日历 · 时光常伴</sub></td>
+<td align="center"><img src="png/mark/funqr-256.png" width="92"><br><code>funqr</code><br><sub>二维码 · 码上生花</sub></td>
+<td align="center"><img src="png/mark/funcalc-256.png" width="92"><br><code>funcalc</code><br><sub>求和 · 算有所得</sub></td>
 </tr>
 </table>
 
-插件会在 uTools 启动器里并排出现，所以保留彼此区别明显的颜色。FunCalendar 使用琥珀色。
-五个插件统一放大折叠 F 和顶部符号；透明 `mark` 的主体占画布高度约 93%，
+插件会在 uTools 启动器里并排出现，所以保留彼此区别明显的颜色。时光常伴使用琥珀色，码上生花使用紫藤色，算有所得使用蓝色。
+七个插件统一放大折叠 F 和顶部符号；透明 `mark` 的主体占画布高度约 93%，
 上下各留约 4% 安全边距。插件实际使用本仓库生成并放大的透明底 `mark` 图标 256×256 PNG。
 
 ### 独立应用
@@ -139,6 +141,8 @@ FunClash 也沿用折叠 F 与笑脸，上横线使用 `CLASH` 字标，采用�
 | <img src="png/lockup/funlink-160.png" width="250"> | <img src="png/lockup-on-dark/funlink-160.png" width="250"> |
 | <img src="png/lockup/funotp-160.png" width="250"> | <img src="png/lockup-on-dark/funotp-160.png" width="250"> |
 | <img src="png/lockup/funcalendar-160.png" width="250"> | <img src="png/lockup-on-dark/funcalendar-160.png" width="250"> |
+| <img src="png/lockup/funqr-160.png" width="250"> | <img src="png/lockup-on-dark/funqr-160.png" width="250"> |
+| <img src="png/lockup/funcalc-160.png" width="250"> | <img src="png/lockup-on-dark/funcalc-160.png" width="250"> |
 | <img src="png/lockup/funclash-160.png" width="250"> | <img src="png/lockup-on-dark/funclash-160.png" width="250"> |
 
 > 右列在 GitHub 亮色主题下看着是白字悬空，属正常——它本来就是放进深色页眉里的。
@@ -209,6 +213,8 @@ FunClash 的字标在小尺寸下以简化笔画呈现。
 | `funlink` | `#22C55E` | `#15803D` | `#15803D` |
 | `funotp` | `#F43F5E` | `#BE123C` | `#BE123C` |
 | `funcalendar` | `#F59E0B` | `#B45309` | `#B45309` |
+| `funqr` | `#9874CF` | `#654092` | `#654092` |
+| `funcalc` | `#3B82F6` | `#1D4ED8` | `#1D4ED8` |
 
 独立应用使用另一组色相，造型仍属同一家族：
 
@@ -223,8 +229,8 @@ FunClash 的字标在小尺寸下以简化笔画呈现。
 ## 五、文件
 
 文件名里的 `<主体>` 是七个组织之一（`farfarfun` `drive` `skill` `skills` `utools`
-`action` `game`）、五个插件之一（`funchat` `fundoc` `funlink` `funotp` `funcalendar`），或独立应用
-`funclash`，共十三个，每个都出齐下面所有格式与尺寸。
+`action` `game`）、七个插件之一（`funchat` `fundoc` `funlink` `funotp` `funcalendar` `funqr` `funcalc`），或独立应用
+`funclash`，共十五个，每个都出齐下面所有格式与尺寸。
 
 ```
 brand/
@@ -252,11 +258,12 @@ uv run python brand/gen_logos.py
 
 本仓库的 SVG、PNG、ICO 和横版组合标已按家族造型重新生成；FunClash 已同步透明底主图标与 `CLASH` 字标。
 
-- [x] uTools 五个插件的 `utools/logo.png` 直接复制自 `png/mark/<插件名>-256.png`
+- [x] uTools 七个插件的 `utools/logo.png` 直接复制自 `png/mark/<插件名>-256.png`
       （funchat 的 `public/logo.png` 也同步同一 PNG；README 和 favicon 复用插件 PNG）
+- [x] 计算、日历、二维码的界面页眉复用插件 PNG，避免与启动器 Logo 不一致
 - [x] funotp 的 favicon 已改用家族图标
 - [x] 七个组织的主页均使用 `mark` 版 PNG 横版组合标
-- [x] 五个插件 README 加上图标页眉
+- [x] 七个插件 README 加上图标页眉
 - [ ] **七个组织的 GitHub 头像**——只能手工传，REST API 没有组织头像的端点
       （`PATCH /orgs/{org}` 的参数里没有任何 avatar 字段）。到
       `https://github.com/organizations/<组织>/settings/profile` 上传对应的

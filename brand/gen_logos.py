@@ -223,6 +223,18 @@ def calendar_mark(color: str) -> str:
     )
 
 
+def qr_mark(color: str) -> str:
+    return stroked(
+        "M 250 250 H 440 V 440 H 250 Z M 584 250 H 774 V 440 H 584 Z "
+        "M 250 584 H 440 V 774 H 250 Z M 584 584 H 656 V 656 H 584 Z "
+        "M 774 544 V 656 M 544 774 H 656 V 702 M 774 774 H 712", color, 48
+    )
+
+
+def calculator_mark(color: str) -> str:
+    return stroked("M 730 280 H 300 L 520 512 L 300 744 H 730", color, 76)
+
+
 # --------------------------------------------------------------------------- #
 # 主体与色板
 # --------------------------------------------------------------------------- #
@@ -256,6 +268,8 @@ PLUGINS: tuple[Subject, ...] = (
     Subject("funlink", "funlink", "网址收藏", "#22C55E", "#15803D", "#15803D", bookmark_mark),
     Subject("funotp", "funotp", "FunOTP 两步验证", "#F43F5E", "#BE123C", "#BE123C", shield_mark),
     Subject("funcalendar", "FunCalendar", "时光常伴 / 双历与黄历", "#F59E0B", "#B45309", "#B45309", calendar_mark),
+    Subject("funqr", "FunQR", "码上生花 / 二维码互转", "#9874CF", "#654092", "#654092", qr_mark),
+    Subject("funcalc", "FunCalc", "算有所得 / 计算笔记本", "#3B82F6", "#1D4ED8", "#1D4ED8", calculator_mark),
 )
 
 APPS: tuple[Subject, ...] = (

@@ -16,7 +16,7 @@ class FamilyLogoTests(unittest.TestCase):
 
         self.assertEqual(
             {subject.key for subject in gen_logos.PLUGINS},
-            {"funchat", "fundoc", "funlink", "funotp", "funcalendar"},
+            {"funchat", "fundoc", "funlink", "funotp", "funcalendar", "funqr", "funcalc"},
         )
         fmt = next(fmt for fmt in gen_logos.FORMATS if fmt.key == "mark")
         for subject in gen_logos.PLUGINS:
