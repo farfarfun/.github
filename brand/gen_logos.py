@@ -242,6 +242,13 @@ def video_mark(color: str) -> str:
     )
 
 
+def image_mark(color: str) -> str:
+    return (
+        stroked("M 252 300 H 772 V 724 H 252 Z M 300 650 L 430 515 L 520 595 L 630 455 L 735 570", color, 58)
+        + f'<circle cx="382" cy="405" r="37" fill="{color}"/>'
+    )
+
+
 # --------------------------------------------------------------------------- #
 # 主体与色板
 # --------------------------------------------------------------------------- #
@@ -278,6 +285,7 @@ PLUGINS: tuple[Subject, ...] = (
     Subject("funqr", "FunQR", "码上生花 / 二维码互转", "#9874CF", "#654092", "#654092", qr_mark),
     Subject("funcalc", "FunCalc", "算有所得 / 计算笔记本", "#3B82F6", "#1D4ED8", "#1D4ED8", calculator_mark),
     Subject("funvideo", "FunVideo", "视频工坊 / 批量视频处理", "#F47C51", "#C54A30", "#C54A30", video_mark),
+    Subject("funimage", "FunImage", "图片工坊 / 批量图片处理", "#43B99B", "#1C786A", "#1C786A", image_mark),
 )
 
 APPS: tuple[Subject, ...] = (
