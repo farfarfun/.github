@@ -235,6 +235,13 @@ def calculator_mark(color: str) -> str:
     return stroked("M 730 280 H 300 L 520 512 L 300 744 H 730", color, 76)
 
 
+def video_mark(color: str) -> str:
+    return (
+        stroked("M 252 300 H 772 V 724 H 252 Z M 340 300 V 724 M 684 300 V 724", color, 58)
+        + f'<path fill="{color}" d="M 448 400 L 598 512 L 448 624 Z"/>'
+    )
+
+
 # --------------------------------------------------------------------------- #
 # 主体与色板
 # --------------------------------------------------------------------------- #
@@ -270,6 +277,7 @@ PLUGINS: tuple[Subject, ...] = (
     Subject("funcalendar", "FunCalendar", "时光常伴 / 双历与黄历", "#F59E0B", "#B45309", "#B45309", calendar_mark),
     Subject("funqr", "FunQR", "码上生花 / 二维码互转", "#9874CF", "#654092", "#654092", qr_mark),
     Subject("funcalc", "FunCalc", "算有所得 / 计算笔记本", "#3B82F6", "#1D4ED8", "#1D4ED8", calculator_mark),
+    Subject("funvideo", "FunVideo", "视频工坊 / 批量视频处理", "#F47C51", "#C54A30", "#C54A30", video_mark),
 )
 
 APPS: tuple[Subject, ...] = (
