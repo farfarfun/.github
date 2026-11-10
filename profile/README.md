@@ -1,8 +1,8 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)"
-            srcset="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup-on-dark/farfarfun-160.png">
-    <img src="https://raw.githubusercontent.com/farfarfun/.github/master/brand/png/lockup/farfarfun-160.png"
+            srcset="https://raw.githubusercontent.com/farfarfun/.github/b0915330bb901208953c4027a545c16c9654f4a9/brand/png/lockup-on-dark/farfarfun-160.png">
+    <img src="https://raw.githubusercontent.com/farfarfun/.github/b0915330bb901208953c4027a545c16c9654f4a9/brand/png/lockup/farfarfun-160.png"
          height="80" alt="farfarfun">
   </picture>
 </p>

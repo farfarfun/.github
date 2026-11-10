@@ -36,10 +36,9 @@ topics 的维护脚本，不会重建配置快照。
 
 ## 品牌标识
 
-[brand/](brand/) 放着七个组织、九个 uTools 插件和 FunClash 的图标。farfarfun 主图标
-按[原版 PNG](brand/farfarfun-original.png) 复原为[完整 SVG](brand/farfarfun-original.svg)。
-含四种容器格式、横版组合标、16–1024 全尺寸 PNG 与多尺寸 `.ico`，详见
-[brand/README.md](brand/README.md)。
+七个组织、九个 uTools 插件和 FunClash 的品牌图标现由
+[farfarfun-web/brand](https://github.com/farfarfun/farfarfun-web/tree/master/brand)（私有仓库）统一维护，
+包含原版图、矢量母版、各尺寸 PNG、favicon 与生成脚本。
 
 ## 关于 farfarfun
 
